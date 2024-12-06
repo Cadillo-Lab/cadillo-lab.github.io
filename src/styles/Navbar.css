@@ -1,0 +1,63 @@
+/* Navbar container styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px; /* Adjusted padding for spacing */
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+/* Left section: logo and lab name */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Add space between the logo and the text */
+}
+
+.logo {
+    height: 60px; /* Resize the logo */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.lab-name {
+    font-size: 2rem; /* Make "Cadillo Lab" bigger */
+    font-weight: bold;
+    color: #333;
+    margin: 0; /* Remove any default margin */
+}
+
+/* Navigation links */
+.navbar-links ul {
+    display: flex;
+    gap: 30px; /* Add spacing between links */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    font-size: 1.1rem; /* Adjusted font size */
+    color: #333;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* Hover effect: yellow underline */
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #ffd700;
+    bottom: 0;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-links a:hover::after {
+    width: 100%;
+    left: 0;
+}

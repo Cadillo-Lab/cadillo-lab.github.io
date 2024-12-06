@@ -1,0 +1,37 @@
+/* General container styling */
+.dropdown-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* Header styling */
+.dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.dropdown-header h2 {
+    margin: 0;
+}
+
+.dropdown-arrow {
+    font-size: 18px;
+}
+
+/* List styling */
+.dropdown-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 15px;
+}
+
+.dropdown-item {
+    padding: 5px 0;
+}

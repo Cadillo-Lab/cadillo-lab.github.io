@@ -1,0 +1,29 @@
+.mission-statement {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    /* Light background color */
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+    text-align: center;
+    /* background-image: url('/Users/arty/web-site/src/assets/t1.jpg');  */
+    background-size: cover;
+    /* Cover the background */
+    background-position: center;
+    color: #333;
+    /* Dark text color */
+}
+
+.mission-statement h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.mission-statement p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    text-align: justify;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,101 @@
+/* Banner Section */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px 40px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.banner-overlay h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+/* Accordion Section */
+.publication-list {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.publication-list h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.accordion {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion li {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.accordion label {
+    display: block;
+    padding: 15px;
+    background-color: #f4f4f4;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.accordion input[type="checkbox"] {
+    display: none;
+}
+
+.accordion .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 15px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.accordion input[type="checkbox"]:checked ~ .content {
+    max-height: 150px; /* Adjust based on content length */
+    padding: 15px;
+}
+
+.accordion ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.accordion ul li {
+    margin-bottom: 10px;
+}
+
+.accordion a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.accordion a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,130 @@
+/* Homepage container */
+.homepage {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Video container */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* Ensure video takes full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background video */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures the video covers the entire section */
+    z-index: -1;
+    /* Sends the video to the background */
+}
+
+/* Overlay text */
+.overlay {
+    position: absolute;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    padding: 20px;
+}
+
+.overlay h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 1.5rem;
+    margin: 0 auto;
+    line-height: 1.6;
+    max-width: 800px;
+}
+
+/* Mission Statement Section */
+.mission-statement {
+    padding: 30px 20px;
+    /* Adjusted padding */
+    background-color: #f9f9f9;
+    /* Ensure it contrasts with the video */
+    color: #333;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    text-align: center;
+    margin-top: -5px;
+    /* Ensure smooth transition below the video */
+}
+
+.mission-statement h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    /* Reduced margin */
+}
+
+.mission-statement p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+    /* Reduced margin */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
+
+/* Hover effect for the heading and paragraphs in the overlay */
+.overlay h1:hover,
+.overlay p:hover {
+    color: #dfc012;
+    /* Light red/pink color for hover */
+    transform: scale(1.05);
+    /* Slight zoom effect */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for the heading and paragraphs in the mission statement */
+.mission-statement h2:hover,
+.mission-statement p:hover {
+    color: #000000;
+    /* Light red/pink color for hover */
+    transform: scale(1.05);
+    /* Slight zoom effect */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+@keyframes videoAnimation {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    50% {
+        transform: scale(1.05) translate(0, -2%);
+    }
+
+    100% {
+        transform: scale(1) translate(0, 0);
+    }
+}
+
+/* Add animation to the background video */
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    animation: videoAnimation 30s infinite alternate ease-in-out;
+}

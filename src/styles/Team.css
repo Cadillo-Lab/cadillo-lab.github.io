@@ -1,0 +1,222 @@
+/* General Styles */
+.team-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Faculty Section */
+.faculty-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+.dropdown-container {
+    padding-top: 20px;
+}
+.faculty-photo {
+    max-width: 200px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.faculty-info {
+    max-width: 600px;
+}
+
+.faculty-info h2 {
+    font-size: 1.8rem;
+}
+
+.faculty-info p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* Carousel Container */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+}
+
+/* Carousel Buttons */
+.carousel-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    position: absolute;
+}
+
+.carousel-button:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.carousel-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Adjust the positioning of the buttons */
+.carousel-button.left {
+    left: -40px;
+}
+
+.carousel-button.right {
+    right: -40px;
+}
+
+.grad-card {
+    height: auto;
+    /* Make sure it adjusts to the content */
+    min-height: 350px;
+    /* Set a reasonable minimum height */
+}
+
+.grad-card-back {
+    overflow: auto;
+    /* Add scroll if content overflows */
+    padding: 15px;
+    /* Increase padding if needed */
+}
+
+.grad-name,
+.grad-info {
+    word-wrap: break-word;
+    /* Wrap long text to avoid overflow */
+    overflow-wrap: break-word;
+    white-space: normal;
+    /* Allow text to wrap to a new line */
+}
+
+/* Graduate Card */
+.grad-card {
+    perspective: 1000px;
+    flex: 0 0 100%;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100px;
+    height: 350px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.grad-card-inner {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+.grad-card:hover .grad-card-inner {
+    transform: rotateY(180deg);
+}
+
+.grad-card.flipped .grad-card-inner {
+    transform: rotateY(180deg);
+}
+
+.grad-card-front,
+.grad-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.grad-card-back {
+    background: #ffffff;
+    transform: rotateY(180deg);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grad-photo {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: none;
+}
+
+.grad-name {
+    margin: 10px 0 5px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+/* Adjust Carousel Layout */
+.grad-carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .faculty-info {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .carousel-button {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+
+    .grad-photo {
+        width: 250px;
+        height: 250px;
+    }
+
+    .grad-name {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-button {
+        font-size: 1rem;
+        padding: 6px 10px;
+    }
+
+    .grad-photo {
+        width: 200px;
+        height: 200px;
+    }
+
+    .grad-name {
+        font-size: 1rem;
+    }
+}

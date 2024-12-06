@@ -1,0 +1,19 @@
+.card-body .sub-nav-link {
+  margin-left: 28px;
+  margin-top:8px;
+  border-left: 1px solid #d0d0d0;
+}
+.card-body .sub-nav-link a.nav-link {
+  padding: .5rem .5rem 0 .5rem;
+}
+.sidebar .card-foldable .card-body>.nav-link.is-active:after {
+  bottom: -0.5rem;
+}
+.third-level-sidebar-menu a {
+  padding: 12px 0 0 12px !important;
+}
+.third-level-sidebar-menu {
+  margin-left: 32px;
+  border-left: solid 1px #d0d0d0;
+  margin-top: 8px;
+}
