@@ -1,5 +1,54 @@
 # Getting Started with Create React App
 
+Based on the repository you provided, here’s a tailored guide to clone and run the **Cadillo Lab Website**:
+
+---
+
+### **Step-by-Step Guide: Cadillo Lab Website**
+
+1. **Clone the Repository:**
+   - Open your terminal or command prompt.
+   - Navigate to the directory where you want to store the project.
+   - Run:
+     ```bash
+     git clone https://github.com/sanskarsri26/Cadillo-lab-website.git
+     ```
+     This will download the repository to your local machine.
+
+2. **Navigate to the Project Directory:**
+   - Enter the project folder:
+     ```bash
+     cd Cadillo-lab-website
+     ```
+
+3. **Install Dependencies:**
+   - Make sure **Node.js** and **npm** (Node Package Manager) are installed.
+     - Verify installation:
+       ```bash
+       node -v
+       npm -v
+       ```
+     - If not installed, download [Node.js](https://nodejs.org).
+   - Install the project dependencies:
+     ```bash
+     npm install
+     ```
+
+4. **Start the Development Server:**
+   - Launch the website locally:
+     ```bash
+     npm start
+     ```
+   - This will open the website in your default browser, typically at:
+     ```
+     http://localhost:3000
+     ```
+
+5. **View the Website:**
+   - If the website doesn’t open automatically, copy and paste the above URL into your browser.
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
