@@ -1,7 +1,5 @@
 # Getting Started with Create React App
 
-Based on the repository you provided, here’s a tailored guide to clone and run the **Cadillo Lab Website**:
-
 ---
 
 ### **Step-by-Step Guide: Cadillo Lab Website**
