@@ -2,61 +2,61 @@ import React, { useEffect } from 'react';
 
 const Footer = () => {
     useEffect(() => {
-        // Load Facebook SDK
+        // Load the Facebook SDK once
         const loadFacebookSDK = () => {
-            window.fbAsyncInit = function() {
-                window.FB.init({
-                    appId: 'YOUR_FB_APP_ID',
-                    xfbml: true,
-                    version: 'v18.0'
-                });
-            };
+            // Create the fb-root div if it doesn't exist
+            const fbRoot = document.getElementById('fb-root');
+            if (!fbRoot) {
+                const rootDiv = document.createElement('div');
+                rootDiv.id = 'fb-root';
+                document.body.appendChild(rootDiv);
+            }
 
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "https://connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        };
-
-        // Load Instagram SDK
-        const loadInstagramSDK = () => {
+            // Load the Facebook SDK script
             const script = document.createElement('script');
-            script.src = "https://www.instagram.com/embed.js";
+            script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v21.0';
             script.async = true;
+            script.defer = true;
+            script.crossOrigin = 'anonymous';
             document.body.appendChild(script);
+
+            script.onload = () => {
+                // Initialize Facebook SDK once the script is loaded
+                window.FB && window.FB.XFBML.parse();
+            };
         };
 
         loadFacebookSDK();
-        loadInstagramSDK();
 
-        // Cleanup
+        // Cleanup: Remove the script and fb-root div when the component is unmounted
         return () => {
-            const fbScript = document.getElementById('facebook-jssdk');
-            const igScript = document.querySelector('script[src="https://www.instagram.com/embed.js"]');
+            const fbScript = document.querySelector('script[src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v21.0"]');
             if (fbScript) fbScript.remove();
-            if (igScript) igScript.remove();
+
+            const fbRoot = document.getElementById('fb-root');
+            if (fbRoot) fbRoot.remove();
         };
     }, []);
 
     return (
         <footer className="footer">
             <div className="social-media">
+                {/* Facebook Feed */}
                 <div className="facebook-feed">
-                    <div className="fb-page" 
-                        data-href="https://www.facebook.com/CadilloLab"
+                    <div 
+                        className="fb-page" 
+                        data-href="https://www.facebook.com/CadilloLab/"
                         data-tabs="timeline"
-                        data-width="340"
-                        data-height="500"
+                        data-width="400"
+                        data-height="500"  // Adjust the height if needed
                         data-small-header="false"
                         data-adapt-container-width="true"
                         data-hide-cover="false"
                         data-show-facepile="true">
                     </div>
                 </div>
+
+                {/* Instagram Feed */}
                 <div className="instagram-feed">
                     <iframe
                         title="Instagram Feed"
