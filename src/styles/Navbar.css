@@ -1,37 +1,75 @@
-/* Navbar container styles */
+/* General Navbar Styles */
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px 40px; /* Adjusted padding for spacing */
+    justify-content: space-between;
+    padding: 10px 20px;
     background-color: white;
-    border-bottom: 1px solid #ddd;
-    box-sizing: border-box;
+    /* Navbar background color */
+    border-bottom: 2px solid #ddd;
+    /* Optional: adds a subtle border at the bottom */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Optional: adds a slight shadow */
 }
 
-/* Left section: logo and lab name */
+/* Left: ASU Logo */
 .navbar-left {
+    flex: 1;
     display: flex;
     align-items: center;
-    gap: 15px; /* Add space between the logo and the text */
 }
 
-.logo {
-    height: 60px; /* Resize the logo */
-    width: auto; /* Maintain aspect ratio */
+.navbar-left img.logo {
+    height: 50px;
+    /* Adjust as needed */
+    margin-right: 10px;
 }
 
-.lab-name {
-    font-size: 2rem; /* Make "Cadillo Lab" bigger */
+.navbar-left .lab-name {
+    font-size: 1.2rem;
     font-weight: bold;
     color: #333;
-    margin: 0; /* Remove any default margin */
 }
 
-/* Navigation links */
+/* Center: Banner */
+.navbar-banner {
+    flex: 2;
+    /* Allow the banner to take up more space */
+    display: flex;
+    justify-content: center;
+    /* Center-align the banner */
+    align-items: center;
+    margin-right: 20px;
+    /* Adds space between banner and right text */
+}
+
+.navbar-banner img {
+    height: 60px;
+    /* Adjust the height as needed */
+    width: auto;
+    /* Maintain aspect ratio */
+    max-width: 100%;
+    /* Prevents it from overflowing */
+    object-fit: contain;
+    /* Ensures proper scaling */
+    padding: 0 20px;
+    /* Adds horizontal padding for the banner */
+}
+
+/* Right: Navigation Links */
+.navbar-links {
+    flex: 1;
+    /* Pushes the links to the right */
+    display: flex;
+    justify-content: flex-end;
+    /* Align links to the right */
+}
+
+/* Navigation links spacing */
 .navbar-links ul {
     display: flex;
-    gap: 30px; /* Add spacing between links */
+    gap: 20px;
+    /* Adds spacing between navigation items */
     list-style: none;
     margin: 0;
     padding: 0;
@@ -39,25 +77,13 @@
 
 .navbar-links a {
     text-decoration: none;
-    font-size: 1.1rem; /* Adjusted font size */
     color: #333;
-    position: relative;
-    padding: 5px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
 }
 
-/* Hover effect: yellow underline */
-.navbar-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    background-color: #ffd700;
-    bottom: 0;
-    left: 50%;
-    transition: width 0.3s ease, left 0.3s ease;
-}
-
-.navbar-links a:hover::after {
-    width: 100%;
-    left: 0;
+.navbar-links a:hover {
+    color: #dfc012;
+    /* Highlight color on hover */
 }

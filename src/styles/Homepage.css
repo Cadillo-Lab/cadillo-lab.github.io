@@ -50,11 +50,11 @@
 }
 
 .mission-statement {
-    background-image: url('../assets/topo.jpg'); /* Set the background image */
-    background-size: cover; /* Ensure the image covers the entire background */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent the background image from repeating */
-    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background color */
+    background-image: url('../assets/topo.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-color: rgba(255, 255, 255, 0.8); 
     color: #333;
     opacity: 0.9;
     font-family: 'Helvetica Neue', Arial, sans-serif;
