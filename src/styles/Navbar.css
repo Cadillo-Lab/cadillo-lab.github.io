@@ -22,7 +22,7 @@
 .navbar-left img.logo {
     height: 50px;
     /* Adjust as needed */
-    margin-right: 10px;
+    margin-right: 100px;
 }
 
 .navbar-left .lab-name {
@@ -33,7 +33,7 @@
 
 /* Center: Banner */
 .navbar-banner {
-    flex: 2;
+    flex: 7;
     /* Allow the banner to take up more space */
     display: flex;
     justify-content: center;
@@ -44,11 +44,11 @@
 }
 
 .navbar-banner img {
-    height: 60px;
+    height: auto;
     /* Adjust the height as needed */
     width: auto;
     /* Maintain aspect ratio */
-    max-width: 100%;
+    max-width: 150%;
     /* Prevents it from overflowing */
     object-fit: contain;
     /* Ensures proper scaling */
