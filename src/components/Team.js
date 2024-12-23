@@ -3,6 +3,13 @@ import React, { useState, useEffect } from 'react';
 import '../styles/Team.css';
 import facultyImage from '../assets/faculty.png';
 import MichaelImage from '../assets/Michael.png';
+import lillyImage from '../assets/lilly.jpg';
+import victorImage from '../assets/Victor.jpg';
+import juliaImage from '../assets/Julia.png';
+import aliceImage from '../assets/Alice.png';
+import jesusImage from '../assets/Jesus2.png';
+import jieImage from '../assets/jie.jpg';
+import janaImage from '../assets/Jana_2.png';
 
 const Team = () => {
     const [currentGradIndex, setCurrentGradIndex] = useState(0);
@@ -13,44 +20,52 @@ const Team = () => {
             name: "Michael Pavia",
             bio: "PhD. Candidate",
             image: MichaelImage,
-            // Add fallback image handling
             onError: (e) => {
                 e.target.src = '../assets/default-profile.png';
                 e.target.onerror = null;
             }
         },
         {
-            name: "Graduate Researcher 2",
-            bio: "PhD student in Microbiology Program",
-            image: "grad2-image.jpg"
+            name: "Lilly Vael",
+            bio: "PhD Student. Microbiology PhD Program",
+            image: lillyImage,  // Update image reference
+            onError: (e) => {
+                e.target.src = '../assets/default-profile.png';
+                e.target.onerror = null;
+            }
         },
         {
-            name: "Graduate Researcher 3",
-            bio: "PhD student in Environmental Engineering",
-            image: "grad3-image.jpg"
+            name: "Victor Ochoa-Henriquez",
+            bio: "PhD student",
+            image: victorImage
         },
         {
-            name: "Graduate Researcher 4",
-            bio: "PhD student in Biology Program",
-            image: "grad4-image.jpg"
+            name: "Julia C. Furedy",
+            bio: "Master student",
+            image: juliaImage
         },
         {
-            name: "Graduate Researcher 5",
-            bio: "PhD student in Environmental Science",
-            image: "grad5-image.jpg"
+            name: "Alice Sansonetti",
+            bio: "PhD student. Biology & Society PhD Program",
+            image: aliceImage
+        },
+        {
+            name: "Jesus Marin Diaz",
+            bio: "PhD. Student in Environmental Life Sciences",
+            image: jesusImage
         }
     ];
 
     const postdocResearchers = [
         {
-            name: "Postdoc Researcher 1",
-            bio: "Research focus on microbial ecology",
-            image: "postdoc1-image.jpg"
+            name: "Jie Dai, PhD",
+            bio: "Postdoctoral researcher",
+            image: jieImage
         },
         {
-            name: "Postdoc Researcher 2",
-            bio: "Research focus on environmental engineering",
-            image: "postdoc2-image.jpg"
+            name: "Jana Taumer, PhD",
+            bio: "Postdoctoral researcher",
+            image: janaImage
         }
     ];
 
@@ -66,6 +81,11 @@ const Team = () => {
         "Jillian Ayers, BS and MS student",
         "Gandhar Pandit, MS student",
         "Zeni Ramirez, BS and MS student"
+    ];
+
+    const ugstudentData = [
+        "Zack Brownell",
+        "Noemi Soto"
     ];
 
     const visitingScientists = [
@@ -138,11 +158,23 @@ const Team = () => {
                 <h2 className="section-title">Faculty</h2>
                 <div className="faculty-container">
                     <img src={facultyImage} alt="Faculty" className="faculty-photo" />
-                    <div className="faculty-info">
+                        <div className="faculty-info">
                         <h2>Hinsby Cadillo-Quiroz</h2>
-                        <p>Associate Professor</p>
-                        <p>Email: hinsby@asu.edu</p>
-                        <p>PhD Microbiology and minor in Ecology, Cornell University 2008...</p>
+                        <p className="faculty-title">Associate Professor</p>
+                        <p className="faculty-contact">Email: hinsby@asu.edu</p>
+                        
+                        <div className="faculty-education">
+                            <p>PhD Microbiology and minor in Ecology, Cornell University 2008.</p>
+                            <p>BS Biological Sciences, San Marcos National University, Lima, Peru 1999.</p>
+                        </div>
+
+                        <div className="faculty-bio">
+                            <p>Hinsby Cadillo-Quiroz studies how microbes participate in an ecosystem and in applied processes. He and his research team are investigating whether microbe-mediated organismal and environmental interactions drive ecosystem processes, particularly carbon cycling. They are also examining how ecosystems, in turn, affects the ecology and evolution of microorganisms and their interactions.</p>
+
+                            <p>Dr Cadillo-Quiroz and his collaborators focus on methane-producing processes from anaerobic, high carbon-content environments, as well as the ecological interactions between Archaea, Bacteria, plants and humans. This knowledge can allow developing small and large scale solutions for current societal or planetary needs. For instance, Dr Cadillo-Quiroz is strongly committed to natural and engineered solutions to climate change through the power of cooperating with microbes.</p>
+
+                            <p>Dr Cadillo-Quiroz's current research studies processes in landfills, artificial wetlands, lakes and ponds, northern USA forest, and tropical peatlands in the Amazon Basin. He has been recognized with a Fulbright Scholarship, a Presidential Scholarship at Cornell University, a National Science Foundation CAREER Award, and an Honorific Doctorate in Forestry by the National University of the Peruvian Amazon.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -217,6 +249,15 @@ const Team = () => {
                 </div>
             </section>
 
+            <section className="Undergraduate">
+                <h2 className="section-title">Undergraduate Students</h2>
+                <ul className="ug-list">
+                    {ugstudentData.map((alumni, index) => (
+                        <li key={index} className="alumni-item">{alumni}</li>
+                    ))}
+                </ul>
+            </section>
+
             <section className="alumni">
                 <h2 className="section-title">Graduate/Postdoctoral Alumni</h2>
                 <ul className="alumni-list">
@@ -245,7 +286,8 @@ const Team = () => {
                     ))}
                 </ul>
             </section>
-
+            
+            
             <section className="undergrad-alumni">
                 <h2 className="section-title">Undergrad and High School Alumni</h2>
                 
@@ -281,6 +323,7 @@ const Team = () => {
                 </div>
             </section>
         </div>
+        
     );
 };
 
