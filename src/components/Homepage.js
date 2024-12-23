@@ -1,11 +1,11 @@
+// Homepage.jsx
 import React from 'react';
 import '../styles/Homepage.css';
-import backgroundVideo from '../assets/background-video.mp4'; // Replace with the actual video path
+import backgroundVideo from '../assets/background-video.mp4';
 
 const Homepage = () => {
     return (
         <section className="homepage">
-            {/* Background Video Section */}
             <div className="video-container">
                 <video autoPlay loop muted className="background-video">
                     <source src={backgroundVideo} type="video/mp4" />
@@ -22,7 +22,6 @@ const Homepage = () => {
                 </div>
             </div>
 
-            {/* Mission Statement Section */}
             <div className="mission-statement">
                 <h2 className="interactive-heading">Mission Statement</h2>
                 <p>

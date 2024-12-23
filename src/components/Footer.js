@@ -1,46 +1,74 @@
-import React from 'react';
-import '../styles/Footer.css'; // Ensure the CSS file is imported
-import facebookIcon from '../assets/facebook.jpeg';
-import instagramIcon from '../assets/instagram.jpeg';
+import React, { useEffect } from 'react';
 
 const Footer = () => {
+    useEffect(() => {
+        // Load Facebook SDK
+        const loadFacebookSDK = () => {
+            window.fbAsyncInit = function() {
+                window.FB.init({
+                    appId: 'YOUR_FB_APP_ID',
+                    xfbml: true,
+                    version: 'v18.0'
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        };
+
+        // Load Instagram SDK
+        const loadInstagramSDK = () => {
+            const script = document.createElement('script');
+            script.src = "https://www.instagram.com/embed.js";
+            script.async = true;
+            document.body.appendChild(script);
+        };
+
+        loadFacebookSDK();
+        loadInstagramSDK();
+
+        // Cleanup
+        return () => {
+            const fbScript = document.getElementById('facebook-jssdk');
+            const igScript = document.querySelector('script[src="https://www.instagram.com/embed.js"]');
+            if (fbScript) fbScript.remove();
+            if (igScript) igScript.remove();
+        };
+    }, []);
+
     return (
-        <footer id="contact">
-            <div className="address-container">
-                <div className="address">
-                    <h4>Address for couriers and deliveries:</h4>
-                    <p>Arizona State University</p>
-                    <p>Life Sciences E-723</p>
-                    <p>427 W Tyler Mall</p>
-                    <p>Tempe, AZ 85287</p>
-                </div>
-
-                <div className="contact-us">
-                    <h4>Contact Us</h4>
-                    <p>Email: cadillolab@asu.edu</p>
-                </div>
-
-                <div className="address">
-                    <h4>Address for regular USPS mail:</h4>
-                    <p>Arizona State University</p>
-                    <p>Life Sciences E-723</p>
-                    <p>PO Box 874501</p>
-                    <p>Tempe, AZ 85287</p>
-                </div>
-            </div>
-
+        <footer className="footer">
             <div className="social-media">
-                <h4>Cadillo Lab - Social Media:</h4>
-                <div className="icons">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-                        <img src={facebookIcon} alt="Facebook" className="social-icon facebook" />
-                    </a>
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-                        <img src={instagramIcon} alt="Instagram" className="social-icon instagram" />
-                    </a> 
+                <div className="facebook-feed">
+                    <div className="fb-page" 
+                        data-href="https://www.facebook.com/CadilloLab"
+                        data-tabs="timeline"
+                        data-width="340"
+                        data-height="500"
+                        data-small-header="false"
+                        data-adapt-container-width="true"
+                        data-hide-cover="false"
+                        data-show-facepile="true">
+                    </div>
+                </div>
+                <div className="instagram-feed">
+                    <iframe
+                        title="Instagram Feed"
+                        src="https://www.instagram.com/methano.hinsby/embed"
+                        width="340"
+                        height="500"
+                        frameBorder="0"
+                        scrolling="no"
+                        allowTransparency="true"
+                    ></iframe>
                 </div>
             </div>
-
         </footer>
     );
 };

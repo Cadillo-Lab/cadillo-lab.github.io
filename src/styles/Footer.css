@@ -1,119 +1,21 @@
-/* Footer container styling */
-footer {
-    background-color: #1a1a1a;
-    /* Dark background */
-    color: #f1f1f1;
-    /* Light text color */
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Arial', sans-serif;
-    /* Clean font */
-}
-
-/* Styling for the address container */
-.address-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-/* Styling for individual address and contact sections */
-.address,
-.contact-us {
-    flex: 1 1 300px;
-    margin: 10px;
+.footer {
     padding: 20px;
-    border: 1px solid #333;
-    border-radius: 8px;
-    background-color: #252525;
-    /* Darker background for sections */
+    background-color: #f9f9f9;
 }
 
-/* Styling for headings */
-.address h4,
-.contact-us h4 {
-    color: #ffcc00;
-    /* Accent color */
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-    /* Larger heading size */
-}
-
-/* Styling for body text */
-.address p,
-.contact-us p {
-    font-size: 1rem;
-    /* Larger body text */
-}
-
-/* Styling for the social media section */
 .social-media {
-    text-align: center;
-}
-
-.social-media h4 {
-    margin-bottom: 15px;
-    color: #ffcc00;
-    /* Accent color */
-    font-size: 1.5rem;
-    /* Larger heading size */
-}
-
-/* Container for social media icons */
-.icons {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 100px;
+    flex-wrap: wrap;
 }
 
-/* Styling for individual social media icons */
-.social-icon {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s, filter 0.3s;
-    /* Hover effects */
-}
-
-.social-icon:hover {
-    transform: scale(1.1);
-    /* Zoom effect */
-    filter: brightness(1.2);
-    /* Brighten effect */
-}
-
-/* Adjustments for social media icon colors */
-.social-icon.facebook {
-    filter: brightness(3.5) sepia(5) saturate(10) hue-rotate(40deg);
-    /* Adjust to yellowish */
-}
-
-.social-icon.instagram {
-        filter: brightness(3.5) sepia(5) saturate(10) hue-rotate(40deg);
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .address-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .address,
-    .contact-us {
-        width: 90%;
-        /* Adjust width for smaller screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .social-icon {
-        width: 35px;
-        /* Smaller icon size for small screens */
-        height: 35px;
-    }
+.facebook-feed,
+.instagram-feed {
+    min-width: 340px;
+    height: 500px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
