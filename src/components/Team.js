@@ -14,7 +14,15 @@ import janaImage from '../assets/Jana_2.png';
 const Team = () => {
     const [currentGradIndex, setCurrentGradIndex] = useState(0);
     const [currentPostdocIndex, setCurrentPostdocIndex] = useState(0);
+    const [flippedStates, setFlippedStates] = useState({});
 
+    const handleFlip = (index) => {
+        setFlippedStates(prev => ({
+            ...prev,
+            [index]: !prev[index]
+        }));
+    };
+    
     const gradResearchers = [
         {
             name: "Michael Pavia",
