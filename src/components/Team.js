@@ -1,115 +1,136 @@
+// Team.jsx
 import React, { useState, useEffect } from 'react';
 import '../styles/Team.css';
-import '../styles/Dropdown.css';
-import facultyImage from '../assets/faculty.png'; // Faculty photo
-import gradResearchers from '../assets/gradResearchers'; // Array of graduate researcher data
-import postdocResearchers from '../assets/postdocResearchers'; // Array of postdoctoral researcher data
-import undergradResearchers from '../assets/undergradResearchers'; // Array of undergraduate researcher data
-import Dropdown from './Dropdown'; // Import the Dropdown component
-import Dropdown1 from './Dropdown_visiting'; // Import the Dropdown component
-import Dropdown2 from './Dropdown_ughonor'; // Import the Dropdown component
-import Dropdown3 from './Dropdown_highschool'; // Import the Dropdown component
+import facultyImage from '../assets/faculty.png';
+import MichaelImage from '../assets/Michael.png';
 
 const Team = () => {
-    const [gradScrollIndex, setGradScrollIndex] = useState(0);
-    const [postdocScrollIndex, setPostdocScrollIndex] = useState(0);
-    const [undergradScrollIndex, setUndergradScrollIndex] = useState(0);
-    const [isPaused, setIsPaused] = useState(false);
-    const [flippedCardIndex, setFlippedCardIndex] = useState(null); // To track which card is flipped
-    const itemsPerView = 1; // Show one researcher at a time
+    const [currentGradIndex, setCurrentGradIndex] = useState(0);
+    const [currentPostdocIndex, setCurrentPostdocIndex] = useState(0);
 
-    // Automatically scroll the carousel
+    const gradResearchers = [
+        {
+            name: "Michael Pavia",
+            bio: "PhD. Candidate",
+            image: MichaelImage,
+            // Add fallback image handling
+            onError: (e) => {
+                e.target.src = '../assets/default-profile.png';
+                e.target.onerror = null;
+            }
+        },
+        {
+            name: "Graduate Researcher 2",
+            bio: "PhD student in Microbiology Program",
+            image: "grad2-image.jpg"
+        },
+        {
+            name: "Graduate Researcher 3",
+            bio: "PhD student in Environmental Engineering",
+            image: "grad3-image.jpg"
+        },
+        {
+            name: "Graduate Researcher 4",
+            bio: "PhD student in Biology Program",
+            image: "grad4-image.jpg"
+        },
+        {
+            name: "Graduate Researcher 5",
+            bio: "PhD student in Environmental Science",
+            image: "grad5-image.jpg"
+        }
+    ];
+
+    const postdocResearchers = [
+        {
+            name: "Postdoc Researcher 1",
+            bio: "Research focus on microbial ecology",
+            image: "postdoc1-image.jpg"
+        },
+        {
+            name: "Postdoc Researcher 2",
+            bio: "Research focus on environmental engineering",
+            image: "postdoc2-image.jpg"
+        }
+    ];
+
+    const alumniData = [
+        "Steffen Buessecker, PhD student",
+        "Analissa Sarno, PhD student",
+        "Mark Reynolds, PhD student",
+        "Outi Lahteenoja, Postdoctoral researcher",
+        "Michal Ziv-El, Postdoctoral researcher",
+        "Patrick Browne, Postdoctoral researcher",
+        "Damien Finn, Postdoctoral researcher",
+        "Paul Brewer, Postdoctoral researcher",
+        "Jillian Ayers, BS and MS student",
+        "Gandhar Pandit, MS student",
+        "Zeni Ramirez, BS and MS student"
+    ];
+
+    const visitingScientists = [
+        "Dr. Jiaxue Song, Assistant Professor, Department of Environmental Science and Engineering at Shanghai Normal University, China. 2012-2013."
+    ];
+
+    const honorsThesis = [
+        {
+            name: "Natalie Blum",
+            year: "2023 - current",
+            major: "Environmental Engineering",
+            thesis: "Anaerobic oxidation of methane in wetlands"
+        },
+        {
+            name: "Noemi Soto",
+            year: "2022 - current",
+            major: "Microbiology",
+            thesis: "Expanding membrane-based isolation of terrestrial Bacteria"
+        }
+    ];
+
+    const undergradAlumni = {
+        "2021-2022": ["Joshua Hislop (NSF REU)", "Anna Burns (NSF REU)", "Sara Santiago (WAESO)", 
+                      "Hannah Brzezinski (LEAP)", "Kameren Silas", "Rory Locket (WAESO)"],
+        "2020-2021": ["Sarah Avalle", "David Denogan", "Elizabeth Ardilla (WAESO)", 
+                      "Rachel Campos", "Joseph Boyd"],
+        "2018-2019": ["Jacqueline Winston (NSF REU)", "Angela Mercado (Engineering)", 
+                      "Elias Rodriguez (Microbiology)", "Alexandra Gernandez (Engineering)", 
+                      "Jordan Canin (Microbiology)", "Nandini Mishra (Biochemistry)", 
+                      "Morgan Yorkell (Microbiology)", "Hebah Bahta (Microbiology)"]
+    };
+
+    const highSchoolStudents = [
+        {
+            name: "Sarah Bodansky",
+            year: "2015-2016",
+            school: "Horizon High School",
+            achievement: "Research project presented at the Science and Engineering Fair - Microbiology"
+        },
+        {
+            name: "Christina Moon",
+            year: "2015-2016",
+            school: "Corona del Sol High School",
+            achievement: "Research project presented at the Science and Engineering Fair - Microbiology"
+        }
+    ];
+
     useEffect(() => {
-        if (!isPaused) {
-            const interval = setInterval(() => {
-                setGradScrollIndex((prevIndex) =>
-                    prevIndex >= gradResearchers.length - 1 ? 0 : prevIndex + 1
-                );
-                setPostdocScrollIndex((prevIndex) =>
-                    prevIndex >= postdocResearchers.length - 1 ? 0 : prevIndex + 1
-                );
-                setUndergradScrollIndex((prevIndex) =>
-                    prevIndex >= undergradResearchers.length - 1 ? 0 : prevIndex + 1
-                );
-            }, 5000); // Adjust the interval speed (5000ms = 5 seconds)
-
-            return () => clearInterval(interval); // Cleanup on component unmount
-        }
-    }, [isPaused, gradResearchers.length, postdocResearchers.length, undergradResearchers.length]);
-
-    const handleScroll = (direction, type) => {
-        if (type === 'grad') {
-            setGradScrollIndex((prevIndex) =>
-                direction === 'left' ? Math.max(prevIndex - 1, 0) : Math.min(prevIndex + 1, gradResearchers.length - 1)
+        const gradInterval = setInterval(() => {
+            setCurrentGradIndex((prevIndex) => 
+                prevIndex === gradResearchers.length - 1 ? 0 : prevIndex + 1
             );
-        } else if (type === 'postdoc') {
-            setPostdocScrollIndex((prevIndex) =>
-                direction === 'left' ? Math.max(prevIndex - 1, 0) : Math.min(prevIndex + 1, postdocResearchers.length - 1)
+        }, 2000);
+
+        const postdocInterval = setInterval(() => {
+            setCurrentPostdocIndex((prevIndex) => 
+                prevIndex === postdocResearchers.length - 1 ? 0 : prevIndex + 1
             );
-        } else if (type === 'undergrad') {
-            setUndergradScrollIndex((prevIndex) =>
-                direction === 'left' ? Math.max(prevIndex - 1, 0) : Math.min(prevIndex + 1, undergradResearchers.length - 1)
-            );
-        }
-    };
+        }, 2000);
 
-    const handleMouseEnter = () => {
-        setIsPaused(true); // Pause scrolling when hovering
-    };
-
-    const handleMouseLeave = () => {
-        setIsPaused(false); // Resume scrolling when leaving
-    };
-
-    const handleCardClick = (index) => {
-        setFlippedCardIndex(flippedCardIndex === index ? null : index); // Toggle flipping
-    };
-
-    const renderCarousel = (researchers, scrollIndex, type) => (
-        <div
-            className="carousel-container"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-        >
-            <button
-                className="carousel-button left"
-                onClick={() => handleScroll('left', type)}
-                disabled={scrollIndex === 0}
-            >
-                ◀
-            </button>
-            <div className="grad-carousel">
-                <div
-                    className={`grad-card ${flippedCardIndex === scrollIndex ? 'flipped' : ''}`}
-                    onClick={() => handleCardClick(scrollIndex)}
-                >
-                    <div className="grad-card-inner">
-                        {flippedCardIndex === scrollIndex ? (
-                            <div className="grad-card-back">
-                                <p>{researchers[scrollIndex].bio}</p>
-                            </div>
-                        ) : (
-                            <div className="grad-card-front">
-                                <img
-                                    src={researchers[scrollIndex].image}
-                                    alt={researchers[scrollIndex].name}
-                                    className="grad-photo"
-                                />
-                                <h3 className="grad-name">{researchers[scrollIndex].name}</h3>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </div>
-            <button
-                className="carousel-button right"
-                onClick={() => handleScroll('right', type)}
-                disabled={scrollIndex === researchers.length - 1}
-            >
-                ▶
-            </button>
-        </div>
-    );
+        return () => {
+            clearInterval(gradInterval);
+            clearInterval(postdocInterval);
+        };
+    }, []);
 
     return (
         <div className="team-page">
@@ -121,38 +142,143 @@ const Team = () => {
                         <h2>Hinsby Cadillo-Quiroz</h2>
                         <p>Associate Professor</p>
                         <p>Email: hinsby@asu.edu</p>
-                        <p>PhD Microbiology and minor in Ecology, Cornell University 2008.
-                            BS Biological Sciences, San Marcos National University, Lima, Peru 1999.
-
-                            Hinsby Cadillo-Quiroz studies how microbes participate in an ecosystem and in applied processes. He and his research team are investigating whether microbe-mediated organismal and environmental interactions drive ecosystem processes, particularly carbon cycling. They are also examining how ecosystems, in turn, affects the ecology and evolution of microorganisms and tehir interactions.
-
-                            Dr Cadillo-Quiroz and his collaborators focus on methane-producing processes from anaerobic, high carbon-content environments, as well as the ecological interactions between Archaea, Bacteria, plants and humans. This knowledge can allow developing small and large scale solutions for current societal or planetary needs. For instance,  Dr Cadillo-Quiroz is strongly committed to natural and engineered solutions to climate change through the power of cooperating with microbes.
-
-                            Dr Cadillo-Quiroz’s current research studies processes in landfills, artificial wetlands, lakes and ponds, northern USA forest, and tropical peatlands in the Amazon Basin. He has been recognized with a Fulbright Scholarship, a Presidential Scholarship at Cornell University, a National Science Foundation CAREER Award, and an Honorific Doctorate in Forestry by the National University of the Peruvian Amazon.</p>
+                        <p>PhD Microbiology and minor in Ecology, Cornell University 2008...</p>
                     </div>
                 </div>
             </section>
 
-            <section className="graduates">
+            <section className="researchers">
                 <h2 className="section-title">Graduate Researchers</h2>
-                {renderCarousel(gradResearchers, gradScrollIndex, 'grad')}
+                <div className="researcher-carousel">
+                    <div className="carousel-container">
+                        {gradResearchers.map((researcher, index) => (
+                            <div 
+                                key={index} 
+                                className={`carousel-item ${index === currentGradIndex ? 'active' : ''}`}
+                            >
+                                <div className="researcher-circle">
+                                    <img 
+                                        src={researcher.image} 
+                                        alt={researcher.name} 
+                                        className="researcher-photo"
+                                    />
+                                </div>
+                                <div className="researcher-info">
+                                    <h3>{researcher.name}</h3>
+                                    <p>{researcher.bio}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="carousel-indicators">
+                        {gradResearchers.map((_, index) => (
+                            <span 
+                                key={index} 
+                                className={`indicator ${index === currentGradIndex ? 'active' : ''}`}
+                                onClick={() => setCurrentGradIndex(index)}
+                            />
+                        ))}
+                    </div>
+                </div>
             </section>
 
-            <section className="postdocs">
+            <section className="researchers">
                 <h2 className="section-title">Postdoctoral Researchers</h2>
-                {renderCarousel(postdocResearchers, postdocScrollIndex, 'postdoc')}
+                <div className="researcher-carousel">
+                    <div className="carousel-container">
+                        {postdocResearchers.map((researcher, index) => (
+                            <div 
+                                key={index} 
+                                className={`carousel-item ${index === currentPostdocIndex ? 'active' : ''}`}
+                            >
+                                <div className="researcher-circle">
+                                    <img 
+                                        src={researcher.image} 
+                                        alt={researcher.name} 
+                                        className="researcher-photo"
+                                    />
+                                </div>
+                                <div className="researcher-info">
+                                    <h3>{researcher.name}</h3>
+                                    <p>{researcher.bio}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="carousel-indicators">
+                        {postdocResearchers.map((_, index) => (
+                            <span 
+                                key={index} 
+                                className={`indicator ${index === currentPostdocIndex ? 'active' : ''}`}
+                                onClick={() => setCurrentPostdocIndex(index)}
+                            />
+                        ))}
+                    </div>
+                </div>
             </section>
 
-            <section className="undergrads">
-                <h2 className="section-title">Undergraduate Researchers</h2>
-                {renderCarousel(undergradResearchers, undergradScrollIndex, 'undergrad')}
+            <section className="alumni">
+                <h2 className="section-title">Graduate/Postdoctoral Alumni</h2>
+                <ul className="alumni-list">
+                    {alumniData.map((alumni, index) => (
+                        <li key={index} className="alumni-item">{alumni}</li>
+                    ))}
+                </ul>
             </section>
 
-            <section className="dropdown-sections">
-                <Dropdown />
-                <Dropdown1 />
-                <Dropdown2 />
-                <Dropdown3 />
+            <section className="visiting">
+                <h2 className="section-title">Visiting Scientists</h2>
+                <ul className="visiting-list">
+                    {visitingScientists.map((scientist, index) => (
+                        <li key={index} className="visiting-item">{scientist}</li>
+                    ))}
+                </ul>
+            </section>
+
+            <section className="honors">
+                <h2 className="section-title">Undergraduate Honors Thesis</h2>
+                <ul className="honors-list">
+                    {honorsThesis.map((student, index) => (
+                        <li key={index} className="honors-item">
+                            <strong>{student.name}</strong>, {student.year}, {student.major} major, "{student.thesis}"
+                        </li>
+                    ))}
+                </ul>
+            </section>
+
+            <section className="undergrad-alumni">
+                <h2 className="section-title">Undergrad and High School Alumni</h2>
+                
+                <div className="undergrad-section">
+                    <h3>Undergraduate Alumni</h3>
+                    {Object.entries(undergradAlumni).map(([year, students]) => (
+                        <div key={year} className="year-group">
+                            <h4>{year}</h4>
+                            <ul className="student-list">
+                                {students.map((student, index) => (
+                                    <li key={index}>{student}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="highschool-section">
+                    <h3>Research Experience for High School Students</h3>
+                    <div className="note">
+                        <p><em>High school students participate in our lab through the Southwest Center 
+                        for Education and the Natural Environment (SCENE) program in partnership with 
+                        local high school students and ASU's Global Institute of Sustainability</em></p>
+                    </div>
+                    <ul className="highschool-list">
+                        {highSchoolStudents.map((student, index) => (
+                            <li key={index} className="highschool-item">
+                                <strong>{student.name}</strong>, {student.year}, {student.school}. 
+                                {student.achievement && <span> {student.achievement}</span>}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </section>
         </div>
     );
