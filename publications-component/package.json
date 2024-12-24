@@ -1,0 +1,27 @@
+{
+  "name": "publications-component",
+  "version": "1.0.0",
+  "description": "A React component for displaying publications organized by year with images.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.2"
+  },
+  "keywords": [
+    "react",
+    "publications",
+    "component"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
