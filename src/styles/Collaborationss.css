@@ -135,3 +135,38 @@ h4 {
         font-size: 1.2rem;
     }
 }
+
+.outreach-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    background-color: rgba(250, 244, 225, 0.8);
+    padding: 1rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.collab1,
+.collab2 {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Keep existing hover and media query styles */
+
+.collab1:hover,
+.collab2:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+    .collab1,
+    .collab2 {
+        max-width: 300px;
+    }
+}

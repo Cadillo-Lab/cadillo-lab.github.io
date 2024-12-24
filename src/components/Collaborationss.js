@@ -1,6 +1,8 @@
 import React from "react";
 import "../styles/Collaborationss.css";
 import collaborationBanner from "../assets/collab.png";
+import collab1 from "../assets/collab1.png";
+import collab2 from "../assets/collab2.png";
 
 const Collaborationss = () => {
   return (
@@ -110,6 +112,10 @@ const Collaborationss = () => {
             <li>Wildlife Conservation Society</li>
           </ul>
         </section>
+      </div>
+      <div className="outreach-section">
+        <img src={collab1} alt="Program 1" className="collab1" />
+        <img src={collab2} alt="Program 2" className="collab2" />
       </div>
     </div>
   );
