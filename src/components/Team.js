@@ -97,7 +97,7 @@ const Team = () => {
 
     const visitingScientists = [
         "Dr. Jiaxue Song, Assistant Professor, Department of Environmental Science and Engineering at Shanghai Normal University, China. 2012-2013."
-    ];  
+    ];
 
     const honorsThesis = [
         {
@@ -342,6 +342,7 @@ const Team = () => {
                     </ul>
                 </div>
             </section>
+            
         </div>
     );
 };
