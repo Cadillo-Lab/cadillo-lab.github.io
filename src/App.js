@@ -15,7 +15,7 @@ import "./styles/Homepage.css";
 import "./styles/Programs.css";
 import "./styles/Research.css";
 import "./styles/Team.css";
-import Collaborationss from './components/Collaborationss'; // Fix import name
+import Collaborationss from './components/Collaborationss'; 
 
 
 const App = () => {
