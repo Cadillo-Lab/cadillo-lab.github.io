@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Publications.css";
-import bannerImage from "../assets/publications.png";
+import bannerImage from "../assets/publication.png";
 import publication_1 from "../assets/1.png";
 import publication_2 from "../assets/2.jpg";
 import publication1 from "../assets/3.png";
@@ -12,6 +12,37 @@ import publication6 from "../assets/8.png";
 import publication7 from "../assets/9.png";
 import publication8 from "../assets/10.png";
 import publication9 from "../assets/11.png";
+import publication10 from "../assets/12.png";
+import publication11 from "../assets/13.png";
+import publication12 from "../assets/14.png";
+import publication13 from "../assets/15.png";
+import publication14 from "../assets/16.png";
+import publication15 from "../assets/17.png";
+import publication16 from "../assets/18.png";
+import publication17 from "../assets/19.png";
+import publication18 from "../assets/20.png";
+import publication19 from "../assets/21.png";
+import publication20 from "../assets/22.png";
+import publication21 from "../assets/23.png";
+import publication22 from "../assets/24.png";
+import publication23 from "../assets/25.jpeg";
+import publication24 from "../assets/26.png";
+import publication25 from "../assets/27.png";
+import publication26 from "../assets/28.png";
+import publication27 from "../assets/29.png";
+import publication28 from "../assets/30.png";
+import publication29 from "../assets/31.png";
+import publication30 from "../assets/32.png";
+import publication31 from "../assets/33.png";
+import publication32 from "../assets/34.png";
+import publication33 from "../assets/35.png";
+import publication34 from "../assets/36.png";
+import publication35 from "../assets/37.jpeg";
+import publication36 from "../assets/38.png";
+import publication37 from "../assets/39.png";
+import publication38 from "../assets/40.png";
+import publication39 from "../assets/41.png";
+import publication40 from "../assets/42.png";
 
 const Publications = () => {
   return (
@@ -22,9 +53,7 @@ const Publications = () => {
           alt="Publications Banner"
           className="banner-image"
         />
-        <div className="banner-overlay">
-          <h1>Publications</h1>
-        </div>
+        
       </div>
 
       <section className="publication-list">
@@ -160,7 +189,7 @@ const Publications = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="publication1.jpg"
+                  src={publication10}
                   alt="Detecting vulnerability of humid tropical forests to multiple stressors"
                 />
               </a>
@@ -171,7 +200,7 @@ const Publications = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="publication2.jpg"
+                  src={publication11}
                   alt="A versatile gas flux chamber reveals high tree stem methane emissions in Amazonian peatland"
                 />
               </a>
@@ -182,7 +211,7 @@ const Publications = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="publication3.jpg"
+                  src={publication12}
                   alt="Microbial communities and interactions of nitrogen oxides with methanogenesis in diverse peatlands of the Amazon basin"
                 />
               </a>
@@ -193,7 +222,7 @@ const Publications = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="publication4.jpg"
+                  src={publication13}
                   alt="A genomic catalog of Earth's microbiomes"
                 />
               </a>
@@ -204,7 +233,7 @@ const Publications = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="publication5.jpg"
+                  src={publication14}
                   alt="Hydrometeorological sensitivities of net ecosystem carbon dioxide and methane exchange of an Amazonian palm swamp peatland"
                 />
               </a>
@@ -215,10 +244,293 @@ const Publications = () => {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="publication6.jpg"
+                  src={publication15}
                   alt="Methanogens and Methanotrophs Show Nutrient-Dependent Community Assemblage Patterns Across Tropical Peatlands of the Pastaza-Marañón Basin, Peruvian Amazonia"
                 />
               </a>
+            </div>
+            <div className="year-section">
+              <h2>Publications from 2020 - 2021</h2>
+              <div className="publication-row">
+                <a
+                  href="https://baas.aas.org/pub/2020n3i475"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication16}
+                    alt="Planetary Habitability Informed by Planet Formation and Exoplanet Demographics"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.5194/bg-16-4601-2019"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication17}
+                    alt="The effects of sterilization and inhibition methods on abiotic N2O production from organic-rich tropical soils"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1073/pnas.1801317115"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication18}
+                    alt="A potential shift from a carbon sink to a source in Amazonian peatlands under a changing climate"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.13140/RG.2.1.2152.9044"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication19}
+                    alt="Diversity and evolution of bacterial symbionts of weevils (Insecta: Curculionoidea)"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1016/j.ejsobi.2017.08.001"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication20}
+                    alt="Soil microbial community composition is correlated to soil carbon processing along a boreal wetland formation gradient"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1016/j.geoderma.2017.03.026"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication21}
+                    alt="Changes of community structure and abundance of methanogens in soils along a freshwater–brackish water gradient in subtropical estuarine marshes"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1038/ismej.2016.104"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication22}
+                    alt="Genomic composition and dynamics among Methanomicrobiales predict adaptation to contrasting environments"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1002/9781118960608"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication23}
+                    alt="Methanosphaerula. Bergey’s Manual of Systematics of Archaea and Bacteria"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1016/j.ecss.2016.08.003"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication24}
+                    alt="Factors regulating community composition of methanogens and sulfate-reducing bacteria in brackish marsh sediments in the Min River estuary, southeastern China"
+                  />
+                </a>
+              </div>
+            </div>
+            <div className="year-section">
+              <h2>Publications from 2011 - 2015</h2>
+              <div className="publication-row">
+                <a
+                  href="https://doi.org/10.1128/genomeA.01280-15"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication25}
+                    alt="Complete genome sequence of Methanosphaerula palustris E1-9CT, a hydrogenotrophic methanogen isolated from a minerotrophic fen peatland"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1038/ncomms9289"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication26}
+                    alt="Exometabolite niche partitioning among sympatric soil bacteria"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1099/mic.0.000117"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication27}
+                    alt="Genome of Methanoregula boonei reveals adaptation to oligotrophic peatlands environments"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.3389/fmicb.2015.00277"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication28}
+                    alt="Isolation of a significant fraction of non-phototroph diversity from a desert Biological Soil Crust"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1093/gbe/evu003"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication29}
+                    alt="Recombination shapes genome architecture in an organism from the Archaeal domain"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1099/ijs.0.059964-0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication30}
+                    alt="Methanobacterium paludis sp. nov., and a novel strain of Methanobacterium lacus isolated from northern peatlands"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1128/genomeA.00870-14"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication31}
+                    alt="Complete genome sequence of Methanoregula formicica SMSPT, a mesophilic hydrogenotrophic methanogen isolated from a methanogenic upflow anaerobic sludge blanket reactor"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1128/genomeA.00876-14"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication32}
+                    alt="Complete genome sequence of Methanolinea tarda NOBI-1T, a hydrogenotrophic methanogen isolated from methanogenic digester sludge"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1155/2013/586369"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication33}
+                    alt="Contribution of transcriptomics to systems-level understanding of methanogenic Archaea"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1111/gcb.12131"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication34}
+                    alt="Methane emissions from wetlands: biogeochemical, microbial, and modeling perspectives from local to global scales"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.3389/fmicb.2012.00081"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication35}
+                    alt="Seasonal Changes in methanogenesis and methanogens in three peatlands New York State"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1371/journal.pbio.1001265"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication36}
+                    alt="Patterns of Gene Flow Define Species of Thermophilic Archaea"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1007/s10533-011-9644.5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication37}
+                    alt="Methanogen diversity and community composition in peatlands of the central to northern Appalachian Mountain region, North America"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1099/ijs.0.035048-0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication38}
+                    alt="Methanolinea mesophila, sp. nov., a hydrogenotrophic methanogen isolated from a rice field in Taiwan, and proposal of the new archaeal family Methanoregulaceae fam. nov. within the order Methanomicrobiale"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1021/es200480k"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication39}
+                    alt="A Role for Dehalobacter spp. in the Reductive Dehalogenation of Dichlorobenzenes and Monochlorobenzene"
+                  />
+                </a>
+
+                <a
+                  href="https://doi.org/10.1099/ijs.0.021782-0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={publication40}
+                    alt="Methanoregula boonei gen. nov., sp. nov., an acidiphilic methanogen isolated from an acidic peat bog"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>
