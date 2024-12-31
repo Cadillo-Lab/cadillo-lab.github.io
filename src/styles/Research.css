@@ -1,24 +1,18 @@
 /* Banner Styling */
 .banner {
-    width: 100%;
-    height: 650px;
-    background-color: rgba(250, 244, 225, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .banner-image {
     width: 100%;
-    height: 100%;
+    max-height: 300px;
     object-fit: cover;
 }
 
 /* Topics Styling */
 .topics {
     padding: 2rem;
-    background-color: rgba(250, 244, 225, 0.8);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -29,7 +23,6 @@
     font-size: 2.5rem;
     margin-bottom: 2rem;
     color: #333;
-    text-align: center;
 }
 
 .topics p {
@@ -49,17 +42,14 @@
 }
 
 .topic-image {
-    width: 850px;
-    height: 400px;
+    width: auto;
+    height: 300px;
     object-fit: cover;
     border-radius: 8px;
 }
 
-.projects {
-    padding: 2rem;
-    background-color: rgba(250, 244, 225, 0.8);
-    background-color: #f9f9f9;
-}
+/* Projects Section Styling */
+
 
 .projects h2 {
     text-align: center;
@@ -71,7 +61,6 @@
 .projects-container {
     max-width: 1000px;
     margin: 0 auto;
-    background-color: rgba(250, 244, 225, 0.8);
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -79,16 +68,11 @@
 
 .project-card {
     background: white;
-    background-color: rgba(250, 244, 225, 0.8);
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
-}
-
-.projects {
-    background-color: rgba(250, 244, 225, 0.8);
 }
 
 .project-card:hover {
@@ -99,7 +83,6 @@
     width: 100%;
     padding: 1rem 1.5rem;
     display: flex;
-    background-color: rgba(250, 244, 225, 0.8);
     justify-content: space-between;
     align-items: center;
     background: white;
@@ -131,7 +114,6 @@
 
 .project-content {
     max-height: 0;
-    
     overflow: hidden;
     transition: max-height 0.3s ease-out;
     border-top: 1px solid transparent;
@@ -162,4 +144,17 @@
     .project-content p {
         padding: 1rem;
     }
+}
+
+.intro {
+    background-image: url("../assets/background-1.png");
+}
+
+.topics {
+    margin-top: -7rem;
+}
+
+.projects {
+    margin-top: -7rem;
+    text-align: center;
 }
