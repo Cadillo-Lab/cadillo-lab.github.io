@@ -1,306 +1,389 @@
-/* Base Layout */
 .team-page {
-    max-width: 1500px;
+    max-width: 2000px;
     margin: 0 auto;
-    padding: 15px;
-    font-family: 'Arial', sans-serif;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgba(250, 244, 225, 0.8);
+    padding: 3rem;
+    background-image: url('../assets/background-1.png');
 }
 
-.welcome-section {
-    text-size-adjust: 19px;
-}
-
-/* Section Headers */
+/* Section Titles */
 .section-title {
-    text-align: center;
     font-size: 2rem;
+    font-weight: 600;
     color: #333;
-    margin: 10px 0;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #eee;
+    margin: 1rem 0 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #eaeaea;
 }
 
-/* Faculty Section */
-.faculty-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 30px;
-    margin: 15px 0;
-    padding: 10px;
-}
-
-.faculty-photo {
-    flex: none;
-    padding-left: 0px;
-    padding-right: 10px;
-    width: 500px;
-    align-items: center;
-    align-self: center;
-    height: auto;
-    max-width: 100%;
-    border-radius: 8px;
+.faculty {
+    margin-top: -3.5rem;
 }
 
 .faculty-info {
-    flex: 1;
-    min-width: 300px;
+    margin-top: -2.4rem;
 }
 
-.faculty-info h2 {
-    margin-bottom: 10px;
-    color: #333;
+.faculty-title {
+        margin-top: -2rem;
+}
+/* Faculty Section */
+.faculty-container {
+    margin-bottom: auto;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
 }
 
-.faculty-title,
-.faculty-contact {
-    margin: 5px 0;
+.faculty-photo {
+    width: 400px;
+    height: 400px;
+    object-fit: auto;
+    border-radius: 8px;
+}
+
+.faculty-title {
+    font-size: 1.2rem;
     color: #666;
 }
 
+.faculty-contact {
+    color: #0066cc;
+    margin-bottom: 1rem;
+}
+
 .faculty-education {
-    margin: 15px 0;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
+    margin: 1rem 0;
 }
 
-.faculty-bio p {
-    margin-bottom: 15px;
+.faculty-bio {
     line-height: 1.6;
-    color: #333;
 }
 
-/* Researcher Carousel */
-.researcher-carousel {
-    position: relative;
-    max-width: 800px;
-    margin: 15px auto;
+/* Updated Researchers Section */
+.mb-12 {
+    margin-bottom: 3rem;
 }
 
-.carousel-container {
-    position: relative;
-    height: 400px;
-    overflow: hidden;
-}
-
-.carousel-item {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: all 0.5s ease;
+.flex {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-.carousel-item.active {
-    opacity: 1;
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
-/* Flip Card Animation */
-.researcher-flip-card {
-    perspective: 1000px;
-    width: 100%;
-        background-color: rgba(250, 244, 225, 0.8);
-    height: 100%;
+.gap-8 {
+    gap: 2rem;
 }
 
-.researcher-flip-inner {
-    position: relative;
-    width: 100%;
-        background-color: rgba(250, 244, 225, 0.8);
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
+.flex-1 {
+    flex: 1;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.gap-4 {
+    gap: 1.5rem 1rem;
+}
+
+.cursor-pointer {
     cursor: pointer;
 }
 
-.researcher-flip-card.flipped .researcher-flip-inner {
-    transform: rotateY(180deg);
-        background-color: rgba(250, 244, 225, 0.8);
+.transition-transform {
+    transition: transform 0.2s;
 }
 
-.researcher-flip-front,
-.researcher-flip-back {
-    position: absolute;
-    width: 100%;
-        background-color: rgba(250, 244, 225, 0.8);
-    height: 100%;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.hover\:scale-105:hover {
+    transform: scale(1.05);
 }
 
-.researcher-flip-back {
-    background-color: #f8f9fa;
-        background-color: rgba(250, 244, 225, 0.8);
-    transform: rotateY(180deg);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Circular Images */
+.w-32 {
+    width: 11rem;
 }
 
-/* Researcher Cards */
-.researcher-circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
+.h-32 {
+    height: 11rem;
+}
+
+.bg-gray-300 {
+    background-color: #d1d5db;
+}
+
+.member-role {
+    font-size: 14px;
+    color: #555;
+    margin-top: 4px;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.overflow-hidden {
     overflow: hidden;
-    border: 2px solid #3498db;
 }
 
-.researcher-photo {
-    width: 100%;
-    height: 100%;
+/* Image Styling */
+.object-cover {
     object-fit: cover;
 }
 
-/* Lists Styling */
-.researchers-list,
-.alumni-list,
-.visiting-list,
-.honors-list {
-    list-style: none;
-    padding: 0;
-    margin: 5px 0;
+.w-full {
+    width: 100%;
 }
 
+.h-full {
+    height: 100%;
+}
+
+/* Text Panel */
+.bg-gray-100 {
+    background-color: #f3f4f6;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.rounded-lg {
+    border-radius: 0.8rem;
+}
+
+.whitw-space-pre-line {
+   text-spacing-trim: none;
+   text-wrap-style: normal;
+   text-align: justify;
+   line-height: 1.5;
+}
+
+.min-h-\[300px\] {
+    min-height: 300px;
+}
+
+.whitespace-pre-line {
+    white-space: pre-line;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-2 {
+    margin-top: 0.75rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25;
+    max-width: 8rem;
+    margin: 0 auto;
+}
+
+/* Alumni Lists */
+.alumni-list,
+.visiting-list,
+.honors-list,
+.ug-list {
+    list-style: none;
+    padding: 0;
+}
+
+.alumni-item,
+.visiting-item,
+.honors-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+}
+
+/* Undergrad Alumni Section */
 .year-group {
-    margin: 8px 0;
+    margin: 1.5rem 0;
 }
 
 .year-group h4 {
-    color: #333;
-    margin-bottom: 5px;
-    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 0.5rem;
 }
 
-/* Carousel Navigation */
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-    margin-top: 10px;
+.student-list {
+    list-style: none;
+    padding-left: 1rem;
 }
 
-.indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #ddd;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.student-list li {
+    margin: 0.5rem 0;
 }
 
-.indicator.active {
-    background-color: #3498db;
+/* High School Section */
+.highschool-section {
+    margin-top: 2rem;
+}
+
+.note {
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-left: 4px solid #0066cc;
+    margin: 1rem 0;
+}
+
+.highschool-list {
+    list-style: none;
+    padding: 0;
+}
+
+.highschool-item {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 968px) {
     .faculty-container {
         flex-direction: column;
-        align-items: center;
     }
 
     .faculty-photo {
-        width: 400px;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .flex {
+        flex-direction: column;
     }
 
-    .researcher-circle {
-        width: 150px;
-        height: 150px;
+    .grid-cols-3 {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .carousel-container {
-        height: 350px;
+    .grid-cols-2 {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
-    .section-title {
-        font-size: 1.5rem;
+
+    .grid-cols-3,
+    .grid-cols-2 {
+        grid-template-columns: repeat(1, 1fr);
     }
 
-    .faculty-photo {
-        width: 300px;
-    }
-
-    .researcher-circle {
-        width: 120px;
-        height: 120px;
+    .w-32,
+    .h-32 {
+        width: 6rem;
+        height: 6rem;
     }
 }
 
-.carousel-container {
-    position: relative;
-    height: 450px;
+.team-member {
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    margin-bottom: 1rem;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.carousel-item {
-    transition: opacity 0.5s ease;
-}
-
-.researcher-flip-card {
-    width: 100%;
-    height: 100%;
-    perspective: 1000px;
+.member-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f8f8;
     cursor: pointer;
 }
 
-.researcher-flip-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.member-header:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-arrow {
+    transition: transform 0.3s ease;
+}
+
+.team-member.expanded .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.member-details {
+    padding: 1rem;
+    background-color: white;
+    border-top: 1px solid #eaeaea;
+}
+
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.cursor-pointer {
+    cursor: pointer;
     text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
+    /* Ensure the text aligns center */
 }
 
-.researcher-flip-card.flipped .researcher-flip-inner {
-    transform: rotateY(180deg);
+.hover\:scale-105:hover {
+    transform: scale(1.05);
 }
 
-.researcher-flip-front,
-.researcher-flip-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    /* Safari support */
+.w-32 {
+    width: 11rem;
+    margin: 0 auto;
+    /* Center the image */
 }
 
-.researcher-flip-front {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.h-32 {
+    height: 11rem;
+    margin: 0 auto;
+    /* Center the image */
 }
 
-.researcher-flip-back {
-    background-color: #f8f9fa;
-    width: 100% !important;
-    background-color: rgba(250, 244, 225, 0.8);
-    transform: rotateY(180deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.text-center {
+    text-align: center;
 }
 
-.researcher-info {
-    margin-bottom: 20px;
-    z-index: 3;
+.mt-2 {
+    margin-top: 0.5rem;
+    /* Reduce the space between image and name */
+}
+
+.text-sm {
+    font-size: 1rem;
+    line-height: 1.2;
+    /* Tighter line height */
+    margin: 0 auto;
+    /* Center the text */
+    max-width: 8rem;
+}
+
+.member-role {
+    font-size: 0.8rem;
+    /* Slightly smaller text for roles */
+    color: #555;
+    margin-top: 0.25rem;
+    /* Tighten the space between name and role */
+    line-height: 1.2;
+    /* Tighter line height for roles */
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
