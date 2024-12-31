@@ -45,7 +45,7 @@ const Collaborationss = () => {
             </p>
           </div>
 
-          <div className="program">
+          <div className="programs">
             <h3>A Culturing Soil Microbes for ecosystem models CURE</h3>
             <p>
               This CURE was designed by the Cadillo Lab to promote scientific
@@ -59,7 +59,7 @@ const Collaborationss = () => {
 
         <section className="data-collaboration">
           <h2>Collaborative Data accessibility and FAIR data use</h2>
-          <p>
+          <p className = "para1">
             The cadillo Lab seeks to be a place where Findable, Accessible,
             Interoperable, and Reusable (FAIR) data access approaches is
             provided.
@@ -97,7 +97,7 @@ const Collaborationss = () => {
           <h2>
             International Collaborations for Carbon-rich ecosystem research
           </h2>
-          <p>
+          <p className="para2">
             The Cadillo lab is proud of a long collaborative tradition to study
             carbon-rich environments around the world.
           </p>

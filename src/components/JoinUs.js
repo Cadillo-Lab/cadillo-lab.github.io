@@ -3,9 +3,9 @@ import "../styles/JoinUs.css";
 import joinImage from "../assets/joinus.png";
 import outreach1 from "../assets/outreach1.png";
 import outreach2 from "../assets/outreach2.png";
-import outreach3 from "../assets/_EFO0866.jpg";
 import outreach4 from "../assets/_EFO7190.jpg";
-import outreach5 from "../assets/_EFO7202.jpg";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const JoinUs = () => {
   return (
@@ -26,41 +26,212 @@ const JoinUs = () => {
           </p>
         </div>
 
-        <div className="opportunities-section">
-          <div className="opportunity-item">
-            <h2>Graduate Student Opportunities</h2>
-            <div className="opportunity-content">
-              <p>
-                Details about graduate programs and opportunities in our lab.
-              </p>
-            </div>
+        <div className="opportunity-item-1">
+          <h2>Graduate Student Opportunities</h2>
+          <div className="opportunity-content">
+            <p className="text1">
+              Graduate students in our lab benefit from a mixed source of
+              funding that includes fellowships, teaching, and research
+              assistantships.
+            </p>
+            <p>
+              Students are accepted into our lab through programs from the
+              Graduate College and the School of Life Sciences. See the linked
+              information for SOLS, Graduate College, and Biological Design
+              Program.
+            </p>
+            <h4>
+              Professor Cadillo is a faculty member in the following programs:
+            </h4>
+            <p>
+              <a
+                href="https://degrees.apps.asu.edu/masters-phd/major/ASU00/LAELSPHD/environmental-life-sciences-phd"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Environmental Life Sciences
+              </a>
+              ,
+              <a
+                href="https://degrees.apps.asu.edu/masters-phd/major/ASU00/LAMICROPHD/microbiology-phd"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Microbiology PhD
+              </a>
+              ,
+              <a
+                href="https://degrees.apps.asu.edu/masters-phd/major/ASU00/LACELLPHD/molecular-cellular-biology-phd"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Molecular and Cellular Biology
+              </a>
+              ,
+              <a
+                href="https://sols.asu.edu/degree/graduate/biology-phd"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Biology PhD
+              </a>
+              ,
+              <a
+                href="https://sols.asu.edu/degree/graduate/biology-biology-and-society-phd"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Biology and Society PhD
+              </a>
+              ,
+              <a
+                href="https://degrees.apps.asu.edu/masters-phd/major/ASU00/ESBDEMS/biological-design-ms"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Biological Design Program
+              </a>
+              ,
+              <a
+                href="https://degrees.apps.asu.edu/masters-phd/major/ASU00/ESEVEMS/environmental-engineering-ms"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Environmental Engineering
+              </a>
+            </p>
+            <p>
+              Get in touch with Prof. Cadillo as early as possible and start a
+              conversation about plans and options!
+            </p>
           </div>
 
-          <div className="opportunity-item">
+          <div className="opportunity-item-2">
             <h2>Postdoctoral Positions</h2>
             <div className="opportunity-content">
-              <p>
-                Details about postdoctoral programs and collaboration
-                opportunities.
+              <p className="text2">
+                We are looking for highly motivated graduates with experience in
+                ecosystems ecology, anaerobic microbiology,
+                genomics/metagenomics, geomicrobiology/stable isotopes, or soil
+                ecology to join current efforts or to propose new projects. Get
+                in touch asap with Prof. Cadillo to discuss current or upcoming
+                possibilities.
               </p>
             </div>
           </div>
 
-          <div className="opportunity-item">
-            <h2>Undergraduate and High School Programs</h2>
+          <div className="opportunity-item-3">
+            <h2>Undergraduate Research Opportunities</h2>
             <div className="opportunity-content">
-              <p>
-                Details about internships and research opportunities for
-                students.
+              <p className="text3">
+                Send us an email introducing yourself, include your year and
+                major, and why you are interested in working in our lab. Include
+                a resume that highlights relevant coursework or research
+                experience. The subject line should read “Undergraduate Research
+                Opportunity Inquiry.” Emails can be sent to either Professor
+                Hinsby or a graduate student you are interested in working with.
               </p>
+              <p>
+                Understand that undergraduate students have responsibilities in
+                the lab and are required to balance these with their academic
+                workload.
+              </p>
+              <p>
+                Ensure that you are up to date on safety trainings (Hazardous
+                waste management, fire safety, and biosafety and bloodborne
+                pathogens). These will need to be completed before working in
+                the lab.
+              </p>
+
+              <h4>Additional Opportunities for Involvement:</h4>
+
+              <ul>
+                <li>
+                  <strong>SOLUR Program:</strong> The School of Life Sciences
+                  Undergraduate Research (SOLUR) program at ASU offers
+                  undergraduates the chance to dive deep into biological
+                  research. Collaborate with faculty and mentors, experience
+                  firsthand scientific investigations, and make valuable
+                  contributions to ongoing research. We are always happy to
+                  accept students from this program.{" "}
+                  <a
+                    href="https://sols.asu.edu/research/solur"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn more about the SOLUR program
+                  </a>
+                  .
+                </li>
+                <li>
+                  <strong>RISE Worldwide Internships:</strong> RISE (Research
+                  Internships in Science and Engineering) Worldwide offers
+                  summer research internships globally to undergraduate
+                  students, especially those with training in fields like
+                  biology, chemistry, computer science, physics, and earth
+                  sciences. We have successfully sponsored many students through
+                  this program and welcome more applicants.{" "}
+                  <a
+                    href="https://www.daad.de/rise/en/rise-worldwide/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn more about RISE Worldwide internships
+                  </a>
+                  .
+                </li>
+                <li>
+                  <strong>WAESO LSAMP Program:</strong> The Western Alliance to
+                  Expand Student Opportunities Louis Stokes Alliances for
+                  Minority Participation (WAESO LSAMP) is an NSF-funded
+                  consortium promoting STEM fields, particularly focusing on
+                  historically underrepresented individuals. We always have
+                  opportunities through WAESO and are eagerly looking for
+                  students to join.{" "}
+                  <a
+                    href="https://www.waeso.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Learn more about WAESO LSAMP
+                  </a>
+                  .
+                </li>
+              </ul>
             </div>
           </div>
 
-          <div className="opportunity-item">
-            <h2>International Visitor Programs</h2>
+          <div className="opportunity-item-4">
+            <h2>International Collaborations and Visitors</h2>
             <div className="opportunity-content">
+              <p className="text4">
+                Our lab is always welcoming international collaborations and
+                visitors.
+              </p>
               <p>
-                Details about international collaboration and short-term visits.
+                We host visiting professors and scholars, commonly under the
+                financial sponsorship of their home organizations, with a focus
+                on training and joint research. Contact Professor Cadillo about
+                opportunities and interests.
+              </p>
+              <p>
+                We also host international internships, such as those sponsored
+                by the{" "}
+                <a
+                  href="https://www.daad.de/rise/en/rise-worldwide/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  DAAD RISE-Worldwide program
+                </a>
+                , Chinese Exchange programs (several of them especially for
+                faculty), and REPU. We post positions through each of these
+                programs, so be sure to visit their websites.
+              </p>
+              <p>
+                If you have any questions or want to know more about our lab,
+                feel free to contact any of the lab members; we will be more
+                than happy to get in touch with you!
               </p>
             </div>
           </div>
@@ -77,18 +248,9 @@ const JoinUs = () => {
             alt="Outreach Program 2"
             className="outreach-image"
           />
-          <img
-            src={outreach3}
-            alt="Outreach Program 2"
-            className="outreach-image"
-          />
+
           <img
             src={outreach4}
-            alt="Outreach Program 2"
-            className="outreach-image"
-          />
-          <img
-            src={outreach5}
             alt="Outreach Program 2"
             className="outreach-image"
           />

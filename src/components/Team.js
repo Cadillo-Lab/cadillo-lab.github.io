@@ -199,7 +199,7 @@ const gradResearchers = [
     <div className="team-page">
       {/* Faculty Section - Keep original */}
       <section className="faculty">
-        <h2 className="section-title">Faculty</h2>
+        <h2 className="section-title-1">Faculty</h2>
         <div className="faculty-container">
           <img src={facultyImage} alt="Faculty" className="faculty-photo" />
           <div className="faculty-info">
@@ -253,7 +253,7 @@ const gradResearchers = [
 
       {/* New Graduate Researchers Section */}
       <section className="mb-12">
-        <h2 className="section-title">Graduate Researchers</h2>
+        <h2 className="section-title-2">Graduate Researchers</h2>
         <div className="flex flex-wrap gap-8">
           <div className="flex-1">
             <div className="grid grid-cols-3 gap-4">
@@ -291,7 +291,7 @@ const gradResearchers = [
 
       {/* New Postdoctoral Researchers Section */}
       <section className="mb-12">
-        <h2 className="section-title">Postdoctoral Researchers</h2>
+        <h2 className="section-title-3">Postdoctoral Researchers</h2>
         <div className="flex flex-wrap gap-8">
           <div className="flex-1">
             <div className="grid grid-cols-2 gap-4">
@@ -328,7 +328,7 @@ const gradResearchers = [
       </section>
 
       <section className="alumni">
-        <h2 className="section-title">Graduate/Postdoctoral Alumni</h2>
+        <h2 className="section-title-4">Graduate/Postdoctoral Alumni</h2>
         <ul className="alumni-list">
           {alumniData.map((alumni, index) => (
             <li key={index} className="alumni-item">
@@ -340,7 +340,7 @@ const gradResearchers = [
 
       {/* Other sections remain the same */}
       <section className="Undergraduate">
-        <h2 className="section-title">Undergraduate Students</h2>
+        <h2 className="section-title-5">Undergraduate Students</h2>
         <ul className="ug-list">
           {ugstudentData.map((student, index) => (
             <li key={index} className="alumni-item">
@@ -351,7 +351,7 @@ const gradResearchers = [
       </section>
 
       <section className="honors">
-        <h2 className="section-title">Undergraduate Honors Thesis</h2>
+        <h2 className="section-title-6">Undergraduate Honors Thesis</h2>
         <ul className="honors-list">
           {honorsThesis.map((student, index) => (
             <li key={index} className="honors-item">
@@ -363,7 +363,7 @@ const gradResearchers = [
       </section>
 
       <section className="visiting">
-        <h2 className="section-title">Visiting Scientists</h2>
+        <h2 className="section-title-7">Visiting Scientists</h2>
         <ul className="visiting-list">
           {visitingScientists.map((scientist, index) => (
             <li key={index} className="visiting-item">
@@ -373,10 +373,9 @@ const gradResearchers = [
         </ul>
       </section>
 
-      <section className="undergrad-alumni">
-        <h2 className="section-title"></h2>
+      <section className="undergrad-alumni-8">
 
-        <div className="undergrad-section">
+        <div className="undergrad-section-1">
           <h3>Undergraduate Alumni</h3>
           {Object.entries(undergradAlumni).map(([year, students]) => (
             <div key={year} className="year-group">

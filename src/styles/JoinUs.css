@@ -1,159 +1,153 @@
-.content-wrapper {
-    max-width: 1800px;
-    margin: 0 auto;
-        background-color: rgba(250, 244, 225, 0.8);
-    padding: 2rem;
+/* Main container */
+.join-us {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #ffffff;
 }
 
-.welcome-section {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.opportunities-section {
-    display: flex;
-    flex-direction: column;
-        background-color: rgba(250, 244, 225, 0.8);
-    gap: 2rem;
-}
-
-.opportunity-item {
-    background: #f8f8f8;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        background-color: rgba(250, 244, 225, 0.8);
-}
-
-
-
-.opportunity-item h2 {
-    color: #333;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 0.5rem;
-}
-
-.opportunity-content {
-    padding: 1rem 0;
-}
-
-/* Base animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideIn {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-
-/* Apply animations to sections */
+/* Banner styling */
 .banner-container {
-  animation: fadeIn 1s ease-out;
-}
-
-.description {
-  animation: fadeIn 1s ease-out 0.3s;
-    background-color: rgba(250, 244, 225, 0.8);
-  opacity: 0;
-  animation-fill-mode: forwards;
-}
-
-.general-info {
-  animation: fadeIn 1s ease-out 0.6s;
-  opacity: 0;
-    background-color: rgba(250, 244, 225, 0.8);
-  animation-fill-mode: forwards;
-}
-
-/* Interactive elements transitions */
-.info-dropdowns details {
-  transition: all 0.3s ease;
-}
-
-.info-dropdowns details:hover {
-  transform: translateX(10px);
-  background-color: rgba(0,0,0,0.02);
-}
-
-details[open] summary ~ * {
-  animation: slideDown 0.3s ease-in-out;
-}
-
-@keyframes slideDown {
-  0% { opacity: 0; transform: translateY(-10px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.outreach-image {
-  transition: transform 0.3s ease;
-}
-
-.outreach-image:hover {
-  transform: scale(1.05);
-}
-
-/* Smooth transitions for all interactive elements */
-.banner-overlay h1,
-.general-info h2,
-details summary {
-  transition: color 0.3s ease;
-}
-
-/* Optional: Add intersection observer for scroll animations */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
 }
 
 .banner-image {
-    width: 100%;
-    max-height: 400px;
-    object-fit: cover;
-    object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.outreach-image {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+/* Content wrapper */
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-top: 11rem;
+  /* Adjusted padding-top */
 }
 
-.outreach-section {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 2rem 0;
+/* Welcome section */
+.welcome-section {
+  text-align: center;
+  margin: 2rem 0;
+  /* Reduced margin */
 }
 
-/* Responsive images */
-@media screen and (max-width: 768px) {
-    .banner-image {
-        max-height: 300px;
-    }
-
-    .outreach-image {
-        max-width: 250px;
-    }
+.welcome-section p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  /* Reduced line height */
+  color: #333;
+  margin-bottom: 1rem;
+  /* Reduced space between paragraphs */
 }
 
-@media screen and (max-width: 480px) {
-    .banner-image {
-        max-height: 300px;
-    }
-
-    .outreach-image {
-        max-width: 100%;
-    }
+/* Opportunities section */
+.opportunities-section {
+  margin: 1rem 0;
+  /* Reduced margin */
 }
+
+
+.opportunity-item h2 {
+  color: #2c3e50;
+  font-size: 1.5rem;
+  margin-bottom: 0.1rem;
+  /* Reduced space between heading and paragraph */
+  border-bottom: 2px solid #e74c3c;
+  padding-bottom: 0.5rem;
+}
+
+.opportunity-item p {
+  color: #666;
+  line-height: 1.4;
+  /* Reduced line height */
+  /* Reduced space between paragraphs */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .banner-container {
+    height: 300px;
+  }
+
+  .content-wrapper {
+    padding: 1rem;
+  }
+
+  .welcome-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+
+  .opportunities-section {
+    margin: 2rem 0;
+  }
+
+  .opportunity-item {
+    padding: 1.5rem;
+  }
+}
+
+/* Animation for content loading */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-section,
+.opportunity-item {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+.content-wrapper {
+  padding-top: 15rem;
+}
+
+.welcome-section {
+  text-align: center;
+  text-decoration: underline;
+  text-wrap: wrap;
+  font-weight: bold;
+}
+
+.opportunity-item-1 {
+  margin-top: -4.5rem;
+}
+.text1 {
+  margin-top: -1rem;
+}
+
+.opportunity-item-2 {
+  margin-top: -4.5rem;
+}
+.text2 {
+  margin-top: -1rem;
+}
+
+.opportunity-item-3 {
+  margin-top: -4.5rem;
+}
+
+.text3 {
+  margin-top: -1rem;
+}
+
+.opportunity-item-4 {
+  margin-top: -4.5rem;
+}
+
+.text4 {
+  margin-top: -1rem;
+}
+

@@ -1,194 +1,194 @@
 .team-page {
-    max-width: 2000px;
-    margin: 0 auto;
-    padding: 3rem;
-    background-image: url('../assets/background-1.png');
+  max-width: 2000px;
+  margin: 0 auto;
+  padding: 3rem;
+  background-image: url("../assets/background-1.png");
 }
 
 /* Section Titles */
 .section-title {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #333;
-    margin: 1rem 0 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #eaeaea;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 1rem 0 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eaeaea;
 }
 
 .faculty {
-    margin-top: -3.5rem;
+  margin-top: -3.5rem;
 }
 
 .faculty-info {
-    margin-top: -2.4rem;
+  margin-top: -2.4rem;
 }
 
 .faculty-title {
-        margin-top: -2rem;
+  margin-top: -2rem;
 }
 /* Faculty Section */
 .faculty-container {
-    margin-bottom: auto;
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 1rem;
+  margin-bottom: auto;
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
 }
 
 .faculty-photo {
-    width: 400px;
-    height: 400px;
-    object-fit: auto;
-    border-radius: 8px;
+  width: 400px;
+  height: 400px;
+  object-fit: auto;
+  border-radius: 8px;
 }
 
 .faculty-title {
-    font-size: 1.2rem;
-    color: #666;
+  font-size: 1.2rem;
+  color: #666;
 }
 
 .faculty-contact {
-    color: #0066cc;
-    margin-bottom: 1rem;
+  color: #0066cc;
+  margin-bottom: 1rem;
 }
 
 .faculty-education {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
 
 .faculty-bio {
-    line-height: 1.6;
+  line-height: 1.6;
 }
 
 /* Updated Researchers Section */
 .mb-12 {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .flex-wrap {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .gap-8 {
-    gap: 2rem;
+  gap: 2rem;
 }
 
 .flex-1 {
-    flex: 1;
+  flex: 1;
 }
 
 .grid {
-    display: grid;
+  display: grid;
 }
 
 .grid-cols-3 {
-    grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .grid-cols-2 {
-    grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .gap-4 {
-    gap: 1.5rem 1rem;
+  gap: 1.5rem 1rem;
 }
 
 .cursor-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .transition-transform {
-    transition: transform 0.2s;
+  transition: transform 0.2s;
 }
 
 .hover\:scale-105:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 /* Circular Images */
 .w-32 {
-    width: 11rem;
+  width: 11rem;
 }
 
 .h-32 {
-    height: 11rem;
+  height: 11rem;
 }
 
 .bg-gray-300 {
-    background-color: #d1d5db;
+  background-color: #d1d5db;
 }
 
 .member-role {
-    font-size: 14px;
-    color: #555;
-    margin-top: 4px;
+  font-size: 14px;
+  color: #555;
+  margin-top: 4px;
 }
 
 .rounded-full {
-    border-radius: 9999px;
+  border-radius: 9999px;
 }
 
 .overflow-hidden {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* Image Styling */
 .object-cover {
-    object-fit: cover;
+  object-fit: cover;
 }
 
 .w-full {
-    width: 100%;
+  width: 100%;
 }
 
 .h-full {
-    height: 100%;
+  height: 100%;
 }
 
 /* Text Panel */
 .bg-gray-100 {
-    background-color: #f3f4f6;
+  background-color: #f3f4f6;
 }
 
 .p-4 {
-    padding: 1rem;
+  padding: 1rem;
 }
 
 .rounded-lg {
-    border-radius: 0.8rem;
+  border-radius: 0.8rem;
 }
 
 .whitw-space-pre-line {
-   text-spacing-trim: none;
-   text-wrap-style: normal;
-   text-align: justify;
-   line-height: 1.5;
+  text-spacing-trim: none;
+  text-wrap-style: normal;
+  text-align: justify;
+  line-height: 1.5;
 }
 
 .min-h-\[300px\] {
-    min-height: 300px;
+  min-height: 300px;
 }
 
 .whitespace-pre-line {
-    white-space: pre-line;
+  white-space: pre-line;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .mt-2 {
-    margin-top: 0.75rem;
+  margin-top: 0.75rem;
 }
 
 .text-sm {
-    font-size: 0.875rem;
-    line-height: 1.25;
-    max-width: 8rem;
-    margin: 0 auto;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  max-width: 8rem;
+  margin: 0 auto;
 }
 
 /* Alumni Lists */
@@ -196,194 +196,263 @@
 .visiting-list,
 .honors-list,
 .ug-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .alumni-item,
 .visiting-item,
 .honors-item {
-    padding: 0.75rem;
-    border-bottom: 1px solid #eee;
+  padding: 0.75rem;
+  border-bottom: 1px solid #eee;
 }
 
 /* Undergrad Alumni Section */
 .year-group {
-    margin: 1.5rem 0;
+  margin: 1.5rem 0;
 }
 
 .year-group h4 {
-    color: #444;
-    margin-bottom: 0.5rem;
+  color: #444;
+  margin-bottom: 0.5rem;
 }
 
 .student-list {
-    list-style: none;
-    padding-left: 1rem;
+  list-style: none;
+  padding-left: 1rem;
 }
 
 .student-list li {
-    margin: 0.5rem 0;
+  margin: 0.5rem 0;
 }
 
 /* High School Section */
 .highschool-section {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .note {
-    background-color: #f8f8f8;
-    padding: 1rem;
-    border-left: 4px solid #0066cc;
-    margin: 1rem 0;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  border-left: 4px solid #0066cc;
+  margin: 1rem 0;
 }
 
 .highschool-list {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .highschool-item {
-    padding: 1rem;
-    border-bottom: 1px solid #eee;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
 }
 
 /* Responsive Design */
 @media (max-width: 968px) {
-    .faculty-container {
-        flex-direction: column;
-    }
+  .faculty-container {
+    flex-direction: column;
+  }
 
-    .faculty-photo {
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-    }
+  .faculty-photo {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 768px) {
-    .flex {
-        flex-direction: column;
-    }
+  .flex {
+    flex-direction: column;
+  }
 
-    .grid-cols-3 {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .grid-cols-2 {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 480px) {
+  .grid-cols-3,
+  .grid-cols-2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
 
-    .grid-cols-3,
-    .grid-cols-2 {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    .w-32,
-    .h-32 {
-        width: 6rem;
-        height: 6rem;
-    }
+  .w-32,
+  .h-32 {
+    width: 6rem;
+    height: 6rem;
+  }
 }
 
 .team-member {
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    overflow: hidden;
-    transition: all 0.3s ease;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .member-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f8f8f8;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  cursor: pointer;
 }
 
 .member-header:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .dropdown-arrow {
-    transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .team-member.expanded .dropdown-arrow {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .member-details {
-    padding: 1rem;
-    background-color: white;
-    border-top: 1px solid #eaeaea;
+  padding: 1rem;
+  background-color: white;
+  border-top: 1px solid #eaeaea;
 }
 
 .members-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
 }
 
 .cursor-pointer {
-    cursor: pointer;
-    text-align: center;
-    /* Ensure the text aligns center */
+  cursor: pointer;
+  text-align: center;
+  /* Ensure the text aligns center */
 }
 
 .hover\:scale-105:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .w-32 {
-    width: 11rem;
-    margin: 0 auto;
-    /* Center the image */
+  width: 11rem;
+  margin: 0 auto;
+  /* Center the image */
 }
 
 .h-32 {
-    height: 11rem;
-    margin: 0 auto;
-    /* Center the image */
+  height: 11rem;
+  margin: 0 auto;
+  /* Center the image */
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .mt-2 {
-    margin-top: 0.5rem;
-    /* Reduce the space between image and name */
+  margin-top: 0.5rem;
+  /* Reduce the space between image and name */
 }
 
 .text-sm {
-    font-size: 1rem;
-    line-height: 1.2;
-    /* Tighter line height */
-    margin: 0 auto;
-    /* Center the text */
-    max-width: 8rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  /* Tighter line height */
+  margin: 0 auto;
+  /* Center the text */
+  max-width: 8rem;
 }
 
 .member-role {
-    font-size: 0.8rem;
-    /* Slightly smaller text for roles */
-    color: #555;
-    margin-top: 0.25rem;
-    /* Tighten the space between name and role */
-    line-height: 1.2;
-    /* Tighter line height for roles */
+  font-size: 0.8rem;
+  /* Slightly smaller text for roles */
+  color: #555;
+  margin-top: 0.25rem;
+  /* Tighten the space between name and role */
+  line-height: 1.2;
+  /* Tighter line height for roles */
 }
 
 .rounded-full {
-    border-radius: 9999px;
+  border-radius: 9999px;
 }
 
 .overflow-hidden {
-    overflow: hidden;
+  overflow: hidden;
+}
+
+.section-title-1 {
+  margin-top: -4rem !important;
+}
+
+.section-title-2 {
+  margin-top: -7rem !important;
+}
+
+.section-title-3 {
+  margin-top: -5rem !important;
+}
+
+.section-title-4 {
+  margin-top: -5rem !important;
+}
+.section-title-5 {
+  margin-top: -5rem !important;
+}
+.mb-12 {
+  margin-top: -3rem;
+}
+
+.alumni {
+  margin-top: -4rem;
+}
+
+.alumni-list {
+  margin-top: -2rem;
+  line-height: normal;
+}
+.honors {
+  margin-top: -3rem;
+}
+.Undergraduate {
+  margin-top: -7rem;
+  margin-top: -2rem;
+  line-height: normal;
+}
+.visiting {
+    margin-top: -3rem;
+}
+.visiting-list {
+    margin-top: -2rem;
+    line-height: normal;
+}
+.honors-list {
+  margin-top: -2rem;
+  line-height: normal;
+}
+.undergrad-alumni {
+  margin-top: -6rem;
+}
+.undergrad-section-1 {
+  margin-top: -5rem;
+}
+.section-title-5 {
+  margin-top: -3rem !important;
+}
+
+.section-title-6 {
+  margin-top: -5rem !important;
+}
+.section-title-7 {
+  margin-top: -3rem !important;
+}
+.ug-list {
+  margin-top: -2rem;
+  line-height: normal;
 }
