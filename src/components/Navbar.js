@@ -24,8 +24,9 @@ const Navbar = () => {
                     <li><Link to="/research">Research</Link></li>
                     <li><Link to="/team">Team</Link></li>
                     <li><Link to="/publications">Publications</Link></li>
+                                        <li><Link to="/collaborations">Collaborations</Link></li>
                     <li><Link to="/join-us">Join Us</Link></li>
-                    <li><Link to="/collaborations">Collaborations</Link></li>
+
                 </ul>
             </nav>
         </header>
