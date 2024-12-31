@@ -1,53 +1,90 @@
+/* General styles for the publications page */
+.publications {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
 .banner {
-    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.banner-image {
     width: 100%;
-    height: 300px;
-        background-color: rgba(250, 244, 225, 0.8);
-    overflow: hidden;
+    max-height: 300px;
+    object-fit: cover;
 }
 
-.publication-list {
-    padding: 40px 20px;
-
-    
-        background-color: rgba(250, 244, 225, 0.8);
-}
-
+/* Year section styles */
 .year-section {
+    
     margin-bottom: 40px;
 }
 
 .year-section h2 {
-    font-size: 2rem;
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 20px;
+    text-align: center;
     color: #333;
 }
 
+/* Styles for the row of publication images */
 .publication-row {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 20px;
     margin-bottom: 20px;
-    overflow-x: auto;
-    padding: 10px 0;
-}
-
-.publication-row img {
-    width: 300px;
-    height: 400px !important;
-    object-fit: cover;
 }
 
 .publication-row a {
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
-
-.publication-row a:hover {
-    transform: scale(1.05);
+    flex: 1 1 calc(33% - 20px);
+    /* Each image takes up a third of the row minus the gap */
+    max-width: calc(33% - 20px);
+    /* Ensures the images stay responsive */
+    display: block;
 }
 
 .publication-row img {
-    width: 300px;
-    height: 200px;
+    width: 70%;
+    /* Reduced size further */
+    height: auto;
     object-fit: cover;
+    /* Keeps image's aspect ratio */
+    margin: 0 auto;
+    /* Centers the image inside its container */
+    border: 2px solid #333;
+    /* Adds a 2px solid border around the image */
+    padding: 5px;
+    /* Adds padding inside the border for better visual appearance */
+    border-radius: 8px;
+    /* Optional: Adds rounded corners to the border */
+}
+
+.publication-row img:hover {
+    transform: scale(1.05);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .publication-row a {
+        flex: 1 1 calc(50% - 20px);
+        /* On smaller screens, images will be in two columns */
+        max-width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .publication-row a {
+        flex: 1 1 100%;
+        /* On very small screens, images will be in a single column */
+        max-width: 100%;
+    }
+}
+
+.publication-list {
+        padding-left: 30px;
 }

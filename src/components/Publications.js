@@ -47,11 +47,11 @@ import publication40 from "../assets/42.png";
 const Publications = () => {
   return (
     <div className="publications">
-      <div className="banner">
+      <div className="banners">
         <img
           src={bannerImage}
           alt="Publications Banner"
-          className="banner-image"
+          className="banner-images"
         />
         
       </div>
