@@ -1,4 +1,6 @@
 /* Banner Styling */
+
+
 .banner {
     text-align: center;
     margin-bottom: 30px;
@@ -157,4 +159,61 @@
 .projects {
     margin-top: -7rem;
     text-align: center;
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-card {
+    padding: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    /* Hide overflow when collapsed */
+}
+
+.project-header {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.project-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.project-content {
+    display: none;
+    padding: 10px;
+    max-height: 300px;
+    /* Limit height, adjust this as needed */
+    overflow-y: auto;
+    /* Allow scrolling if content is too large */
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    /* Smooth transition */
+}
+
+.project-content.expanded {
+    display: block;
+    max-height: 10000px;
+    /* Make it large enough to show all content */
+    padding: 10px;
+    /* Ensure padding is visible when expanded */
+}
+
+.project-image {
+    width: 100%;
+    /* Ensure images are responsive */
+    height: auto;
+    margin: 10px 0;
+    /* Space between images and text */
+}
+
+.dropdown-arrow.rotated {
+    transform: rotate(180deg);
+    /* Rotate arrow when expanded */
 }
