@@ -1,36 +1,51 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/Navbar.css'; 
-import asuLogo from '../assets/asulogo.png'; 
-import banner from '../assets/banner1.jpeg';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import asuLogo from "../assets/asulogo.png";
+import banner from "../assets/BannerCadilloAlone.png";
 
 const Navbar = () => {
-    return (
-        <header className="navbar">
-            {/* Left: ASU Logo */}
-            <div className="navbar-left">
-                <img src={asuLogo} alt="ASU Logo" className="logo" />
-            </div>
+  return (
+    <nav className="nav-container">
+      {/* Left: ASU Logo */}
+      <div className="nav-logo-section">
+        <Link to="/">
+          <img
+            src={asuLogo}
+            alt="Arizona State University"
+            className="asu-logo"
+          />
+        </Link>
+      </div>
 
-            {/* Center: Banner */}
-            <div className="navbar-banner">
-                <img src={banner} alt="Banner Logo" className="banner" />
-            </div>
+      {/* Center: Navigation Links */}
+      <div className="nav-links">
+        <Link to="/" className="nav-link">
+          Home
+        </Link>
+        <span className="separator">·</span>
+        <Link to="/research" className="nav-link">
+          Research
+        </Link>
+        <span className="separator">·</span>
+        <Link to="/team" className="nav-link">
+          Team
+        </Link>
+        <span className="separator">·</span>
+        <Link to="/collaborations" className="nav-link">
+          Collaborations
+        </Link>
+        <span className="separator">·</span>
+        <Link to="/join-us" className="nav-link">
+          Join US
+        </Link>
+      </div>
 
-            {/* Right: Navigation Links */}
-            <nav className="navbar-links">
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/research">Research</Link></li>
-                    <li><Link to="/team">Team</Link></li>
-                    <li><Link to="/publications">Publications</Link></li>
-                                        <li><Link to="/collaborations">Collaborations</Link></li>
-                    <li><Link to="/join-us">Join Us</Link></li>
-
-                </ul>
-            </nav>
-        </header>
-    );
+      {/* Right: Banner Image */}
+      <div className="nav-banner-section">
+        <img src={banner} alt="Lab Banner" className="lab-banner" />
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
