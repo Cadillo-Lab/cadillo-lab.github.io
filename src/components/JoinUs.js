@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import "../styles/JoinUs.css";
 import joinImage from "../assets/joinus.png";
 import outreach1 from "../assets/outreach1.png";
 import outreach2 from "../assets/outreach2.png";
 import outreach4 from "../assets/_EFO7190.jpg";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const JoinUs = () => {
+    const images = [
+      { src: outreach1, alt: 'Outreach Program 1' },
+      { src: outreach2, alt: 'Outreach Program 2' },
+      { src: outreach4, alt: 'Outreach Program 3' }
+    ];
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const goToPrevious = () => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === 0 ? images.length - 1 : prevIndex - 1
+      );
+    };
+
+    const goToNext = () => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    };
+  
   return (
     <section className="join-us">
       <div className="banner-container">
@@ -238,22 +257,31 @@ const JoinUs = () => {
         </div>
 
         <div className="outreach-section">
-          <img
-            src={outreach1}
-            alt="Outreach Program 1"
-            className="outreach-image"
-          />
-          <img
-            src={outreach2}
-            alt="Outreach Program 2"
-            className="outreach-image"
-          />
+          <div className="carousel">
+            <div className="carousel-images">
+              <img
+                src={images[currentIndex].src}
+                alt={images[currentIndex].alt}
+                className="carousel-slide"
+              />
+            </div>
 
-          <img
-            src={outreach4}
-            alt="Outreach Program 2"
-            className="outreach-image"
-          />
+            <button
+              onClick={goToPrevious}
+              className="arrow arrow-left"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            <button
+              onClick={goToNext}
+              className="arrow arrow-right"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

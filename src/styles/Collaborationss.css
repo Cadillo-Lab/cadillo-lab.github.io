@@ -452,3 +452,7 @@ h2:after {
 .content-sections {
     margin-top: -7rem;
 }
+
+.carousel-images {
+    margin-left: 100px;
+}
