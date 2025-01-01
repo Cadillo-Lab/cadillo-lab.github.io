@@ -217,3 +217,69 @@
     transform: rotate(180deg);
     /* Rotate arrow when expanded */
 }
+
+.project-content p {
+    text-align: left;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.project-content ul {
+    text-align: left;
+    line-height: 1;
+    margin-left: 20px;
+}
+
+.project-content div {
+    text-align: left;
+}
+
+.project-content img {
+    margin: 1rem 0;
+}
+
+.project-content p {
+    text-align: left;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    /* Reduced from 1rem to 0.5rem */
+}
+
+.project-image {
+    width: 70%;
+    /* Reduced from 100% */
+    height: auto;
+    margin: 0.5rem 0;
+    /* Reduced from 1rem to 0.5rem */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* If there are specific images inside paragraphs or divs */
+.project-content img {
+    width: 70%;
+    /* Reduced from 100% */
+    height: auto;
+    margin: 0.5rem 0;
+    /* Reduced from 1rem to 0.5rem */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Reduce space between content sections */
+.project-content div {
+    margin-bottom: 0.5rem;
+    /* Add this to reduce space between divs */
+}
+
+.project-content p {
+    text-align: left;
+    line-height: 1;
+    margin-bottom: 0.1rem;
+}
+
+.project-content p+p {
+    margin-top: 0.1rem;
+}

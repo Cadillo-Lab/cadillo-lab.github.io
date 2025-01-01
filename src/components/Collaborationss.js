@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import "../styles/Collaborationss.css";
 import collaborationBanner from "../assets/collab.png";
 import collab1 from "../assets/collab1.png";
 import collab2 from "../assets/collab2.png";
 
 const Collaborationss = () => {
+  const images = [
+    { src: collab1, alt: "Research Program" },
+    { src: collab2, alt: "Training Program" },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   return (
     <div className="collaboration-container">
       <div className="banner-container">
         <img
           src={collaborationBanner}
-          alt="Collaboration Banner"
+          alt="Collaboration"
           className="banner-image"
         />
       </div>
@@ -59,7 +79,7 @@ const Collaborationss = () => {
 
         <section className="data-collaboration">
           <h2>Collaborative Data accessibility and FAIR data use</h2>
-          <p className = "para1">
+          <p className="para1">
             The cadillo Lab seeks to be a place where Findable, Accessible,
             Interoperable, and Reusable (FAIR) data access approaches is
             provided.
@@ -113,9 +133,33 @@ const Collaborationss = () => {
           </ul>
         </section>
       </div>
+
       <div className="outreach-section">
-        <img src={collab1} alt="Program 1" className="collab1" />
-        <img src={collab2} alt="Program 2" className="collab2" />
+        <div className="carousel">
+          <div className="carousel-images">
+            <img
+              src={images[currentIndex].src}
+              alt={images[currentIndex].alt}
+              className="carousel-slide"
+            />
+          </div>
+
+          <button
+            onClick={goToPrevious}
+            className="arrow arrow-left"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          <button
+            onClick={goToNext}
+            className="arrow arrow-right"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
       </div>
     </div>
   );

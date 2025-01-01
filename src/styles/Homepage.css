@@ -1,79 +1,77 @@
-/* General Layout */
 .homepage-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 100vh;
+    /* Full screen height for all devices */
+    width: 100%;
+    /* Full width for the container */
 }
 
 /* Hero Section */
 .hero {
     position: relative;
-    height: 100vh;
     display: flex;
-}
-.hero-video {
-        position: absolute;
-    object-fit: cover;
-    width: 100%;
-    height: 871px;
-}
-.hero-video {
-    margin-top: -1.2rem;
-    object-fit: cover;
-    width: 100%;
-    height: auto;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* Adjusts for any screen */
+    overflow: hidden;
+    /* Hides extra content */
 }
 
-.hero-overlay {
+.hero-video {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures full coverage without distortion */
+    z-index: -1;
+}
+
+.hero-overlay {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
     text-align: center;
+    padding: 1rem;
+    color: white;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 4rem);
+    /* Responsive font size */
     margin-bottom: 20px;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    max-width: 600px;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    max-width: 80%;
     margin: 0 auto;
 }
 
 /* Mission and Social Media Section */
 .mission-social {
-    padding: 0 20px;
+    padding: 2rem;
     background-image: url('../assets/background-1.png');
-    /* You can replace with your image */
     background-size: cover;
     background-position: center;
-    align-self: auto;
-    margin-top: -8rem;
-    color: white;
+    color: rgb(0, 0, 0);
+    text-align: center;
 }
 
 .mission-social .section-title {
-    font-size: 2.5rem;
-    align-items: center;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
     margin-bottom: 10px;
 }
 
 .mission-text {
-    font-size: 1.2rem;
-    color: black;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     line-height: 1.6;
-    font-color: black;
     margin-bottom: 10px;
 }
-
 .social-feeds {
     display: flex;
     justify-content: center;
@@ -266,11 +264,13 @@
     padding-bottom: 15px;
 }
 
-.facebook-feed {
-    padding-left: 310px;
-}
+
 
 .hero-content {
     width: 100%;
     height: auto;
+}
+
+.facebook-feed {
+    margin-left: 5px;
 }

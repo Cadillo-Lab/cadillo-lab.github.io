@@ -11,6 +11,9 @@ import amazonpeatland3 from "../assets/amazon-peatland3.jpeg";
 import northernpeatland from "../assets/northern-peatland.png";
 import mitigation1 from "../assets/mitigation1.png";
 import mitigation2 from "../assets/mitigation2.jpg";
+import cultural from "../assets/cultural.jpg";
+import landscape from "../assets/landscape.jpg";
+import drivers from "../assets/driver.jpg";
 
 const Research = () => {
   const bannerImages = [bannerImage1];
@@ -245,7 +248,8 @@ const Research = () => {
       ),
     },
     {
-      title: "Mitigation of Methane Emissions in Arid Landfills",
+      title:
+        "CH4 and GHG emissions as microbiome responses to manipulations: Landfill case",
       content: (
         <div>
           {/* First Paragraph with Image on the Right */}
@@ -313,18 +317,146 @@ const Research = () => {
     {
       title:
         "Culturable Diversity of Archaea and Bacteria and the role of their traits in Ecosystem functions",
-      content: "Details about microbial diversity and ecosystem functions...",
+      content: (
+        <div>
+          {/* First Paragraph */}
+          <p>
+            Microbes play critical roles in the functioning of terrestrial
+            ecosystems, but understanding and quantifying their role in such
+            functions is challenging for multiple reasons. These include limited
+            availability of cultured microbes, limited knowledge of the
+            physiology and genomics of diverse terrestrial microbes, limited
+            knowledge of their metabolic flexibility in response to
+            microbe-microbe interactions, and limited upscaling tools to measure
+            their activity at ecosystem-relevant scales.
+          </p>
+
+          {/* Second Paragraph */}
+          <p>
+            The Cadillo Lab’s focus on terrestrial ecosystems, carbon cycling,
+            greenhouse gas dynamics, and evolutionary processes to adapt to
+            extreme or changing environments has led to significant developments
+            in the physiology, genomics, and culturing of Archaea and Bacteria.
+            We combine traditional and novel culturing approaches to capture
+            representative strains of ecosystems whose physiological information
+            can be incorporated into modeling tools. The picture below
+            illustrates the methanogenic diversity, novel isolates, and target
+            carbon-rich ecosystems we have studied in the past.
+          </p>
+
+          {/* Image Section */}
+          <div style={{ textAlign: "center", margin: "20px 0" }}>
+            <img
+              src={cultural}
+              alt="Methanogenic diversity and novel isolates"
+              style={{ width: "80%", height: "auto" }}
+            />
+          </div>
+
+          {/* Third Paragraph */}
+          <p>
+            In various projects, we focus on isolating distinct and
+            representative microbes to capture the relationship between genomic
+            and functional information and the distribution of trait variations
+            of methanogens, methanotrophs, and heterotrophs. Microbial traits
+            are defined as phenotypic properties whose expression determines the
+            tempo and mode of microbial activity. Growth rate, pH range, Q10,
+            substrate affinity, and use efficiency are traits whose variation
+            across microbes can lead to differential contributions to ecosystem
+            processes. The combination and discrete distribution of traits among
+            organisms can generate functional guilds in soils. Thus, a
+            quantitative understanding of trait presence, trait magnitude, and
+            trait spectrum of variation can be a powerful component for
+            function-based modeling of CH4 flux.
+          </p>
+
+          {/* Final Paragraph */}
+          <p>
+            We are always interested in understanding the roots and consequences
+            of microbial trait variation and its incorporation into predicting
+            activities in ecosystems. Please reach out to us to learn more about
+            our latest advancements in this area.
+          </p>
+        </div>
+      ),
     },
     {
       title:
         "Landscape ecology of soil, GHG, and microbiomes post gold mining in the Amazon",
-      content: "Research findings on post-mining ecological impacts...",
-    },
+      content: (
+    <div>
+      {/* Introduction */}
+      <p>
+        In the Amazon and other regions, large riverine and floodplain areas are under pressure from gold mining activities. Over the last two decades, mining has emerged as one of the leading environmental threats to the Amazon region. It is responsible for approximately 10% of forest loss across the Brazilian Amazon, and in some parts of Peru and Guyana, it contributes to the majority of deforestation.
+      </p>
+
+      {/* Key Impacts */}
+      <p>
+        Gold mining leads to a complete transformation of the Amazonian landscape and produces wide-ranging effects on critical components, including:
+      </p>
+      <ul>
+        <li>Water movement and lack of retention in soils</li>
+        <li>Proliferation of ponds with various geochemical characteristics and effects</li>
+        <li>Dramatic changes in soil composition, including loss of topsoil and acquisition of sand-like properties</li>
+        <li>Significant alterations in the composition and roles of the soil microbiome, impacting soil health</li>
+        <li>Loss of vital ecosystem services</li>
+      </ul>
+
+      {/* Project Overview */}
+      <p>
+        This collaborative project with the University of Southern California is part of the Perpetual Planet Amazon Expeditions program (2022-2023), sponsored by the National Geographic Society and the Rolex Perpetual Planet Initiative.
+      </p>
+
+      {/* Image Placement */}
+      <div style={{ textAlign: "center", margin: "20px 0" }}>
+        <img
+          src={landscape}
+          alt="Gold Mining Impacts in the Amazon"
+          style={{ width: "80%", height: "auto" }}
+        />
+      </div>
+
+      {/* Research Focus */}
+      <p>
+        As part of an interdisciplinary team, we are focusing on evaluating greenhouse gas production in mining ponds, in the context of microbial community assemblages responsible for producing these gases — with further links to mercury (Hg) methylation. We are also assessing microbiome indicators of soil health and testing approaches to upscale the quantification of ecosystem services (or their loss). Additionally, we aim to target effects that promote peatland-like redevelopment in this area.
+      </p>
+
+      {/* Call to Action */}
+      <p>
+        Please reach out for updates on this project or to explore potential collaborations!
+      </p>
+    </div>
+  ),
+},
     {
       title:
         "Anthropogenic drivers and interface with carbon stability in soils",
-      content: "Analysis of human impacts on soil carbon stability...",
-    },
+      content: (
+    <div style={{ display: "flex", alignItems: "flex-start", gap: "20px" }}>
+      {/* Image on the Left */}
+      <div style={{ flex: "1" }}>
+        <img
+          src={drivers}
+          alt="Soil Carbon Mapping in the Peruvian Amazon"
+          style={{ width: "100%", height: "auto", borderRadius: "8px" }}
+        />
+      </div>
+
+      {/* Text on the Right */}
+      <div style={{ flex: "2" }}>
+        <p>
+          This area is a newly emerging front in our team’s research. Our interests and explorations involve understanding the rate of Soil Organic Carbon (SOC) loss after various types of land conversion, the gain of SOC in pristine forests, wetlands, or peatlands, and the gain of SOC in anthropogenic environments, including urban areas, riverine margins, agricultural soils, or post-mining soils.
+        </p>
+        <p>
+          We aim to develop natural carbon sequestration solutions to combat climate change. Given the extensive interface with anthropogenic processes and local communities, this work is framed under fluid collaborations with social, economic, agricultural, and applied scientists. Community science principles and applications are critical for advancing this interest, and we are always eager to discuss potential collaborations for transdisciplinary research.
+        </p>
+        <p>
+          Current explorations involve mapping the potential of soil carbon sequestration in multiple areas of the Peruvian Amazon (as shown in the figure) or urban wetlands. Reach out to us for updates or progress on this front!
+        </p>
+      </div>
+    </div>
+  ),
+}
   ];
 
   // Topic navigation functions
