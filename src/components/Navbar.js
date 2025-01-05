@@ -31,6 +31,10 @@ const Navbar = () => {
           Team
         </Link>
         <span className="separator">·</span>
+        <Link to="/publications" className="nav-link">
+          Publications
+        </Link>
+        <span className="separator">·</span>
         <Link to="/collaborations" className="nav-link">
           Collaborations
         </Link>
