@@ -35,7 +35,7 @@ h2 {
     padding-top: 40px;
     position: relative;
     display: inline-block;
-    color: #1e88e5;
+    color: #000000;
     text-transform: uppercase;
 }
 
@@ -148,7 +148,7 @@ ul li:before {
 }
 
 .partners-list li:hover {
-    color: #1e88e5;
+    color: #000000;
     cursor: pointer;
 }
 
@@ -375,7 +375,7 @@ h2 {
     margin-bottom: 30px;
     position: relative;
     display: inline-block;
-    color: #1e88e5;
+    color: #000000;
     text-transform: uppercase;
 }
 

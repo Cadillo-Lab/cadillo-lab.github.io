@@ -47,7 +47,7 @@ const Homepage = () => {
         <div className="hero-overlay">
           <div className="hero-content hover-effect">
             <h1>Welcome to the Cadillo Lab</h1>
-            <p>
+            <p style={{ color: "white" }}>
               An environment with diverse backgrounds, experiences, and careers
               is foundational to our team.
             </p>
@@ -113,7 +113,7 @@ const Homepage = () => {
                 allowTransparency="true"
               ></iframe>
             </div>
-            
+
             {/* BlueSky Link and X (stacked one above the other) */}
             <div className="stacked-links">
               {/* Twitter Feed (X) */}

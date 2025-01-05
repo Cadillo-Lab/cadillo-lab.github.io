@@ -33,6 +33,8 @@ const Team = () => {
   const [selectedGradText, setSelectedGradText] = useState("");
   const [selectedPostdocText, setSelectedPostdocText] = useState("");
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
+  const [hoveredResearcherDetails, setHoveredResearcherDetails] = useState("");
+    const [hoveredPostdocDetails, setHoveredPostdocDetails] = useState("");
 
   const handleToggle = (index) => {
     if (openDropdownIndex === index) {
@@ -173,48 +175,58 @@ const Team = () => {
     );
   };
 
-const alumniData = [
-  {
-    name: "Steffen Buessecker, PhD student",
-    details: "Details about Steffen...",
-  },
-  { name: "Analissa Sarno, PhD student", details: "Details about Analissa..." },
-  { name: "Mark Reynolds, PhD student", details: "Details about Mark..." },
-  {
-    name: "Outi Lahteenoja, Postdoctoral researcher",
-    details: "Details about Outi...",
-  },
-  {
-    name: "Michal Ziv-El, Postdoctoral researcher",
-    details: "Details about Michal...",
-  },
-  {
-    name: "Patrick Browne, Postdoctoral researcher",
-    details: "Details about Patrick...",
-  },
-  {
-    name: "Damien Finn, Postdoctoral researcher",
-    details: "Details about Damien...",
-  },
-  {
-    name: "Paul Brewer, Postdoctoral researcher",
-    details: "Details about Paul...",
-  },
-  {
-    name: "Jillian Ayers, BS and MS student",
-    details: "Details about Jillian...",
-  },
-  { name: "Gandhar Pandit, MS student", details: "Details about Gandhar..." },
-  { name: "Zeni Ramirez, BS and MS student", details: "Details about Zeni..." },
-];
+  const alumniData = [
+    {
+      name: "Steffen Buessecker, PhD student",
+      details: "Details about Steffen...",
+    },
+    {
+      name: "Analissa Sarno, PhD student",
+      details: "Details about Analissa...",
+    },
+    { name: "Mark Reynolds, PhD student", details: "Details about Mark..." },
+    {
+      name: "Outi Lahteenoja, Postdoctoral researcher",
+      details: "Details about Outi...",
+    },
+    {
+      name: "Michal Ziv-El, Postdoctoral researcher",
+      details: "Details about Michal...",
+    },
+    {
+      name: "Patrick Browne, Postdoctoral researcher",
+      details: "Details about Patrick...",
+    },
+    {
+      name: "Damien Finn, Postdoctoral researcher",
+      details: "Details about Damien...",
+    },
+    {
+      name: "Paul Brewer, Postdoctoral researcher",
+      details: "Details about Paul...",
+    },
+    {
+      name: "Jillian Ayers, BS and MS student",
+      details: "Details about Jillian...",
+    },
+    { name: "Gandhar Pandit, MS student", details: "Details about Gandhar..." },
+    {
+      name: "Zeni Ramirez, BS and MS student",
+      details: "Details about Zeni...",
+    },
+  ];
 
-const ugstudentData = [
-  { name: "Zack Brownell", details: "Zack is studying Biology at ASU." },
-  { name: "Noemi Soto", details: "Noemi is researching microbial ecology." },
-];
-  
+  const ugstudentData = [
+    { name: "Zack Brownell", details: "Zack is studying Biology at ASU." },
+    { name: "Noemi Soto", details: "Noemi is researching microbial ecology." },
+  ];
+
   const visitingScientists = [
-    { name: "Dr. Jiaxue Song", details: "Assistant Professor, Department of Environmental Science and Engineering at Shanghai Normal University, China. 2012-2013."}
+    {
+      name: "Dr. Jiaxue Song",
+      details:
+        "Assistant Professor, Department of Environmental Science and Engineering at Shanghai Normal University, China. 2012-2013.",
+    },
   ];
 
   const honorsThesis = [
@@ -266,12 +278,14 @@ const ugstudentData = [
   return (
     <div className="team-page">
       {/* Faculty Section - Keep original */}
-      <section className="faculty">
-        <h2 className="section-title-1">Faculty</h2>
+      <section className="faculty" style={{ color: "black" }}>
+        <h2 className="section-title-1" style={{ color: "black" }}>
+          Faculty
+        </h2>
         <div className="faculty-container">
           <img src={facultyImage} alt="Faculty" className="faculty-photo" />
           <div className="faculty-info">
-            <h2>Hinsby Cadillo-Quiroz</h2>
+            <h2 className="aaa">Hinsby Cadillo-Quiroz</h2>
             <p className="faculty-title">Associate Professor</p>
             <p className="faculty-contact">Email: hinsby@asu.edu</p>
 
@@ -318,18 +332,23 @@ const ugstudentData = [
           </div>
         </div>
       </section>
+
       {/* New Graduate Researchers Section */}
-      <section className="mb-12">
-        <h2 className="section-title-2">Graduate Researchers</h2>
+      <section className="mb-12" style={{ color: "black" }}>
+        <h2 className="section-title-2" style={{ color: "black" }}>
+          Graduate Researchers
+        </h2>
         <div className="flex flex-wrap gap-8">
+          {/* Left Panel: Researchers */}
           <div className="flex-1">
             <div className="grid grid-cols-2 gap-4">
-              {" "}
-              {/* Changed from grid-cols-3 to grid-cols-2 */}
               {gradResearchers.map((researcher, index) => (
                 <div
                   key={index}
-                  onClick={() => handleGradClick(researcher)}
+                  onMouseEnter={() =>
+                    setHoveredResearcherDetails(researcher.backContent)
+                  }
+                  onMouseLeave={() => setHoveredResearcherDetails("")}
                   className="cursor-pointer transition-transform hover:scale-105"
                 >
                   <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden">
@@ -347,25 +366,33 @@ const ugstudentData = [
               ))}
             </div>
           </div>
-
           <div className="flex-1 bg-gray-100 p-4 rounded-lg min-h-[300px]">
             <p className="whitespace-pre-line">
-              {selectedGradText ||
-                "Click on a graduate researcher's image to see their details"}
+              {hoveredResearcherDetails ||
+                "Hover over a graduate researcher's image to see their details"}
             </p>
           </div>
         </div>
       </section>
+
       {/* New Postdoctoral Researchers Section */}
       <section className="mb-12">
-        <h2 className="section-title-3">Postdoctoral Researchers</h2>
+        <h2 className="section-title-3" style={{ color: "black" }}>
+          Postdoctoral Researchers
+        </h2>
         <div className="flex flex-wrap gap-8">
+          {/* Left Panel: Postdoctoral Researchers */}
           <div className="flex-1">
             <div className="grid grid-cols-2 gap-4">
               {postdocResearchers.map((researcher, index) => (
                 <div
                   key={index}
-                  onClick={() => handlePostdocClick(researcher)}
+                  onMouseEnter={() =>
+                    setHoveredPostdocDetails(
+                      researcher.backContent 
+                    )
+                  }
+                  onMouseLeave={() => setHoveredPostdocDetails("")}
                   className="cursor-pointer transition-transform hover:scale-105"
                 >
                   <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden">
@@ -378,26 +405,27 @@ const ugstudentData = [
                   <p className="text-center mt-2-3 text-sm">
                     {researcher.name}
                   </p>
-                  {/* Add the role below the name */}
-                  <p className="text-cen3ter text-gray-500">
-                    {researcher.role}
-                  </p>
+                  <p className="text-center text-gray-500">{researcher.role}</p>
                 </div>
               ))}
             </div>
           </div>
 
+          {/* Right Panel: Details */}
           <div className="flex-1 bg-gray-100 p-4 rounded-lg min-h-[300px]">
             <p className="whitespace-pre-line">
-              {selectedPostdocText ||
-                "Click on a postdoctoral researcher's image to see their details"}
+              {hoveredPostdocDetails ||
+                "Hover over a postdoctoral researcher's image to see their details"}
             </p>
           </div>
         </div>
       </section>
+
       {/* Alumni Section */}
       <section className="alumni">
-        <h2 className="section-title-4">Graduate/Postdoctoral Alumni</h2>
+        <h2 className="section-title-4" style={{ color: "black" }}>
+          Graduate/Postdoctoral Alumni
+        </h2>
         <div className="alumni-list">
           {alumniData.map((alumni, index) => (
             <div key={index} className="alumni-item">
@@ -425,7 +453,9 @@ const ugstudentData = [
       {/* Other sections remain the same */}
       {/* Alumni Section */}
       <section className="alumni">
-        <h2 className="section-title-4">Undergraduate Student</h2>
+        <h2 className="section-title-4" style={{ color: "black" }}>
+          Undergraduate Student
+        </h2>
         <div className="alumni-list">
           {ugstudentData.map((alumni, index) => (
             <div key={index} className="alumni-item">
@@ -452,7 +482,9 @@ const ugstudentData = [
       </section>
 
       <section className="alumni">
-        <h2 className="section-title-4">Honors Thesis Students</h2>
+        <h2 className="section-title-4" style={{ color: "black" }}>
+          Honors Thesis Students
+        </h2>
         <div className="alumni-list">
           {honorsThesis.map((alumni, index) => (
             <div key={index} className="alumni-item">
@@ -480,7 +512,9 @@ const ugstudentData = [
 
       {/* Alumni Section */}
       <section className="alumni">
-        <h2 className="section-title-4">Visiting Scientist</h2>
+        <h2 className="section-title-4" style={{ color: "black" }}>
+          Visiting Scientist
+        </h2>
         <div className="alumni-list">
           {visitingScientists.map((alumni, index) => (
             <div key={index} className="alumni-item">
@@ -508,7 +542,9 @@ const ugstudentData = [
 
       {/* Alumni Section */}
       <section className="alumni">
-        <h2 className="section-title-4">Undergraduate Alumni</h2>
+        <h2 className="section-title-4" style={{ color: "black" }}>
+          Undergraduate Alumni
+        </h2>
         <div className="alumni-list">
           {undergradAlumni.map((alumni, index) => (
             <div key={index} className="alumni-item">
@@ -535,7 +571,9 @@ const ugstudentData = [
       </section>
 
       <section className="high-school">
-        <h2 className="section-title-4">High-School</h2>
+        <h2 className="section-title-4" style={{ color: "black" }}>
+          High-School
+        </h2>
         <div className="note">
           <p>
             <em>

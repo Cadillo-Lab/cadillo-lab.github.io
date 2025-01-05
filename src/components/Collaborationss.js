@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import "../styles/Collaborationss.css";
 import collaborationBanner from "../assets/collab.png";
@@ -14,16 +14,20 @@ const Collaborationss = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
   };
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
+
+  // Automatically go to next slide every 7 seconds
+  useEffect(() => {
+    const intervalId = setInterval(goToNext, 7000); // 7000ms = 7 seconds
+    return () => clearInterval(intervalId); // Cleanup on component unmount
+  }, [currentIndex]);
 
   return (
     <div className="collaboration-container">

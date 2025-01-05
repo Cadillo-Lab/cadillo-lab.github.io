@@ -21,6 +21,15 @@
 
 .faculty-info {
   margin-top: -2.4rem;
+  color: #000000;
+}
+
+p {
+    color: #000000;
+}
+
+.h2 {
+    color: #000000;
 }
 
 .faculty-title {
@@ -48,7 +57,7 @@
 }
 
 .faculty-contact {
-  color: #0066cc;
+  color: #000000;
   margin-bottom: 1rem;
 }
 
@@ -124,7 +133,7 @@
 
 .member-role {
   font-size: 14px;
-  color: #555;
+  color: #000000;
   margin-top: 4px;
 }
 
@@ -235,7 +244,7 @@
 .note {
   background-color: #f8f8f8;
   padding: 1rem;
-  border-left: 4px solid #0066cc;
+  border-left: 4px solid #000000;
   margin: 1rem 0;
 }
 
@@ -343,13 +352,11 @@
 .w-32 {
   width: 11rem;
   margin: 0 auto;
-  /* Center the image */
 }
 
 .h-32 {
   height: 11rem;
   margin: 0 auto;
-  /* Center the image */
 }
 
 .text-center {
@@ -358,7 +365,6 @@
 
 .mt-2 {
   margin-top: 0.5rem;
-  /* Reduce the space between image and name */
 }
 
 .text-sm {
@@ -475,6 +481,10 @@
   margin: 0;
 }
 
+.aaa {
+  color: #000000;
+}
+
 .alumni-item {
   padding: 10px;
   background-color: #f9f9f9;
@@ -522,7 +532,7 @@
 
 /* Hover effects for the arrow */
 .alumni-item button:hover {
-  color: #1d72b8;
+  color: #000000;
   /* Darker blue when hovering over the button */
 }
 
