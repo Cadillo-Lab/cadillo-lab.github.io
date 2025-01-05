@@ -92,7 +92,7 @@ const Homepage = () => {
                 className="fb-page"
                 data-href="https://www.facebook.com/CadilloLab/"
                 data-tabs="timeline"
-                data-width="500"
+                data-width="700"
                 data-height="400"
                 data-small-header="false"
                 data-adapt-container-width="true"
@@ -109,7 +109,7 @@ const Homepage = () => {
                 width="340"
                 height="400"
                 frameBorder="0"
-                scrolling="no"
+                scrolling="yes"
                 allowTransparency="true"
               ></iframe>
             </div>

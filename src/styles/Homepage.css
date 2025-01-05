@@ -274,3 +274,86 @@
 .facebook-feed {
     margin-left: 5px;
 }
+
+/* Social Media Feeds container */
+.social-feeds {
+    padding: 20px;
+    width: 100%;
+}
+
+/* Main social row container */
+.social-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Individual feed containers */
+.facebook-feed,
+.instagram-feed,
+.stacked-links {
+    flex: 1;
+    max-width: 500px;
+    min-width: 300px;
+}
+
+/* Stacked links container */
+.stacked-links {
+    display: flex;
+    padding-left: 15px;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Twitter feed container */
+.twitter-feed {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* BlueSky button */
+.bsky-link a {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #00a1e5;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.bsky-link a:hover {
+    background-color: #0078b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .social-row {
+        flex-wrap: wrap;
+    }
+
+    .facebook-feed,
+    .instagram-feed,
+    .stacked-links {
+        flex: 1 1 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .social-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .facebook-feed,
+    .instagram-feed,
+    .stacked-links {
+        width: 100%;
+        max-width: 1000px;
+    }
+}

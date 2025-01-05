@@ -252,64 +252,57 @@ const Research = () => {
         "CH4 and GHG emissions as microbiome responses to manipulations: Landfill case",
       content: (
         <div>
-          {/* First Paragraph with Image on the Right */}
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "flex-start",
-            }}
-          >
-            <div style={{ width: "60%" }}>
-              <p>
-                The mitigation of methane (CH4) emissions is key for the
-                management of Municipal Solid Waste (MSW) landfills, and this is
-                achieved by CH4 harvesting technologies which is also a
-                mechanism for alternative Sustainable Energy Systems. In arid
-                regions like Phoenix, AZ, CH4 production is limited by water
-                availability. Landfill reactor cells, like those in the Salt
-                River Landfill (SRL), are designed to perform water injection
-                and collect generated CH4. However, the effects of this
-                technology on CH4 emissions or the microbes responsible for CH4
-                production or geotechnical changes in landfill are not well
-                understood for arid Landfills. In fact, the microbiome evolution
-                in landfills remains highly under-studied.
-              </p>
-            </div>
-            <div style={{ width: "35%" }}>
+          {/* First Paragraph with Image Below */}
+          <div>
+            <p>
+              The mitigation of methane (CH4) emissions is key for the
+              management of Municipal Solid Waste (MSW) landfills, and this is
+              achieved by CH4 harvesting technologies which is also a mechanism
+              for alternative Sustainable Energy Systems. In arid regions like
+              Phoenix, AZ, CH4 production is limited by water availability.
+              Landfill reactor cells, like those in the Salt River Landfill
+              (SRL), are designed to perform water injection and collect
+              generated CH4. However, the effects of this technology on CH4
+              emissions or the microbes responsible for CH4 production or
+              geotechnical changes in landfill are not well understood for arid
+              landfills. In fact, the microbiome evolution in landfills remains
+              highly under-studied.
+            </p>
+            <div style={{ textAlign: "center" }}>
               <img
                 src={mitigation1}
                 alt="Landfill bioreactor"
-                style={{ width: "100%", height: "auto" }}
+                style={{ width: "60%", height: "auto" }}
               />
             </div>
           </div>
 
-          {/* Second Paragraph in Normal Format */}
-          <p>
-            This collaborative project between the Cadillo Lab and industrial
-            partner focuses on monitoring the changes associated with water
-            injection to a landfill cell in an arid landfill bioreactor to
-            develop a better understanding of water-elicited changes in methane
-            emissions, microbial makeup, and coarse geotechnical properties
-            associated with this technology. For this, we use a combination of
-            landfill sampling (leachate and gases), experimental manipulations
-            (laboratory reactors), and Eddy Covariance atmospheric monitoring.
-            We are also seeking alternative ways to detect CH4 to optimize
-            landfill monitoring and functioning. New avenues of this research
-            include geotechnical approaches to soil coverage and easy access
-            biofilters (reactors) to seek transformation of low-quality methane
-            to bioproducts. Please feel free to reach us on potential industrial
-            or academic collaborations.
-          </p>
-
-          {/* Image at the Bottom */}
-          <div style={{ marginTop: "20px", textAlign: "center" }}>
-            <img
-              src={mitigation2}
-              alt="Landfill methane monitoring setup"
-              style={{ width: "80%", height: "auto" }}
-            />
+          {/* Second Paragraph with Image Below */}
+          <div>
+            <p>
+              This collaborative project between the Cadillo Lab and an
+              industrial partner focuses on monitoring the changes associated
+              with water injection to a landfill cell in an arid landfill
+              bioreactor to develop a better understanding of water-elicited
+              changes in methane emissions, microbial makeup, and coarse
+              geotechnical properties associated with this technology. For this,
+              we use a combination of landfill sampling (leachate and gases),
+              experimental manipulations (laboratory reactors), and Eddy
+              Covariance atmospheric monitoring. We are also seeking alternative
+              ways to detect CH4 to optimize landfill monitoring and
+              functioning. New avenues of this research include geotechnical
+              approaches to soil coverage and easy access biofilters (reactors)
+              to seek transformation of low-quality methane to bioproducts.
+              Please feel free to reach us on potential industrial or academic
+              collaborations.
+            </p>
+            <div style={{ textAlign: "center" }}>
+              <img
+                src={mitigation2}
+                alt="Landfill methane monitoring setup"
+                style={{ width: "100%", height: "auto" }}
+              />
+            </div>
           </div>
         </div>
       ),
@@ -384,79 +377,124 @@ const Research = () => {
       title:
         "Landscape ecology of soil, GHG, and microbiomes post gold mining in the Amazon",
       content: (
-    <div>
-      {/* Introduction */}
-      <p>
-        In the Amazon and other regions, large riverine and floodplain areas are under pressure from gold mining activities. Over the last two decades, mining has emerged as one of the leading environmental threats to the Amazon region. It is responsible for approximately 10% of forest loss across the Brazilian Amazon, and in some parts of Peru and Guyana, it contributes to the majority of deforestation.
-      </p>
+        <div>
+          {/* Introduction */}
+          <p>
+            In the Amazon and other regions, large riverine and floodplain areas
+            are under pressure from gold mining activities. Over the last two
+            decades, mining has emerged as one of the leading environmental
+            threats to the Amazon region. It is responsible for approximately
+            10% of forest loss across the Brazilian Amazon, and in some parts of
+            Peru and Guyana, it contributes to the majority of deforestation.
+          </p>
 
-      {/* Key Impacts */}
-      <p>
-        Gold mining leads to a complete transformation of the Amazonian landscape and produces wide-ranging effects on critical components, including:
-      </p>
-      <ul>
-        <li>Water movement and lack of retention in soils</li>
-        <li>Proliferation of ponds with various geochemical characteristics and effects</li>
-        <li>Dramatic changes in soil composition, including loss of topsoil and acquisition of sand-like properties</li>
-        <li>Significant alterations in the composition and roles of the soil microbiome, impacting soil health</li>
-        <li>Loss of vital ecosystem services</li>
-      </ul>
+          {/* Key Impacts */}
+          <p>
+            Gold mining leads to a complete transformation of the Amazonian
+            landscape and produces wide-ranging effects on critical components,
+            including:
+          </p>
+          <ul>
+            <li>Water movement and lack of retention in soils</li>
+            <li>
+              Proliferation of ponds with various geochemical characteristics
+              and effects
+            </li>
+            <li>
+              Dramatic changes in soil composition, including loss of topsoil
+              and acquisition of sand-like properties
+            </li>
+            <li>
+              Significant alterations in the composition and roles of the soil
+              microbiome, impacting soil health
+            </li>
+            <li>Loss of vital ecosystem services</li>
+          </ul>
 
-      {/* Project Overview */}
-      <p>
-        This collaborative project with the University of Southern California is part of the Perpetual Planet Amazon Expeditions program (2022-2023), sponsored by the National Geographic Society and the Rolex Perpetual Planet Initiative.
-      </p>
+          {/* Project Overview */}
+          <p>
+            This collaborative project with the University of Southern
+            California is part of the Perpetual Planet Amazon Expeditions
+            program (2022-2023), sponsored by the National Geographic Society
+            and the Rolex Perpetual Planet Initiative.
+          </p>
 
-      {/* Image Placement */}
-      <div style={{ textAlign: "center", margin: "20px 0" }}>
-        <img
-          src={landscape}
-          alt="Gold Mining Impacts in the Amazon"
-          style={{ width: "80%", height: "auto" }}
-        />
-      </div>
+          {/* Image Placement */}
+          <div style={{ textAlign: "center", margin: "20px 0" }}>
+            <img
+              src={landscape}
+              alt="Gold Mining Impacts in the Amazon"
+              style={{ width: "80%", height: "auto" }}
+            />
+          </div>
 
-      {/* Research Focus */}
-      <p>
-        As part of an interdisciplinary team, we are focusing on evaluating greenhouse gas production in mining ponds, in the context of microbial community assemblages responsible for producing these gases — with further links to mercury (Hg) methylation. We are also assessing microbiome indicators of soil health and testing approaches to upscale the quantification of ecosystem services (or their loss). Additionally, we aim to target effects that promote peatland-like redevelopment in this area.
-      </p>
+          {/* Research Focus */}
+          <p>
+            As part of an interdisciplinary team, we are focusing on evaluating
+            greenhouse gas production in mining ponds, in the context of
+            microbial community assemblages responsible for producing these
+            gases — with further links to mercury (Hg) methylation. We are also
+            assessing microbiome indicators of soil health and testing
+            approaches to upscale the quantification of ecosystem services (or
+            their loss). Additionally, we aim to target effects that promote
+            peatland-like redevelopment in this area.
+          </p>
 
-      {/* Call to Action */}
-      <p>
-        Please reach out for updates on this project or to explore potential collaborations!
-      </p>
-    </div>
-  ),
-},
+          {/* Call to Action */}
+          <p>
+            Please reach out for updates on this project or to explore potential
+            collaborations!
+          </p>
+        </div>
+      ),
+    },
     {
       title:
         "Anthropogenic drivers and interface with carbon stability in soils",
       content: (
-    <div style={{ display: "flex", alignItems: "flex-start", gap: "20px" }}>
-      {/* Image on the Left */}
-      <div style={{ flex: "1" }}>
-        <img
-          src={drivers}
-          alt="Soil Carbon Mapping in the Peruvian Amazon"
-          style={{ width: "100%", height: "auto", borderRadius: "8px" }}
-        />
-      </div>
+        <div>
+          {/* First Paragraph (Text) */}
+          <div>
+            <p>
+              This area is a newly emerging front in our team’s research. Our
+              interests and explorations involve understanding the rate of Soil
+              Organic Carbon (SOC) loss after various types of land conversion,
+              the gain of SOC in pristine forests, wetlands, or peatlands, and
+              the gain of SOC in anthropogenic environments, including urban
+              areas, riverine margins, agricultural soils, or post-mining soils.
+            </p>
+          </div>
 
-      {/* Text on the Right */}
-      <div style={{ flex: "2" }}>
-        <p>
-          This area is a newly emerging front in our team’s research. Our interests and explorations involve understanding the rate of Soil Organic Carbon (SOC) loss after various types of land conversion, the gain of SOC in pristine forests, wetlands, or peatlands, and the gain of SOC in anthropogenic environments, including urban areas, riverine margins, agricultural soils, or post-mining soils.
-        </p>
-        <p>
-          We aim to develop natural carbon sequestration solutions to combat climate change. Given the extensive interface with anthropogenic processes and local communities, this work is framed under fluid collaborations with social, economic, agricultural, and applied scientists. Community science principles and applications are critical for advancing this interest, and we are always eager to discuss potential collaborations for transdisciplinary research.
-        </p>
-        <p>
-          Current explorations involve mapping the potential of soil carbon sequestration in multiple areas of the Peruvian Amazon (as shown in the figure) or urban wetlands. Reach out to us for updates or progress on this front!
-        </p>
-      </div>
-    </div>
-  ),
-}
+          {/* Image Below the First Text */}
+          <div style={{ textAlign: "center" }}>
+            <img
+              src={drivers}
+              alt="Soil Carbon Mapping in the Peruvian Amazon"
+              style={{ width: "80%", height: "auto", borderRadius: "8px" }}
+            />
+          </div>
+
+          {/* Second and Third Paragraphs (Text) */}
+          <div>
+            <p>
+              We aim to develop natural carbon sequestration solutions to combat
+              climate change. Given the extensive interface with anthropogenic
+              processes and local communities, this work is framed under fluid
+              collaborations with social, economic, agricultural, and applied
+              scientists. Community science principles and applications are
+              critical for advancing this interest, and we are always eager to
+              discuss potential collaborations for transdisciplinary research.
+            </p>
+            <p>
+              Current explorations involve mapping the potential of soil carbon
+              sequestration in multiple areas of the Peruvian Amazon (as shown
+              in the figure) or urban wetlands. Reach out to us for updates or
+              progress on this front!
+            </p>
+          </div>
+        </div>
+      ),
+    },
   ];
 
   // Topic navigation functions
