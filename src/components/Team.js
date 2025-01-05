@@ -13,26 +13,16 @@ const TeamMember = ({ name, details, role }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="border rounded-lg mb-2 shadow-sm">
-      <div
-        className="p-3 flex justify-between items-center cursor-pointer hover:bg-gray-50"
-        onClick={() => setIsExpanded(!isExpanded)}
-      >
-        <div>
-          <h3 className="font-medium">{name}</h3>
-          {role && <p className="text-sm text-gray-600">{role}</p>}
-        </div>
-        <span
-          className={`transform transition-transform ${
-            isExpanded ? "rotate-180" : ""
-          }`}
-        >
-          ▼
-        </span>
+    <div className={`team-member ${isExpanded ? "expanded" : ""}`}>
+      <div className="member-header" onClick={() => setIsExpanded(!isExpanded)}>
+        <h3>{name}</h3>
+        {/* Add a line below the name for the role */}
+        <p className="member-role">{role}</p>
+        <span className="dropdown-arrow">▼</span>
       </div>
       {isExpanded && (
-        <div className="p-3 border-t bg-gray-50">
-          <p className="text-sm">{details}</p>
+        <div className="member-details">
+          <p>{details}</p>
         </div>
       )}
     </div>
@@ -205,20 +195,6 @@ const gradResearchers = [
     },
   ];
 
-    const formattedUndergradAlumni = Object.entries(undergradAlumni).map(([year, students]) => {
-    return students.map(student => ({
-      name: student.split(" (")[0],
-      role: year,
-      details: student.includes("(") ? student.split(" (")[1].replace(")", "") : "Undergraduate Researcher"
-    }));
-  }).flat();
-
-  // Updated high school students data structure
-  const formattedHighSchoolStudents = highSchoolStudents.map(student => ({
-    name: student.name,
-    role: `${student.year}, ${student.school}`,
-    details: student.achievement || "Participated in research projects through the SCENE program"
-  }));
   return (
     <div className="team-page">
       {/* Faculty Section - Keep original */}
@@ -277,42 +253,40 @@ const gradResearchers = [
 
       {/* New Graduate Researchers Section */}
       <section className="mb-12">
-        <h2 className="section-title-2">Graduate Researchers</h2>
-        <div className="flex flex-wrap gap-8">
-          <div className="flex-1">
-            <div className="grid grid-cols-2 gap-4">
-              {" "}
-              {/* Changed from grid-cols-3 to grid-cols-2 */}
-              {gradResearchers.map((researcher, index) => (
-                <div
-                  key={index}
-                  onClick={() => handleGradClick(researcher)}
-                  className="cursor-pointer transition-transform hover:scale-105"
-                >
-                  <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden">
-                    <img
-                      src={researcher.image}
-                      alt={researcher.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="text-center mt-2 text-sm">{researcher.name}</p>
-                  <p className="text-center text-xs text-gray-500">
-                    {researcher.role}
-                  </p>
-                </div>
-              ))}
+  <h2 className="section-title-2">Graduate Researchers</h2>
+  <div className="flex flex-wrap gap-8">
+    <div className="flex-1">
+      <div className="grid grid-cols-2 gap-4"> {/* Changed from grid-cols-3 to grid-cols-2 */}
+        {gradResearchers.map((researcher, index) => (
+          <div
+            key={index}
+            onClick={() => handleGradClick(researcher)}
+            className="cursor-pointer transition-transform hover:scale-105"
+          >
+            <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden">
+              <img
+                src={researcher.image}
+                alt={researcher.name}
+                className="w-full h-full object-cover"
+              />
             </div>
-          </div>
-
-          <div className="flex-1 bg-gray-100 p-4 rounded-lg min-h-[300px]">
-            <p className="whitespace-pre-line">
-              {selectedGradText ||
-                "Click on a graduate researcher's image to see their details"}
+            <p className="text-center mt-2 text-sm">{researcher.name}</p>
+            <p className="text-center text-xs text-gray-500">
+              {researcher.role}
             </p>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+
+    <div className="flex-1 bg-gray-100 p-4 rounded-lg min-h-[300px]">
+      <p className="whitespace-pre-line">
+        {selectedGradText ||
+          "Click on a graduate researcher's image to see their details"}
+      </p>
+    </div>
+  </div>
+</section>
 
       {/* New Postdoctoral Researchers Section */}
       <section className="mb-12">
@@ -333,9 +307,7 @@ const gradResearchers = [
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <p className="text-center mt-2-3 text-sm">
-                    {researcher.name}
-                  </p>
+                  <p className="text-center mt-2-3 text-sm">{researcher.name}</p>
                   {/* Add the role below the name */}
                   <p className="text-cen3ter text-gray-500">
                     {researcher.role}
@@ -401,6 +373,7 @@ const gradResearchers = [
       </section>
 
       <section className="undergrad-alumni-8">
+
         <div className="undergrad-section-1">
           <h3>Undergraduate Alumni</h3>
           {Object.entries(undergradAlumni).map(([year, students]) => (
