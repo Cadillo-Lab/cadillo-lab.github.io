@@ -95,6 +95,14 @@ const Team = () => {
   };
   const gradResearchers = [
     {
+      name: "Jesus Marin Diaz",
+      bio: "PhD. Student in Environmental Life Sciences",
+      image: jesusImage,
+      role: "EVO PhD student",
+      backContent:
+        "Jesus is a first-year Ph.D. student in Environmental Life Sciences at Arizona State University, studying carbon fluxes and ecological modeling of peatlands in the Amazon forest.\n\nHe completed his undergraduate degree in Forest Engineering at La Molina National Agrarian University (Lima, Peru), specializing in remote sensing, forest ecology, and forest biodiversity. He then pursued a master's degree in Civil Engineering at the University of Engineering and Technology (Lima, Peru), focusing on the geomorphology of Amazonian rivers, analyzing multitemporal dynamics and morpho-spatial patterns that influence island formation and river migration.\n\nJesus has extensive experience in geographical information systems (GIS) and remote sensing analysis, producing geospatial elements related to forests and rivers. He has specialized in REDD+ (Reduction of Emissions from Deforestation and Degradation) projects, contributing to the formulation of project documents, baseline establishment for GHG emission levels, LULC maps, deforestation and degradation modeling, and quantifying emission reductions for the voluntary carbon market.\n\nHis main research interest is to evaluate the interactions between geomorphological dynamics of rivers and forest ecosystems, particularly how sediment and flood presence affect carbon fluxes and stocks. Through ecological modeling, he aims to establish connections between biotic and abiotic elements of the landscape at different scales, exploring intricate ecological relationships and patterns.",
+    },
+    {
       name: "Michael Pavia",
       bio: "PhD. Candidate",
       image: MichaelImage,
@@ -133,14 +141,6 @@ const Team = () => {
       role: "ELS PhD student",
       backContent:
         "Originally from Lecce, Italy, Alice completed her Bachelor’s and Master’s degree in Biological Sciences and Biology from ASU in Spring 2021 and 2023, respectively. Her background is in ecology and conservation biology coupled with socio-ecological relationships, which she initially developed through an environmental humanities independent study on landscape change. Her Master’s research investigates the development of decision-making tools to inform endangered species recovery programs and their funding.\n\nAlice joined the Cadillo Lab in 2023 to explore a deeper understanding of ecosystem functioning at various scales through her interest in microbial ecology and tropical ecosystems, hoping to ultimately tackle bigger questions surrounding climate change. As a first-year PhD student in the Biology & Society PhD program, 4E (Ecology, Economics, and Ethics of the Environment) track, she is currently working on developing her first project in a collaboration between the Cadillo lab and the Conservation Innovation lab. She plans on exploring avenues for ecosystem conservation in the Peruvian Amazon and peatlands by investigating relationships between biodiversity and carbon flux while being conscious of the sociocultural and economic regional landscape. Her additional research interests include interspecies interactions and science teaching at the university level.\n\nAlice’s end goal in research is to collaborate in and develop interdisciplinary methods of tackling climate change and the extinction crisis. As well as conducting research, she would like to eventually have a teaching position at a post-secondary educational institution.",
-    },
-    {
-      name: "Jesus Marin Diaz",
-      bio: "PhD. Student in Environmental Life Sciences",
-      image: jesusImage,
-      role: "EVO PhD student",
-      backContent:
-        "Jesus is a first-year Ph.D. student in Environmental Life Sciences at Arizona State University, studying carbon fluxes and ecological modeling of peatlands in the Amazon forest.\n\nHe completed his undergraduate degree in Forest Engineering at La Molina National Agrarian University (Lima, Peru), specializing in remote sensing, forest ecology, and forest biodiversity. He then pursued a master's degree in Civil Engineering at the University of Engineering and Technology (Lima, Peru), focusing on the geomorphology of Amazonian rivers, analyzing multitemporal dynamics and morpho-spatial patterns that influence island formation and river migration.\n\nJesus has extensive experience in geographical information systems (GIS) and remote sensing analysis, producing geospatial elements related to forests and rivers. He has specialized in REDD+ (Reduction of Emissions from Deforestation and Degradation) projects, contributing to the formulation of project documents, baseline establishment for GHG emission levels, LULC maps, deforestation and degradation modeling, and quantifying emission reductions for the voluntary carbon market.\n\nHis main research interest is to evaluate the interactions between geomorphological dynamics of rivers and forest ecosystems, particularly how sediment and flood presence affect carbon fluxes and stocks. Through ecological modeling, he aims to establish connections between biotic and abiotic elements of the landscape at different scales, exploring intricate ecological relationships and patterns.",
     },
   ];
 
@@ -280,7 +280,7 @@ const Team = () => {
       {/* Faculty Section - Keep original */}
       <section className="faculty" style={{ color: "black" }}>
         <h2 className="section-title-1" style={{ color: "black" }}>
-          Faculty
+          Research Team
         </h2>
         <div className="faculty-container">
           <img src={facultyImage} alt="Faculty" className="faculty-photo" />
@@ -351,7 +351,7 @@ const Team = () => {
                   onMouseLeave={() => setHoveredResearcherDetails("")}
                   className="cursor-pointer transition-transform hover:scale-105"
                 >
-                  <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden">
+                  <div className="w-33 h-33 bg-gray-300 rounded-full overflow-hidden">
                     <img
                       src={researcher.image}
                       alt={researcher.name}
@@ -388,9 +388,51 @@ const Team = () => {
                 <div
                   key={index}
                   onMouseEnter={() =>
-                    setHoveredPostdocDetails(
-                      researcher.backContent 
-                    )
+                    setHoveredPostdocDetails(researcher.backContent)
+                  }
+                  onMouseLeave={() => setHoveredPostdocDetails("")}
+                  className="cursor-pointer transition-transform hover:scale-105"
+                >
+                  <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden">
+                    <img
+                      src={researcher.image}
+                      alt={researcher.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="text-center mt-2-3 text-sm">
+                    {researcher.name}
+                  </p>
+                  <p className="text-center text-gray-500">{researcher.role}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Panel: Details */}
+          <div className="flex-1 bg-gray-100 p-4 rounded-lg min-h-[300px]">
+            <p className="whitespace-pre-line">
+              {hoveredPostdocDetails ||
+                "Hover over a postdoctoral researcher's image to see their details"}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Undergraduate Students Section */}
+      <section className="mb-12">
+        <h2 className="section-title-3" style={{ color: "black" }}>
+          Postdoctoral Researchers
+        </h2>
+        <div className="flex flex-wrap gap-8">
+          {/* Left Panel: Postdoctoral Researchers */}
+          <div className="flex-1">
+            <div className="grid grid-cols-2 gap-4">
+              {postdocResearchers.map((researcher, index) => (
+                <div
+                  key={index}
+                  onMouseEnter={() =>
+                    setHoveredPostdocDetails(researcher.backContent)
                   }
                   onMouseLeave={() => setHoveredPostdocDetails("")}
                   className="cursor-pointer transition-transform hover:scale-105"

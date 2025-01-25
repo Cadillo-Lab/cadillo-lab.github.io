@@ -25,6 +25,7 @@
 }
 
 p {
+  line-height: 1;
     color: #000000;
 }
 
@@ -44,9 +45,9 @@ p {
 }
 
 .faculty-photo {
-  width: 300px;
-  height: 300px;
-  padding-top: 8rem;
+  width: 280px;
+  height: 280px;
+  padding-top: 6rem;
   object-fit: auto;
   border-radius: 8px;
 }
@@ -119,12 +120,13 @@ p {
 }
 
 /* Circular Images */
-.w-32 {
+.w-33 {
   width: 15rem;
 }
 
-.h-32 {
+.h-33 {
   height: 15rem;
+  margin-left: 5rem;
 }
 
 .bg-gray-300 {
