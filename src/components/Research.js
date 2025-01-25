@@ -29,20 +29,21 @@ const Research = () => {
       content: (
         <div>
           <p>
-            Methane (CH4) concentrations in the global atmosphere are
+            Methane CH<sub>4</sub> concentrations in the global atmosphere are
             increasing, with rapid acceleration observed in recent years. The
             exact cause of such increase is uncertain, however isotopic evidence
             and transport models point to a biogenic source – tropical wetlands
             and the Amazon basin. In fact, modeled remote sensing products
             (Image from NASA Global Atmospheric Map) suggest the occurrence of
-            key regional CH4 hotspot regions over the Amazon. Our work focuses
-            on those regions as areas of overlap with Amazon peatlands and
-            possible control on emissions, also as regions where anthropogenic
-            pressures are increasing through deforestation, agriculture, and
-            mining, and also as regions where local communities are
-            disproportionately affected by climate change and conservation
+            key regional CH<sub>4</sub> hotspot regions over the Amazon. Our
+            work focuses on those regions as areas of overlap with Amazon
+            peatlands and possible control on emissions, also as regions where
+            anthropogenic pressures are increasing through deforestation,
+            agriculture, and mining, and also as regions where local communities
+            are disproportionately affected by climate change and conservation
             efforts, yet communities are the key to possible natural solutions.
           </p>
+
           <img
             src={amazonpeatland1}
             alt="Amazon Peatlands"
@@ -56,10 +57,12 @@ const Research = () => {
             of the Earth’s largest expanses of tropical peatlands. These large
             (yet coarsely quantified) SOC stocks are subject to warm
             temperatures and variable hydromorphic conditions, driving the
-            production of CO2 and CH4. Our studies continue investigating GHG
-            fluxes in Amazon peatlands, the microbial controls, the effects of
-            vegetation types on SOC, and flood effects or transport of CH4.
+            production of CO<sub>2</sub> and CH<sub>4</sub>. Our studies
+            continue investigating GHG fluxes in Amazon peatlands, the microbial
+            controls, the effects of vegetation types on SOC, and flood effects
+            or transport of CH<sub>4</sub>.
           </p>
+
           <img
             src={amazonpeatland2}
             alt="Peatland Region"
@@ -92,14 +95,14 @@ const Research = () => {
             peatlands. Core findings involve that differential tree traits
             (mortality, photosynthesis, species) strongly relate to overall
             methane flux differences across sites, but seasonal hydrology seems
-            to mark the annual CH4 oscillations. We also uncovered critical
-            rates of tree-mediated CH4 flux, as well as soil nutritional
-            constraints, and identified a major role for denitrification and
-            nitrous oxide interactions that can putatively limit CH4 generation.
-            Modeling of long-term SOC in the region by Q. Zhuang at Purdue
-            University developed the first predictions of how the region would
-            become a hotspot of soil carbon loss that will likely lead to more
-            methane emissions.
+            to mark the annual CH<sub>4</sub> oscillations. We also uncovered
+            critical rates of tree-mediated CH<sub>4</sub> flux, as well as
+            soil nutritional constraints, and identified a major role for
+            denitrification and nitrous oxide interactions that can putatively
+            limit CH<sub>4</sub> generation. Modeling of long-term SOC in the
+            region by Q. Zhuang at Purdue University developed the first
+            predictions of how the region would become a hotspot of soil carbon
+            loss that will likely lead to more methane emissions.
           </p>
           <p>
             <strong>
@@ -120,13 +123,13 @@ const Research = () => {
             the most comprehensive and high-resolution analyses of an Amazon
             peatland site, with the goal to expand and calibrate the Energy
             Exascale Earth System Model (E3SM) land surface component (ELM) to
-            improve its ability to simulate CH4 production and consumption in
-            tropical peatlands. The Cadillo lab focuses on examining the
-            importance of anaerobic oxidation of methane (AOM) in determining
-            the CH4 budget. The team is led by Tim Griffis at the University of
-            Minnesota and includes members from the US Forest Service, Michigan
-            Tech University, Oak Ridge National Laboratory, and Instituto de la
-            Amazonia Peruana.
+            improve its ability to simulate CH<sub>4</sub> production and
+            consumption in tropical peatlands. The Cadillo lab focuses on
+            examining the importance of anaerobic oxidation of methane (AOM) in
+            determining the CH<sub>4</sub> budget. The team is led by Tim
+            Griffis at the University of Minnesota and includes members from the
+            US Forest Service, Michigan Tech University, Oak Ridge National
+            Laboratory, and Instituto de la Amazonia Peruana.
           </p>
           <p>
             <strong>
@@ -142,19 +145,20 @@ const Research = () => {
           </p>
           <p>
             This project seeks to examine the microorganisms influencing the
-            production and consumption of CH4 gas in Amazon peatlands. Breaching
-            the microbial and educational gap is paramount to this project, and
-            using Inquiry-Based Learning (IBL) teaching and training for
-            national and international collaboration has been implemented to: i)
-            quantify the spatial scale in CH4 fluctuations; ii) isolate
-            thousands of strains to complete functional tests in the lab; iii)
-            implement microbial traits in site-specific models; iv) develop and
-            release curricular resources to expand international microbial
-            isolations. This ongoing project welcomes collaborations on
-            site-specific methane models, microbial-inclusive modeling,
-            microbial physiology of methanogens, methanotrophs and heterotrophs,
-            microbial genomics, and evolutionary interactions among microbes and
-            microbes and plants. Please feel free to reach our team!
+            production and consumption of CH<sub>4</sub> gas in Amazon
+            peatlands. Breaching the microbial and educational gap is paramount
+            to this project, and using Inquiry-Based Learning (IBL) teaching and
+            training for national and international collaboration has been
+            implemented to: i) quantify the spatial scale in CH<sub>4</sub>
+            fluctuations; ii) isolate thousands of strains to complete
+            functional tests in the lab; iii) implement microbial traits in
+            site-specific models; iv) develop and release curricular resources
+            to expand international microbial isolations. This ongoing project
+            welcomes collaborations on site-specific methane models,
+            microbial-inclusive modeling, microbial physiology of methanogens,
+            methanotrophs and heterotrophs, microbial genomics, and evolutionary
+            interactions among microbes and microbes and plants. Please feel
+            free to reach our team!
           </p>
         </div>
       ),
@@ -173,18 +177,19 @@ const Research = () => {
             transitioning to expanding wetlands due to permafrost thawing or
             changed rain patterns can have the most significant impact in
             atmospheric change and further add to climate warming by the
-            increased release of greenhouse gases (GHG) such as CO2 and methane
-            (CH4).
+            increased release of greenhouse gases (GHG) such as C0<sub>2</sub>{" "}
+            and methane (CH<sub>4</sub>).
           </p>
           <p>
-            Peatlands in the north are among the main natural sources of CH4
-            release, and CH4 is released as a direct consequence of OC
-            decomposition by microbial activity. Meanwhile, northern forest
-            tends to have a CH4 consumption role (sinks) by microbial community.
-            Understanding the microbial role in controlling the substrates
-            needed for CH4 production, or changes in the conditions that deter
-            microbes oxidizing CH4 activity urgent attention if we are to
-            accurately predict rates of CH4 emissions or feedbacks associated
+            Peatlands in the north are among the main natural sources of (CH
+            <sub>4</sub>) release, and CH<sub>4</sub> is released as a direct
+            consequence of OC decomposition by microbial activity. Meanwhile,
+            northern forest tends to have a CH<sub>4</sub> consumption role
+            (sinks) by microbial community. Understanding the microbial role in
+            controlling the substrates needed for CH<sub>4</sub> production,
+            or changes in the conditions that deter microbes oxidizing (CH
+            <sub>4</sub>) activity urgent attention if we are to accurately
+            predict rates of CH<sub>4</sub> emissions or feedbacks associated
             with atmospheric warming.
           </p>
           <p>
@@ -249,21 +254,22 @@ const Research = () => {
     },
     {
       title:
-        "CH4 and GHG emissions as microbiome responses to manipulations: Landfill case",
+        "CH₄ and GHG emissions as microbiome responses to manipulations: Landfill case",
       content: (
         <div>
           {/* First Paragraph with Image Below */}
           <div>
             <p>
-              The mitigation of methane (CH4) emissions is key for the
-              management of Municipal Solid Waste (MSW) landfills, and this is
-              achieved by CH4 harvesting technologies which is also a mechanism
-              for alternative Sustainable Energy Systems. In arid regions like
-              Phoenix, AZ, CH4 production is limited by water availability.
-              Landfill reactor cells, like those in the Salt River Landfill
-              (SRL), are designed to perform water injection and collect
-              generated CH4. However, the effects of this technology on CH4
-              emissions or the microbes responsible for CH4 production or
+              The mitigation of methane (CH<sub>4</sub>) emissions is key for
+              the management of Municipal Solid Waste (MSW) landfills, and this
+              is achieved by CH<sub>4</sub> harvesting technologies which is
+              also a mechanism for alternative Sustainable Energy Systems. In
+              arid regions like Phoenix, AZ, CH<sub>4</sub> production is
+              limited by water availability. Landfill reactor cells, like those
+              in the Salt River Landfill (SRL), are designed to perform water
+              injection and collect generated CH<sub>4</sub>. However, the
+              effects of this technology on CH<sub>4</sub> emissions or the
+              microbes responsible for CH<sub>4</sub> production or
               geotechnical changes in landfill are not well understood for arid
               landfills. In fact, the microbiome evolution in landfills remains
               highly under-studied.
@@ -289,8 +295,8 @@ const Research = () => {
               we use a combination of landfill sampling (leachate and gases),
               experimental manipulations (laboratory reactors), and Eddy
               Covariance atmospheric monitoring. We are also seeking alternative
-              ways to detect CH4 to optimize landfill monitoring and
-              functioning. New avenues of this research include geotechnical
+              ways to detect CH<sub>4</sub> to optimize landfill monitoring
+              and functioning. New avenues of this research include geotechnical
               approaches to soil coverage and easy access biofilters (reactors)
               to seek transformation of low-quality methane to bioproducts.
               Please feel free to reach us on potential industrial or academic
@@ -360,7 +366,7 @@ const Research = () => {
             organisms can generate functional guilds in soils. Thus, a
             quantitative understanding of trait presence, trait magnitude, and
             trait spectrum of variation can be a powerful component for
-            function-based modeling of CH4 flux.
+            function-based modeling of CH<sub>4</sub> flux.
           </p>
 
           {/* Final Paragraph */}
