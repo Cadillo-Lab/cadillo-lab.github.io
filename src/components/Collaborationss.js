@@ -134,7 +134,7 @@ const Collaborationss = () => {
             carbon-rich environments around the world. Below find a list of
             institutions with which we have or currently collaborate:
           </p>
-          <ul className="partners-list">
+          <ul className="partners-list" style={{ marginTop: "1rem" }}>
             <li>Universidad Nacional de la Amazonia Peruana (UNAP)</li>
             <li>Universidad Nacional Autónoma de Alto Amazonas (UNAA)</li>
             <li>Instituto de Investigaciones de la Amazonia Peruana (IIAP)</li>
