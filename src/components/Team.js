@@ -1029,65 +1029,63 @@ const highSchoolResearchers = [
                 ))}
               </div>
             </div>
+
+            {/* New Section for Graduate Students */}
+            <h3>Graduate Students</h3>
+            <ul>
+              {graduateStudents.map((student, index) => (
+                <li key={index}>
+                  <strong>{student.year}:</strong> {student.name},{" "}
+                  {student.program}: <em>{student.project}</em>
+                </li>
+              ))}
+            </ul>
+
+            {/* Barrett Honors Thesis */}
+            <h3>Barrett Honors Thesis</h3>
+            <ul>
+              {honorsThesis.map((thesis, index) => (
+                <li key={index}>
+                  <strong>{thesis.year}:</strong> {thesis.name}, {thesis.major}:{" "}
+                  <em>{thesis.project}</em>
+                </li>
+              ))}
+            </ul>
+
+            {/* Undergraduate Researchers */}
+            <h3>Undergraduate Researchers</h3>
+            <ul>
+              {undergraduateResearchers.map((researcher, index) => (
+                <li key={index}>
+                  <strong>{researcher.year}:</strong> {researcher.name} (
+                  {researcher.program})
+                </li>
+              ))}
+            </ul>
+
+            {/* High School Researchers */}
+            <h3>High School Researchers</h3>
+            <ul>
+              {highSchoolResearchers.map((researcher, index) => (
+                <li key={index}>
+                  <strong>{researcher.year}:</strong> {researcher.name}:{" "}
+                  <em>{researcher.project}</em>
+                </li>
+              ))}
+            </ul>
+
+            {/* Visiting Scholar*/}
+            <h3>Visiting Scholar</h3>
+            <ul>
+              {internationalScholarsAndInterns.map((researcher, index) => (
+                <li key={index}>
+                  <strong>{researcher.year}:</strong> {researcher.name}:{" "}
+                  <em>{researcher.project}</em>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
-
-        {/* New Section for Graduate Students */}
-        <div className="dropdown-content">
-          <h3>Graduate Students</h3>
-          <ul>
-            {graduateStudents.map((student, index) => (
-              <li key={index}>
-                <strong>{student.year}:</strong> {student.name},{" "}
-                {student.program}: <em>{student.project}</em>
-              </li>
-            ))}
-          </ul>
-
-          {/* Barrett Honors Thesis */}
-          <h3>Barrett Honors Thesis</h3>
-          <ul>
-            {honorsThesis.map((thesis, index) => (
-              <li key={index}>
-                <strong>{thesis.year}:</strong> {thesis.name}, {thesis.major}:{" "}
-                <em>{thesis.project}</em>
-              </li>
-            ))}
-          </ul>
-
-          {/* Undergraduate Researchers */}
-          <h3>Undergraduate Researchers</h3>
-          <ul>
-            {undergraduateResearchers.map((researcher, index) => (
-              <li key={index}>
-                <strong>{researcher.year}:</strong> {researcher.name} (
-                {researcher.program})
-              </li>
-            ))}
-          </ul>
-
-          {/* High School Researchers */}
-          <h3>High School Researchers</h3>
-          <ul>
-            {highSchoolResearchers.map((researcher, index) => (
-              <li key={index}>
-                <strong>{researcher.year}:</strong> {researcher.name}:{" "}
-                <em>{researcher.project}</em>
-              </li>
-            ))}
-          </ul>
-
-          {/* Visiting Scholar*/}
-          <h3>Visiting Scholar</h3>
-          <ul>
-            {internationalScholarsAndInterns.map((researcher, index) => (
-              <li key={index}>
-                <strong>{researcher.year}:</strong> {researcher.name}:{" "}
-                <em>{researcher.project}</em>
-              </li>
-            ))}
-          </ul>
-        </div>
       </section>
     </div>
   );
