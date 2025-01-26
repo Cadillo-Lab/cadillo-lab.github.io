@@ -8,6 +8,12 @@ import aliceImage from "../assets/Alice.png";
 import jesusImage from "../assets/Jesus2.png";
 import jieImage from "../assets/jie.jpg";
 import janaImage from "../assets/Jana_2.png";
+import david1 from "../assets/placeholder.jpg";
+import luka from "../assets/placeholder.jpg";
+import ug1 from "../assets/placeholder.jpg";
+import ug2 from "../assets/placeholder.jpg";
+import ug3 from "../assets/placeholder.jpg";
+import ug4 from "../assets/placeholder.jpg";
 
 const TeamMember = ({ name, details, role }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -35,7 +41,42 @@ const Team = () => {
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
   const [hoveredResearcherDetails, setHoveredResearcherDetails] = useState("");
     const [hoveredPostdocDetails, setHoveredPostdocDetails] = useState("");
+    const [openAlumniDropdown, setOpenAlumniDropdown] = useState(false);
+    const [openDropdownPhD, setOpenDropdownPhD] = useState(null);
+    const [openDropdownPostdoc, setOpenDropdownPostdoc] = useState(null);
+    const [openDropdownUndergrad, setOpenDropdownUndergrad] = useState(null);
 
+    const graduateAlumni = [
+      { name: "PhD Alum 1", details: "Details for PhD Alum 1" },
+      { name: "PhD Alum 2", details: "Details for PhD Alum 2" },
+    ];
+
+    const postdocAlumni = [
+      { name: "Postdoc Alum 1", details: "Details for Postdoc Alum 1" },
+      { name: "Postdoc Alum 2", details: "Details for Postdoc Alum 2" },
+    ];
+
+    const undergradAlumn = [
+      { name: "Undergrad Alum 1", details: "Details for Undergrad Alum 1" },
+      { name: "Undergrad Alum 2", details: "Details for Undergrad Alum 2" },
+    ];
+
+    const handleToggleAlumni = () => {
+      setOpenAlumniDropdown(!openAlumniDropdown);
+    };
+
+    const handleTogglePhD = (index) => {
+      setOpenDropdownPhD(openDropdownPhD === index ? null : index);
+    };
+
+    const handleTogglePostdoc = (index) => {
+      setOpenDropdownPostdoc(openDropdownPostdoc === index ? null : index);
+    };
+
+    const handleToggleUndergrad = (index) => {
+      setOpenDropdownUndergrad(openDropdownUndergrad === index ? null : index);
+    };
+  
   const handleToggle = (index) => {
     if (openDropdownIndex === index) {
       setOpenDropdownIndex(null); // Close the dropdown if it's already open
@@ -163,6 +204,45 @@ const Team = () => {
     },
   ];
 
+    const undergraduate = [
+      {
+        name: "David Nguyen, BS",
+        bio: "Undergraduate researcher",
+        image: david1,
+        role: "Undergraduate Researcher",
+      },
+      {
+        name: "Luka Castillejo Olazabal, BS",
+        bio: "Undergraduate researcher",
+        image: luka,
+        role: "Undergraduate Researcher",
+      },
+      {
+        name: "Placeholer, BS",
+        bio: "Undergraduate researcher",
+        image: ug1,
+        role: "Undergraduate Researcher",
+      },
+      {
+        name: "Placeholer, BS",
+        bio: "Undergraduate researcher",
+        image: ug2,
+        role: "Undergraduate Researcher",
+      },
+      {
+        name: "Placeholer, BS",
+        bio: "Undergraduate researcher",
+        image: ug3,
+        role: "Undergraduate Researcher",
+      },
+      {
+        name: "Placeholer, BS",
+        bio: "Undergraduate researcher",
+        image: ug4,
+        role: "Undergraduate Researcher",
+      },
+    ];
+  
   const handleGradClick = (researcher) => {
     setSelectedGradText(
       `${researcher.name} - ${researcher.bio}\n\n${researcher.backContent}`
@@ -422,232 +502,141 @@ const Team = () => {
       {/* Undergraduate Students Section */}
       <section className="mb-12">
         <h2 className="section-title-3" style={{ color: "black" }}>
-          Postdoctoral Researchers
+          Undergraduate Researchers
         </h2>
         <div className="flex flex-wrap gap-8">
-          {/* Left Panel: Postdoctoral Researchers */}
+          {/* Left Panel: Undergraduate Researchers */}
           <div className="flex-1">
-            <div className="grid grid-cols-2 gap-4">
-              {postdocResearchers.map((researcher, index) => (
+            <div className="grid grid-cols-3 gap-4">
+              {undergraduate.map((undergraduate, index) => (
                 <div
-                  key={index}
-                  onMouseEnter={() =>
-                    setHoveredPostdocDetails(researcher.backContent)
-                  }
-                  onMouseLeave={() => setHoveredPostdocDetails("")}
-                  className="cursor-pointer transition-transform hover:scale-105"
+                //key={index}
+                //onMouseEnter={() =>
+                //setHoveredPostdocDetails(undergraduate.backContent)
+                //}
+                //onMouseLeave={() => setHoveredPostdocDetails("")}
+                //className="cursor-pointer transition-transform hover:scale-105"
                 >
                   <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden">
                     <img
-                      src={researcher.image}
-                      alt={researcher.name}
+                      src={undergraduate.image}
+                      alt={undergraduate.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <p className="text-center mt-2-3 text-sm">
-                    {researcher.name}
+                    {undergraduate.name}
                   </p>
-                  <p className="text-center text-gray-500">{researcher.role}</p>
+                  <p className="text-center text-gray-500">
+                    {undergraduate.role}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Right Panel: Details */}
-          <div className="flex-1 bg-gray-100 p-4 rounded-lg min-h-[300px]">
-            <p className="whitespace-pre-line">
-              {hoveredPostdocDetails ||
-                "Hover over a postdoctoral researcher's image to see their details"}
-            </p>
+      <section className="alumni">
+        <h2 className="section-title-4" style={{ color: "black" }}>
+          Alumni
+        </h2>
+        <div className="flex" onClick={handleToggleAlumni}>
+          <span>Alumni</span>
+          <button>
+            <span
+              className={`transform ${openAlumniDropdown ? "rotate-180" : ""}`}
+            >
+              &#9660;
+            </span>
+          </button>
+        </div>
+
+        {openAlumniDropdown && (
+          <div className="dropdown-content">
+            <div className="alumni-columns">
+              {/* PhD Alumni Column */}
+              <div className="column">
+                <h3>PhD</h3>
+                {graduateAlumni.map((alumni, index) => (
+                  <div key={index} className="alumni-item">
+                    <span>{alumni.name}</span>
+                    <p>{alumni.details}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Postdoc Alumni Column */}
+              <div className="column">
+                <h3>Postdoc</h3>
+                {postdocAlumni.map((alumni, index) => (
+                  <div key={index} className="alumni-item">
+                    <span>{alumni.name}</span>
+                    <p>{alumni.details}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Undergraduate Alumni Column */}
+              <div className="column">
+                <h3>Undergraduate</h3>
+                {undergradAlumni.map((alumni, index) => (
+                  <div key={index} className="alumni-item">
+                    <span>
+                      {alumni.name} {alumni.year}
+                    </span>
+                    <p>{alumni.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        )}
 
-      {/* Alumni Section */}
-      <section className="alumni">
-        <h2 className="section-title-4" style={{ color: "black" }}>
-          Graduate/Postdoctoral Alumni
-        </h2>
-        <div className="alumni-list">
-          {alumniData.map((alumni, index) => (
-            <div key={index} className="alumni-item">
-              <div className="flex" onClick={() => handleToggle(index)}>
-                <span>{alumni.name}</span>
-                <button>
-                  <span
-                    className={`transform ${
-                      openDropdownIndex === index ? "rotate-180" : ""
-                    }`}
-                  >
-                    &#9660;
-                  </span>
-                </button>
-              </div>
-              {openDropdownIndex === index && (
-                <div className="dropdown-content">
-                  <p>{alumni.details}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-      {/* Other sections remain the same */}
-      {/* Alumni Section */}
-      <section className="alumni">
-        <h2 className="section-title-4" style={{ color: "black" }}>
-          Undergraduate Student
-        </h2>
-        <div className="alumni-list">
-          {ugstudentData.map((alumni, index) => (
-            <div key={index} className="alumni-item">
-              <div className="flex" onClick={() => handleToggle1(index)}>
-                <span>{alumni.name}</span>
-                <button>
-                  <span
-                    className={`transform ${
-                      openDropdownIndex1 === index ? "rotate-180" : ""
-                    }`}
-                  >
-                    &#9660;
-                  </span>
-                </button>
-              </div>
-              {openDropdownIndex1 === index && (
-                <div className="dropdown-content">
-                  <p>{alumni.details}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
+        {/* New Section for Graduate Students */}
+        <div className="dropdown-content">
+          <h3>Graduate Students</h3>
+          <ul>
+            {graduateStudents.map((student, index) => (
+              <li key={index}>
+                <strong>{student.year}:</strong> {student.name},{" "}
+                {student.program}: <em>{student.project}</em>
+              </li>
+            ))}
+          </ul>
 
-      <section className="alumni">
-        <h2 className="section-title-4" style={{ color: "black" }}>
-          Honors Thesis Students
-        </h2>
-        <div className="alumni-list">
-          {honorsThesis.map((alumni, index) => (
-            <div key={index} className="alumni-item">
-              <div className="flex" onClick={() => handleToggle2(index)}>
-                <span>{alumni.name}</span>
-                <button>
-                  <span
-                    className={`transform ${
-                      openDropdownIndex2 === index ? "rotate-180" : ""
-                    }`}
-                  >
-                    &#9660;
-                  </span>
-                </button>
-              </div>
-              {openDropdownIndex2 === index && (
-                <div className="dropdown-content">
-                  <p>{alumni.details}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
+          {/* Barrett Honors Thesis */}
+          <h3>Barrett Honors Thesis</h3>
+          <ul>
+            {honorsThesis.map((thesis, index) => (
+              <li key={index}>
+                <strong>{thesis.year}:</strong> {thesis.name}, {thesis.major}:{" "}
+                <em>{thesis.project}</em>
+              </li>
+            ))}
+          </ul>
 
-      {/* Alumni Section */}
-      <section className="alumni">
-        <h2 className="section-title-4" style={{ color: "black" }}>
-          Visiting Scientist
-        </h2>
-        <div className="alumni-list">
-          {visitingScientists.map((alumni, index) => (
-            <div key={index} className="alumni-item">
-              <div className="flex" onClick={() => handleToggle3(index)}>
-                <span>{alumni.name}</span>
-                <button>
-                  <span
-                    className={`transform ${
-                      openDropdownIndex3 === index ? "rotate-180" : ""
-                    }`}
-                  >
-                    &#9660;
-                  </span>
-                </button>
-              </div>
-              {openDropdownIndex3 === index && (
-                <div className="dropdown-content">
-                  <p>{alumni.details}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
+          {/* Undergraduate Researchers */}
+          <h3>Undergraduate Researchers</h3>
+          <ul>
+            {undergraduateResearchers.map((researcher, index) => (
+              <li key={index}>
+                <strong>{researcher.year}:</strong> {researcher.name} (
+                {researcher.program})
+              </li>
+            ))}
+          </ul>
 
-      {/* Alumni Section */}
-      <section className="alumni">
-        <h2 className="section-title-4" style={{ color: "black" }}>
-          Undergraduate Alumni
-        </h2>
-        <div className="alumni-list">
-          {undergradAlumni.map((alumni, index) => (
-            <div key={index} className="alumni-item">
-              <div className="flex" onClick={() => handleToggle4(index)}>
-                <span>{alumni.name}</span>
-                <button>
-                  <span
-                    className={`transform ${
-                      openDropdownIndex4 === index ? "rotate-180" : ""
-                    }`}
-                  >
-                    &#9660;
-                  </span>
-                </button>
-              </div>
-              {openDropdownIndex4 === index && (
-                <div className="dropdown-content">
-                  <p>{alumni.detail}</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="high-school">
-        <h2 className="section-title-4" style={{ color: "black" }}>
-          High-School
-        </h2>
-        <div className="note">
-          <p>
-            <em>
-              High school students participate in our lab through the Southwest
-              Center for Education and the Natural Environment (SCENE) program
-              in partnership with local high school students and ASU's Global
-              Institute of Sustainability
-            </em>
-          </p>
-        </div>
-        <div className="alumni-list">
-          {highSchoolStudents.map((alumni, index) => (
-            <div key={index} className="alumni-item">
-              <div className="flex" onClick={() => handleToggle5(index)}>
-                <span>{alumni.name}</span>
-                <button>
-                  <span
-                    className={`transform ${
-                      openDropdownIndex5 === index ? "rotate-180" : ""
-                    }`}
-                  >
-                    &#9660;
-                  </span>
-                </button>
-              </div>
-              {openDropdownIndex5 === index && (
-                <div className="dropdown-content">
-                  <p>{alumni.detail}</p>
-                </div>
-              )}
-            </div>
-          ))}
+          {/* High School Researchers */}
+          <h3>High School Researchers</h3>
+          <ul>
+            {highSchoolResearchers.map((researcher, index) => (
+              <li key={index}>
+                <strong>{researcher.year}:</strong> {researcher.name}:{" "}
+                <em>{researcher.project}</em>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </div>
