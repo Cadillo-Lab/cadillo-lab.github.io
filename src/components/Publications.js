@@ -43,6 +43,15 @@ import publication37 from "../assets/39.png";
 import publication38 from "../assets/40.png";
 import publication39 from "../assets/41.png";
 import publication40 from "../assets/42.png";
+import publicationnew1 from "../assets/publicationnew1.png";
+import publicationnew2 from "../assets/publicationnew2.png";
+import publicationnew3 from "../assets/publicationnew3.png";
+import publicationnew4 from "../assets/publicationnew4.png";
+import publicationnew5 from "../assets/publicationnew5.png";
+import publicationnew6 from "../assets/publicationnew6.png";
+import publicationnew7 from "../assets/publicationnew7.png";
+import publicationnew8 from "../assets/publicationnew8.png";
+import publicationnew9 from "../assets/publicationnew9.png";
 
 const Publications = () => {
   return (
@@ -60,18 +69,46 @@ const Publications = () => {
           <h2>Publications from 2024</h2>
           <div className="publication-row">
             <a
-              href="https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-023-01625-8"
+              href="https://journals.asm.org/doi/10.1128/spectrum.00387-24"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={publication_1} alt="Publication 1" />
+              <img src={publicationnew1} alt="Publication 1" />
             </a>
             <a
-              href="https://www.sciencedirect.com/science/article/abs/pii/S0168192323000588?via%3Dihub"
+              href="https://www.sciencedirect.com/science/article/pii/S016770122400109X"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={publication_2} alt="Publication 2" />
+              <img src={publicationnew2} alt="Publication 2" />
+            </a>
+            <a
+              href="https://nap.nationalacademies.org/catalog/27157/a-research-agenda-toward-atmospheric-methane-removal"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={publicationnew3} alt="Publication 2" />
+            </a>
+            <a
+              href="https://www.researchgate.net/publication/383460219_Tropical_peat_composition_may_provide_a_negative_feedback_on_fire_occurrence_and_severity"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={publicationnew4} alt="Publication 2" />
+            </a>
+            <a
+              href="https://www.researchgate.net/publication/381582183_A_global_atlas_of_soil_viruses_reveals_unexplored_biodiversity_and_potential_biogeochemical_impacts"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={publicationnew5} alt="Publication 2" />
+            </a>
+            <a
+              href="https://www.researchgate.net/publication/371024995_Assessment_of_vegetation_and_peat_soil_characteristics_of_a_fire-impacted_tropical_peatland_in_Costa_Rica"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={publicationnew6} alt="Publication 2" />
             </a>
           </div>
         </div>
@@ -79,6 +116,27 @@ const Publications = () => {
         <div className="year-section">
           <h2>Publications from 2023</h2>
           <div className="publication-row">
+            <a
+              href="https://www.researchgate.net/publication/374630017_Unraveling_the_functional_dark_matter_through_global_metagenomics"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={publicationnew7} alt="Publication 2" />
+            </a>
+            <a
+              href="https://www.researchgate.net/publication/373218617_BinaRena_a_dedicated_interactive_platform_for_human-guided_exploration_and_binning_of_metagenomes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={publicationnew8} alt="Publication 2" />
+            </a>
+            <a
+              href="https://doi.org/10.1111/1462-2920.16469"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={publicationnew9} alt="Publication 2" />
+            </a>
             <a
               href="https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-023-01625-8"
               target="_blank"
