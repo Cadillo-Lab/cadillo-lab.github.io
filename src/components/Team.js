@@ -25,19 +25,19 @@ const Team = () => {
     const [openDropdownUndergrad, setOpenDropdownUndergrad] = useState(null);
 
     const graduateAlumni = [
-      { name: "PhD Alum 1", details: "Details for PhD Alum 1" },
-      { name: "PhD Alum 2", details: "Details for PhD Alum 2" },
+      { name: "Steffen Buessecker", details: "PhD student" },
+      { name: "Analissa Sarno", details: "PhD student" },
+      { name: "Mark Reynolds", details: "PhD student" },
     ];
 
-    const postdocAlumni = [
-      { name: "Postdoc Alum 1", details: "Details for Postdoc Alum 1" },
-      { name: "Postdoc Alum 2", details: "Details for Postdoc Alum 2" },
-    ];
+const postdocAlumni = [
+  { name: "Outi Lahteenoja", details: "Postdoctoral researcher" },
+  { name: "Michal Ziv-El", details: "Postdoctoral researcher" },
+  { name: "Patrick Browne", details: "Postdoctoral researcher" },
+  { name: "Damien Finn", details: "Postdoctoral researcher" },
+  { name: "Paul Brewer", details: "Postdoctoral researcher" },
+];
 
-    const undergradAlumn = [
-      { name: "Undergrad Alum 1", details: "Details for Undergrad Alum 1" },
-      { name: "Undergrad Alum 2", details: "Details for Undergrad Alum 2" },
-    ];
 
     const handleToggleAlumni = () => {
       setOpenAlumniDropdown(!openAlumniDropdown);
@@ -543,96 +543,58 @@ const highSchoolResearchers = [
   const graduateStudents = [
     {
       name: "Victor Ochoa-Henriquez",
-      program: "M.S.",
+      program: "Environmental Life Sciences",
       year: "2023-2024",
-      advisor: "Advisor",
-      researchTopic:
-        "Principles of assemblage of microbial communities in the tropics.",
     },
     {
       name: "Lilly Vael",
-      program: "M.S.",
+      program: "Microbiology",
       year: "2022-2024",
-      advisor: "Advisor",
-      researchTopic:
-        "The Carbon Cycling and Climate Microbial Collection for Tropical Peatlands (C3-MicroTroP).",
     },
     {
       name: "Julia Furedy",
       program: "M.S. (4+1 BS, MS)",
       year: "2021-2024",
-      advisor: "Thesis Advisor",
-      researchTopic:
-        "Culturable diversity of methanotrophic bacteria in tropical peatlands.",
     },
     {
       name: "Camila Delgado-Montes",
-      program: "M.S.",
+      program: "Biology",
       year: "2020-2023",
-      advisor: "Advisor",
-      researchTopic:
-        "Distribution and controls of soil carbon in the 'llanos de Moxos,' Bolivia.",
     },
     {
       name: "Michael Pavia",
-      program: "Ph.D.",
+      program: "Microbiology",
       year: "2018-2024",
-      advisor: "Thesis Advisor",
-      researchTopic:
-        "Geochemical and ecological drivers of microbial communities in Amazon peatland.",
     },
     {
       name: "Jillian Ayers",
-      program: "M.S. (4+1 BS, MS)",
+      program: "Microbiology (4+1 BS, MS)",
       year: "2019-2021",
-      advisor: "Thesis Advisor",
-      researchTopic:
-        "Culturing methanogenic Archaea from tropical peatlands: alternative approaches to retrieve broader isolate diversity.",
-      currentPosition: "CENVITA INC industries",
     },
     {
       name: "Mark Reynolds",
-      program: "Ph.D.",
+      program: "Microbiology",
       year: "2015-2022",
-      advisor: "Thesis Co-advisor",
-      researchTopic:
-        "Characterization and Manipulation of microbiomes from arid landfills for improved methane production.",
-      currentPosition: "Postdoctoral Associate, Marine Biological Lab",
     },
     {
       name: "Analisa Sarno",
-      program: "Ph.D.",
+      program: "Microbiology",
       year: "2013-2021",
-      advisor: "Thesis Advisor",
-      researchTopic:
-        "Microbial communities and their intermediary ecosystem metabolism across northern peatlands.",
-      currentPosition: "Staff, CSU Western Colorado Research Center",
     },
     {
       name: "Steffen Buessecker",
-      program: "Ph.D.",
+      program: "Environmental Life Sciences",
       year: "2013-2020",
-      advisor: "Thesis Advisor",
-      researchTopic: "Coupled abiotic and biotic cycling of nitrous oxide.",
-      currentPosition: "Postdoctoral Associate, Sandford University",
     },
     {
       name: "Julian Yu",
-      program: "Ph.D.",
+      program: "Microbiology",
       year: "2014-2020",
-      advisor: "Thesis Co-advisor",
-      researchTopic:
-        "Characterization of tropical agricultural soil microbiomes after biochar amendment.",
-      currentPosition: "Staff, HELIAE industry",
     },
     {
       name: "Zeni Ramirez",
-      program: "M.S. (4+1 BS, MS)",
+      program: "Microbiology",
       year: "2016-2018",
-      advisor: "Thesis Advisor",
-      researchTopic:
-        "Isolation of anaerobic Archaea and Bacteria from amazon peatlands and characterization of syntrophic interactions.",
-      currentPosition: "Postdoctoral Associate, Duke University",
     },
   ];
 
@@ -912,7 +874,7 @@ const highSchoolResearchers = [
                   onMouseLeave={() => setHoveredPostdocDetails("")}
                   className="cursor-pointer transition-transform hover:scale-105"
                 >
-                  <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden">
+                  <div className="w-33 h-33 bg-gray-300 rounded-full overflow-hidden">
                     <img
                       src={researcher.image}
                       alt={researcher.name}
@@ -1022,9 +984,10 @@ const highSchoolResearchers = [
                 {undergradAlumni.map((alumni, index) => (
                   <div key={index} className="alumni-item">
                     <span>
-                      {alumni.name} {alumni.year}
+                      {alumni.year} {" - "}
+                      {alumni.name} {" - "}
+                      {alumni.detail}
                     </span>
-                    <p>{alumni.detail}</p>
                   </div>
                 ))}
               </div>
@@ -1036,7 +999,7 @@ const highSchoolResearchers = [
               {graduateStudents.map((student, index) => (
                 <li key={index}>
                   <strong>{student.year}:</strong> {student.name},{" "}
-                  {student.program}: <em>{student.project}</em>
+                  {student.program} <em>{student.project}</em>
                 </li>
               ))}
             </ul>
@@ -1046,22 +1009,27 @@ const highSchoolResearchers = [
             <ul>
               {honorsThesis.map((thesis, index) => (
                 <li key={index}>
-                  <strong>{thesis.year}:</strong> {thesis.name}, {thesis.major}:{" "}
-                  <em>{thesis.project}</em>
+                  <strong>{thesis.year}:</strong> {thesis.name}, {thesis.degree}
+                  : <em>{thesis.thesisTitle}</em>
                 </li>
               ))}
             </ul>
 
             {/* Undergraduate Researchers */}
             <h3>Undergraduate Researchers</h3>
-            <ul>
-              {undergraduateResearchers.map((researcher, index) => (
-                <li key={index}>
-                  <strong>{researcher.year}:</strong> {researcher.name} (
-                  {researcher.program})
-                </li>
-              ))}
-            </ul>
+            {undergraduateResearchers.map((researcherGroup, index) => (
+              <div key={index}>
+                <h4>{researcherGroup.year}</h4>
+                <ul>
+                  {researcherGroup.researchers.map((researcher, subIndex) => (
+                    <li key={subIndex}>
+                      <strong>{researcher.name}</strong>{" "}
+                      {researcher.program ? `(${researcher.program})` : ""}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
 
             {/* High School Researchers */}
             <h3>High School Researchers</h3>
@@ -1069,7 +1037,7 @@ const highSchoolResearchers = [
               {highSchoolResearchers.map((researcher, index) => (
                 <li key={index}>
                   <strong>{researcher.year}:</strong> {researcher.name}:{" "}
-                  <em>{researcher.project}</em>
+                  <em>{researcher.school}</em>
                 </li>
               ))}
             </ul>
@@ -1080,7 +1048,7 @@ const highSchoolResearchers = [
               {internationalScholarsAndInterns.map((researcher, index) => (
                 <li key={index}>
                   <strong>{researcher.year}:</strong> {researcher.name}:{" "}
-                  <em>{researcher.project}</em>
+                  <em>{researcher.researchTitle}{", "}{researcher.program}</em>
                 </li>
               ))}
             </ul>

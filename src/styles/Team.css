@@ -53,8 +53,7 @@ p {
 
 .column {
   flex: 1;
-  padding: 10px;
-  max-width: 33%;
+  background: none;
 }
 .alumni {
     background-image: url("../assets/background-1.png");
@@ -64,7 +63,7 @@ p {
 .alumni-item span {
   font-weight: bold;
   font-size: 12px;
-  display: block;
+
 }
 
 .alumni-item {
@@ -441,6 +440,34 @@ button {
   border: none; /* Remove any border */
 }
 
+/* This CSS will ensure no boxes around the alumni names */
+.alumni-item {
+  background: none;   /* Removes any background */
+  border: none;       /* Removes any border */
+  padding: 0;         /* Removes any padding */
+  margin: 10px 0;     /* Adds some space between alumni items */
+}
+
+.alumni-item span {
+  font-weight: none; /* Optional: Makes the name bold */
+  color: black;      /* Optional: Makes the name text color black */
+}
+
+.alumni-item p {
+  font-style: italic; /* Optional: Makes the details italic */
+  color: gray;        /* Optional: Sets a gray color for details */
+}
+
+/* Adjust the columns to maintain the layout */
+.alumni-columns {
+  display: flex;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+}
+
 .text-center {
   text-align: center;
 }
@@ -570,32 +597,10 @@ button {
 .alumni-item {
   padding: 10px;
   background-color: #f9f9f9;
-  border-radius: 8px;
   margin-bottom: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Flex container for aligning name and arrow */
-.alumni-item .flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 /* Style for the name */
-.alumni-item span {
-  font-size: 1.125rem;
-  /* Larger font for name */
-  font-weight: 600;
-}
-
-/* Button (arrow) styling */
-.alumni-item button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
 
 /* Arrow rotation transition */
 .transform {
@@ -612,17 +617,17 @@ button {
   color: #333;
 }
 
-/* Hover effects for the arrow */
-.alumni-item button:hover {
-  color: #000000;
-  /* Darker blue when hovering over the button */
-}
+.alumni-item span {
+  font-size: 1.125rem;
+    font-weight: none; /* Optional: Makes the name bold */
 
-/* Styling for the dropdown content */
-.alumni-item .dropdown-content p {
-  margin: 0;
+  /* Larger font for name */
 }
 
 .alumni-item {
-  margin-bottom: 1.2rem;
+  background: none;
+  size: 13px;
+  margin-top: -1.5rem;
+  text-size-adjust: 13px;
+  border: none;
 }
