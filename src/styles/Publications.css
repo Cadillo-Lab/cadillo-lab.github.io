@@ -65,7 +65,7 @@
 }
 
 .publication-row img:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
     transform-origin: center;
     /* Scales from the center */
     transition: transform 0.3s ease;

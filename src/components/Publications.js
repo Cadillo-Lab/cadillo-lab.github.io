@@ -53,10 +53,29 @@ const Publications = () => {
           alt="Publications Banner"
           className="banner-images"
         />
-        
       </div>
 
       <section className="publication-list">
+        <div className="year-section">
+          <h2>Publications from 2024</h2>
+          <div className="publication-row">
+            <a
+              href="https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-023-01625-8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={publication_1} alt="Publication 1" />
+            </a>
+            <a
+              href="https://www.sciencedirect.com/science/article/abs/pii/S0168192323000588?via%3Dihub"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={publication_2} alt="Publication 2" />
+            </a>
+          </div>
+        </div>
+
         <div className="year-section">
           <h2>Publications from 2023</h2>
           <div className="publication-row">
