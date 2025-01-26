@@ -15,29 +15,7 @@ import ug2 from "../assets/placeholder.jpg";
 import ug3 from "../assets/placeholder.jpg";
 import ug4 from "../assets/placeholder.jpg";
 
-const TeamMember = ({ name, details, role }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  return (
-    <div className={`team-member ${isExpanded ? "expanded" : ""}`}>
-      <div className="member-header" onClick={() => setIsExpanded(!isExpanded)}>
-        <h3>{name}</h3>
-        {/* Add a line below the name for the role */}
-        <p className="member-role">{role}</p>
-        <span className="dropdown-arrow">▼</span>
-      </div>
-      {isExpanded && (
-        <div className="member-details">
-          <p>{details}</p>
-        </div>
-      )}
-    </div>
-  );
-};
-
 const Team = () => {
-  const [selectedGradText, setSelectedGradText] = useState("");
-  const [selectedPostdocText, setSelectedPostdocText] = useState("");
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
   const [hoveredResearcherDetails, setHoveredResearcherDetails] = useState("");
     const [hoveredPostdocDetails, setHoveredPostdocDetails] = useState("");
@@ -204,6 +182,232 @@ const Team = () => {
     },
   ];
 
+  const undergraduateResearchers = [
+    {
+      year: "2024-2025",
+      researchers: [
+        { name: "Aurely Sachez Carrion", program: "NSF REU" },
+        { name: "David Nguyen", program: "NSF REU" },
+        { name: "Peter Herrick", program: "U Maine NSF REU" },
+        { name: "Roberto Quintana", program: "NSF REU" },
+        { name: "Luka Castillejo Olazabal", program: "Honors Thesis" },
+        { name: "Kyla Pikes", program: "ASU Online NSF REU" },
+      ],
+    },
+    {
+      year: "2023-2024",
+      researchers: [
+        { name: "David Nguyen" },
+        { name: "Noemi Soto" },
+        { name: "Natalia Soto Rodriguez", program: "Baylor College" },
+        { name: "Christian Swonger", program: "NSF REU" },
+        { name: "Mikayla Shrader" },
+        { name: "Aurely Sachez Carrion", program: "WAESO" },
+      ],
+    },
+    {
+      year: "2022-2023",
+      researchers: [
+        { name: "Johanan Uchiasu" },
+        { name: "Noemi Soto" },
+        { name: "Natalie Blum" },
+        { name: "Alexandria Quinones" },
+        { name: "Mikayla Shrader" },
+        { name: "Leo Soberon" },
+      ],
+    },
+    {
+      year: "2021-2022",
+      researchers: [
+        { name: "Joshua Hislop", program: "NSF REU" },
+        { name: "Anna Burns", program: "NSF REU" },
+        { name: "Sara Santiago", program: "WAESO" },
+        { name: "Hannah Brzezinski", program: "LEAP" },
+        { name: "Kameren Silas" },
+        { name: "Rory Locket", program: "WAESO" },
+      ],
+    },
+    {
+      year: "2020-2021",
+      researchers: [
+        { name: "Sarah Avalle" },
+        { name: "David Denogan" },
+        { name: "Elizabeth Ardilla", program: "WAESO" },
+        { name: "Rachel Campos" },
+        { name: "Joseph Boyd" },
+      ],
+    },
+    {
+      year: "2018-2019",
+      researchers: [
+        { name: "Jacqueline Winston", program: "NSF REU" },
+        { name: "Angela Mercado", program: "NSF REU" },
+        { name: "McKaela Smith" },
+        { name: "Karim Ramirez Soto" },
+        { name: "Che Jimenez" },
+        { name: "Majid Esaghi" },
+        { name: "Jonathon Taylor" },
+        { name: "Jill Ayers" },
+        { name: "Maria Anak" },
+        { name: "Heba Bahta" },
+        { name: "Duy 'Simon' Chau" },
+        { name: "Arubah Ahmed" },
+        { name: "Samer Ahuad" },
+        { name: "Britney Bean" },
+        { name: "Alexis Pluhar" },
+        { name: "Giselle Avila" },
+        { name: "Sherry Hudson" },
+        { name: "Jordan Canin" },
+      ],
+    },
+    {
+      year: "2017-2018",
+      researchers: [
+        { name: "Josue Hernandez" },
+        { name: "Alexandra Kasis" },
+        { name: "Sana Lohdi" },
+        { name: "Bhargav Monokutia" },
+        { name: "Amanda Richardson" },
+        { name: "Elias Rodriguez" },
+        { name: "Michael Rojo" },
+        { name: "Marrisol Sanchez" },
+        { name: "Vanessa Trujillo" },
+        { name: "Janeth Flores" },
+        { name: "Luis Gutierrez" },
+        { name: "Brian Bacacao", program: "WAESO" },
+        { name: "Coleen Adams", program: "CBBG" },
+        { name: "Francisco Campa" },
+      ],
+    },
+    {
+      year: "2016-2017",
+      researchers: [
+        { name: "Zacchary Zamora" },
+        { name: "Jaime Lopez" },
+        { name: "Sarita Layton" },
+        { name: "Andrew Martinez" },
+        { name: "Sonia Sabrowski" },
+        { name: "Darian Curl" },
+        { name: "Emily Angeles" },
+        { name: "Jana Djokic" },
+        { name: "Sophia Le" },
+        { name: "Chelsea Elizabeth" },
+        { name: "Nabil Fidai" },
+        { name: "Kendra Yin" },
+      ],
+    },
+    {
+      year: "2015-2016",
+      researchers: [
+        { name: "Jacob Hrjkal" },
+        { name: "Jessica Spring", program: "ASM" },
+        { name: "Amit Anilkumar" },
+        { name: "Kaitlyn Tylor" },
+        { name: "Martin Gonzales" },
+        { name: "Jack Liu" },
+        { name: "Frederick Elick" },
+        { name: "Brittany Kaminsky" },
+        { name: "Zeni Ramirez" },
+        { name: "Alexander Frese" },
+        { name: "Rohini Nott" },
+        { name: "Keneth Barker" },
+        { name: "Vanessa Hendrix" },
+        { name: "Fatema Kermani" },
+        { name: "Summer Rhodes" },
+        { name: "Reena Ygot" },
+        { name: "Debbie Chang" },
+        { name: "Jack Liu" },
+      ],
+    },
+    {
+      year: "2014-2015",
+      researchers: [
+        { name: "Eric Hummel" },
+        { name: "Pablo Cruz-Ramos" },
+        { name: "Divya Mahendra" },
+        { name: "Daniel Molina" },
+        { name: "Deanna Becker" },
+        { name: "Joseph Gonzales" },
+        { name: "Roland Rightheart" },
+        { name: "Jenessa Vanderberg" },
+        { name: "Karen Baker" },
+        { name: "Chantal Uwiringimana" },
+        { name: "Atris Mustafa" },
+        { name: "Emily Yee" },
+        { name: "Noraldin Mustafa" },
+        { name: "Carlos Courtney" },
+      ],
+    },
+    {
+      year: "2013-2014",
+      researchers: [
+        { name: "Jesus Montijo" },
+        { name: "Jazmine Mayberry", program: "LBL" },
+        { name: "Zeke Clemmens" },
+        { name: "Noor Lallmamode" },
+        { name: "Ashley Kirk" },
+        { name: "Nghia Millard" },
+        { name: "Alex Wiedman" },
+        { name: "Tiffany Malsimuck" },
+        { name: "Eric Hummel" },
+        { name: "Logan Kurgan" },
+      ],
+    },
+    {
+      year: "2012-2013",
+      researchers: [
+        { name: "Viet Truong" },
+        { name: "Michael Crusoe" },
+        { name: "Gayle Frost" },
+        { name: "Mayra Buenrostro" },
+        { name: "Gracie Parish" },
+        { name: "Cynthia Hurtado" },
+        { name: "Pablo Cruz Ramos" },
+        { name: "Sean Dunn" },
+        { name: "Michael Crusoe" },
+        { name: "Natasha Hizeman" },
+      ],
+    },
+  ];
+
+const highSchoolResearchers = [
+  {
+    year: "2023",
+    name: "Karishma Sivakumar",
+    school: "Basis Phoenix High School",
+  },
+  { year: "2022", name: "Abhinav Chede", school: "Basis Chandler High School" },
+  {
+    year: "2017",
+    name: "Farin Shiehzadegan",
+    school: "Basis Chandler High School",
+  },
+  { year: "2017", name: "Erik Barraza Cordova", school: "North High School" },
+  { year: "2016", name: "Afroza Rahman", school: "Maryvale High School" },
+  { year: "2016", name: "Marissa Plata", school: "Shadow Ridge High School" },
+  { year: "2016", name: "Sarah Bodansky", school: "Horizon High School" },
+  {
+    year: "2016",
+    name: "Christina Moon",
+    school: "Corona del Sol High School",
+  },
+  { year: "2015", name: "Rohini Nott", school: "BASIS Chandler" },
+  { year: "2015", name: "Priyanka Konan", school: "Hamilton High School" },
+  {
+    year: "2014",
+    name: "Ruohan (Hannah) Miao",
+    school: "Hamilton High School",
+  },
+  { year: "2014", name: "Jeba Sania", school: "Paragon Science Academy" },
+  { year: "2013", name: "Lindsay Wilson", school: "Bioscience High School" },
+  {
+    year: "2013",
+    name: "Saisanjana Kalagara",
+    school: "Corona del Sol High School",
+  },
+];
+
+
     const undergraduate = [
       {
         name: "David Nguyen, BS",
@@ -242,18 +446,195 @@ const Team = () => {
         role: "Undergraduate Researcher",
       },
     ];
-  
-  const handleGradClick = (researcher) => {
-    setSelectedGradText(
-      `${researcher.name} - ${researcher.bio}\n\n${researcher.backContent}`
-    );
-  };
+    
+  const internationalScholarsAndInterns = [
+    {
+      year: 2024,
+      name: "Anabel Rabe",
+      researchTitle: "Environmental & Sustainability",
+      program: "DAAD RISE program",
+    },
+    {
+      year: 2023,
+      name: "Antonia Schindelmann",
+      researchTitle: "Earth Sciences",
+      program: "DAAD RISE program",
+    },
+    {
+      year: 2022,
+      name: "Sara Houbertz",
+      researchTitle: "Georesource management",
+      program: "DAAD RISE program",
+    },
+    {
+      year: 2022,
+      name: "Tim Giorgio Pekarev",
+      researchTitle: "Natural Resource Management",
+      program: "PROMOS program",
+    },
+    {
+      year: 2022,
+      name: "Swantje Furtak",
+      researchTitle: "Biochemistry",
+      program: "PROMOS program",
+    },
+    {
+      year: "2020-2022",
+      name: "Dr Kari Gallego Bravo",
+      researchTitle: "Landfill and microbial interactions research",
+      program: "Research scholar",
+    },
+    {
+      year: 2019,
+      name: "Sofia Kasper",
+      researchTitle: "Geography",
+      program: "DAAD RISE program",
+    },
+    {
+      year: 2018,
+      name: "Marie Jacobs",
+      researchTitle: "Geography",
+      program: "DAAD RISE program",
+    },
+    {
+      year: 2018,
+      name: "Dr. Catarina Martins",
+      researchTitle: "Postdoctoral Research",
+      program: "Endeavour program",
+    },
+    {
+      year: 2017,
+      name: "Dr. Tingting Li",
+      researchTitle: "Atmospheric Physics",
+      program: "Visiting Scholar",
+    },
+    {
+      year: 2017,
+      name: "Lena Hartmann",
+      researchTitle: "Biotechnology",
+      program: "DAAD RISE program",
+    },
+    {
+      year: 2017,
+      name: "Marcella Beck",
+      researchTitle: "Environmental Sciences",
+      program: "DAAD RISE program",
+    },
+    {
+      year: "2012-2013",
+      name: "Dr. Jiaxue Song",
+      researchTitle: "Environmental Sciences and Engineering",
+      program: "Visiting Scholar",
+    },
+    {
+      year: 2015,
+      name: "Esther Smollich",
+      researchTitle: "Environmental Sciences",
+      program: "DAAD RISE program",
+    },
+    {
+      year: 2012,
+      name: "Steffen Bussecker",
+      researchTitle: "GeoEcology",
+      program: "DAAD RISE program",
+    },
+  ];
 
-  const handlePostdocClick = (researcher) => {
-    setSelectedPostdocText(
-      `${researcher.name} - ${researcher.bio}\n\n${researcher.backContent}`
-    );
-  };
+  const graduateStudents = [
+    {
+      name: "Victor Ochoa-Henriquez",
+      program: "M.S.",
+      year: "2023-2024",
+      advisor: "Advisor",
+      researchTopic:
+        "Principles of assemblage of microbial communities in the tropics.",
+    },
+    {
+      name: "Lilly Vael",
+      program: "M.S.",
+      year: "2022-2024",
+      advisor: "Advisor",
+      researchTopic:
+        "The Carbon Cycling and Climate Microbial Collection for Tropical Peatlands (C3-MicroTroP).",
+    },
+    {
+      name: "Julia Furedy",
+      program: "M.S. (4+1 BS, MS)",
+      year: "2021-2024",
+      advisor: "Thesis Advisor",
+      researchTopic:
+        "Culturable diversity of methanotrophic bacteria in tropical peatlands.",
+    },
+    {
+      name: "Camila Delgado-Montes",
+      program: "M.S.",
+      year: "2020-2023",
+      advisor: "Advisor",
+      researchTopic:
+        "Distribution and controls of soil carbon in the 'llanos de Moxos,' Bolivia.",
+    },
+    {
+      name: "Michael Pavia",
+      program: "Ph.D.",
+      year: "2018-2024",
+      advisor: "Thesis Advisor",
+      researchTopic:
+        "Geochemical and ecological drivers of microbial communities in Amazon peatland.",
+    },
+    {
+      name: "Jillian Ayers",
+      program: "M.S. (4+1 BS, MS)",
+      year: "2019-2021",
+      advisor: "Thesis Advisor",
+      researchTopic:
+        "Culturing methanogenic Archaea from tropical peatlands: alternative approaches to retrieve broader isolate diversity.",
+      currentPosition: "CENVITA INC industries",
+    },
+    {
+      name: "Mark Reynolds",
+      program: "Ph.D.",
+      year: "2015-2022",
+      advisor: "Thesis Co-advisor",
+      researchTopic:
+        "Characterization and Manipulation of microbiomes from arid landfills for improved methane production.",
+      currentPosition: "Postdoctoral Associate, Marine Biological Lab",
+    },
+    {
+      name: "Analisa Sarno",
+      program: "Ph.D.",
+      year: "2013-2021",
+      advisor: "Thesis Advisor",
+      researchTopic:
+        "Microbial communities and their intermediary ecosystem metabolism across northern peatlands.",
+      currentPosition: "Staff, CSU Western Colorado Research Center",
+    },
+    {
+      name: "Steffen Buessecker",
+      program: "Ph.D.",
+      year: "2013-2020",
+      advisor: "Thesis Advisor",
+      researchTopic: "Coupled abiotic and biotic cycling of nitrous oxide.",
+      currentPosition: "Postdoctoral Associate, Sandford University",
+    },
+    {
+      name: "Julian Yu",
+      program: "Ph.D.",
+      year: "2014-2020",
+      advisor: "Thesis Co-advisor",
+      researchTopic:
+        "Characterization of tropical agricultural soil microbiomes after biochar amendment.",
+      currentPosition: "Staff, HELIAE industry",
+    },
+    {
+      name: "Zeni Ramirez",
+      program: "M.S. (4+1 BS, MS)",
+      year: "2016-2018",
+      advisor: "Thesis Advisor",
+      researchTopic:
+        "Isolation of anaerobic Archaea and Bacteria from amazon peatlands and characterization of syntrophic interactions.",
+      currentPosition: "Postdoctoral Associate, Duke University",
+    },
+  ];
 
   const alumniData = [
     {
@@ -312,13 +693,71 @@ const Team = () => {
   const honorsThesis = [
     {
       name: "Natalie Blum",
-      details: "Anaerobic oxidation of methane in wetlands",
+      degree: "Environmental Engineering",
+      year: 2023,
+      thesisTitle: "Anaerobic oxidation of methane in wetlands",
     },
     {
       name: "Noemi Soto",
-      details: "Expanding membrane-based isolation of terrestrial Bacteria",
+      degree: "Microbiology",
+      year: 2023,
+      thesisTitle: "Expanding membrane-based isolation of terrestrial Bacteria",
+    },
+    {
+      name: "Hannah Brzezinski",
+      degree: "Molecular Biology & Biotechnology",
+      year: 2022,
+      thesisTitle: "Ecological diversity of methanotrophs in Amazon peatlands",
+    },
+    {
+      name: "Brandon Bourquin",
+      degree: "Biological Sciences",
+      year: 2020,
+      thesisTitle:
+        "Evaluating the consumption rates of primary versus secondary fermentation substrates and methane production of northern peatlands",
+    },
+    {
+      name: "Alexander Freese",
+      degree: "Microbiology",
+      year: 2018,
+      thesisTitle:
+        "Assessment of the vertical stratification of microbial community structure in permafrost peatlands",
+    },
+    {
+      name: "Kyle Brown",
+      degree: "Astrobiology",
+      year: 2018,
+      thesisTitle:
+        "Biotic vs. abiotic processes in hyper-arid exoplanetary atmospheres",
+    },
+    {
+      name: "Jaime Lopez",
+      degree: "Chemical Engineering",
+      year: 2017,
+      thesisTitle: "Trait-based Modeling of peatland methanogen communities",
+    },
+    {
+      name: "Kaitlyn Tylor",
+      degree: "Biological Sciences",
+      year: 2016,
+      thesisTitle: "Expanding membrane-based isolation of terrestrial Bacteria",
+    },
+    {
+      name: "Jessica Spring",
+      degree: "Microbiology",
+      year: 2016,
+      thesisTitle:
+        "Early assessment on phages communities in Amazon Peat soils",
+    },
+    {
+      name: "Divya Mahendra",
+      degree: "Molecular Biology",
+      year: 2014,
+      thesisTitle:
+        "Metabolic reconstruction of methane producing microbes: Methanoregula boonei 6A8 and Methanosphaerula palustris E1-9c",
     },
   ];
+
 
   const undergradAlumni = [
     { name: "Joshua Hislop", year: "2021-2022", detail: "NSF REU" },
@@ -631,6 +1070,17 @@ const Team = () => {
           <h3>High School Researchers</h3>
           <ul>
             {highSchoolResearchers.map((researcher, index) => (
+              <li key={index}>
+                <strong>{researcher.year}:</strong> {researcher.name}:{" "}
+                <em>{researcher.project}</em>
+              </li>
+            ))}
+          </ul>
+
+          {/* Visiting Scholar*/}
+          <h3>Visiting Scholar</h3>
+          <ul>
+            {internationalScholarsAndInterns.map((researcher, index) => (
               <li key={index}>
                 <strong>{researcher.year}:</strong> {researcher.name}:{" "}
                 <em>{researcher.project}</em>
