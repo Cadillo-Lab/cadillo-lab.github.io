@@ -26,7 +26,7 @@ const JoinUs = () => {
 
     // Automatically go to next slide every 7 seconds
     useEffect(() => {
-      const intervalId = setInterval(goToNext, 7000); // 7000ms = 7 seconds
+      const intervalId = setInterval(goToNext, 5000); // 7000ms = 7 seconds
       return () => clearInterval(intervalId); // Cleanup on component unmount
     }, [currentIndex]); // This will re-run whenever currentIndex changes
   

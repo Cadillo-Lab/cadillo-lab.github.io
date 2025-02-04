@@ -1,156 +1,122 @@
-/* Main container */
+/* JoinUs.css */
+
 .join-us {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* Removed padding */
 }
 
-/* Banner styling */
 .banner-container {
   width: 100%;
-  height: 400px;
-  overflow: hidden;
-  position: relative;
+  text-align: center;
+  margin: 0; /* Removed margin */
 }
 
 .banner-image {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
-  object-position: center;
 }
 
-/* Content wrapper */
 .content-wrapper {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  padding-top: 11rem;
-  /* Adjusted padding-top */
-}
-
-/* Welcome section */
-.welcome-section {
+  width: 100%;
   text-align: center;
-  margin: 2rem 0;
-  /* Reduced margin */
+  margin: 0; /* Removed margin */
 }
 
 .welcome-section p {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  /* Reduced line height */
-  color: #333;
-  margin-bottom: 1rem;
-  /* Reduced space between paragraphs */
+  font-size: 1.2rem;
+  margin: 0; /* Removed margin */
 }
 
-/* Opportunities section */
-.opportunities-section {
-  margin: 1rem 0;
-  /* Reduced margin */
-}
-
-
-.opportunity-item h2 {
-  color: #2c3e50;
-  font-size: 1.5rem;
-  margin-bottom: 0.1rem;
-  /* Reduced space between heading and paragraph */
-  border-bottom: 2px solid #e74c3c;
-  padding-bottom: 0.5rem;
-}
-
-.opportunity-item p {
-  color: #666;
-  line-height: 1.4;
-  /* Reduced line height */
-  /* Reduced space between paragraphs */
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  .banner-container {
-    height: 300px;
-  }
-
-  .content-wrapper {
-    padding: 1rem;
-  }
-
-  .welcome-section {
-    margin: 2rem 0;
-    padding: 1.5rem;
-  }
-
-  .opportunities-section {
-    margin: 2rem 0;
-  }
-
-  .opportunity-item {
-    padding: 1.5rem;
-  }
-}
-
-/* Animation for content loading */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.welcome-section,
-.opportunity-item {
-  animation: fadeIn 0.8s ease-out forwards;
-}
-.content-wrapper {
-  padding-top: 15rem;
-}
-
-.welcome-section {
-  text-align: center;
-  text-decoration: underline;
-  text-wrap: wrap;
-  font-weight: bold;
-}
-
-.opportunity-item-1 {
-  margin-top: -4.5rem;
-}
-.text1 {
-  margin-top: -1rem;
-}
-
-.opportunity-item-2 {
-  margin-top: -4.5rem;
-}
-.text2 {
-  margin-top: -1rem;
-}
-
-.opportunity-item-3 {
-  margin-top: -4.5rem;
-}
-
-.text3 {
-  margin-top: -1rem;
-}
-
+.opportunity-item-1,
+.opportunity-item-2,
+.opportunity-item-3,
 .opportunity-item-4 {
-  margin-top: -4.5rem;
+  margin: 0; /* Removed margin */
 }
 
-.text4 {
-  margin-top: -1rem;
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0; /* Removed margin */
 }
 
-.content-wrapper {
-  margin-top: -11rem;
+.opportunity-content {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0; /* Removed margin */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0; /* Removed padding */
+  margin: 0; /* Removed margin */
+}
+
+ul li {
+  font-size: 1rem;
+  margin: 0; /* Removed margin */
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.outreach-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0; /* Removed margin */
+}
+
+.carousel {
+  position: relative;
+  width: 80%;
+  max-width: 1000px;
+  overflow: hidden;
+  padding: 0; /* Removed padding */
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  margin: 0; /* Removed margin */
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0; /* Removed padding */
+  border: none;
+  cursor: pointer;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
