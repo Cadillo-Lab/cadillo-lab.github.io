@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "../styles/Homepage.css";
-import backgroundVideo from "../assets/background-video.mp4";
+//import backgroundVideo from "../assets/background-video.mp4";
+import backgroundVideo from "../assets/background-video-new.mov";
 
 const Homepage = () => {
   useEffect(() => {
@@ -84,15 +85,15 @@ const Homepage = () => {
         </p>
 
         {/* Social Media Feeds */}
-        <div className="social-feeds">
+        <div className="social-container">
           <div className="social-row">
             {/* Facebook Feed */}
-            <div className="facebook-feed">
+            <div className="social-box facebook-feed">
               <div
                 className="fb-page"
                 data-href="https://www.facebook.com/CadilloLab/"
                 data-tabs="timeline"
-                data-width="700"
+                data-width="340"
                 data-height="400"
                 data-small-header="false"
                 data-adapt-container-width="true"
@@ -102,7 +103,7 @@ const Homepage = () => {
             </div>
 
             {/* Instagram Feed */}
-            <div className="instagram-feed">
+            <div className="social-box instagram-feed">
               <iframe
                 title="Instagram Feed"
                 src="https://www.instagram.com/methano.hinsby/embed"
@@ -113,37 +114,36 @@ const Homepage = () => {
                 allowTransparency="true"
               ></iframe>
             </div>
+          </div>
 
-            {/* BlueSky Link and X (stacked one above the other) */}
-            <div className="stacked-links">
-              {/* Twitter Feed (X) */}
-              <div className="twitter-feed">
-                <a
-                  className="twitter-timeline"
-                  href="https://x.com/OkMicrobes"
-                  data-theme="dark"
-                  data-height="300"
-                >
-                  X by OkMicrobes
-                </a>
-                <script
-                  async
-                  src="https://platform.twitter.com/widgets.js"
-                  charset="utf-8"
-                ></script>
-              </div>
+          <div className="social-row">
+            {/* X (Twitter) Button */}
+            <div className="social-box x-feed" style={{ paddingRight: "130px" }}>
+              <a
+                className="twitter-timeline"
+                href="https://x.com/OkMicrobes"
+                data-theme="dark"
+                data-height="50"
+              >
+                X by OkMicrobes
+              </a>
+              <script
+                async
+                src="https://platform.twitter.com/widgets.js"
+                charset="utf-8"
+              ></script>
+            </div>
 
-              {/* BlueSky Link */}
-              <div className="bsky-link">
-                <a
-                  href="https://bsky.app/profile/methano-hinsby.bsky.social"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bsky-button"
-                >
-                  Visit our BlueSky Profile
-                </a>
-              </div>
+            {/* Bluesky Button */}
+            <div className="social-box bluesky-link">
+              <a
+                href="https://bsky.app/profile/methano-hinsby.bsky.social"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bsky-button"
+              >
+                Visit our BlueSky Profile
+              </a>
             </div>
           </div>
         </div>
