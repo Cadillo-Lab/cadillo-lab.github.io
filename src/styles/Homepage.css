@@ -63,7 +63,6 @@
 }
 
 .mission-social .section-title {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
     margin-bottom: 10px;
 }
 
@@ -111,7 +110,6 @@
     /* Set a maximum width for the timeline */
     margin: 0 auto;
     /* Center the timeline horizontally */
-    border: 2px solid #1DA1F2;
     /* Add a border around the timeline (Twitter blue color) */
     border-radius: 10px;
     /* Optional: Rounded corners for the border */
@@ -383,3 +381,12 @@
   height: 50px;
 }
 
+.section-title {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.section-title::after {
+  display: none !important;
+  border-bottom: none !important;
+}

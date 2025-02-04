@@ -57,7 +57,12 @@ const Homepage = () => {
       </section>
 
       <section className="mission-social">
-        <h2 className="section-title hover-text">Mission Statement</h2>
+        <h2
+          className="section-title hover-text"
+          style={{ textDecoration: "none", borderBottom: "none" }}
+        >
+          Mission Statement
+        </h2>
         <p className="mission-text hover-text">
           The Cadillo lab advances research and discovery of the microbial role
           and contribution to the environment at various scales and fields. We
@@ -118,7 +123,10 @@ const Homepage = () => {
 
           <div className="social-row">
             {/* X (Twitter) Button */}
-            <div className="social-box x-feed" style={{ paddingRight: "130px" }}>
+            <div
+              className="social-box x-feed"
+              style={{ paddingRight: "130px" }}
+            >
               <a
                 className="twitter-timeline"
                 href="https://x.com/OkMicrobes"

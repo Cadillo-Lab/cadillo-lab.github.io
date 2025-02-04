@@ -24,11 +24,32 @@ const Team = () => {
     const [openDropdownPostdoc, setOpenDropdownPostdoc] = useState(null);
     const [openDropdownUndergrad, setOpenDropdownUndergrad] = useState(null);
 
-    const graduateAlumni = [
-      { name: "Steffen Buessecker", details: "PhD student" },
-      { name: "Analissa Sarno", details: "PhD student" },
-      { name: "Mark Reynolds", details: "PhD student" },
-    ];
+const graduateAlumni = [
+  {
+    name: "Victor Ochoa-Henriquez",
+    details: "PhD student in Environmental Life Sciences (2023-2024)",
+  },
+  { name: "Lilly Vael", details: "PhD student in Microbiology (2022-2024)" },
+  { name: "Julia Furedy", details: "M.S. (4+1 BS, MS) student (2021-2024)" },
+  {
+    name: "Camila Delgado-Montes",
+    details: "PhD student in Biology (2020-2023)",
+  },
+  { name: "Michael Pavia", details: "PhD student in Microbiology (2018-2024)" },
+  {
+    name: "Jillian Ayers",
+    details: "M.S. (4+1 BS, MS) student in Microbiology (2019-2021)",
+  },
+  { name: "Mark Reynolds", details: "PhD student in Microbiology (2015-2022)" },
+  { name: "Analisa Sarno", details: "PhD student in Microbiology (2013-2021)" },
+  {
+    name: "Steffen Buessecker",
+    details: "PhD student in Environmental Life Sciences (2013-2020)",
+  },
+  { name: "Julian Yu", details: "PhD student in Microbiology (2014-2020)" },
+  { name: "Zeni Ramirez", details: "PhD student in Microbiology (2016-2018)" },
+];
+
 
 const postdocAlumni = [
   { name: "Outi Lahteenoja", details: "Postdoctoral researcher" },
@@ -992,17 +1013,6 @@ const highSchoolResearchers = [
                 ))}
               </div>
             </div>
-
-            {/* New Section for Graduate Students */}
-            <h3>Graduate Students</h3>
-            <ul>
-              {graduateStudents.map((student, index) => (
-                <li key={index}>
-                  <strong>{student.year}:</strong> {student.name},{" "}
-                  {student.program} <em>{student.project}</em>
-                </li>
-              ))}
-            </ul>
 
             {/* Barrett Honors Thesis */}
             <h3>Barrett Honors Thesis</h3>
