@@ -132,6 +132,18 @@ const JoinUs = () => {
                 Get in touch with Prof. Cadillo as early as possible and start a
                 conversation about plans and options!
               </p>
+              <div
+                style={{
+                  backgroundColor: "red",
+                  color: "black",
+                  padding: "10px",
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  marginTop: "10px",
+                }}
+              >
+                No positions available
+              </div>
             </div>
 
             <div className="opportunity-item-2">
@@ -145,6 +157,18 @@ const JoinUs = () => {
                   projects. Get in touch asap with Prof. Cadillo to discuss
                   current or upcoming possibilities.
                 </p>
+              </div>
+              <div
+                style={{
+                  backgroundColor: "red",
+                  color: "black",
+                  padding: "10px",
+                  textAlign: "center",
+                  fontWeight: "bold",
+                  marginTop: "10px",
+                }}
+              >
+                No positions available
               </div>
             </div>
 
@@ -171,6 +195,19 @@ const JoinUs = () => {
                   pathogens). These will need to be completed before working in
                   the lab.
                 </p>
+
+                <div
+                  style={{
+                    backgroundColor: "red",
+                    color: "black",
+                    padding: "10px",
+                    textAlign: "center",
+                    fontWeight: "bold",
+                    marginTop: "10px",
+                  }}
+                >
+                  No positions available
+                </div>
 
                 <h4>Additional Opportunities for Involvement:</h4>
 
