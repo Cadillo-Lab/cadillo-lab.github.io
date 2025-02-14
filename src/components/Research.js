@@ -527,7 +527,7 @@ const Research = () => {
 
       {/* Topics Section */}
       <section className="topics">
-        <h2>Topics</h2>
+        <h2 className="topich2">Topics</h2>
         <p>
           The Cadillo Lab (Ecology of Microbes and Ecosystems) engages in
           interdisciplinary and transdisciplinary projects, spanning molecular,
@@ -549,7 +549,7 @@ const Research = () => {
       </section>
 
       <section className="projects">
-        <h2>Current Projects and Interests</h2>
+        <h2 className="h2research" >Current Projects and Interests</h2>
         <div className="projects-container">
           {projects.map((project, index) => (
             <div key={index} className="project-card">
