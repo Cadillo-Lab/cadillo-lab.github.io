@@ -333,6 +333,10 @@ body {
     background-image: url('../assets/background-1.png');
 }
 
+.collabh2 {
+    padding-top: 4rem;
+}
+
 .collaboration-container {
     max-width: 2500px;
     margin: 0 auto;

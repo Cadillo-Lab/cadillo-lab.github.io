@@ -86,7 +86,7 @@ const Collaborationss = () => {
         </section>
 
         <section className="data-collaboration" style={{ marginTop: "3rem" }}>
-          <h2>Collaborative Data accessibility and FAIR data use</h2>
+          <h2 className="collabh2">Collaborative Data accessibility and FAIR data use</h2>
           <p className="para1" style={{ lineHeight: "1.2" }}>
             The cadillo Lab seeks to be a place where Findable, Accessible,
             Interoperable, and Reusable (FAIR) data access approaches is
