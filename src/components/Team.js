@@ -18,64 +18,71 @@ import ug4 from "../assets/placeholder.jpg";
 const Team = () => {
   const [openDropdownIndex, setOpenDropdownIndex] = useState(null);
   const [hoveredResearcherDetails, setHoveredResearcherDetails] = useState("");
-    const [hoveredPostdocDetails, setHoveredPostdocDetails] = useState("");
-    const [openAlumniDropdown, setOpenAlumniDropdown] = useState(false);
-    const [openDropdownPhD, setOpenDropdownPhD] = useState(null);
-    const [openDropdownPostdoc, setOpenDropdownPostdoc] = useState(null);
-    const [openDropdownUndergrad, setOpenDropdownUndergrad] = useState(null);
+  const [hoveredPostdocDetails, setHoveredPostdocDetails] = useState("");
+  const [openAlumniDropdown, setOpenAlumniDropdown] = useState(false);
+  const [openDropdownPhD, setOpenDropdownPhD] = useState(null);
+  const [openDropdownPostdoc, setOpenDropdownPostdoc] = useState(null);
+  const [openDropdownUndergrad, setOpenDropdownUndergrad] = useState(null);
 
-const graduateAlumni = [
-  {
-    name: "Victor Ochoa-Henriquez",
-    details: "PhD student in Environmental Life Sciences (2023-2024)",
-  },
-  { name: "Lilly Vael", details: "PhD student in Microbiology (2022-2024)" },
-  { name: "Julia Furedy", details: "M.S. (4+1 BS, MS) student (2021-2024)" },
-  {
-    name: "Camila Delgado-Montes",
-    details: "PhD student in Biology (2020-2023)",
-  },
-  { name: "Michael Pavia", details: "PhD student in Microbiology (2018-2024)" },
-  {
-    name: "Jillian Ayers",
-    details: "M.S. (4+1 BS, MS) student in Microbiology (2019-2021)",
-  },
-  { name: "Mark Reynolds", details: "PhD student in Microbiology (2015-2022)" },
-  { name: "Analisa Sarno", details: "PhD student in Microbiology (2013-2021)" },
-  {
-    name: "Steffen Buessecker",
-    details: "PhD student in Environmental Life Sciences (2013-2020)",
-  },
-  { name: "Julian Yu", details: "PhD student in Microbiology (2014-2020)" },
-  { name: "Zeni Ramirez", details: "PhD student in Microbiology (2016-2018)" },
-];
+  const graduateAlumni = [
+    {
+      name: "Victor Ochoa-Henriquez",
+      details: "PhD student in Environmental Life Sciences (2023-2024)",
+    },
+    { name: "Lilly Vael", details: "PhD student in Microbiology (2022-2024)" },
+    { name: "Julia Furedy", details: "M.S. (4+1 BS, MS) student (2021-2024)" },
+    {
+      name: "Camila Delgado-Montes",
+      details: "Ms student in Biology (2020-2023)",
+    },
+    {
+      name: "Michael Pavia",
+      details: "PhD student in Microbiology (2018-2024)",
+    },
+    {
+      name: "Jillian Ayers",
+      details: "M.S. (4+1 BS, MS) student in Microbiology (2019-2021)",
+    },
+    {
+      name: "Mark Reynolds",
+      details: "PhD student in Microbiology (2015-2022)",
+    },
+    {
+      name: "Analisa Sarno",
+      details: "PhD student in Microbiology (2013-2021)",
+    },
+    {
+      name: "Steffen Buessecker",
+      details: "PhD student in Environmental Life Sciences (2013-2020)",
+    },
+    { name: "Julian Yu", details: "PhD student in Microbiology (2014-2020)" },
+    { name: "Zeni Ramirez", details: "Ms student in Microbiology (2016-2018)" },
+  ];
 
+  const postdocAlumni = [
+    { name: "Outi Lahteenoja", details: "Postdoctoral researcher" },
+    { name: "Michal Ziv-El", details: "Postdoctoral researcher" },
+    { name: "Patrick Browne", details: "Postdoctoral researcher" },
+    { name: "Damien Finn", details: "Postdoctoral researcher" },
+    { name: "Paul Brewer", details: "Postdoctoral researcher" },
+  ];
 
-const postdocAlumni = [
-  { name: "Outi Lahteenoja", details: "Postdoctoral researcher" },
-  { name: "Michal Ziv-El", details: "Postdoctoral researcher" },
-  { name: "Patrick Browne", details: "Postdoctoral researcher" },
-  { name: "Damien Finn", details: "Postdoctoral researcher" },
-  { name: "Paul Brewer", details: "Postdoctoral researcher" },
-];
+  const handleToggleAlumni = () => {
+    setOpenAlumniDropdown(!openAlumniDropdown);
+  };
 
+  const handleTogglePhD = (index) => {
+    setOpenDropdownPhD(openDropdownPhD === index ? null : index);
+  };
 
-    const handleToggleAlumni = () => {
-      setOpenAlumniDropdown(!openAlumniDropdown);
-    };
+  const handleTogglePostdoc = (index) => {
+    setOpenDropdownPostdoc(openDropdownPostdoc === index ? null : index);
+  };
 
-    const handleTogglePhD = (index) => {
-      setOpenDropdownPhD(openDropdownPhD === index ? null : index);
-    };
+  const handleToggleUndergrad = (index) => {
+    setOpenDropdownUndergrad(openDropdownUndergrad === index ? null : index);
+  };
 
-    const handleTogglePostdoc = (index) => {
-      setOpenDropdownPostdoc(openDropdownPostdoc === index ? null : index);
-    };
-
-    const handleToggleUndergrad = (index) => {
-      setOpenDropdownUndergrad(openDropdownUndergrad === index ? null : index);
-    };
-  
   const handleToggle = (index) => {
     if (openDropdownIndex === index) {
       setOpenDropdownIndex(null); // Close the dropdown if it's already open
@@ -391,83 +398,86 @@ const postdocAlumni = [
     },
   ];
 
-const highSchoolResearchers = [
-  {
-    year: "2023",
-    name: "Karishma Sivakumar",
-    school: "Basis Phoenix High School",
-  },
-  { year: "2022", name: "Abhinav Chede", school: "Basis Chandler High School" },
-  {
-    year: "2017",
-    name: "Farin Shiehzadegan",
-    school: "Basis Chandler High School",
-  },
-  { year: "2017", name: "Erik Barraza Cordova", school: "North High School" },
-  { year: "2016", name: "Afroza Rahman", school: "Maryvale High School" },
-  { year: "2016", name: "Marissa Plata", school: "Shadow Ridge High School" },
-  { year: "2016", name: "Sarah Bodansky", school: "Horizon High School" },
-  {
-    year: "2016",
-    name: "Christina Moon",
-    school: "Corona del Sol High School",
-  },
-  { year: "2015", name: "Rohini Nott", school: "BASIS Chandler" },
-  { year: "2015", name: "Priyanka Konan", school: "Hamilton High School" },
-  {
-    year: "2014",
-    name: "Ruohan (Hannah) Miao",
-    school: "Hamilton High School",
-  },
-  { year: "2014", name: "Jeba Sania", school: "Paragon Science Academy" },
-  { year: "2013", name: "Lindsay Wilson", school: "Bioscience High School" },
-  {
-    year: "2013",
-    name: "Saisanjana Kalagara",
-    school: "Corona del Sol High School",
-  },
-];
+  const highSchoolResearchers = [
+    {
+      year: "2023",
+      name: "Karishma Sivakumar",
+      school: "Basis Phoenix High School",
+    },
+    {
+      year: "2022",
+      name: "Abhinav Chede",
+      school: "Basis Chandler High School",
+    },
+    {
+      year: "2017",
+      name: "Farin Shiehzadegan",
+      school: "Basis Chandler High School",
+    },
+    { year: "2017", name: "Erik Barraza Cordova", school: "North High School" },
+    { year: "2016", name: "Afroza Rahman", school: "Maryvale High School" },
+    { year: "2016", name: "Marissa Plata", school: "Shadow Ridge High School" },
+    { year: "2016", name: "Sarah Bodansky", school: "Horizon High School" },
+    {
+      year: "2016",
+      name: "Christina Moon",
+      school: "Corona del Sol High School",
+    },
+    { year: "2015", name: "Rohini Nott", school: "BASIS Chandler" },
+    { year: "2015", name: "Priyanka Konan", school: "Hamilton High School" },
+    {
+      year: "2014",
+      name: "Ruohan (Hannah) Miao",
+      school: "Hamilton High School",
+    },
+    { year: "2014", name: "Jeba Sania", school: "Paragon Science Academy" },
+    { year: "2013", name: "Lindsay Wilson", school: "Bioscience High School" },
+    {
+      year: "2013",
+      name: "Saisanjana Kalagara",
+      school: "Corona del Sol High School",
+    },
+  ];
 
+  const undergraduate = [
+    {
+      name: "David Nguyen, BS",
+      bio: "Undergraduate researcher",
+      image: david1,
+      role: "Undergraduate Researcher",
+    },
+    {
+      name: "Luka Castillejo Olazabal, BS",
+      bio: "Undergraduate researcher",
+      image: luka,
+      role: "Undergraduate Researcher",
+    },
+    {
+      name: "Placeholer, BS",
+      bio: "Undergraduate researcher",
+      image: ug1,
+      role: "Undergraduate Researcher",
+    },
+    {
+      name: "Placeholer, BS",
+      bio: "Undergraduate researcher",
+      image: ug2,
+      role: "Undergraduate Researcher",
+    },
+    {
+      name: "Placeholer, BS",
+      bio: "Undergraduate researcher",
+      image: ug3,
+      role: "Undergraduate Researcher",
+    },
+    {
+      name: "Placeholer, BS",
+      bio: "Undergraduate researcher",
+      image: ug4,
+      role: "Undergraduate Researcher",
+    },
+  ];
 
-    const undergraduate = [
-      {
-        name: "David Nguyen, BS",
-        bio: "Undergraduate researcher",
-        image: david1,
-        role: "Undergraduate Researcher",
-      },
-      {
-        name: "Luka Castillejo Olazabal, BS",
-        bio: "Undergraduate researcher",
-        image: luka,
-        role: "Undergraduate Researcher",
-      },
-      {
-        name: "Placeholer, BS",
-        bio: "Undergraduate researcher",
-        image: ug1,
-        role: "Undergraduate Researcher",
-      },
-      {
-        name: "Placeholer, BS",
-        bio: "Undergraduate researcher",
-        image: ug2,
-        role: "Undergraduate Researcher",
-      },
-      {
-        name: "Placeholer, BS",
-        bio: "Undergraduate researcher",
-        image: ug3,
-        role: "Undergraduate Researcher",
-      },
-      {
-        name: "Placeholer, BS",
-        bio: "Undergraduate researcher",
-        image: ug4,
-        role: "Undergraduate Researcher",
-      },
-    ];
-    
   const internationalScholarsAndInterns = [
     {
       year: 2024,
@@ -741,7 +751,6 @@ const highSchoolResearchers = [
     },
   ];
 
-
   const undergradAlumni = [
     { name: "Joshua Hislop", year: "2021-2022", detail: "NSF REU" },
     { name: "Anna Burns", year: "2021-2022", detail: "NSF REU" },
@@ -979,7 +988,7 @@ const highSchoolResearchers = [
             <div className="alumni-columns">
               {/* PhD Alumni Column */}
               <div className="column">
-                <h3>PhD</h3>
+                <h3>Graduates</h3>
                 {graduateAlumni.map((alumni, index) => (
                   <div key={index} className="alumni-item">
                     <span>{alumni.name}</span>
@@ -1058,7 +1067,11 @@ const highSchoolResearchers = [
               {internationalScholarsAndInterns.map((researcher, index) => (
                 <li key={index}>
                   <strong>{researcher.year}:</strong> {researcher.name}:{" "}
-                  <em>{researcher.researchTitle}{", "}{researcher.program}</em>
+                  <em>
+                    {researcher.researchTitle}
+                    {", "}
+                    {researcher.program}
+                  </em>
                 </li>
               ))}
             </ul>
