@@ -45,17 +45,16 @@ const Homepage = () => {
         <video autoPlay loop muted className="hero-video">
           <source src={backgroundVideo} type="video/mp4" />
         </video>
-        <div className="hero-overlay">
-          <div className="hero-content hover-effect">
-            <h1>Welcome to the Cadillo Lab</h1>
-            <p style={{ color: "white" }}>
-              An environment with diverse backgrounds, experiences, and careers
-              is foundational to our team.
-            </p>
-          </div>
-        </div>
       </section>
-
+      <div className="hero-overlay">
+        <div className="hero-content hover-effect">
+          <h1 style={{ color: "black" }}>Welcome to the Cadillo Lab</h1>
+          <p style={{ color: "black" }}>
+            An environment with diverse backgrounds, experiences, and careers is
+            foundational to our team.
+          </p>
+        </div>
+      </div>
       <section className="mission-social">
         <h2
           className="section-title hover-text"

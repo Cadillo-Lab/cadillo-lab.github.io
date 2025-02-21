@@ -7,7 +7,6 @@ import publication1 from "../assets/3.png";
 import publication2 from "../assets/4.png";
 import publication3 from "../assets/5.png";
 import publication4 from "../assets/6.png";
-import publication5 from "../assets/7.png";
 import publication6 from "../assets/8.png";
 import publication7 from "../assets/9.png";
 import publication8 from "../assets/10.png";
@@ -30,7 +29,6 @@ import publication24 from "../assets/26.png";
 import publication25 from "../assets/27.png";
 import publication26 from "../assets/28.png";
 import publication27 from "../assets/29.png";
-import publication28 from "../assets/30.png";
 import publication29 from "../assets/31.png";
 import publication30 from "../assets/32.png";
 import publication31 from "../assets/33.png";
@@ -52,6 +50,8 @@ import publicationnew6 from "../assets/publicationnew6.png";
 import publicationnew7 from "../assets/publicationnew7.png";
 import publicationnew8 from "../assets/publicationnew8.png";
 import publicationnew9 from "../assets/publicationnew9.png";
+import publicationchanged from "../assets/publication-changed1.png";
+import publicationchanged2 from "../assets/publicationchanged2.png";
 
 const Publications = () => {
   return (
@@ -207,7 +207,7 @@ const Publications = () => {
               rel="noopener noreferrer"
             >
               <img
-                src={publication5}
+                src={publicationchanged}
                 alt="Coupled abiotic-biotic cycling of nitrous oxide in tropical peatlands"
               />
             </a>
@@ -471,7 +471,7 @@ const Publications = () => {
                   rel="noopener noreferrer"
                 >
                   <img
-                    src={publication28}
+                    src={publicationchanged2}
                     alt="Isolation of a significant fraction of non-phototroph diversity from a desert Biological Soil Crust"
                   />
                 </a>

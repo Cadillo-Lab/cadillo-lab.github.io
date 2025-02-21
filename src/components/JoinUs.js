@@ -132,17 +132,18 @@ const JoinUs = () => {
                 Get in touch with Prof. Cadillo as early as possible and start a
                 conversation about plans and options!
               </p>
-              <div
-                style={{
-                  backgroundColor: "red",
-                  color: "black",
-                  padding: "10px",
-                  textAlign: "center",
-                  fontWeight: "bold",
-                  marginTop: "10px",
-                }}
-              >
-                No positions available
+              <div style={{ marginTop: "10px", textAlign: "left" }}>
+                <details
+                  style={{
+                    color: "black",
+                    padding: "10px",
+                    borderRadius: "5px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <summary style={{ cursor: "pointer" }}>Position</summary>
+                  <p style={{ marginTop: "10px" }}>No positions available</p>
+                </details>
               </div>
             </div>
 
@@ -158,17 +159,18 @@ const JoinUs = () => {
                   current or upcoming possibilities.
                 </p>
               </div>
-              <div
-                style={{
-                  backgroundColor: "red",
-                  color: "black",
-                  padding: "10px",
-                  textAlign: "center",
-                  fontWeight: "bold",
-                  marginTop: "10px",
-                }}
-              >
-                No positions available
+              <div style={{ marginTop: "10px", textAlign: "left" }}>
+                <details
+                  style={{
+                    color: "black",
+                    padding: "10px",
+                    borderRadius: "5px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <summary style={{ cursor: "pointer" }}>Position</summary>
+                  <p style={{ marginTop: "10px" }}>No positions available</p>
+                </details>
               </div>
             </div>
 
@@ -196,17 +198,19 @@ const JoinUs = () => {
                   the lab.
                 </p>
 
-                <div
-                  style={{
-                    backgroundColor: "red",
-                    color: "black",
-                    padding: "10px",
-                    textAlign: "center",
-                    fontWeight: "bold",
-                    marginTop: "10px",
-                  }}
-                >
-                  No positions available
+                <div style={{ marginTop: "10px", textAlign: "left" }}>
+                  <details
+                    style={{
+                      color: "black",
+                      padding: "10px",
+                      borderRadius: "5px",
+                      cursor: "pointer",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    <summary style={{ outline: "none" }}>Position</summary>
+                    <p style={{ marginTop: "10px" }}>No positions available</p>
+                  </details>
                 </div>
 
                 <h4>Additional Opportunities for Involvement:</h4>

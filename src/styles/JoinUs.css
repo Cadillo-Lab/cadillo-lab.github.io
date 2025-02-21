@@ -23,7 +23,7 @@
 .content-wrapper {
   max-width: 1200px;
   width: 100%;
-  text-align: center;
+  text-align: left;
   margin: 0; /* Removed margin */
 }
 
