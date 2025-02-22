@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0; /* Removed padding */
+  padding: 10px; /* Removed padding */
 }
 
 .banner-container {

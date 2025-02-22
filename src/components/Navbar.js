@@ -4,6 +4,12 @@ import asuLogo from "../assets/new-lab-logo.png";
 import banner from "../assets/BannerCadilloAlone.png";
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <nav className="nav-container">
       {/* Left: ASU Logo */}
@@ -17,32 +23,66 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Center: Navigation Links */}
-      <div className="nav-links">
-        <Link to="/" className="nav-link">
-          Home
-        </Link>
-        <span className="separator">·</span>
-        <Link to="/research" className="nav-link">
-          Research
-        </Link>
-        <span className="separator">·</span>
-        <Link to="/team" className="nav-link">
-          Team
-        </Link>
-        <span className="separator">·</span>
-        <Link to="/publications" className="nav-link">
-          Publications
-        </Link>
-        <span className="separator">·</span>
-        <Link to="/collaborations" className="nav-link">
-          Collaborations
-        </Link>
-        <span className="separator">·</span>
-        <Link to="/join-us" className="nav-link">
-          Join US
-        </Link>
+      {/* Hamburger Menu */}
+      <div className="hamburger" onClick={toggleMenu}>
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
       </div>
+
+      {/* Center: Navigation Links */}
+      <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
+        <li>
+          <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/research"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Research
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/team"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Team
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/publications"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Publications
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/collaborations"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Collaborations
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/join-us"
+            className="nav-link"
+            onClick={() => setMenuOpen(false)}
+          >
+            Join US
+          </Link>
+        </li>
+      </ul>
 
       {/* Right: Banner Image */}
       <div className="nav-banner-section">

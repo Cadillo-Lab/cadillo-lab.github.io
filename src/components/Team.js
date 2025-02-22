@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import facultyImage from "../assets/faculty.png";
+import facultyImage from "../assets/faculty-photoaidcom-cropped.png";
 import MichaelImage from "../assets/Michael.png";
 import lillyImage from "../assets/lilly.jpg";
 import victorImage from "../assets/Victor.jpg";
@@ -751,27 +751,7 @@ const Team = () => {
     },
   ];
 
-  const undergradAlumni = [
-    { name: "Joshua Hislop", year: "2021-2022", detail: "NSF REU" },
-    { name: "Anna Burns", year: "2021-2022", detail: "NSF REU" },
-    { name: "Sara Santiago", year: "2021-2022", detail: "WAESO" },
-    { name: "Hannah Brzezinski", year: "2021-2022", detail: "LEAP" },
-    { name: "Kameren Silas", year: "2021-2022", detail: "" },
-    { name: "Rory Locket", year: "2021-2022", detail: "WAESO" },
-    { name: "Sarah Avalle", year: "2020-2021", detail: "" },
-    { name: "David Denogan", year: "2020-2021", detail: "" },
-    { name: "Elizabeth Ardilla", year: "2020-2021", detail: "WAESO" },
-    { name: "Rachel Campos", year: "2020-2021", detail: "" },
-    { name: "Joseph Boyd", year: "2020-2021", detail: "" },
-    { name: "Jacqueline Winston", year: "2018-2019", detail: "NSF REU" },
-    { name: "Angela Mercado", year: "2018-2019", detail: "Engineering" },
-    { name: "Elias Rodriguez", year: "2018-2019", detail: "Microbiology" },
-    { name: "Alexandra Gernandez", year: "2018-2019", detail: "Engineering" },
-    { name: "Jordan Canin", year: "2018-2019", detail: "Microbiology" },
-    { name: "Nandini Mishra", year: "2018-2019", detail: "Biochemistry" },
-    { name: "Morgan Yorkell", year: "2018-2019", detail: "Microbiology" },
-    { name: "Hebah Bahta", year: "2018-2019", detail: "Microbiology" },
-  ];
+
 
   const highSchoolStudents = [
     {
@@ -1007,20 +987,6 @@ const Team = () => {
                   </div>
                 ))}
               </div>
-
-              {/* Undergraduate Alumni Column */}
-              <div className="column">
-                <h3>Undergraduate</h3>
-                {undergradAlumni.map((alumni, index) => (
-                  <div key={index} className="alumni-item">
-                    <span>
-                      {alumni.year} {" - "}
-                      {alumni.name} {" - "}
-                      {alumni.detail}
-                    </span>
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* Barrett Honors Thesis */}
@@ -1039,14 +1005,17 @@ const Team = () => {
             {undergraduateResearchers.map((researcherGroup, index) => (
               <div key={index}>
                 <h4>{researcherGroup.year}</h4>
-                <ul>
+                <p>
                   {researcherGroup.researchers.map((researcher, subIndex) => (
-                    <li key={subIndex}>
-                      <strong>{researcher.name}</strong>{" "}
-                      {researcher.program ? `(${researcher.program})` : ""}
-                    </li>
+                    <span key={subIndex}>
+                      <strong>{researcher.name}</strong>
+                      {researcher.program ? ` (${researcher.program})` : ""}
+                      {subIndex < researcherGroup.researchers.length - 1
+                        ? ", "
+                        : ""}
+                    </span>
                   ))}
-                </ul>
+                </p>
               </div>
             ))}
 

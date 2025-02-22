@@ -148,6 +148,8 @@ const Homepage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bsky-button"
+                data-theme="dark"
+                data-height="50"
               >
                 Visit our BlueSky Profile
               </a>

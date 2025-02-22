@@ -3,18 +3,116 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-
+    max-width: 3000px;
+    height: auto !important;
+    /* Remove fixed height */
+    overflow: visible !important;
 }
 
+/* Container adjustments */
 .banner {
     text-align: center;
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
+    width: 100%; /* Changed from 120% */
+    max-width: 1920px; /* Add maximum width constraint */
+    overflow: hidden; /* Contains child elements */
+    position: relative;
 }
 
+/* Image adjustments */
 .banner-image {
     width: 100%;
-    max-height: 300px;
+    height: auto;
     object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    
+    /* Responsive height control */
+    max-height: 80vh; /* Viewport height relative */
+    min-height: 300px; /* Minimum height fallback */
+}
+
+@media (max-width: 768px) {
+    .banner-image {
+        max-height: 60vh;
+        min-height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-image {
+        max-height: 40vh;
+        min-height: 150px;
+    }
+}
+
+/* Container for the banner */
+.banner-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* Banner image styling */
+.banner-image {
+    width: 100%;
+    height: auto; /* Ensures aspect ratio is maintained */
+    object-fit: cover; /* Crops the image appropriately */
+    object-position: center; /* Centers the image content */
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 768px) {
+    .banner-image {
+        height: 50vh; /* Makes the banner height responsive for smaller screens */
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+/* Adjustments for very small screens (e.g., older phones) */
+@media (max-width: 480px) {
+    .banner-image {
+        height: 40vh; /* Reduces height for very small devices */
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.banners {
+    width: 100%;
+    margin-bottom: 40px;
+    overflow: hidden;
+    /* To prevent any overflow issues */
+    position: relative;
+}
+
+/* Banner Image */
+.banner-images {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    /* Ensure the image takes the full width */
+    max-height: 400px;
+    /* Consistent max height */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .banner-images {
+        max-height: 300px;
+        /* Reduce height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-images {
+        max-height: 200px;
+        /* Further reduce height for very small screens */
+    }
 }
 
 /* Year section styles */
@@ -29,6 +127,18 @@
     margin-bottom: 20px;
     text-align: center;
     color: #333;
+}
+
+@media (max-width: 768px) {
+    .banner-image {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-image {
+        max-height: 150px;
+    }
 }
 
 /* Styles for the row of publication images */
