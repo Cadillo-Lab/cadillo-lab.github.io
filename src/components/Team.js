@@ -751,8 +751,6 @@ const Team = () => {
     },
   ];
 
-
-
   const highSchoolStudents = [
     {
       name: "Sarah Bodansky",
@@ -988,18 +986,17 @@ const Team = () => {
                 ))}
               </div>
             </div>
-
             {/* Barrett Honors Thesis */}
             <h3>Barrett Honors Thesis</h3>
-            <ul>
+            <div className="single-line-thesis">
               {honorsThesis.map((thesis, index) => (
-                <li key={index}>
+                <span key={index}>
                   <strong>{thesis.year}:</strong> {thesis.name}, {thesis.degree}
                   : <em>{thesis.thesisTitle}</em>
-                </li>
+                  {index < honorsThesis.length - 1 && " | "}
+                </span>
               ))}
-            </ul>
-
+            </div>
             {/* Undergraduate Researchers */}
             <h3>Undergraduate Researchers</h3>
             {undergraduateResearchers.map((researcherGroup, index) => (
@@ -1018,32 +1015,28 @@ const Team = () => {
                 </p>
               </div>
             ))}
-
             {/* High School Researchers */}
             <h3>High School Researchers</h3>
-            <ul>
-              {highSchoolResearchers.map((researcher, index) => (
-                <li key={index}>
-                  <strong>{researcher.year}:</strong> {researcher.name}:{" "}
-                  <em>{researcher.school}</em>
-                </li>
+            <div className="single-line-thesis">
+              {highSchoolResearchers.map((thesis, index) => (
+                <span key={index}>
+                  <strong>{thesis.year}:</strong> {thesis.name}, {thesis.degree}
+                  : <em>{thesis.thesisTitle}</em>
+                  {index < highSchoolResearchers.length - 1 && " | "}
+                </span>
               ))}
-            </ul>
-
+            </div>
             {/* Visiting Scholar*/}
             <h3>Visiting Scholar</h3>
-            <ul>
-              {internationalScholarsAndInterns.map((researcher, index) => (
-                <li key={index}>
-                  <strong>{researcher.year}:</strong> {researcher.name}:{" "}
-                  <em>
-                    {researcher.researchTitle}
-                    {", "}
-                    {researcher.program}
-                  </em>
-                </li>
+            <div className="single-line-thesis">
+              {internationalScholarsAndInterns.map((thesis, index) => (
+                <span key={index}>
+                  <strong>{thesis.year}:</strong> {thesis.name}, {thesis.degree}
+                  : <em>{thesis.thesisTitle}</em>
+                  {index < internationalScholarsAndInterns.length - 1 && " | "}
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
         )}
       </section>

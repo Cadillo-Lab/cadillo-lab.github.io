@@ -602,6 +602,18 @@ button {
   margin-bottom: 12px;
 }
 
+.single-line-thesis {
+  white-space: nowrap;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.single-line-thesis span {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+
 /* Style for the name */
 
 /* Arrow rotation transition */
