@@ -42,7 +42,7 @@ const Homepage = () => {
     <div className="homepage-container">
       {/* Hero Section */}
       <section className="hero">
-        <video autoPlay loop muted className="hero-video">
+        <video autoPlay loop playsInline muted className="hero-video">
           <source src={backgroundVideo} type="video/mp4" />
         </video>
       </section>

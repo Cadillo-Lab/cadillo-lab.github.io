@@ -6,7 +6,7 @@ import victorImage from "../assets/Victor.jpg";
 import juliaImage from "../assets/Julia.png";
 import aliceImage from "../assets/Alice.png";
 import jesusImage from "../assets/Jesus2.png";
-import jieImage from "../assets/jie.jpg";
+import jieImage from "../assets/Linh-2.jpg";
 import janaImage from "../assets/Jana_2.png";
 import david1 from "../assets/placeholder.jpg";
 import luka from "../assets/placeholder.jpg";
@@ -193,12 +193,12 @@ const Team = () => {
 
   const postdocResearchers = [
     {
-      name: "Jie Dai, PhD",
+      name: "Lihn, PhD",
       bio: "Postdoctoral researcher",
       image: jieImage,
       role: "Postdoctoral Researcher",
       backContent:
-        "With a PhD in Geography from the Joint Doctoral Program (JDP) between San Diego State University (SDSU) and University of California, Santa Barbara (UCSB), I specialize in remote sensing of the environment. I currently work as a postdoctoral scholar in the Cadillo Lab, focusing on methane emission monitoring at the Salt River Landfill in Scottsdale, AZ. Since March 2020, I have been organizing, compiling, and analyzing methane emission data collected by a stationed eddy covariance tower, developing reports on methane flux budgets, and drafting a manuscript on emission dynamics over the past three years. Additionally, I am involved in peatland/soil carbon mapping and monitoring projects in Peru and Bolivia. My goal is to pursue a tenure-track faculty position in a research university.",
+        "During his Ph.D., Dr Nguyen,  focused on synthetic biology and the metabolic engineering of various microorganisms, including methane-oxidizing bacteria, Escherichia coli, Pseudomonas putida, and cyanobacteria, for the production of valuable chemicals. He developed metabolic flux models, analyses of RNA expression, bioassays and respirometry to evaluate the functional outputs of engineering. Currently, his research focuses on predicting the growth rates of soil microbes using the metatranscriptomics of methane-oxidizing bacteria and methane-producing strains. Specifically, we seek employ pre-defined machine learning models to accurately predict the phenotypic traits of major methanotroph and methanogen strains based on their gene expression data.",
     },
     {
       name: "Jana Taumer, PhD",
