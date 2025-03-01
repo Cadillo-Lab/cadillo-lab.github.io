@@ -1,238 +1,188 @@
+/* Base Mobile Styles */
 .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 2rem;
-    background-color: white;
-    background-image: url('../assets/background-1.png');
-    height: 80px;
-    position: relative;
-    margin-bottom: 20px;
-}
-
-/* Logo Section */
-.nav-logo-section {
-    flex: 0 0 auto;
-}
-
-.asu-logo {
-    height: 60px;
-    width: auto;
-    padding-left: 10px;
-}
-.asu-logo {
-  width: 15vw; /* 20% of the viewport width */
-  height: auto;
-  padding-left: -30px;
-}
-
-/* Navigation Links */
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.nav-link {
-    color: #191919;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-    padding: 8px 12px;
-    letter-spacing: 0.2px;
-    position: relative;
-    /* Added for underline positioning */
-    transition: color 0.3s ease;
-    /* Smooth color transition */
-}
-
-/* Hover effect with animated underline */
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: #8c1d40;
-    /* ASU maroon color */
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-.nav-link:hover {
-    color: #8c1d40;
-}
-
-.nav-link:hover::after {
-    width: 80%;
-    /* Underline width on hover */
-}
-
-/* Active link style */
-.nav-link.active::after {
-    width: 80%;
-    background-color: #8c1d40;
-}
-
-.separator {
-    color: #191919;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0 2px;
-}
-
-/* Banner Section */
-.nav-banner-section {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    margin-left: auto;
-}
-
-.lab-banner {
-    height: 100px;
-    width: auto;
-    padding-right: 0.5px;
-    object-fit: contain;
-    margin-right: -2rem;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .nav-container {
-        padding: 0.5rem;
-    }
-
-    .nav-links {
-        gap: 8px;
-    }
-
-    .nav-link {
-        font-size: 15px;
-        padding: 6px 8px;
-    }
-
-    .asu-logo {
-        height: 50px;
-    }
-
-    .lab-banner {
-        height: 110px;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        height: auto;
-        padding: 1rem;
-    }
-
-    .nav-links {
-        position: static;
-        transform: none;
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-        margin: 1rem 0;
-    }
-
-    .separator {
-        display: none;
-    }
-
-    .nav-banner-section {
-        display: none;
-    }
-
-    .nav-link::after {
-        bottom: -2px;
-    }
-}
-
-/* General Styles */
-.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.nav-logo-section img {
-  width: 15vw;
+/* Logo Section */
+.nav-logo-section {
+  flex: 0 1 auto;
+  z-index: 1001;
 }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 1rem;
+.asu-logo {
+  max-width: 150px;
+  height: auto;
+  transition: transform 0.3s ease;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: #191919;
+/* Banner Section */
+.nav-banner-section {
+  flex: 0 1 auto;
+  z-index: 1001;
+  display: none;
+}
+
+.lab-banner {
+  max-width: 200px;
+  height: auto;
 }
 
 /* Hamburger Menu */
 .hamburger {
-  display: none;
+  display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
   cursor: pointer;
+  padding: 0;
+  z-index: 1001;
 }
 
 .bar {
-  width: 25px;
+  width: 2rem;
   height: 3px;
-  background-color: #191919;
-  margin: 4px 0;
+  background: #000000;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  transform-origin: 1px;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
+/* Navigation Links */
+.nav-links {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 0 2rem;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.nav-links.active {
+  transform: translateX(0);
+}
+
+.nav-link {
+  color: #000000;
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  margin: 0.5rem 0;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-link.active {
+  color: #FFC627; /* ASU Gold */
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Desktop Styles (Min-width: 768px) */
+@media screen and (min-width: 768px) {
+  .nav-container {
+    padding: 1rem 2rem;
+    position: static;
+  }
+
   .hamburger {
-    display: flex;
-    z-index: 1001; /* Ensure it appears above other elements */
+    display: none;
+  }
+
+  .nav-logo-section {
+    order: 1;
+    flex: 0 1 20%;
+  }
+
+  .nav-banner-section {
+    display: block;
+    order: 3;
+    flex: 0 1 20%;
+    text-align: right;
   }
 
   .nav-links {
-    display: none; /* Hide links by default */
-    flex-direction: column;
-    position: absolute;
-    top: 80px; /* Adjust based on your navbar height */
-    left: 0;
-    width: 100%;
-    background-color: white;
-    padding: 1rem;
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-    z-index: 1000; /* Ensure it appears above content */
-    animation: slideDown 0.3s ease; /* Smooth dropdown animation */
-  }
-
-  .nav-links.active {
-    display: flex; /* Show links when active */
+    position: static;
+    order: 2;
+    flex-direction: row;
+    background: transparent;
+    transform: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    gap: 1.5rem;
+    flex: 1 1 auto;
   }
 
   .nav-link {
-    padding: 10px; /* Add padding for better spacing */
-    text-align: center; /* Center-align links */
-    border-bottom: solid #ddd thin; /* Add a separator line */
-    font-size: larger; /* Improve readability */
-    font-weight: bold;
-    color:#191919 ;
-    
-  
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    width: auto;
+    color: #000000;
+  }
+
+  .nav-link.active {
+    border-bottom: 2px solid #FFC627;
+  }
+
+  .asu-logo {
+    max-width: 180px;
+  }
+
+  .lab-banner {
+    max-width: 250px;
+  }
 }
 
-/* Animation for dropdown menu */
-@keyframes slideDown {
-from{
-opacity:.2;}
-to{
-opacity:.9}}
+/* Large Desktop Enhancement */
+@media screen and (min-width: 1200px) {
+  .nav-container {
+    padding: 1rem 5%;
+  }
+  
+  .nav-links {
+    gap: 2rem;
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .asu-logo {
+    max-width: 200px;
+  }
+
+  .lab-banner {
+    max-width: 300px;
+  }
+}
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
