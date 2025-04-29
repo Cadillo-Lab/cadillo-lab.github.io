@@ -28,7 +28,7 @@
 }
 
 .welcome-section p {
-  font-size: 1.2rem;
+  font-size: 1.0rem;
   margin: 0; /* Removed margin */
 }
 
@@ -119,4 +119,11 @@ a:hover {
 
 .arrow:hover {
   background: rgba(0, 0, 0, 0.7);
+}
+
+.common-text {
+  font-size: 1rem;
+  line-height: 1.2; /* <-- compact line spacing */
+  color: #000000; /* Black text */
+  margin-bottom: 1rem; /* Small gap between paragraphs */
 }

@@ -42,12 +42,12 @@ const JoinUs = () => {
 
         <div className="content-wrapper">
           <div className="welcome-section">
-            <p>
+            <p className="common-text">
               The Cadillo lab is a young and vibrant group and we are always
               looking for talented students, postdocs, and international
               visitors!
             </p>
-            <p>
+            <p className="common-text">
               Browse our Research pages, so you can familiarize yourself with
               our interests and the recent research projects conducted in our
               lab.
@@ -57,12 +57,12 @@ const JoinUs = () => {
           <div className="opportunity-item-1">
             <h2>Graduate Student Opportunities</h2>
             <div className="opportunity-content">
-              <p className="text1">
+              <p className="common-text">
                 Graduate students in our lab benefit from a mixed source of
                 funding that includes fellowships, teaching, and research
                 assistantships.
               </p>
-              <p>
+              <p className="common-text">
                 Students are accepted into our lab through programs from the
                 Graduate College and the School of Life Sciences. See the linked
                 information for SOLS, Graduate College, and Biological Design
@@ -71,7 +71,7 @@ const JoinUs = () => {
               <h4>
                 Professor Cadillo is a faculty member in the following programs:
               </h4>
-              <p>
+              <p className="common-text">
                 <a
                   href="https://degrees.apps.asu.edu/masters-phd/major/ASU00/LAELSPHD/environmental-life-sciences-phd"
                   target="_blank"
@@ -128,7 +128,7 @@ const JoinUs = () => {
                   Environmental Engineering
                 </a>
               </p>
-              <p>
+              <p className="common-text">
                 Get in touch with Prof. Cadillo as early as possible and start a
                 conversation about plans and options!
               </p>
@@ -142,7 +142,7 @@ const JoinUs = () => {
                   }}
                 >
                   <summary style={{ cursor: "pointer" }}>Position</summary>
-                  <p style={{ marginTop: "10px" }}>No positions available</p>
+                  <p className="common-text" style={{ marginTop: "10px" }}>No positions available</p>
                 </details>
               </div>
             </div>
@@ -150,7 +150,7 @@ const JoinUs = () => {
             <div className="opportunity-item-2">
               <h2>Postdoctoral Positions</h2>
               <div className="opportunity-content">
-                <p className="text2">
+                <p className="common-text">
                   We are looking for highly motivated graduates with experience
                   in ecosystems ecology, anaerobic microbiology,
                   genomics/metagenomics, geomicrobiology/stable isotopes, or
@@ -177,7 +177,7 @@ const JoinUs = () => {
             <div className="opportunity-item-3">
               <h2>Undergraduate Research Opportunities</h2>
               <div className="opportunity-content">
-                <p className="text3">
+                <p className="common-text">
                   Send us an email introducing yourself, include your year and
                   major, and why you are interested in working in our lab.
                   Include a resume that highlights relevant coursework or
@@ -186,12 +186,12 @@ const JoinUs = () => {
                   sent to either Professor Hinsby or a graduate student you are
                   interested in working with.
                 </p>
-                <p>
+                <p className="common-text">
                   Understand that undergraduate students have responsibilities
                   in the lab and are required to balance these with their
                   academic workload.
                 </p>
-                <p>
+                <p className="common-text">
                   Ensure that you are up to date on safety trainings (Hazardous
                   waste management, fire safety, and biosafety and bloodborne
                   pathogens). These will need to be completed before working in
@@ -274,17 +274,17 @@ const JoinUs = () => {
             <div className="opportunity-item-4">
               <h2>International Collaborations and Visitors</h2>
               <div className="opportunity-content">
-                <p className="text4">
+                <p className="common-text">
                   Our lab is always welcoming international collaborations and
                   visitors.
                 </p>
-                <p>
+                <p className="common-text">
                   We host visiting professors and scholars, commonly under the
                   financial sponsorship of their home organizations, with a
                   focus on training and joint research. Contact Professor
                   Cadillo about opportunities and interests.
                 </p>
-                <p>
+                <p className="common-text">
                   We also host international internships, such as those
                   sponsored by the{" "}
                   <a
@@ -298,7 +298,7 @@ const JoinUs = () => {
                   faculty), and REPU. We post positions through each of these
                   programs, so be sure to visit their websites.
                 </p>
-                <p>
+                <p className="common-text">
                   If you have any questions or want to know more about our lab,
                   feel free to contact any of the lab members; we will be more
                   than happy to get in touch with you!
