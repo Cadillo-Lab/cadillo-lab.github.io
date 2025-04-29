@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Cadillo-lab-website/static/css/main.999290b2.css",
-    "main.js": "/Cadillo-lab-website/static/js/main.edbf827b.js",
+    "main.css": "/Cadillo-lab-website/static/css/main.9c7fb575.css",
+    "main.js": "/Cadillo-lab-website/static/js/main.9209abe3.js",
     "static/js/453.acc703c7.chunk.js": "/Cadillo-lab-website/static/js/453.acc703c7.chunk.js",
     "static/media/background-video-new.mov": "/Cadillo-lab-website/static/media/background-video-new.851979ac6c0396725ef8.mov",
     "static/media/Victor.jpg": "/Cadillo-lab-website/static/media/Victor.3fce81d6f7171b1e6cce.jpg",
@@ -24,10 +24,10 @@
     "static/media/cultural.jpg": "/Cadillo-lab-website/static/media/cultural.405b8e8d174150f94bce.jpg",
     "static/media/Jana_2.png": "/Cadillo-lab-website/static/media/Jana_2.fb5baff159b9109d2972.png",
     "static/media/background-1.png": "/Cadillo-lab-website/static/media/background-1.6378a4a7318ec6d5c30e.png",
+    "static/media/publicationnew2.png": "/Cadillo-lab-website/static/media/publicationnew2.ebb866de02696720a213.png",
     "static/media/amazon.png": "/Cadillo-lab-website/static/media/amazon.b2e07558ff7072970a8f.png",
     "static/media/landscape.jpg": "/Cadillo-lab-website/static/media/landscape.eb2ee501ec32764a74ab.jpg",
     "static/media/amazon-peatland2.jpg": "/Cadillo-lab-website/static/media/amazon-peatland2.8130cd9a385f8465d50c.jpg",
-    "static/media/publicationnew2.png": "/Cadillo-lab-website/static/media/publicationnew2.94f7ee64a815b692b6c1.png",
     "static/media/northern.jpg": "/Cadillo-lab-website/static/media/northern.5287cf2d5807b43c1dd2.jpg",
     "static/media/10.png": "/Cadillo-lab-website/static/media/10.dc38e862aa9242a890c4.png",
     "static/media/17.png": "/Cadillo-lab-website/static/media/17.63fd7d62cc529d42c36c.png",
@@ -88,12 +88,12 @@
     "static/media/28.png": "/Cadillo-lab-website/static/media/28.bf2b4166f325071f6ba0.png",
     "static/media/25.jpeg": "/Cadillo-lab-website/static/media/25.0bc19814024f9424e625.jpeg",
     "index.html": "/Cadillo-lab-website/index.html",
-    "main.999290b2.css.map": "/Cadillo-lab-website/static/css/main.999290b2.css.map",
-    "main.edbf827b.js.map": "/Cadillo-lab-website/static/js/main.edbf827b.js.map",
+    "main.9c7fb575.css.map": "/Cadillo-lab-website/static/css/main.9c7fb575.css.map",
+    "main.9209abe3.js.map": "/Cadillo-lab-website/static/js/main.9209abe3.js.map",
     "453.acc703c7.chunk.js.map": "/Cadillo-lab-website/static/js/453.acc703c7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.999290b2.css",
-    "static/js/main.edbf827b.js"
+    "static/css/main.9c7fb575.css",
+    "static/js/main.9209abe3.js"
   ]
 }
