@@ -66,7 +66,7 @@ const Collaborationss = () => {
 
           <div className="programs">
             <h3>A Culturing Soil Microbes for ecosystem models CURE</h3>
-            <p style={{ lineHeight: "1.2" }}>
+            <p className = "para1111" style={{ lineHeight: "1.2" }}>
               This CURE was designed by the Cadillo Lab to promote scientific
               research and training among ASU and international institutions.
               The projects in this class focus on understanding and quantifying
