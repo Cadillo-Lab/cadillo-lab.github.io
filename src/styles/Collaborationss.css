@@ -5,7 +5,7 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     background: #f9f9f9;
-    color: #333;
+    color: #000000;
     width: 100%;
     background-image: url('../assets/background-1.png');
 }
@@ -50,7 +50,7 @@ h2:after {
 
 h3 {
     font-size: 1rem;
-    color: #424242;
+    color: #000000;
     margin-bottom: 10px;
 }
 
@@ -135,7 +135,7 @@ ul li {
 
 ul li:before {
     content: '\2022';
-    color: #42a5f5;
+    color: #000000;
     font-weight: bold;
     display: inline-block;
     width: 10px;
@@ -329,7 +329,7 @@ body {
     margin-top: 10px;
     font-family: 'Roboto', sans-serif;
     background: #f9f9f9;
-    color: #333;
+    color: #000000;
     width: 100%;
     background-image: url('../assets/background-1.png');
 }
@@ -434,7 +434,7 @@ h2:after {
 .programs p {
     line-height: 1.6;
 
-    color: #616161;
+    color: #000000;
 }
 
 .data-collaboration {
@@ -472,7 +472,7 @@ h2:after {
     margin-top: 1rem;
 }
 
-.para11 {
+.para11 .para1111 {
     color: #000000;
 }
 
