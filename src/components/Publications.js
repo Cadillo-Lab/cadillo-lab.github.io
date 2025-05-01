@@ -1,8 +1,8 @@
 import React from "react";
 import "../styles/Publications.css";
 import bannerImage from "../assets/publication.png";
-import publication_1 from "../assets/1.png";
-import publication_2 from "../assets/2.jpg";
+import publication_1 from "../assets/2.png";
+import publication_2 from "../assets/1.png";
 import publication1 from "../assets/3.png";
 import publication2 from "../assets/4.png";
 import publication3 from "../assets/5.png";
