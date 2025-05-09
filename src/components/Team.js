@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import people_01 from "../assets/faculty-photoaidcom-cropped.png";
+import people_00 from "../assets/faculty-photoaidcom-cropped.png";
+import people_01 from "../assets/Jesus2.png";
 import people_02 from "../assets/placeholder.jpg";
 import people_03 from "../assets/placeholder.jpg";
 import people_04 from "../assets/placeholder.jpg";
 import people_05 from "../assets/placeholder.jpg";
 import people_06 from "../assets/placeholder.jpg";
-import people_07 from "../assets/Jesus2.png";
+import people_07 from "../assets/placeholder.jpg";
 import people_08 from "../assets/placeholder.jpg";
 import people_09 from "../assets/placeholder.jpg";
 import people_10 from "../assets/placeholder.jpg";
@@ -13,12 +14,11 @@ import people_11 from "../assets/placeholder.jpg";
 import people_12 from "../assets/placeholder.jpg";
 import people_13 from "../assets/placeholder.jpg";
 import people_14 from "../assets/placeholder.jpg";
-import people_15 from "../assets/placeholder.jpg";
 
 // Data configuration
 const TEAM_DATA = {
   faculty: {
-    image: people_01,
+    image: people_00,
     name: "Hinsby Cadillo-Quiroz",
     title: "Associate Professor",
     contact: "Email: hinsby@asu.edu",
@@ -37,7 +37,7 @@ const TEAM_DATA = {
     {
       name: "Jesus Marin Diaz",
       bio: "PhD. Student in Environmental Life Sciences",
-      image: people_07,
+      image: people_01,
       role: "EVO PhD student",
       backContent: "Jesus is a first-year Ph.D. student in Environmental Life Sciences at Arizona State University, studying carbon fluxes and ecological modeling of peatlands in the Amazon forest.\n\nHe completed his undergraduate degree in Forest Engineering at La Molina National Agrarian University (Lima, Peru), specializing in remote sensing, forest ecology, and forest biodiversity. He then pursued a master's degree in Civil Engineering at the University of Engineering and Technology (Lima, Peru), focusing on the geomorphology of Amazonian rivers, analyzing multitemporal dynamics and morpho-spatial patterns that influence island formation and river migration.\n\nJesus has extensive experience in geographical information systems (GIS) and remote sensing analysis, producing geospatial elements related to forests and rivers. He has specialized in REDD+ (Reduction of Emissions from Deforestation and Degradation) projects, contributing to the formulation of project documents, baseline establishment for GHG emission levels, LULC maps, deforestation and degradation modeling, and quantifying emission reductions for the voluntary carbon market.\n\nHis main research interest is to evaluate the interactions between geomorphological dynamics of rivers and forest ecosystems, particularly how sediment and flood presence affect carbon fluxes and stocks. Through ecological modeling, he aims to establish connections between biotic and abiotic elements of the landscape at different scales, exploring intricate ecological relationships and patterns."
     },
@@ -82,14 +82,14 @@ const TEAM_DATA = {
     {
       name: "Postdoc 1",
       bio: "Postdoctoral researcher",
-      image: people_08,
+      image: people_13,
       role: "Postdoctoral Researcher",
       backContent: "Blank"
     },
     {
       name: "Postdoc 2",
       bio: "Postdoctoral researcher",
-      image: people_09,
+      image: people_14,
       role: "Postdoctoral Researcher",
       backContent: "Blank"
     }
@@ -99,37 +99,37 @@ const TEAM_DATA = {
     {
       name: "David Nguyen, BS",
       bio: "Undergraduate researcher",
-      image: people_10,
+      image: people_07,
       role: "Undergraduate Researcher"
     },
     {
       name: "Luka Castillejo Olazabal, BS",
       bio: "Undergraduate researcher",
-      image: people_11,
+      image: people_08,
       role: "Undergraduate Researcher"
     },
     {
       name: "Undergrad 3, BS",
       bio: "Undergraduate researcher",
-      image: people_12,
+      image: people_09,
       role: "Undergraduate Researcher"
     },
     {
       name: "Undergrad 4, BS",
       bio: "Undergraduate researcher",
-      image: people_13,
+      image: people_10,
       role: "Undergraduate Researcher"
     },
     {
       name: "Undergrad 5, BS",
       bio: "Undergraduate researcher",
-      image: people_14,
+      image: people_11,
       role: "Undergraduate Researcher"
     },
     {
       name: "Undergrad 6, BS",
       bio: "Undergraduate researcher",
-      image: people_15,
+      image: people_12,
       role: "Undergraduate Researcher"
     }
   ],
@@ -285,12 +285,22 @@ const Team = () => {
   // Consolidated state management
   const [hoveredResearcherDetails, setHoveredResearcherDetails] = useState("");
   const [hoveredPostdocDetails, setHoveredPostdocDetails] = useState("");
-  const [openAlumniDropdown, setOpenAlumniDropdown] = useState(false);
   
-  // Handler for alumni dropdown toggle
-  const handleToggleAlumni = () => {
-    setOpenAlumniDropdown(!openAlumniDropdown);
-  };
+  // Alumni section dropdown states
+  const [openGraduates, setOpenGraduates] = useState(false);
+  const [openPostdocs, setOpenPostdocs] = useState(false);
+  const [openHonorsThesis, setOpenHonorsThesis] = useState(false);
+  const [openUndergrads, setOpenUndergrads] = useState(false);
+  const [openHighSchool, setOpenHighSchool] = useState(false);
+  const [openVisiting, setOpenVisiting] = useState(false);
+  
+  // Alumni section toggle handlers
+  const toggleGraduates = () => setOpenGraduates(!openGraduates);
+  const togglePostdocs = () => setOpenPostdocs(!openPostdocs);
+  const toggleHonorsThesis = () => setOpenHonorsThesis(!openHonorsThesis);
+  const toggleUndergrads = () => setOpenUndergrads(!openUndergrads);
+  const toggleHighSchool = () => setOpenHighSchool(!openHighSchool);
+  const toggleVisiting = () => setOpenVisiting(!openVisiting);
 
   return (
     <div className="team-page">
@@ -433,43 +443,65 @@ const Team = () => {
         <h2 className="section-title-4" style={{ color: "black" }}>
           Alumni
         </h2>
-        <div className="flex cursor-pointer" onClick={handleToggleAlumni}>
-          <span>Alumni</span>
-          <button>
-            <span className={`transform ${openAlumniDropdown ? "rotate-180" : ""}`}>
-              &#9660;
-            </span>
-          </button>
-        </div>
-
-        {openAlumniDropdown && (
-          <div className="dropdown-content">
-            <div className="alumni-columns">
-              {/* PhD Alumni Column */}
-              <div className="column">
-                <h3>Graduates</h3>
-                {TEAM_DATA.alumni.graduateAlumni.map((alumni, index) => (
-                  <div key={index} className="alumni-item">
-                    <span>{alumni.name}</span>
-                    <p>{alumni.details}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Postdoc Alumni Column */}
-              <div className="column">
-                <h3>Postdoc</h3>
-                {TEAM_DATA.alumni.postdocAlumni.map((alumni, index) => (
-                  <div key={index} className="alumni-item">
-                    <span>{alumni.name}</span>
-                    <p>{alumni.details}</p>
-                  </div>
-                ))}
-              </div>
+        
+        {/* Graduates Section */}
+        <div className="alumni-section mb-4">
+          <div className="flex cursor-pointer mb-2" onClick={toggleGraduates}>
+            <h3 className="font-bold">Graduates</h3>
+            <button className="ml-2">
+              <span className={`transform inline-block ${openGraduates ? "rotate-180" : ""}`}>
+                &#9660;
+              </span>
+            </button>
+          </div>
+          
+          {openGraduates && (
+            <div className="ml-4 mt-6 pt-2">
+              {TEAM_DATA.alumni.graduateAlumni.map((alumni, index) => (
+                <div key={index} className="alumni-item mb-3">
+                  <span className="font-medium">{alumni.name}</span>
+                  <p className="text-sm text-gray-600">{alumni.details}</p>
+                </div>
+              ))}
             </div>
-            
-            {/* Barrett Honors Thesis */}
-            <h3>Barrett Honors Thesis</h3>
+          )}
+        </div>
+        
+        {/* Postdoc Section */}
+        <div className="alumni-section mb-4">
+          <div className="flex cursor-pointer mb-2" onClick={togglePostdocs}>
+            <h3 className="font-bold">Postdoctoral Researchers</h3>
+            <button className="ml-2">
+              <span className={`transform inline-block ${openPostdocs ? "rotate-180" : ""}`}>
+                &#9660;
+              </span>
+            </button>
+          </div>
+          
+          {openPostdocs && (
+            <div className="ml-4 mt-6 pt-2">
+              {TEAM_DATA.alumni.postdocAlumni.map((alumni, index) => (
+                <div key={index} className="alumni-item mb-3">
+                  <span className="font-medium">{alumni.name}</span>
+                  <p className="text-sm text-gray-600">{alumni.details}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+        
+        {/* Barrett Honors Thesis Section */}
+        <div className="alumni-section mb-4">
+          <div className="flex cursor-pointer mb-2" onClick={toggleHonorsThesis}>
+            <h3 className="font-bold">Barrett Honors Thesis</h3>
+            <button className="ml-2">
+              <span className={`transform inline-block ${openHonorsThesis ? "rotate-180" : ""}`}>
+                &#9660;
+              </span>
+            </button>
+          </div>
+          
+          {openHonorsThesis && (
             <div className="honors-thesis-container">
               {/* Group by year and sort in descending order */}
               {Object.entries(
@@ -496,26 +528,52 @@ const Team = () => {
                   </div>
                 ))}
             </div>
-            
-            {/* Undergraduate Researchers */}
-            <h3>Undergraduate Researchers</h3>
-            {TEAM_DATA.alumni.undergraduateResearchers.map((researcherGroup, index) => (
-              <div key={index}>
-                <h4>{researcherGroup.year}</h4>
-                <p>
-                  {researcherGroup.researchers.map((researcher, subIndex) => (
-                    <span key={subIndex}>
-                      <strong>{researcher.name}</strong>
-                      {researcher.program ? ` (${researcher.program})` : ""}
-                      {subIndex < researcherGroup.researchers.length - 1 ? ", " : ""}
-                    </span>
-                  ))}
-                </p>
-              </div>
-            ))}
-            
-            {/* High School Researchers */}
-            <h3 className="mt-8 mb-3">High School Researchers</h3>
+          )}
+        </div>
+        
+        {/* Undergraduate Researchers Section */}
+        <div className="alumni-section mb-4">
+          <div className="flex cursor-pointer mb-2" onClick={toggleUndergrads}>
+            <h3 className="font-bold">Undergraduate Researchers</h3>
+            <button className="ml-2">
+              <span className={`transform inline-block ${openUndergrads ? "rotate-180" : ""}`}>
+                &#9660;
+              </span>
+            </button>
+          </div>
+          
+          {openUndergrads && (
+            <div>
+              {TEAM_DATA.alumni.undergraduateResearchers.map((researcherGroup, index) => (
+                <div key={index} className="mb-3">
+                  <h4 className="font-medium">{researcherGroup.year}</h4>
+                  <p>
+                    {researcherGroup.researchers.map((researcher, subIndex) => (
+                      <span key={subIndex}>
+                        <strong>{researcher.name}</strong>
+                        {researcher.program ? ` (${researcher.program})` : ""}
+                        {subIndex < researcherGroup.researchers.length - 1 ? ", " : ""}
+                      </span>
+                    ))}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+        
+        {/* High School Researchers Section */}
+        <div className="alumni-section mb-4">
+          <div className="flex cursor-pointer mb-2" onClick={toggleHighSchool}>
+            <h3 className="font-bold">High School Researchers</h3>
+            <button className="ml-2">
+              <span className={`transform inline-block ${openHighSchool ? "rotate-180" : ""}`}>
+                &#9660;
+              </span>
+            </button>
+          </div>
+          
+          {openHighSchool && (
             <div className="researchers-container">
               {Object.entries(
                 TEAM_DATA.alumni.highSchoolResearchers.reduce((acc, researcher) => {
@@ -541,9 +599,21 @@ const Team = () => {
                   </div>
                 ))}
             </div>
-            
-            {/* Visiting Scholar */}
-            <h3 className="mt-4 mb-3">Visiting Scholar</h3>
+          )}
+        </div>
+        
+        {/* Visiting Scholar Section */}
+        <div className="alumni-section mb-4">
+          <div className="flex cursor-pointer mb-2" onClick={toggleVisiting}>
+            <h3 className="font-bold">Visiting Scholar</h3>
+            <button className="ml-2">
+              <span className={`transform inline-block ${openVisiting ? "rotate-180" : ""}`}>
+                &#9660;
+              </span>
+            </button>
+          </div>
+          
+          {openVisiting && (
             <div className="scholars-container">
               {Object.entries(
                 TEAM_DATA.alumni.internationalScholarsAndInterns.reduce((acc, scholar) => {
@@ -584,8 +654,8 @@ const Team = () => {
                   </div>
                 ))}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </section>
     </div>
   );
