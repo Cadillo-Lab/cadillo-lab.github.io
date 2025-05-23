@@ -27,7 +27,7 @@ const Collaborationss = () => {
   useEffect(() => {
     const intervalId = setInterval(goToNext, 7000); // 7000ms = 7 seconds
     return () => clearInterval(intervalId); // Cleanup on component unmount
-  }, [currentIndex]);
+  }, [currentIndex, goToNext]);
 
   return (
     <div className="collaboration-container">

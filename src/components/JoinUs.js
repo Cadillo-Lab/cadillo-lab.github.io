@@ -28,7 +28,7 @@ const JoinUs = () => {
     useEffect(() => {
       const intervalId = setInterval(goToNext, 5000); // 7000ms = 7 seconds
       return () => clearInterval(intervalId); // Cleanup on component unmount
-    }, [currentIndex]); // This will re-run whenever currentIndex changes
+    }, [currentIndex, goToNext]); // This will re-run whenever currentIndex changes
   
     return (
       <section className="join-us">
