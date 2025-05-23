@@ -18,7 +18,7 @@ import drivers from "../assets/driver.jpg";
 const Research = () => {
   const bannerImages = [bannerImage1];
   const topicImages = [amazonImage, northernImage];
-  //const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
+  const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   const [currentTopicIndex, setCurrentTopicIndex] = useState(0);
   const [expandedIndex, setExpandedIndex] = useState(null);
 
