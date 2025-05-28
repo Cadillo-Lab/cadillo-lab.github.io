@@ -1,21 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.bff8ba91.css",
-    "main.js": "/static/js/main.02b05174.js",
+    "main.css": "/static/css/main.9439b7c2.css",
+    "main.js": "/static/js/main.825717f9.js",
     "static/js/453.acc703c7.chunk.js": "/static/js/453.acc703c7.chunk.js",
     "static/media/background-video-new.mov": "/static/media/background-video-new.851979ac6c0396725ef8.mov",
+    "static/media/Victor.jpg": "/static/media/Victor.3fce81d6f7171b1e6cce.jpg",
     "static/media/joinus.png": "/static/media/joinus.ca618d15a7d02a58ed88.png",
+    "static/media/lilly.jpg": "/static/media/lilly.3b20ec66d38602705f5f.jpg",
     "static/media/outreach1.png": "/static/media/outreach1.3daa2aa219ac7356ffc7.png",
     "static/media/collab2.png": "/static/media/collab2.e25a9717193888abc324.png",
+    "static/media/Linh-2.jpg": "/static/media/Linh-2.d282f2112a54773ec753.jpg",
     "static/media/collab1.png": "/static/media/collab1.24b7e1dadda30d2a3e4a.png",
     "static/media/outreach2.png": "/static/media/outreach2.b6c90ef253f3dcef88f2.png",
+    "static/media/Alice.png": "/static/media/Alice.74f2a116b37a7f01155c.png",
+    "static/media/Michael.png": "/static/media/Michael.845c1ce4b45a048e3b66.png",
     "static/media/Jesus2.png": "/static/media/Jesus2.ef27606b677f76b70e41.png",
     "static/media/research1.png": "/static/media/research1.993a9aa5b1177d7e93ca.png",
     "static/media/publication.png": "/static/media/publication.4febba724ccd00a06ccc.png",
+    "static/media/Julia.png": "/static/media/Julia.a2ada9ea077e32d98508.png",
     "static/media/faculty-photoaidcom-cropped.png": "/static/media/faculty-photoaidcom-cropped.8f77eaef781b4d06a18b.png",
     "static/media/collab.png": "/static/media/collab.c2793abc3d659f70ed6b.png",
     "static/media/_EFO7190.jpg": "/static/media/_EFO7190.7e97deb7f661b31d132a.jpg",
     "static/media/cultural.jpg": "/static/media/cultural.405b8e8d174150f94bce.jpg",
+    "static/media/Jana_2.png": "/static/media/Jana_2.fb5baff159b9109d2972.png",
     "static/media/background-1.png": "/static/media/background-1.6378a4a7318ec6d5c30e.png",
     "static/media/publicationnew2.png": "/static/media/publicationnew2.ebb866de02696720a213.png",
     "static/media/amazon.png": "/static/media/amazon.b2e07558ff7072970a8f.png",
@@ -81,12 +88,12 @@
     "static/media/28.png": "/static/media/28.bf2b4166f325071f6ba0.png",
     "static/media/25.jpeg": "/static/media/25.0bc19814024f9424e625.jpeg",
     "index.html": "/index.html",
-    "main.bff8ba91.css.map": "/static/css/main.bff8ba91.css.map",
-    "main.02b05174.js.map": "/static/js/main.02b05174.js.map",
+    "main.9439b7c2.css.map": "/static/css/main.9439b7c2.css.map",
+    "main.825717f9.js.map": "/static/js/main.825717f9.js.map",
     "453.acc703c7.chunk.js.map": "/static/js/453.acc703c7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bff8ba91.css",
-    "static/js/main.02b05174.js"
+    "static/css/main.9439b7c2.css",
+    "static/js/main.825717f9.js"
   ]
 }
