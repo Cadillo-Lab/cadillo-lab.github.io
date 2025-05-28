@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Research from './components/Research';
@@ -16,6 +15,8 @@ import "./styles/Programs.css";
 import "./styles/Research.css";
 import "./styles/Team.css";
 import Collaborationss from './components/Collaborationss'; 
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+
 
 
 const App = () => {
