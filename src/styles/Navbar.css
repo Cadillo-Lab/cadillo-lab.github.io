@@ -215,3 +215,24 @@ body {
 .nav-link::after {
   content: none !important;
 }
+
+.asu-logo {
+  max-width: 250px;     /* or 240px if needed */
+  height: auto;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo-section {
+  order: 1;
+  flex: 0 0 auto;  /* prevent it from shrinking */
+  padding-right: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .asu-logo {
+    max-width: 240px;
+  }
+}
+
