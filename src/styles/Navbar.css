@@ -72,7 +72,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem 0 2rem;
+  padding: 0rem 0 0rem;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
   overflow-y: auto;
@@ -86,7 +86,6 @@
   color: #000000;
   font-size: 1.5rem;
   text-decoration: none;
-  padding: 1rem 2rem;
   margin: 0.5rem 0;
   transition: all 0.3s ease;
   width: 100%;
@@ -105,7 +104,6 @@
 /* Desktop Styles (Min-width: 768px) */
 @media screen and (min-width: 768px) {
   .nav-container {
-    padding: 1rem 2rem;
     position: static;
   }
 
@@ -140,7 +138,6 @@
 
   .nav-link {
     font-size: 1.1rem;
-    padding: 0.5rem 1rem;
     width: auto;
     color: #000000;
   }
@@ -160,9 +157,7 @@
 
 /* Large Desktop Enhancement */
 @media screen and (min-width: 1200px) {
-  .nav-container {
-    padding: 1rem 5%;
-  }
+  
   
   .nav-links {
     gap: 2rem;
@@ -170,7 +165,6 @@
   
   .nav-link {
     font-size: 1.2rem;
-    padding: 0.75rem 1.5rem;
   }
 
   .asu-logo {
@@ -185,4 +179,39 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.nav-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.asu-logo,
+.lab-banner {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.nav-banner-section {
+  flex-shrink: 1;  /* Allow it to shrink if needed */
+  max-width: 20%;  /* Optional: Limit size */
+  overflow: hidden;  /* Prevent image overflow */
+}
+
+.nav-links {
+  flex: 1 1 auto;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.nav-container li::before,
+.nav-container li::after,
+.nav-link::before,
+.nav-link::after {
+  content: none !important;
 }
