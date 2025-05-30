@@ -1,11 +1,15 @@
 import React, { useEffect } from "react";
 import "../styles/Homepage.css";
-//import backgroundVideo from "../assets/background-video.mp4";
+// This imports a video file to use as the background for the homepage
 import backgroundVideo from "../assets/background-video-new.mov";
 
+// This is the main Homepage component
 const Homepage = () => {
+  // This useEffect runs code when the page loads and when it closes
   useEffect(() => {
+    // This function loads the Facebook plugin so the Facebook feed can show up
     const loadFacebookSDK = () => {
+      // Check if the Facebook root div exists, if not, create it
       const fbRoot = document.getElementById("fb-root");
       if (!fbRoot) {
         const rootDiv = document.createElement("div");
@@ -13,6 +17,7 @@ const Homepage = () => {
         document.body.appendChild(rootDiv);
       }
 
+      // Create a script tag to load Facebook's code
       const script = document.createElement("script");
       script.src =
         "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v21.0";
@@ -21,13 +26,16 @@ const Homepage = () => {
       script.crossOrigin = "anonymous";
       document.body.appendChild(script);
 
+      // When the script loads, tell Facebook to show the feed
       script.onload = () => {
         window.FB && window.FB.XFBML.parse();
       };
     };
 
+    // Call the function to load Facebook's code
     loadFacebookSDK();
 
+    // This cleans up the Facebook code when you leave the page
     return () => {
       const fbScript = document.querySelector(
         'script[src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v21.0"]'
@@ -38,30 +46,38 @@ const Homepage = () => {
     };
   }, []);
 
+  // This is the part that shows up on the website
   return (
     <div className="homepage-container">
-      {/* Hero Section */}
+      {/* This is the top section with a looping video in the background */}
       <section className="hero">
         <video autoPlay loop playsInline muted className="hero-video">
+          {/* This line tells the browser where to find the video file */}
           <source src={backgroundVideo} type="video/mp4" />
         </video>
       </section>
+      {/* This overlay puts text on top of the video */}
       <div className="hero-overlay">
         <div className="hero-content hover-effect">
+          {/* Main title of the homepage */}
           <h1 style={{ color: "black" }}>Welcome to the Cadillo Lab</h1>
+          {/* Short description under the title */}
           <p style={{ color: "black" }}>
             An environment with diverse backgrounds, experiences, and careers is
             foundational to our team.
           </p>
         </div>
       </div>
+      {/* This section contains the mission statement and social media feeds */}
       <section className="mission-social">
+        {/* Title for the mission statement */}
         <h2
           className="section-title hover-text"
           style={{ textDecoration: "none", borderBottom: "none" }}
         >
           Mission Statement
         </h2>
+        {/* First paragraph of the mission statement */}
         <p className="mission-text hover-text">
           The Cadillo lab advances research and discovery of the microbial role
           and contribution to the environment at various scales and fields. We
@@ -72,6 +88,7 @@ const Homepage = () => {
           or as potential ecosystem drivers, and the genomics and evolution of
           microbes tracking their mechanisms of change and key innovations.
         </p>
+        {/* Second paragraph of the mission statement */}
         <p className="mission-text hover-text">
           Our lab focuses on novel groups of methane-producing Archaea and
           interacting bacteria in anaerobic, high carbon-content natural or
@@ -88,10 +105,10 @@ const Homepage = () => {
           basic and applied research.
         </p>
 
-        {/* Social Media Feeds */}
+        {/* This section shows social media feeds in two rows */}
         <div className="social-container">
           <div className="social-row">
-            {/* Facebook Feed */}
+            {/* Facebook Feed: Shows the Cadillo Lab Facebook timeline */}
             <div className="social-box facebook-feed">
               <div
                 className="fb-page"
@@ -106,7 +123,7 @@ const Homepage = () => {
               ></div>
             </div>
 
-            {/* Instagram Feed */}
+            {/* Instagram Feed: Shows the Cadillo Lab Instagram posts */}
             <div className="social-box instagram-feed">
               <iframe
                 title="Instagram Feed"
@@ -121,7 +138,7 @@ const Homepage = () => {
           </div>
 
           <div className="social-row">
-            {/* X (Twitter) Button */}
+            {/* X (Twitter) Feed: Shows the OkMicrobes X (Twitter) timeline */}
             <div
               className="social-box x-feed"
               style={{ paddingRight: "130px" }}
@@ -134,6 +151,7 @@ const Homepage = () => {
               >
                 X by OkMicrobes
               </a>
+              {/* This script loads the X (Twitter) timeline */}
               <script
                 async
                 src="https://platform.twitter.com/widgets.js"
@@ -141,7 +159,7 @@ const Homepage = () => {
               ></script>
             </div>
 
-            {/* Bluesky Button */}
+            {/* Bluesky Button: Link to the Cadillo Lab Bluesky profile */}
             <div className="social-box bluesky-link">
               <a
                 href="https://bsky.app/profile/methano-hinsby.bsky.social"
@@ -161,4 +179,5 @@ const Homepage = () => {
   );
 };
 
+// This line makes the Homepage component available to the rest of the website
 export default Homepage;
