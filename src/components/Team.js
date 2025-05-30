@@ -775,7 +775,7 @@ const Team = () => {
           <img src={facultyImage} alt="Faculty" className="faculty-photo" />
           <div className="faculty-info">
             <h2 className="aaa">Hinsby Cadillo-Quiroz</h2>
-            <p className="faculty-title">Associate Professor</p>
+            <p className="faculty-title">Professor</p>
             <p className="faculty-contact">Email: hinsby@asu.edu</p>
 
             <div className="faculty-education">
