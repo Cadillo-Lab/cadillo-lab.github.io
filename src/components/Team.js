@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import people_00 from "../assets/faculty-photoaidcom-cropped.png";
 import people_01 from "../assets/Jesus2.png";
-import people_02 from "../assets/placeholder.jpg";
-import people_03 from "../assets/placeholder.jpg";
+import people_02 from "../assets/wanxiang.jpg";
+import people_03 from "../assets/kyleigh.jpg";
 import people_04 from "../assets/placeholder.jpg";
 import people_05 from "../assets/placeholder.jpg";
 import people_06 from "../assets/placeholder.jpg";
@@ -45,15 +45,15 @@ const TEAM_DATA = {
       name: "Wanxiang Liu",
       bio: "PhD. Candidate",
       image: people_02,
-      role: "TBD",
-      backContent: "Blank"
+      role: "EVO PhD student",
+      backContent: " I am a PhD student in an Evolutionary Biology program. I am a Bioinformatician focused on studying methanogenesis and methanotrophy. My research uses computational modeling to understand how microbial activities affect atmospheric methane levels, particularly in wetlands and agricultural ecosystems. "
     },
     {
-      name: "Researcher 3",
+      name: "Kyleigh Bachelor",
       bio: "PhD Student, Microbiology PhD Program",
       image: people_03,
-      role: "TBD",
-      backContent: "Blank"
+      role: "Master's student",
+      backContent: "Kyleigh is a first year Master's student in the Microbiology program. She earned her B.S. in Microbiology from Northern Arizona University in 2024. Her background includes microbial ecology as well as industry experience, having worked for the United States Geological Survey as a Biologist and a Microbiologist Technician in cosmetic and hygiene microbiology testing. Kyleigh is broadly interested in how microbes interact within their environments and the ways these interactions help to shape ecosystems. She is currently working on the Howland methanotrophs project, focusing on isolating methanotrophs from soil samples. Kyleigh plans to transfer to a PhD program and aims to pursue a career in environmental research. "
     },
     {
       name: "Researcher 4",
