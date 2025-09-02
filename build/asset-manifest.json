@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.fe83e6b5.css",
-    "main.js": "/static/js/main.f3461c2d.js",
+    "main.js": "/static/js/main.347f2fe0.js",
     "static/js/453.acc703c7.chunk.js": "/static/js/453.acc703c7.chunk.js",
     "static/media/background-video-new.mov": "/static/media/background-video-new.851979ac6c0396725ef8.mov",
     "static/media/joinus.png": "/static/media/joinus.ca618d15a7d02a58ed88.png",
@@ -33,6 +33,7 @@
     "static/media/publicationnew6.png": "/static/media/publicationnew6.ad8fb40d33f22cdae092.png",
     "static/media/publicationnew3.png": "/static/media/publicationnew3.2b01b602206752b142f1.png",
     "static/media/5.png": "/static/media/5.3632a012c2e5729de29a.png",
+    "static/media/kyleigh.jpg": "/static/media/kyleigh.800850ba2b14d62af676.jpg",
     "static/media/26.png": "/static/media/26.186fd007b7746f98c379.png",
     "static/media/22.png": "/static/media/22.fce629fee460a1c3f91e.png",
     "static/media/20.png": "/static/media/20.aae0cb8362294dd0ccf3.png",
@@ -79,14 +80,15 @@
     "static/media/amazon-peatland3.jpeg": "/static/media/amazon-peatland3.39d2b2904c62d5793514.jpeg",
     "static/media/driver.jpg": "/static/media/driver.cac0d84ba9c44f0eb18a.jpg",
     "static/media/28.png": "/static/media/28.bf2b4166f325071f6ba0.png",
+    "static/media/wanxiang.jpg": "/static/media/wanxiang.cd8925ebb05bc517b2b5.jpg",
     "static/media/25.jpeg": "/static/media/25.0bc19814024f9424e625.jpeg",
     "index.html": "/index.html",
     "main.fe83e6b5.css.map": "/static/css/main.fe83e6b5.css.map",
-    "main.f3461c2d.js.map": "/static/js/main.f3461c2d.js.map",
+    "main.347f2fe0.js.map": "/static/js/main.347f2fe0.js.map",
     "453.acc703c7.chunk.js.map": "/static/js/453.acc703c7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fe83e6b5.css",
-    "static/js/main.f3461c2d.js"
+    "static/js/main.347f2fe0.js"
   ]
 }
