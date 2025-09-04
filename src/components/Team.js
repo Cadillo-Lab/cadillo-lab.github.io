@@ -46,7 +46,7 @@ const TEAM_DATA = {
       bio: "PhD. Candidate",
       image: people_02,
       role: "EVO PhD student",
-      backContent: " I am a PhD student in an Evolutionary Biology program. I am a Bioinformatician focused on studying methanogenesis and methanotrophy. My research uses computational modeling to understand how microbial activities affect atmospheric methane levels, particularly in wetlands and agricultural ecosystems. "
+      backContent: " Wanxiang Liu is a PhD student in an Evolutionary Biology program. He is a Bioinformatician focused on studying methanogenesis and methanotrophy. His research uses computational modeling to understand how microbial activities affect atmospheric methane levels, particularly in wetlands and agricultural ecosystems. "
     },
     {
       name: "Kyleigh Bachelor",
