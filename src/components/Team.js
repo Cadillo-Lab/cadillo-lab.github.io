@@ -3,17 +3,17 @@ import people_00 from "../assets/faculty-photoaidcom-cropped.png";
 import people_01 from "../assets/Jesus2.png";
 import people_02 from "../assets/wanxiang.jpg";
 import people_03 from "../assets/kyleigh.jpg";
-import people_04 from "../assets/placeholder.jpg";
-import people_05 from "../assets/placeholder.jpg";
-import people_06 from "../assets/placeholder.jpg";
+//import people_04 from "../assets/placeholder.jpg";
+//import people_05 from "../assets/placeholder.jpg";
+//import people_06 from "../assets/placeholder.jpg";
 import people_07 from "../assets/david.jpg";
 import people_08 from "../assets/lance.png";
-import people_09 from "../assets/placeholder.jpg";
-import people_10 from "../assets/placeholder.jpg";
-import people_11 from "../assets/placeholder.jpg";
-import people_12 from "../assets/placeholder.jpg";
+//import people_09 from "../assets/placeholder.jpg";
+//import people_10 from "../assets/placeholder.jpg";
+//import people_11 from "../assets/placeholder.jpg";
+//import people_12 from "../assets/placeholder.jpg";
 import people_13 from "../assets/jaimie.jpg";
-import people_14 from "../assets/placeholder.jpg";
+//import people_14 from "../assets/placeholder.jpg";
 
 // Data configuration
 const TEAM_DATA = {
