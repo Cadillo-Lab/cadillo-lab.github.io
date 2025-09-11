@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/static/css/main.fe83e6b5.css",
-    "main.js": "/static/js/main.3c5da904.js",
-    "static/js/453.acc703c7.chunk.js": "/static/js/453.acc703c7.chunk.js",
+    "main.js": "/static/js/main.f39bb962.js",
+    "static/js/453.60b6de66.chunk.js": "/static/js/453.60b6de66.chunk.js",
     "static/media/background-video-new.mov": "/static/media/background-video-new.851979ac6c0396725ef8.mov",
+    "static/media/lance.png": "/static/media/lance.be82090cc903bca79ee0.png",
     "static/media/joinus.png": "/static/media/joinus.ca618d15a7d02a58ed88.png",
     "static/media/outreach1.png": "/static/media/outreach1.3daa2aa219ac7356ffc7.png",
     "static/media/collab2.png": "/static/media/collab2.e25a9717193888abc324.png",
@@ -14,6 +15,7 @@
     "static/media/publication.png": "/static/media/publication.4febba724ccd00a06ccc.png",
     "static/media/faculty-photoaidcom-cropped.png": "/static/media/faculty-photoaidcom-cropped.8f77eaef781b4d06a18b.png",
     "static/media/collab.png": "/static/media/collab.c2793abc3d659f70ed6b.png",
+    "static/media/jaimie.jpg": "/static/media/jaimie.80d9154896ee99284ccc.jpg",
     "static/media/_EFO7190.jpg": "/static/media/_EFO7190.7e97deb7f661b31d132a.jpg",
     "static/media/cultural.jpg": "/static/media/cultural.405b8e8d174150f94bce.jpg",
     "static/media/background-1.png": "/static/media/background-1.6378a4a7318ec6d5c30e.png",
@@ -33,6 +35,7 @@
     "static/media/publicationnew6.png": "/static/media/publicationnew6.ad8fb40d33f22cdae092.png",
     "static/media/publicationnew3.png": "/static/media/publicationnew3.2b01b602206752b142f1.png",
     "static/media/5.png": "/static/media/5.3632a012c2e5729de29a.png",
+    "static/media/kyleigh.jpg": "/static/media/kyleigh.800850ba2b14d62af676.jpg",
     "static/media/26.png": "/static/media/26.186fd007b7746f98c379.png",
     "static/media/22.png": "/static/media/22.fce629fee460a1c3f91e.png",
     "static/media/20.png": "/static/media/20.aae0cb8362294dd0ccf3.png",
@@ -44,6 +47,7 @@
     "static/media/publication-new-1-new.png": "/static/media/publication-new-1-new.42c46e5b187199a5a374.png",
     "static/media/18.png": "/static/media/18.ff5f1a3421d1ed929be4.png",
     "static/media/amazon-peatland.jpg": "/static/media/amazon-peatland.bd3b67466d26dbdd7a53.jpg",
+    "static/media/david.jpg": "/static/media/david.7473d34b18f4b32ef252.jpg",
     "static/media/publication-changed1.png": "/static/media/publication-changed1.01b4c05a74c824515e41.png",
     "static/media/33.png": "/static/media/33.eb3d43bb4329535886f2.png",
     "static/media/24.png": "/static/media/24.4f3a972006c5cf172d2f.png",
@@ -79,14 +83,15 @@
     "static/media/amazon-peatland3.jpeg": "/static/media/amazon-peatland3.39d2b2904c62d5793514.jpeg",
     "static/media/driver.jpg": "/static/media/driver.cac0d84ba9c44f0eb18a.jpg",
     "static/media/28.png": "/static/media/28.bf2b4166f325071f6ba0.png",
+    "static/media/wanxiang.jpg": "/static/media/wanxiang.cd8925ebb05bc517b2b5.jpg",
     "static/media/25.jpeg": "/static/media/25.0bc19814024f9424e625.jpeg",
     "index.html": "/index.html",
     "main.fe83e6b5.css.map": "/static/css/main.fe83e6b5.css.map",
-    "main.3c5da904.js.map": "/static/js/main.3c5da904.js.map",
-    "453.acc703c7.chunk.js.map": "/static/js/453.acc703c7.chunk.js.map"
+    "main.f39bb962.js.map": "/static/js/main.f39bb962.js.map",
+    "453.60b6de66.chunk.js.map": "/static/js/453.60b6de66.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fe83e6b5.css",
-    "static/js/main.3c5da904.js"
+    "static/js/main.f39bb962.js"
   ]
 }

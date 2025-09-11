@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import people_00 from "../assets/faculty-photoaidcom-cropped.png";
 import people_01 from "../assets/Jesus2.png";
-import people_02 from "../assets/placeholder.jpg";
-import people_03 from "../assets/placeholder.jpg";
-import people_04 from "../assets/placeholder.jpg";
-import people_05 from "../assets/placeholder.jpg";
-import people_06 from "../assets/placeholder.jpg";
-import people_07 from "../assets/placeholder.jpg";
-import people_08 from "../assets/placeholder.jpg";
-import people_09 from "../assets/placeholder.jpg";
-import people_10 from "../assets/placeholder.jpg";
-import people_11 from "../assets/placeholder.jpg";
-import people_12 from "../assets/placeholder.jpg";
-import people_13 from "../assets/placeholder.jpg";
-import people_14 from "../assets/placeholder.jpg";
+import people_02 from "../assets/wanxiang.jpg";
+import people_03 from "../assets/kyleigh.jpg";
+//import people_04 from "../assets/placeholder.jpg";
+//import people_05 from "../assets/placeholder.jpg";
+//import people_06 from "../assets/placeholder.jpg";
+import people_07 from "../assets/david.jpg";
+import people_08 from "../assets/lance.png";
+//import people_09 from "../assets/placeholder.jpg";
+//import people_10 from "../assets/placeholder.jpg";
+//import people_11 from "../assets/placeholder.jpg";
+//import people_12 from "../assets/placeholder.jpg";
+import people_13 from "../assets/jaimie.jpg";
+//import people_14 from "../assets/placeholder.jpg";
 
 // Data configuration
 const TEAM_DATA = {
@@ -45,16 +45,17 @@ const TEAM_DATA = {
       name: "Wanxiang Liu",
       bio: "PhD. Candidate",
       image: people_02,
-      role: "TBD",
-      backContent: "Blank"
+      role: "EVO PhD student",
+      backContent: " Wanxiang Liu is a PhD student in an Evolutionary Biology program. He is a Bioinformatician focused on studying methanogenesis and methanotrophy. His research uses computational modeling to understand how microbial activities affect atmospheric methane levels, particularly in wetlands and agricultural ecosystems. "
     },
     {
-      name: "Researcher 3",
+      name: "Kyleigh Bachelor",
       bio: "PhD Student, Microbiology PhD Program",
       image: people_03,
-      role: "TBD",
-      backContent: "Blank"
+      role: "Master's student",
+      backContent: "Kyleigh is a first year Master's student in the Microbiology program. She earned her B.S. in Microbiology from Northern Arizona University in 2024. Her background includes microbial ecology as well as industry experience, having worked for the United States Geological Survey as a Biologist and a Microbiologist Technician in cosmetic and hygiene microbiology testing. Kyleigh is broadly interested in how microbes interact within their environments and the ways these interactions help to shape ecosystems. She is currently working on the Howland methanotrophs project, focusing on isolating methanotrophs from soil samples. Kyleigh plans to transfer to a PhD program and aims to pursue a career in environmental research. "
     },
+    /*
     {
       name: "Researcher 4",
       bio: "PhD student",
@@ -76,16 +77,18 @@ const TEAM_DATA = {
       role: "TBD", 
       backContent: "Blank"
     }
+    */
   ],
   
   postdocResearchers: [
     {
-      name: "Postdoc 1",
+      name: "Jaimie West",
       bio: "Postdoctoral researcher",
       image: people_13,
       role: "Postdoctoral Researcher",
-      backContent: "Blank"
+      backContent: "Dr. West is leveraging microbial community genomics to improve methane models in a subboreal forest (Howland Forest, ME). Her objective is to identify transcriptomic markers that predict rates of methane cycling, and to relate these findings to in situ methane fluxes using metatranscriptomics. By connecting genomics to function, she hopes to improve understanding of soil microbial responses to shifting environmental conditions. She earned her Ph.D. in Soil Science with a minor in Microbiology at the University of Wisconsin-Madison, studying how various disturbances and soil structural disruptions, like tillage and earthworm activity, affect soil bacterial community composition and ecological assembly. She continued exploring how soil communities reflect disturbances as an ORISE Postdoctoral Fellow at the Cold Regions Research and Engineering Laboratory, studying permafrost thaw, subarctic wildfire, and antimicrobial resistance, while also using bacterial genomics to predict phenotypic traits. Jaimie works remotely from Madison, WI, where she otherwise tries to keep up her two kids."
     },
+    /*
     {
       name: "Postdoc 2",
       bio: "Postdoctoral researcher",
@@ -93,6 +96,7 @@ const TEAM_DATA = {
       role: "Postdoctoral Researcher",
       backContent: "Blank"
     }
+    */
   ],
   
   undergraduateResearchers: [
@@ -103,11 +107,12 @@ const TEAM_DATA = {
       role: "Undergraduate Researcher"
     },
     {
-      name: "Luka Castillejo Olazabal, BS",
+      name: "Lance West, EE",
       bio: "Undergraduate researcher",
       image: people_08,
       role: "Undergraduate Researcher"
     },
+    /*
     {
       name: "Undergrad 3, BS",
       bio: "Undergraduate researcher",
@@ -127,11 +132,12 @@ const TEAM_DATA = {
       role: "Undergraduate Researcher"
     },
     {
-      name: "Undergrad 6, BS",
+      name: "Luka Castillejo Olazabal, BS",
       bio: "Undergraduate researcher",
       image: people_12,
       role: "Undergraduate Researcher"
     }
+    */
   ],
   
   alumni: {
@@ -157,7 +163,9 @@ const TEAM_DATA = {
       { name: "Michal Ziv-El", details: "Postdoctoral researcher" },
       { name: "Patrick Browne", details: "Postdoctoral researcher" },
       { name: "Damien Finn", details: "Postdoctoral researcher" },
-      { name: "Paul Brewer", details: "Postdoctoral researcher" }
+      { name: "Paul Brewer", details: "Postdoctoral researcher" },
+      { name: "Jie Dai", details: "Postdoctoral researcher" },
+      { name: "Linh", details: "Postdoctoral researcher" },
     ],
     
     honorsThesis: [
