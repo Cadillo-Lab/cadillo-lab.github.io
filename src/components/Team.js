@@ -66,7 +66,7 @@ const TEAM_DATA = {
   faculty: {
     image: people_00,
     name: "Hinsby Cadillo-Quiroz, PhD",
-    title: "Associate Professor",
+    title: "Professor",
     contact: "Email: hinsby@asu.edu",
     education: [
       "PhD Microbiology and minor in Ecology, Cornell University 2008.",
