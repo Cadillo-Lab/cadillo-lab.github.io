@@ -15,11 +15,57 @@ import people_08 from "../assets/lance.png";
 import people_13 from "../assets/jaimie.jpg";
 //import people_14 from "../assets/placeholder.jpg";
 
+/**
+ * Name Card Component style
+ */
+const MemberCard = ({ member, onMouseEnter, onMouseLeave, imageSize = "w-33 h-33" }) => (
+  <div
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
+    style={{
+      textAlign: 'center',
+      cursor: 'pointer',
+      transition: 'transform 0.2s'
+    }}
+    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+  >
+    <div className={`${imageSize} bg-gray-300 rounded-full overflow-hidden mx-auto`}>
+      <img
+        src={member.image}
+        alt={member.name}
+        className="w-full h-full object-cover"
+      />
+    </div>
+    {/* name */}
+    <p style={{ 
+      marginTop: '8px', 
+      marginBottom: '0px', 
+      fontSize: '14px', 
+      fontWeight: 'normal',
+      lineHeight: '1.1',
+      color: '#000'
+    }}>
+      {member.name}
+    </p>
+    {/* role/major - distance with name */}
+    <p style={{ 
+      marginTop: '4px',  // Adjust this number to change spacing: 0px=no spacing, -2px=tighter
+      marginBottom: '0px', 
+      fontSize: '12px', 
+      color: '#666',
+      lineHeight: '1.1'
+    }}>
+      {member.role}
+    </p>
+  </div>
+);
+
 // Data configuration
 const TEAM_DATA = {
   faculty: {
     image: people_00,
-    name: "Hinsby Cadillo-Quiroz",
+    name: "Hinsby Cadillo-Quiroz, PhD",
     title: "Associate Professor",
     contact: "Email: hinsby@asu.edu",
     education: [
@@ -38,7 +84,7 @@ const TEAM_DATA = {
       name: "Jesus Marin Diaz",
       bio: "PhD. Student in Environmental Life Sciences",
       image: people_01,
-      role: "EVO PhD student",
+      role: "ELS PhD student",
       backContent: "Jesus is a first-year Ph.D. student in Environmental Life Sciences at Arizona State University, studying carbon fluxes and ecological modeling of peatlands in the Amazon forest.\n\nHe completed his undergraduate degree in Forest Engineering at La Molina National Agrarian University (Lima, Peru), specializing in remote sensing, forest ecology, and forest biodiversity. He then pursued a master's degree in Civil Engineering at the University of Engineering and Technology (Lima, Peru), focusing on the geomorphology of Amazonian rivers, analyzing multitemporal dynamics and morpho-spatial patterns that influence island formation and river migration.\n\nJesus has extensive experience in geographical information systems (GIS) and remote sensing analysis, producing geospatial elements related to forests and rivers. He has specialized in REDD+ (Reduction of Emissions from Deforestation and Degradation) projects, contributing to the formulation of project documents, baseline establishment for GHG emission levels, LULC maps, deforestation and degradation modeling, and quantifying emission reductions for the voluntary carbon market.\n\nHis main research interest is to evaluate the interactions between geomorphological dynamics of rivers and forest ecosystems, particularly how sediment and flood presence affect carbon fluxes and stocks. Through ecological modeling, he aims to establish connections between biotic and abiotic elements of the landscape at different scales, exploring intricate ecological relationships and patterns."
     },
     {
@@ -52,92 +98,34 @@ const TEAM_DATA = {
       name: "Kyleigh Bachelor",
       bio: "PhD Student, Microbiology PhD Program",
       image: people_03,
-      role: "Master's student",
-      backContent: "Kyleigh is a first year Master's student in the Microbiology program. She earned her B.S. in Microbiology from Northern Arizona University in 2024. Her background includes microbial ecology as well as industry experience, having worked for the United States Geological Survey as a Biologist and a Microbiologist Technician in cosmetic and hygiene microbiology testing. Kyleigh is broadly interested in how microbes interact within their environments and the ways these interactions help to shape ecosystems. She is currently working on the Howland methanotrophs project, focusing on isolating methanotrophs from soil samples. Kyleigh plans to transfer to a PhD program and aims to pursue a career in environmental research. "
-    },
-    /*
-    {
-      name: "Researcher 4",
-      bio: "PhD student",
-      image: people_04,
-      role: "TBD",
-      backContent: "Blank"
-    },
-    {
-      name: "Researcher 5",
-      bio: "Master student",
-      image: people_05,
-      role: "TBD",
-      backContent: "Blank"
-    },
-    {
-      name: "Researcher 6",
-      bio: "PhD student, Biology & Society PhD Program",
-      image: people_06,
-      role: "TBD", 
-      backContent: "Blank"
+      role: "Microbiology MS student",
+      backContent: "Kyleigh is a first year Master's student in the Microbiology program. She earned her B.S. in Microbiology from Northern Arizona University in 2024. Her background includes microbial ecology as well as industry experience, having worked for the United States Geological Survey as a Biologist and a Microbiologist Technician in cosmetic and hygiene microbiology testing. Kyleigh is broadly interested in how microbes interact within their environments and the ways these interactions help to shape ecosystems. She is currently working on the Howland methanotrophs project, focusing on isolating methanotrophs from soil samples. Kyleigh plans to transfer to a PhD program and aims to pursue a career in environmental research. "
     }
-    */
   ],
   
   postdocResearchers: [
     {
-      name: "Jaimie West",
+      name: "Jaimie West, PhD",
       bio: "Postdoctoral researcher",
       image: people_13,
       role: "Postdoctoral Researcher",
       backContent: "Dr. West is leveraging microbial community genomics to improve methane models in a subboreal forest (Howland Forest, ME). Her objective is to identify transcriptomic markers that predict rates of methane cycling, and to relate these findings to in situ methane fluxes using metatranscriptomics. By connecting genomics to function, she hopes to improve understanding of soil microbial responses to shifting environmental conditions. She earned her Ph.D. in Soil Science with a minor in Microbiology at the University of Wisconsin-Madison, studying how various disturbances and soil structural disruptions, like tillage and earthworm activity, affect soil bacterial community composition and ecological assembly. She continued exploring how soil communities reflect disturbances as an ORISE Postdoctoral Fellow at the Cold Regions Research and Engineering Laboratory, studying permafrost thaw, subarctic wildfire, and antimicrobial resistance, while also using bacterial genomics to predict phenotypic traits. Jaimie works remotely from Madison, WI, where she otherwise tries to keep up her two kids."
-    },
-    /*
-    {
-      name: "Postdoc 2",
-      bio: "Postdoctoral researcher",
-      image: people_14,
-      role: "Postdoctoral Researcher",
-      backContent: "Blank"
     }
-    */
   ],
   
   undergraduateResearchers: [
     {
-      name: "David Nguyen, BS",
+      name: "David Nguyen",
       bio: "Undergraduate researcher",
       image: people_07,
-      role: "Undergraduate Researcher"
+      role: "Biology and Conservation BS"
     },
     {
-      name: "Lance West, EE",
+      name: "Lance West",
       bio: "Undergraduate researcher",
       image: people_08,
-      role: "Undergraduate Researcher"
-    },
-    /*
-    {
-      name: "Undergrad 3, BS",
-      bio: "Undergraduate researcher",
-      image: people_09,
-      role: "Undergraduate Researcher"
-    },
-    {
-      name: "Undergrad 4, BS",
-      bio: "Undergraduate researcher",
-      image: people_10,
-      role: "Undergraduate Researcher"
-    },
-    {
-      name: "Undergrad 5, BS",
-      bio: "Undergraduate researcher",
-      image: people_11,
-      role: "Undergraduate Researcher"
-    },
-    {
-      name: "Luka Castillejo Olazabal, BS",
-      bio: "Undergraduate researcher",
-      image: people_12,
-      role: "Undergraduate Researcher"
+      role: "Electrical Engineering BS"
     }
-    */
   ],
   
   alumni: {
@@ -253,8 +241,7 @@ const TEAM_DATA = {
           { name: "Mikayla Shrader" },
           { name: "Aurely Sachez Carrion", program: "WAESO" }
         ]
-      },
-      // Additional years omitted for brevity - would include all years from original code
+      }
     ],
     
     highSchoolResearchers: [
@@ -267,8 +254,7 @@ const TEAM_DATA = {
         year: "2022",
         name: "Abhinav Chede",
         school: "Basis Chandler High School"
-      },
-      // Additional researchers omitted for brevity - would include all from original code
+      }
     ],
     
     internationalScholarsAndInterns: [
@@ -283,8 +269,7 @@ const TEAM_DATA = {
         name: "Antonia Schindelmann",
         researchTitle: "Earth Sciences",
         program: "DAAD RISE program"
-      },
-      // Additional scholars omitted for brevity - would include all from original code
+      }
     ]
   }
 };
@@ -345,28 +330,17 @@ const Team = () => {
           Graduate Researchers
         </h2>
         <div className="flex flex-wrap gap-8">
-          {/* Left Panel: Researchers */}
+          {/* Left Panel: Researchers - 使用统一的MemberCard */}
           <div className="flex-1">
             <div className="grid grid-cols-2 gap-4">
               {TEAM_DATA.gradResearchers.map((researcher, index) => (
-                <div
+                <MemberCard
                   key={index}
+                  member={researcher}
                   onMouseEnter={() => setHoveredResearcherDetails(researcher.backContent)}
                   onMouseLeave={() => setHoveredResearcherDetails("")}
-                  className="cursor-pointer transition-transform hover:scale-105"
-                >
-                  <div className="w-33 h-33 bg-gray-300 rounded-full overflow-hidden">
-                    <img
-                      src={researcher.image}
-                      alt={researcher.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="text-center mt-2 text-sm">{researcher.name}</p>
-                  <p className="text-center text-xs text-gray-500">
-                    {researcher.role}
-                  </p>
-                </div>
+                  imageSize="w-33 h-33"
+                />
               ))}
             </div>
           </div>
@@ -385,26 +359,17 @@ const Team = () => {
           Postdoctoral Researchers
         </h2>
         <div className="flex flex-wrap gap-8">
-          {/* Left Panel: Postdoctoral Researchers */}
+          {/* Left Panel: Postdoctoral Researchers - 使用统一的MemberCard */}
           <div className="flex-1">
             <div className="grid grid-cols-2 gap-4">
               {TEAM_DATA.postdocResearchers.map((researcher, index) => (
-                <div
+                <MemberCard
                   key={index}
+                  member={researcher}
                   onMouseEnter={() => setHoveredPostdocDetails(researcher.backContent)}
                   onMouseLeave={() => setHoveredPostdocDetails("")}
-                  className="cursor-pointer transition-transform hover:scale-105"
-                >
-                  <div className="w-33 h-33 bg-gray-300 rounded-full overflow-hidden">
-                    <img
-                      src={researcher.image}
-                      alt={researcher.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="text-center mt-2-3 text-sm">{researcher.name}</p>
-                  <p className="text-center text-gray-500">{researcher.role}</p>
-                </div>
+                  imageSize="w-33 h-33"
+                />
               ))}
             </div>
           </div>
@@ -425,21 +390,17 @@ const Team = () => {
           Undergraduate Researchers
         </h2>
         <div className="flex flex-wrap gap-8">
-          {/* Left Panel: Undergraduate Researchers */}
+          {/* Left Panel: Undergraduate Researchers - 使用统一的MemberCard */}
           <div className="flex-1">
             <div className="grid grid-cols-3 gap-4">
               {TEAM_DATA.undergraduateResearchers.map((undergraduate, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-32 h-32 bg-gray-300 rounded-full overflow-hidden mx-auto">
-                    <img
-                      src={undergraduate.image}
-                      alt={undergraduate.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="mt-2 text-sm">{undergraduate.name}</p>
-                  <p className="text-gray-500">{undergraduate.role}</p>
-                </div>
+                <MemberCard
+                  key={index}
+                  member={undergraduate}
+                  onMouseEnter={() => {}}
+                  onMouseLeave={() => {}}
+                  imageSize="w-32 h-32"
+                />
               ))}
             </div>
           </div>

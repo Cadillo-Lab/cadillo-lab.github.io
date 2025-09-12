@@ -470,3 +470,13 @@
         height: 100%;
     }
 }
+
+/* 隐藏Twitter和BlueSky按钮 */
+.twitter-timeline,
+.twitter-feed,
+.bsky-link,
+.bsky-button,
+.bluesky-link,
+.x-feed {
+    display: none !important;
+}

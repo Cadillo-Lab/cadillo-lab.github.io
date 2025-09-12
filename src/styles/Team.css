@@ -646,3 +646,29 @@ button {
   border: none;
 }
 
+/* MemberCard组件的统一间距控制 */
+.member-card {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.member-card:hover {
+  transform: scale(1.05);
+}
+
+.member-card .member-name {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.1;
+  color: #000;
+  margin-bottom: 0;
+}
+
+.member-card .member-role {
+  margin-top: 0.1rem; /* 控制间距的关键位置 */
+  font-size: 0.75rem;
+  color: #555;
+  line-height: 1.1;
+  margin-bottom: 0;
+}

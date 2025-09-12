@@ -23,11 +23,11 @@ const Collaborationss = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
-  // Automatically go to next slide every 7 seconds
+  // Fixed auto-scroll with proper useEffect dependency
   useEffect(() => {
-    const intervalId = setInterval(goToNext, 7000); // 7000ms = 7 seconds
-    return () => clearInterval(intervalId); // Cleanup on component unmount
-  }, [currentIndex, goToNext]);
+    const intervalId = setInterval(goToNext, 3500);
+    return () => clearInterval(intervalId);
+  }, []); // Empty dependency array for proper auto-scroll
 
   return (
     <div className="collaboration-container">
@@ -46,7 +46,7 @@ const Collaborationss = () => {
             <h3>
               Microbiology EducatioN, Training and OutReach at ASU (MENTOR@ASU)
             </h3>
-            <p className="para11" style={{ lineHeight: "1.2" }}>
+            <p className="para11">
               This is a student-centered Inquiry-Base Learning effort developed
               by Prof Hinsby Cadillo-Quiroz (cadillo lab) aiming to increase the
               participation in microbiology research and high order thinking and
@@ -66,7 +66,7 @@ const Collaborationss = () => {
 
           <div className="programs">
             <h3>A Culturing Soil Microbes for ecosystem models CURE</h3>
-            <p className = "para1111" style={{ lineHeight: "1.2" }}>
+            <p className="para1111">
               This CURE was designed by the Cadillo Lab to promote scientific
               research and training among ASU and international institutions.
               The projects in this class focus on understanding and quantifying
@@ -85,9 +85,9 @@ const Collaborationss = () => {
           </div>
         </section>
 
-        <section className="data-collaboration" style={{ marginTop: "3rem" }}>
+        <section className="data-collaboration">
           <h2 className="collabh2">Collaborative Data accessibility and FAIR data use</h2>
-          <p className="para1" style={{ lineHeight: "1.2" }}>
+          <p className="para1">
             The cadillo Lab seeks to be a place where Findable, Accessible,
             Interoperable, and Reusable (FAIR) data access approaches is
             provided, at the same time we see high value to going beyond making
@@ -126,15 +126,15 @@ const Collaborationss = () => {
         </section>
 
         <section className="international">
-          <h2 style={{ marginTop: "3rem" }}>
+          <h2>
             International Collaborations for Carbon-rich ecosystem research
           </h2>
-          <p className="para2" style={{ lineHeight: "1.2" }}>
+          <p className="para2">
             The Cadillo lab is proud of a long collaborative tradition to study
             carbon-rich environments around the world. Below find a list of
             institutions with which we have or currently collaborate:
           </p>
-          <ul className="partners-list" style={{ marginTop: "1rem" }}>
+          <ul className="partners-list">
             <li>Universidad Nacional de la Amazonia Peruana (UNAP)</li>
             <li>Universidad Nacional Autónoma de Alto Amazonas (UNAA)</li>
             <li>Instituto de Investigaciones de la Amazonia Peruana (IIAP)</li>
