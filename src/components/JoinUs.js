@@ -222,7 +222,7 @@ const JoinUs = () => {
             <div style={{ marginTop: "10px", textAlign: "left" }}>
               <details
                 style={{
-                  color: "black",
+                  color: "#28a745", /*open position color */
                   padding: "10px",
                   borderRadius: "5px",
                   fontWeight: "bold",
