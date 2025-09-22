@@ -132,9 +132,9 @@ const TEAM_DATA = {
     graduateAlumni: [
       {
         name: "Victor Ochoa-Henriquez",
-        details: "PhD student in Environmental Life Sciences (2023-2024)"
+        details: "M.S. student in Environmental Life Sciences (2023-2024)"
       },
-      { name: "Lilly Vael", details: "PhD student in Microbiology (2022-2024)" },
+      { name: "Lilly Vael", details: "M.S. student in Microbiology (2022-2024)" },
       { name: "Julia Furedy", details: "M.S. (4+1 BS, MS) student (2021-2024)" },
       { name: "Camila Delgado-Montes", details: "Ms student in Biology (2020-2023)" },
       { name: "Michael Pavia", details: "PhD student in Microbiology (2018-2024)" },
@@ -153,7 +153,7 @@ const TEAM_DATA = {
       { name: "Damien Finn", details: "Postdoctoral researcher" },
       { name: "Paul Brewer", details: "Postdoctoral researcher" },
       { name: "Jie Dai", details: "Postdoctoral researcher" },
-      { name: "Linh", details: "Postdoctoral researcher" },
+      { name: " ", details: " " },
     ],
     
     honorsThesis: [
