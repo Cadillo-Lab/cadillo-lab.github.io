@@ -21,11 +21,11 @@ import people_13 from "../assets/jaimie.jpg";
 const TEAM_DATA = {
   faculty: {
     image: people_00,
-    name: "Hinsby Cadillo-Quiroz, PhD",
+    name: "Hinsby Cadillo-Quiroz, Ph.D.",
     title: "Professor",
     contact: "Email: hinsby@asu.edu",
     education: [
-      "PhD Microbiology and minor in Ecology, Cornell University 2008.",
+      "Ph.D. Microbiology and minor in Ecology, Cornell University 2008.",
       "BS Biological Sciences, San Marcos National University, Lima, Peru 1999."
     ],
     bio: [
@@ -38,30 +38,30 @@ const TEAM_DATA = {
   gradResearchers: [
     {
       name: "Jesus Marin Diaz",
-      bio: "PhD. Student in Environmental Life Sciences",
+      bio: "Ph.D. Student in Environmental Life Sciences",
       image: people_01,
-      role: "ELS PhD student",
+      role: "ELS Ph.D. student",
       backContent: "Jesus is a first-year Ph.D. student in Environmental Life Sciences at Arizona State University, studying carbon fluxes and ecological modeling of peatlands in the Amazon forest.\n\nHe completed his undergraduate degree in Forest Engineering at La Molina National Agrarian University (Lima, Peru), specializing in remote sensing, forest ecology, and forest biodiversity. He then pursued a master's degree in Civil Engineering at the University of Engineering and Technology (Lima, Peru), focusing on the geomorphology of Amazonian rivers, analyzing multitemporal dynamics and morpho-spatial patterns that influence island formation and river migration.\n\nJesus has extensive experience in geographical information systems (GIS) and remote sensing analysis, producing geospatial elements related to forests and rivers. He has specialized in REDD+ (Reduction of Emissions from Deforestation and Degradation) projects, contributing to the formulation of project documents, baseline establishment for GHG emission levels, LULC maps, deforestation and degradation modeling, and quantifying emission reductions for the voluntary carbon market.\n\nHis main research interest is to evaluate the interactions between geomorphological dynamics of rivers and forest ecosystems, particularly how sediment and flood presence affect carbon fluxes and stocks. Through ecological modeling, he aims to establish connections between biotic and abiotic elements of the landscape at different scales, exploring intricate ecological relationships and patterns."
     },
     {
       name: "Wanxiang Liu",
-      bio: "PhD. Candidate",
+      bio: "Ph.D. Candidate",
       image: people_02,
-      role: "EVO PhD student",
-      backContent: " Wanxiang Liu is a PhD student in an Evolutionary Biology program. He is a Bioinformatician focused on studying methanogenesis and methanotrophy. His research uses computational modeling to understand how microbial activities affect atmospheric methane levels, particularly in wetlands and agricultural ecosystems. "
+      role: "EVO Ph.D. student",
+      backContent: " Wanxiang Liu is a Ph.D. student in an Evolutionary Biology program. He is a Bioinformatician focused on studying methanogenesis and methanotrophy. His research uses computational modeling to understand how microbial activities affect atmospheric methane levels, particularly in wetlands and agricultural ecosystems. "
     },
     {
       name: "Kyleigh Bachelor",
-      bio: "PhD Student, Microbiology PhD Program",
+      bio: "M.S. Student, Microbiology M.S. Program",
       image: people_03,
-      role: "Microbiology MS student",
+      role: "Microbiology M.S. student",
       backContent: "Kyleigh is a first year Master's student in the Microbiology program. She earned her B.S. in Microbiology from Northern Arizona University in 2024. Her background includes microbial ecology as well as industry experience, having worked for the United States Geological Survey as a Biologist and a Microbiologist Technician in cosmetic and hygiene microbiology testing. Kyleigh is broadly interested in how microbes interact within their environments and the ways these interactions help to shape ecosystems. She is currently working on the Howland methanotrophs project, focusing on isolating methanotrophs from soil samples. Kyleigh plans to transfer to a PhD program and aims to pursue a career in environmental research. "
     }
   ],
   
   postdocResearchers: [
     {
-      name: "Jaimie West, PhD",
+      name: "Jaimie West, Ph.D.",
       bio: "Postdoctoral researcher",
       image: people_13,
       role: "Postdoctoral Researcher",
@@ -275,6 +275,7 @@ const MemberCard = ({ member, onMouseEnter, onMouseLeave, imageSize = "w-33 h-33
     </p>
   </div>
 );
+
 
 const Team = () => {
   // Consolidated state management
