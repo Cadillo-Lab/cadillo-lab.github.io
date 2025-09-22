@@ -119,7 +119,7 @@ const Homepage = () => {
               ></iframe>
             </div>
           </div>
-
+          
           <div className="social-row">
             {/* X (Twitter) Button */}
             <div
@@ -153,7 +153,7 @@ const Homepage = () => {
               >
                 Visit our BlueSky Profile
               </a>
-            </div>
+            </div> 
           </div>
         </div>
       </section>
