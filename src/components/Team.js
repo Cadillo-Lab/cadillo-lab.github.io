@@ -15,51 +15,7 @@ import people_08 from "../assets/lance.png";
 import people_13 from "../assets/jaimie.jpg";
 //import people_14 from "../assets/placeholder.jpg";
 
-/**
- * Name Card Component style
- */
-const MemberCard = ({ member, onMouseEnter, onMouseLeave, imageSize = "w-33 h-33" }) => (
-  <div
-    onMouseEnter={onMouseEnter}
-    onMouseLeave={onMouseLeave}
-    style={{
-      textAlign: 'center',
-      cursor: 'pointer',
-      transition: 'transform 0.2s'
-    }}
-    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
-    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
-  >
-    <div className={`${imageSize} bg-gray-300 rounded-full overflow-hidden mx-auto`}>
-      <img
-        src={member.image}
-        alt={member.name}
-        className="w-full h-full object-cover"
-      />
-    </div>
-    {/* name */}
-    <p style={{ 
-      marginTop: '8px', 
-      marginBottom: '0px', 
-      fontSize: '14px', 
-      fontWeight: 'normal',
-      lineHeight: '1.1',
-      color: '#000'
-    }}>
-      {member.name}
-    </p>
-    {/* role/major - distance with name */}
-    <p style={{ 
-      marginTop: '4px',  // Adjust this number to change spacing: 0px=no spacing, -2px=tighter
-      marginBottom: '0px', 
-      fontSize: '12px', 
-      color: '#666',
-      lineHeight: '1.1'
-    }}>
-      {member.role}
-    </p>
-  </div>
-);
+
 
 // Data configuration
 const TEAM_DATA = {
@@ -136,14 +92,14 @@ const TEAM_DATA = {
       },
       { name: "Lilly Vael", details: "M.S. student in Microbiology (2022-2024)" },
       { name: "Julia Furedy", details: "M.S. (4+1 BS, MS) student (2021-2024)" },
-      { name: "Camila Delgado-Montes", details: "Ms student in Biology (2020-2023)" },
-      { name: "Michael Pavia", details: "PhD student in Microbiology (2018-2024)" },
+      { name: "Camila Delgado-Montes", details: "M.S. student in Biology (2020-2023)" },
+      { name: "Michael Pavia", details: "Ph.D. student in Microbiology (2018-2024)" },
       { name: "Jillian Ayers", details: "M.S. (4+1 BS, MS) student in Microbiology (2019-2021)" },
-      { name: "Mark Reynolds", details: "PhD student in Microbiology (2015-2022)" },
-      { name: "Analisa Sarno", details: "PhD student in Microbiology (2013-2021)" },
-      { name: "Steffen Buessecker", details: "PhD student in Environmental Life Sciences (2013-2020)" },
-      { name: "Julian Yu", details: "PhD student in Microbiology (2014-2020)" },
-      { name: "Zeni Ramirez", details: "Ms student in Microbiology (2016-2018)" }
+      { name: "Mark Reynolds", details: "Ph.D. student in Microbiology (2015-2022)" },
+      { name: "Analisa Sarno", details: "Ph.D. student in Microbiology (2013-2021)" },
+      { name: "Steffen Buessecker", details: "Ph.D. student in Environmental Life Sciences (2013-2020)" },
+      { name: "Julian Yu", details: "Ph.D. student in Microbiology (2014-2020)" },
+      { name: "Zeni Ramirez", details: "M.S. student in Microbiology (2016-2018)" }
     ],
     
     postdocAlumni: [
@@ -273,6 +229,52 @@ const TEAM_DATA = {
     ]
   }
 };
+
+/**
+ * Name Card Component style
+ */
+const MemberCard = ({ member, onMouseEnter, onMouseLeave, imageSize = "w-33 h-33" }) => (
+  <div
+    onMouseEnter={onMouseEnter}
+    onMouseLeave={onMouseLeave}
+    style={{
+      textAlign: 'center',
+      cursor: 'pointer',
+      transition: 'transform 0.2s'
+    }}
+    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+  >
+    <div className={`${imageSize} bg-gray-300 rounded-full overflow-hidden mx-auto`}>
+      <img
+        src={member.image}
+        alt={member.name}
+        className="w-full h-full object-cover"
+      />
+    </div>
+    {/* name */}
+    <p style={{ 
+      marginTop: '8px', 
+      marginBottom: '0px', 
+      fontSize: '14px', 
+      fontWeight: 'normal',
+      lineHeight: '1.1',
+      color: '#000'
+    }}>
+      {member.name}
+    </p>
+    {/* role/major - distance with name */}
+    <p style={{ 
+      marginTop: '4px',  // Adjust this number to change spacing: 0px=no spacing, -2px=tighter
+      marginBottom: '0px', 
+      fontSize: '12px', 
+      color: '#666',
+      lineHeight: '1.1'
+    }}>
+      {member.role}
+    </p>
+  </div>
+);
 
 const Team = () => {
   // Consolidated state management
