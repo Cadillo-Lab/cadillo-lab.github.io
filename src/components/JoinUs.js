@@ -15,24 +15,23 @@ import outreach4 from "../assets/_EFO7190.jpg";
 
 // Graduate Student Positions
 const GRADUATE_POSITIONS = [
-
-  // Example format:
-  // { title: "PhD Position in Environmental Microbiology", description: "We are seeking a motivated graduate student to study anaerobic microbial processes..." },
-  // { title: "Research Assistant - Soil Ecology", description: "Looking for a graduate student interested in soil ecosystem dynamics..." }
-   {
-    title: 'PhD Position in: "Microbial and Ecosystem Ecology of Methane flux in Amazon Peatlands" at the School of Life Sciences (SOLS), Arizona State University.',
-    description: `The Cadillo Lab in the School of Life Sciences at Arizona State University (Tempe, AZ) is seeking a PhD student. Research in the Cadillo Lab (https://cadillo-lab.github.io) examines interdisciplinary subjects related to ecosystems processes, carbon cycling and the role of microbes at different spatial and temporal scales.
-    
-The PhD position focuses on transdisciplinary work in microbiology, ecosystem analysis, and integrative modeling of microbes and methane flux predictions for Amazon peatlands. The incoming PhD student will participate in studies of the spatial ecology of methane emission and ecosystem-level flux modeling with a focus on integrating trait-based predictions for microbial guilds, including decomposers and methane-producing microbes (genomic and environmental data). The student will join an NSF project that includes fieldwork in Spanish-speaking countries, integrating microbial physiological data and geochemistry studies. Prior research experience in flux data sciences, CH4 modeling, or ecosystem studies is desirable, and any level of microbial ecology is a plus. The student will be expected to demonstrate an ability to work collaboratively, participate in international training, and bridge field and laboratory-based research.
-
-Students with an appropriate background from any related field (environmental microbiology, ecosystem or data sciences, environmental sciences, geochemistry, and others) are encouraged to apply to this multidisciplinary position.
-
-Students with a record of publication or master's degree, strong quantitative skills, and appropriate experiences will be given preference. Start date for graduate studies is Summer or Fall terms. To express interest in the position please email Prof Cadillo-Quiroz at cadillo-lab-appl@asu.edu and include 1) a statement of research interests and experience, 2) a CV, and 3) a writing sample, if available. Candidates will be considered for PhD admission through either of the following programs: Environmental Life Sciences PhD program, PhD in Microbiology, or PhD in Biological Design (see program details: https://sols.asu.edu/degree-programs/graduate and https://sbhse.engineering.asu.edu/biologicaldesignoverview/). Preferred initial contact is requested before Nov 15 to be closely follow by PhD application process. Requests received after December 1 will be accepted on an available basis.
-
-ASU provides a strong and vibrant research environment through multiple units related to this project including the School of Life Sciences (https://sols.asu.edu), the Global Institute of Sustainability (https://sustainability.asu.edu/), the Biodesign Institute (https://biodesign.asu.edu/), and the School of Earth and Space Exploration (https://sese.asu.edu/), the Center for Fundamental and Applied Microbiomics (https://biodesign.asu.edu/fundamental-and-applied-microbiomics), the Swetty center for Environmental Biotechnology (https://biodesign.asu.edu/environmental-biotechnology), and others.`
+  {
+    title: 'PhD Position in: "Microbial and Ecosystem Ecology of Methane flux in Pan-American Peatlands" at the School of Life Sciences (SOLS), Arizona State University.',
+    description: [
+      'The Cadillo Lab in the School of Life Sciences at Arizona State University (Tempe, AZ) is seeking a PhD student. Research in the Cadillo Lab (https://cadillo-lab.github.io) examines interdisciplinary subjects related to ecosystems processes, carbon cycling and the role of microbes at different spatial and temporal scales.',
+      
+      'The PhD position focuses on transdisciplinary work in microbiology, ecosystem analysis, and integrative modeling of microbes and methane flux predictions for pan-American peatlands. The incoming PhD student will participate in studies of the spatial ecology of methane emission and ecosystem-level flux modeling with a focus on integrating trait-based predictions for microbial guilds, including decomposers and methane-producing microbes (genomic and environmental data). The student will join an NSF project that includes fieldwork in Spanish-speaking countries, integrating microbial physiological data and geochemistry studies. Prior research experience in flux data sciences, CH4 modeling, or ecosystem studies is desirable, and any level of microbial ecology is a plus. The student will be expected to demonstrate an ability to work collaboratively, participate in international training, and bridge field and laboratory-based research.',
+      
+      'Students with an appropriate background from any related field (environmental microbiology, ecosystem or data sciences, environmental sciences, geochemistry, and others) are encouraged to apply to this multidisciplinary position. Students with a record of publication or master\'s degree, strong quantitative skills, and appropriate experiences will be given preference.',
+      
+      'Start date for graduate studies is Summer or Fall terms. To express interest in the position please email Prof Cadillo-Quiroz at cadillo-lab-appl@asu.edu and include 1) a statement of research interests and experience, 2) a CV, and 3) a writing sample, if available. Candidates will be considered for PhD admission through either of the following programs: Environmental Life Sciences PhD program, PhD in Microbiology, or PhD in Biological Design (see program details: https://sols.asu.edu/degree-programs/graduate and https://sbhse.engineering.asu.edu/biologicaldesignoverview/). Preferred initial contact is requested before Nov 15 to be closely follow by PhD application process. Requests received after December 1 will be accepted on an available basis.',
+      
+      'ASU provides a strong and vibrant research environment through multiple units related to this project including the School of Life Sciences (https://sols.asu.edu), the Global Institute of Sustainability (https://sustainability.asu.edu/), the Biodesign Institute (https://biodesign.asu.edu/), and the School of Earth and Space Exploration (https://sese.asu.edu/), the Center for Fundamental and Applied Microbiomics (https://biodesign.asu.edu/fundamental-and-applied-microbiomics), the Swetty center for Environmental Biotechnology (https://biodesign.asu.edu/environmental-biotechnology), and others.'
+    ]
   },
   // Add more graduate positions here as needed
 ];
+
 
 // Postdoctoral Positions  
 const POSTDOC_POSITIONS = [
@@ -138,9 +137,18 @@ const JoinUs = () => {
     return (
       <div style={{ marginTop: "10px" }}>
         {positions.map((position, index) => (
-          <div key={index} style={{ marginBottom: "15px" }}>
-            <h3 style={{ fontWeight: "bold", marginBottom: "8px", fontSize: "1.4rem" }}>{position.title}</h3>
-            <p style={{ fontSize: "0.95rem", fontWeight: "normal", lineHeight: "1.6", marginTop: "8px" }}>{position.description}</p>
+          <div key={index} className="position-container">
+            <h3 className="position-title">{position.title}</h3>
+            <div className="position-description">
+              {/* Check if description is an array or string */}
+              {Array.isArray(position.description) ? (
+                position.description.map((paragraph, pIndex) => (
+                  <p key={pIndex} dangerouslySetInnerHTML={{ __html: paragraph }} />
+                ))
+              ) : (
+                <p>{position.description}</p>
+              )}
+            </div>
           </div>
         ))}
       </div>
