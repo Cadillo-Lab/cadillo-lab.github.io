@@ -1,2 +1,5 @@
 node_modules
 build/
+cms-oauth/.dev.vars
+cms-oauth/.wrangler/
+cms-oauth/node_modules/

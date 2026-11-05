@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import "../styles/JoinUs.css";
 import positionsData from "../content/positions.json";
-import GRADUATE_PROGRAMS from "../content/programs.json";
+import programsData from "../content/programs.json";
 import joinUsData from "../content/joinus.json";
 
 // ====================================================================
@@ -33,7 +33,8 @@ const CAROUSEL_INTERVAL = 5000; // 5 seconds
 // ====================================================================
 // PROGRAM LINKS CONFIGURATION
 // ====================================================================
-// TO ADD/EDIT PROGRAM LINKS: Modify src/content/programs.json (imported above as GRADUATE_PROGRAMS)
+// TO ADD/EDIT PROGRAM LINKS: Modify the "programs" array in src/content/programs.json
+const GRADUATE_PROGRAMS = programsData.programs;
 
 // ====================================================================
 // MAIN COMPONENT
