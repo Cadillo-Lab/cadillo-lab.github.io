@@ -1,0 +1,83 @@
+# Keeps the preview branch in step with main after something lands on main
+# (normally: the preview pull request was merged).
+#
+# If the preview branch can be moved to main without losing any edit, it is
+# moved and the preview site is rebuilt. Otherwise (the preview branch has
+# commits that are not on main yet) nothing is touched and the run just says so;
+# use the "Reset preview branch to main" workflow when those edits should go.
+#
+# Pushes made with GITHUB_TOKEN do not start workflow runs by themselves, so the
+# preview deployment is started explicitly in the last step.
+name: Sync preview branch after merge
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write # move the preview branch
+  actions: write # start the preview deployment
+
+concurrency:
+  group: preview-branch-writes
+  cancel-in-progress: false
+
+env:
+  PREVIEW_BRANCH: test_edit_this_firstly
+
+jobs:
+  sync:
+    name: Move the preview branch to main when nothing is lost
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main with full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Move the preview branch
+        id: sync
+        run: |
+          MAIN_SHA="$GITHUB_SHA"
+
+          if ! git fetch origin "+refs/heads/$PREVIEW_BRANCH:refs/remotes/origin/$PREVIEW_BRANCH"; then
+            echo "Preview branch $PREVIEW_BRANCH does not exist - creating it from main."
+            git push origin "$MAIN_SHA:refs/heads/$PREVIEW_BRANCH"
+            echo "synced=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          PREVIEW_SHA="$(git rev-parse "refs/remotes/origin/$PREVIEW_BRANCH")"
+
+          if [ "$PREVIEW_SHA" = "$MAIN_SHA" ]; then
+            echo "Preview branch is already at main."
+            echo "synced=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Case 1: main contains every preview commit (merge commit or direct push to main).
+          if git merge-base --is-ancestor "$PREVIEW_SHA" "$MAIN_SHA"; then
+            echo "Fast-forwarding $PREVIEW_BRANCH: $PREVIEW_SHA -> $MAIN_SHA"
+            git push origin "$MAIN_SHA:refs/heads/$PREVIEW_BRANCH"
+            echo "synced=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Case 2: same content, different history (squash or rebase merge).
+          if [ "$(git rev-parse "$PREVIEW_SHA^{tree}")" = "$(git rev-parse "$MAIN_SHA^{tree}")" ]; then
+            echo "Same content as main with a different history - re-pointing $PREVIEW_BRANCH."
+            git push --force-with-lease="refs/heads/$PREVIEW_BRANCH:$PREVIEW_SHA" origin "$MAIN_SHA:refs/heads/$PREVIEW_BRANCH"
+            echo "synced=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Case 3: the preview branch has edits that are not on main. Leave it alone.
+          echo "::notice::$PREVIEW_BRANCH has edits that are not on main yet; it was left untouched. Run 'Reset preview branch to main' to discard them."
+          echo "synced=false" >> "$GITHUB_OUTPUT"
+
+      - name: Rebuild the preview site
+        if: steps.sync.outputs.synced == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh workflow run deploy.yml --ref "$PREVIEW_BRANCH"

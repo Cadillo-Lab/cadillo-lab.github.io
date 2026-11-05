@@ -1,34 +1,151 @@
-name: Deploy React App to GitHub Pages
+# Builds the website and publishes it to the gh-pages branch, which GitHub Pages serves.
+#
+#   branch main                    ->  https://cadillo-lab.github.io/          (gh-pages root)
+#   branch test_edit_this_firstly  ->  https://cadillo-lab.github.io/preview/  (gh-pages/preview/)
+#   pull requests into main        ->  build only, nothing is published
+#
+# How the two deployments stay out of each other's way:
+#   * "preview" writes only inside gh-pages/preview/ (destination_dir) and clears
+#     nothing outside that folder.
+#   * "production" replaces the gh-pages root, but first copies the existing
+#     preview/ folder into its build output, so the preview site is republished
+#     unchanged.
+#   * Both jobs share one concurrency group, so they never push gh-pages at the
+#     same time.
+#
+# Do NOT run `npm run deploy` (the gh-pages CLI) by hand any more: it replaces the
+# whole gh-pages branch with a local build and would delete preview/.
+#
+# Pushes made by workflows with GITHUB_TOKEN do not start new workflow runs. That is
+# why reset-preview.yml and sync-after-merge.yml start this workflow explicitly with
+# `gh workflow run deploy.yml --ref test_edit_this_firstly`.
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - test_edit_this_firstly
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  build-and-deploy:
+  production:
+    name: Production (main -> gh-pages root)
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
+    concurrency:
+      group: gh-pages-publish
+      cancel-in-progress: false
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm ci
-      
-    - name: Build
-      run: CI=false npm run build
-      
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        # CI=false stops Create React App from turning ESLint warnings into build errors.
+        env:
+          CI: 'false'
+        run: npm run build
+
+      - name: Carry the current preview deployment over into the build output
+        # The publish step below replaces the whole gh-pages root. Copy gh-pages/preview/
+        # into build/preview/ first, so the preview site is published again unchanged.
+        run: |
+          if ! git fetch --depth=1 origin +refs/heads/gh-pages:refs/remotes/origin/gh-pages; then
+            echo "No gh-pages branch yet - nothing to carry over."
+            exit 0
+          fi
+          if [ "$(git cat-file -t origin/gh-pages:preview 2>/dev/null)" = "tree" ]; then
+            git archive origin/gh-pages preview | tar -x -C build
+            echo "Carried over gh-pages/preview/ ($(find build/preview -type f | wc -l) files)."
+          else
+            echo "gh-pages has no preview/ folder yet - nothing to carry over."
+          fi
+
+      - name: Publish to the gh-pages root
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./build
+          keep_files: false
+          commit_message: 'Deploy production (main)'
+
+  preview:
+    name: Preview (test_edit_this_firstly -> gh-pages/preview)
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/test_edit_this_firstly'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: gh-pages-publish
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build with /preview as the site root
+        # PUBLIC_URL makes every asset URL and the React Router basename start with /preview.
+        env:
+          CI: 'false'
+          PUBLIC_URL: /preview
+        run: npm run build
+
+      - name: Publish to gh-pages/preview
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./build
+          destination_dir: preview
+          # With destination_dir set, keep_files: false clears only gh-pages/preview/,
+          # so every preview is a clean rebuild and old hashed bundles do not pile up.
+          keep_files: false
+          commit_message: 'Deploy preview (test_edit_this_firstly)'
+
+  check:
+    name: Build check (pull request)
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        env:
+          CI: 'false'
+        run: npm run build

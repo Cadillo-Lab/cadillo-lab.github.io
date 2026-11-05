@@ -1,0 +1,21 @@
+# Cloudflare Worker settings for the Decap CMS login proxy (see README.md).
+# Deploy from this folder with:  npx wrangler@4 deploy
+name = "cms-auth"
+main = "worker.js"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+# Plain settings. The two secrets are NOT put here; they are stored encrypted with
+#   npx wrangler@4 secret put GITHUB_CLIENT_ID
+#   npx wrangler@4 secret put GITHUB_CLIENT_SECRET
+# and survive later deploys.
+[vars]
+# Sites allowed to receive a login token, comma-separated, scheme + host only.
+ALLOWED_ORIGINS = "https://cadillo-lab.github.io"
+# Also allow http://localhost:<port> and http://127.0.0.1:<port>, for testing the
+# admin from a local build. Set to "false" once nobody needs that.
+ALLOW_LOCALHOST = "false"
+
+# Keeps request logs in the Cloudflare dashboard (Workers -> cms-auth -> Logs).
+[observability]
+enabled = true

@@ -1,62 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import "../styles/JoinUs.css";
-import joinImage from "../assets/joinus.png";
-import outreach1 from "../assets/outreach1.png";
-import outreach2 from "../assets/outreach2.png";
-import outreach4 from "../assets/_EFO7190.jpg";
+import positionsData from "../content/positions.json";
+import programsData from "../content/programs.json";
+import joinUsData from "../content/joinus.json";
 
 // ====================================================================
 // RECRUITMENT CONFIGURATION SECTION
 // ====================================================================
-// TO ADD/EDIT POSITIONS: Modify the arrays below
+// TO ADD/EDIT POSITIONS: Modify the arrays in src/content/positions.json
 // Each position object should have: { title: "Position Title", description: "Position Description" }
 // Set to empty array [] if no positions available
 
 // Graduate Student Positions
-const GRADUATE_POSITIONS = [
-
-  // Example format:
-  // { title: "PhD Position in Environmental Microbiology", description: "We are seeking a motivated graduate student to study anaerobic microbial processes..." },
-  // { title: "Research Assistant - Soil Ecology", description: "Looking for a graduate student interested in soil ecosystem dynamics..." }
-   {
-    title: 'PhD Position in: "Microbial and Ecosystem Ecology of Methane flux in Amazon Peatlands" at the School of Life Sciences (SOLS), Arizona State University.',
-    description: `The Cadillo Lab in the School of Life Sciences at Arizona State University (Tempe, AZ) is seeking a PhD student. Research in the Cadillo Lab (https://cadillo-lab.github.io) examines interdisciplinary subjects related to ecosystems processes, carbon cycling and the role of microbes at different spatial and temporal scales.
-    
-The PhD position focuses on transdisciplinary work in microbiology, ecosystem analysis, and integrative modeling of microbes and methane flux predictions for Amazon peatlands. The incoming PhD student will participate in studies of the spatial ecology of methane emission and ecosystem-level flux modeling with a focus on integrating trait-based predictions for microbial guilds, including decomposers and methane-producing microbes (genomic and environmental data). The student will join an NSF project that includes fieldwork in Spanish-speaking countries, integrating microbial physiological data and geochemistry studies. Prior research experience in flux data sciences, CH4 modeling, or ecosystem studies is desirable, and any level of microbial ecology is a plus. The student will be expected to demonstrate an ability to work collaboratively, participate in international training, and bridge field and laboratory-based research.
-
-Students with an appropriate background from any related field (environmental microbiology, ecosystem or data sciences, environmental sciences, geochemistry, and others) are encouraged to apply to this multidisciplinary position.
-
-Students with a record of publication or master's degree, strong quantitative skills, and appropriate experiences will be given preference. Start date for graduate studies is Summer or Fall terms. To express interest in the position please email Prof Cadillo-Quiroz at cadillo-lab-appl@asu.edu and include 1) a statement of research interests and experience, 2) a CV, and 3) a writing sample, if available. Candidates will be considered for PhD admission through either of the following programs: Environmental Life Sciences PhD program, PhD in Microbiology, or PhD in Biological Design (see program details: https://sols.asu.edu/degree-programs/graduate and https://sbhse.engineering.asu.edu/biologicaldesignoverview/). Preferred initial contact is requested before Nov 15 to be closely follow by PhD application process. Requests received after December 1 will be accepted on an available basis.
-
-ASU provides a strong and vibrant research environment through multiple units related to this project including the School of Life Sciences (https://sols.asu.edu), the Global Institute of Sustainability (https://sustainability.asu.edu/), the Biodesign Institute (https://biodesign.asu.edu/), and the School of Earth and Space Exploration (https://sese.asu.edu/), the Center for Fundamental and Applied Microbiomics (https://biodesign.asu.edu/fundamental-and-applied-microbiomics), the Swetty center for Environmental Biotechnology (https://biodesign.asu.edu/environmental-biotechnology), and others.`
-  },
-  // Add more graduate positions here as needed
-];
+const GRADUATE_POSITIONS = positionsData.graduate;
 
 // Postdoctoral Positions  
-const POSTDOC_POSITIONS = [
-  // Example format:
-  // { title: "Postdoc - Genomics/Metagenomics", description: "2-year postdoc position focusing on microbial genomics analysis..." },
-  // { title: "Postdoc - Stable Isotope Geochemistry", description: "Seeking postdoc with experience in isotope analysis..." }
-];
+const POSTDOC_POSITIONS = positionsData.postdoc;
 
 // Undergraduate Research Positions
-const UNDERGRADUATE_POSITIONS = [
-  // Example format:
-  // { title: "Undergraduate Research Assistant", description: "Part-time research position for undergraduate student in biology/environmental science..." },
-  // { title: "Lab Technician Assistant", description: "Seeking undergraduate to assist with laboratory maintenance and sample processing..." }
-];
+const UNDERGRADUATE_POSITIONS = positionsData.undergraduate;
 
 // ====================================================================
 // CAROUSEL CONFIGURATION SECTION
 // ====================================================================
-// TO ADD/EDIT CAROUSEL IMAGES: Modify the array below
-const CAROUSEL_IMAGES = [
-  { src: outreach1, alt: 'Outreach Program 1' },
-  { src: outreach2, alt: 'Outreach Program 2' },
-  { src: outreach4, alt: 'Outreach Program 3' }
-];
+// TO ADD/EDIT CAROUSEL IMAGES: Modify the "carousel" array in src/content/joinus.json
+const CAROUSEL_IMAGES = joinUsData.carousel;
 
 // Carousel auto-advance timing (in milliseconds)
 const CAROUSEL_INTERVAL = 5000; // 5 seconds
@@ -64,36 +33,8 @@ const CAROUSEL_INTERVAL = 5000; // 5 seconds
 // ====================================================================
 // PROGRAM LINKS CONFIGURATION
 // ====================================================================
-const GRADUATE_PROGRAMS = [
-  {
-    name: "Environmental Life Sciences",
-    url: "https://degrees.apps.asu.edu/masters-phd/major/ASU00/LAELSPHD/environmental-life-sciences-phd"
-  },
-  {
-    name: "Microbiology PhD", 
-    url: "https://degrees.apps.asu.edu/masters-phd/major/ASU00/LAMICROPHD/microbiology-phd"
-  },
-  {
-    name: "Molecular and Cellular Biology",
-    url: "https://degrees.apps.asu.edu/masters-phd/major/ASU00/LACELLPHD/molecular-cellular-biology-phd"
-  },
-  {
-    name: "Biology PhD",
-    url: "https://sols.asu.edu/degree/graduate/biology-phd"
-  },
-  {
-    name: "Biology and Society PhD",
-    url: "https://sols.asu.edu/degree/graduate/biology-biology-and-society-phd"
-  },
-  {
-    name: "Biological Design Program",
-    url: "https://degrees.apps.asu.edu/masters-phd/major/ASU00/ESBDEMS/biological-design-ms"
-  },
-  {
-    name: "Environmental Engineering",
-    url: "https://degrees.apps.asu.edu/masters-phd/major/ASU00/ESEVEMS/environmental-engineering-ms"
-  }
-];
+// TO ADD/EDIT PROGRAM LINKS: Modify the "programs" array in src/content/programs.json
+const GRADUATE_PROGRAMS = programsData.programs;
 
 // ====================================================================
 // MAIN COMPONENT
@@ -175,7 +116,7 @@ const JoinUs = () => {
       {/* Banner Section */}
       <div className="banner-container">
         <img
-          src={joinImage}
+          src={process.env.PUBLIC_URL + joinUsData.banner.src}
           alt="Join Cadillo Lab"
           className="banner-image"
         />
@@ -402,7 +343,7 @@ const JoinUs = () => {
           <div className="carousel">
             <div className="carousel-images">
               <img
-                src={CAROUSEL_IMAGES[currentIndex].src}
+                src={process.env.PUBLIC_URL + CAROUSEL_IMAGES[currentIndex].src}
                 alt={CAROUSEL_IMAGES[currentIndex].alt}
                 className="carousel-slide"
               />

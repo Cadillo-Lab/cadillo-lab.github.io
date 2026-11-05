@@ -1,0 +1,503 @@
+{
+  "banner": {
+    "src": "/images/publications/publication.png",
+    "alt": "Publications Banner"
+  },
+  "sections": [
+    {
+      "label": "2024",
+      "nestLevel": 0,
+      "publications": [
+        {
+          "year": 2024,
+          "title": "",
+          "authors": "",
+          "journal": "",
+          "doi": "",
+          "link": "https://journals.asm.org/doi/10.1128/spectrum.00387-24",
+          "image": "/images/publications/publication-new-1-new.png"
+        },
+        {
+          "year": 2024,
+          "title": "",
+          "authors": "",
+          "journal": "",
+          "doi": "",
+          "link": "https://www.sciencedirect.com/science/article/pii/S016770122400109X",
+          "image": "/images/publications/publicationnew2.png"
+        },
+        {
+          "year": 2024,
+          "title": "",
+          "authors": "",
+          "journal": "",
+          "doi": "",
+          "link": "https://nap.nationalacademies.org/catalog/27157/a-research-agenda-toward-atmospheric-methane-removal",
+          "image": "/images/publications/publicationnew3.png"
+        },
+        {
+          "year": 2024,
+          "title": "",
+          "authors": "",
+          "journal": "",
+          "doi": "",
+          "link": "https://www.researchgate.net/publication/383460219_Tropical_peat_composition_may_provide_a_negative_feedback_on_fire_occurrence_and_severity",
+          "image": "/images/publications/publicationnew4.png"
+        },
+        {
+          "year": 2024,
+          "title": "",
+          "authors": "",
+          "journal": "",
+          "doi": "",
+          "link": "https://www.researchgate.net/publication/381582183_A_global_atlas_of_soil_viruses_reveals_unexplored_biodiversity_and_potential_biogeochemical_impacts",
+          "image": "/images/publications/publicationnew5.png"
+        },
+        {
+          "year": 2024,
+          "title": "",
+          "authors": "",
+          "journal": "",
+          "doi": "",
+          "link": "https://www.researchgate.net/publication/371024995_Assessment_of_vegetation_and_peat_soil_characteristics_of_a_fire-impacted_tropical_peatland_in_Costa_Rica",
+          "image": "/images/publications/publicationnew6.png"
+        }
+      ]
+    },
+    {
+      "label": "2023",
+      "nestLevel": 0,
+      "publications": [
+        {
+          "year": 2023,
+          "title": "",
+          "authors": "",
+          "journal": "",
+          "doi": "",
+          "link": "https://www.researchgate.net/publication/374630017_Unraveling_the_functional_dark_matter_through_global_metagenomics",
+          "image": "/images/publications/publicationnew7.png"
+        },
+        {
+          "year": 2023,
+          "title": "",
+          "authors": "",
+          "journal": "",
+          "doi": "",
+          "link": "https://www.researchgate.net/publication/373218617_BinaRena_a_dedicated_interactive_platform_for_human-guided_exploration_and_binning_of_metagenomes",
+          "image": "/images/publications/publicationnew8.png"
+        },
+        {
+          "year": 2023,
+          "title": "",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1111/1462-2920.16469",
+          "link": "https://doi.org/10.1111/1462-2920.16469",
+          "image": "/images/publications/publicationnew9.png"
+        },
+        {
+          "year": 2023,
+          "title": "",
+          "authors": "",
+          "journal": "",
+          "doi": "",
+          "link": "https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-023-01625-8",
+          "image": "/images/publications/2.png"
+        },
+        {
+          "year": 2023,
+          "title": "",
+          "authors": "",
+          "journal": "",
+          "doi": "",
+          "link": "https://www.sciencedirect.com/science/article/abs/pii/S0168192323000588?via%3Dihub",
+          "image": "/images/publications/1.png"
+        }
+      ]
+    },
+    {
+      "label": "2022",
+      "nestLevel": 0,
+      "publications": [
+        {
+          "year": 2022,
+          "title": "Genes and genome‐resolved metagenomics reveal the microbial functional make up of Amazon peatlands under geochemical gradients",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1111/1462-2920.16469",
+          "link": "https://doi.org/10.1111/1462-2920.16469",
+          "image": "/images/publications/3.png"
+        },
+        {
+          "year": 2022,
+          "title": "A map of global peatland extent created using machine learning (Peat-ML)",
+          "authors": "",
+          "journal": "",
+          "doi": "10.5194/gmd-15-4709-2022",
+          "link": "https://doi.org/10.5194/gmd-15-4709-2022",
+          "image": "/images/publications/4.png"
+        },
+        {
+          "year": 2022,
+          "title": "Water Vapor Adsorption Provides Daily, Sustainable Water to Soils of the Hyperarid Atacama Desert",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1089/ast.2021.0171",
+          "link": "https://doi.org/10.1089/ast.2021.0171",
+          "image": "/images/publications/5.png"
+        },
+        {
+          "year": 2022,
+          "title": "Delineating the Drivers and Functionality of Methanogenic Niches within an Arid Landfill",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1128/aem.02438-21",
+          "link": "https://doi.org/10.1128/aem.02438-21",
+          "image": "/images/publications/6.png"
+        },
+        {
+          "year": 2022,
+          "title": "Coupled abiotic-biotic cycling of nitrous oxide in tropical peatlands",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1038/s41559-022-01892-y",
+          "link": "https://doi.org/10.1038/s41559-022-01892-y",
+          "image": "/images/publications/publication-changed1.png"
+        },
+        {
+          "year": 2022,
+          "title": "Mineral-catalysed formation of marine NO and N2O on the anoxic early Earth",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1038/s41561-022-01089-9",
+          "link": "https://doi.org/10.1038/s41561-022-01089-9",
+          "image": "/images/publications/8.png"
+        },
+        {
+          "year": 2022,
+          "title": "A map of global peatland extent created using machine learning (Peat-ML)",
+          "authors": "",
+          "journal": "",
+          "doi": "10.5194/gmd-15-4709-2022",
+          "link": "https://doi.org/10.5194/gmd-15-4709-2022",
+          "image": "/images/publications/9.png"
+        },
+        {
+          "year": 2022,
+          "title": "Biogeosciences Perspectives on Integrated, Coordinated, Open, Networked (ICON) Science",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1029/2021ea002119",
+          "link": "https://doi.org/10.1029/2021ea002119",
+          "image": "/images/publications/10.png"
+        },
+        {
+          "year": 2022,
+          "title": "Expansion of the global RNA virome reveals diverse clades of bacteriophages",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1016/j.cell.2022.08.023",
+          "link": "https://doi.org/10.1016/j.cell.2022.08.023",
+          "image": "/images/publications/11.png"
+        }
+      ]
+    },
+    {
+      "label": "2020 - 2021",
+      "nestLevel": 1,
+      "publications": [
+        {
+          "year": null,
+          "title": "Detecting vulnerability of humid tropical forests to multiple stressors",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1016/j.oneear.2021.06.002",
+          "link": "https://doi.org/10.1016/j.oneear.2021.06.002",
+          "image": "/images/publications/12.png"
+        },
+        {
+          "year": null,
+          "title": "A versatile gas flux chamber reveals high tree stem methane emissions in Amazonian peatland",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1016/j.agrformet.2021.108504",
+          "link": "https://doi.org/10.1016/j.agrformet.2021.108504",
+          "image": "/images/publications/13.png"
+        },
+        {
+          "year": null,
+          "title": "Microbial communities and interactions of nitrogen oxides with methanogenesis in diverse peatlands of the Amazon basin",
+          "authors": "",
+          "journal": "",
+          "doi": "10.3389/fmicb.2021.659079",
+          "link": "https://doi.org/10.3389/fmicb.2021.659079",
+          "image": "/images/publications/14.png"
+        },
+        {
+          "year": null,
+          "title": "A genomic catalog of Earth's microbiomes",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1038/s41587-020-0718-6",
+          "link": "https://doi.org/10.1038/s41587-020-0718-6",
+          "image": "/images/publications/15.png"
+        },
+        {
+          "year": null,
+          "title": "Hydrometeorological sensitivities of net ecosystem carbon dioxide and methane exchange of an Amazonian palm swamp peatland",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1016/j.agrformet.2020.108167",
+          "link": "https://doi.org/10.1016/j.agrformet.2020.108167",
+          "image": "/images/publications/16.png"
+        },
+        {
+          "year": null,
+          "title": "Methanogens and Methanotrophs Show Nutrient-Dependent Community Assemblage Patterns Across Tropical Peatlands of the Pastaza-Marañón Basin, Peruvian Amazonia",
+          "authors": "",
+          "journal": "",
+          "doi": "10.3389/fmicb.2020.00746",
+          "link": "https://doi.org/10.3389/fmicb.2020.00746",
+          "image": "/images/publications/17.png"
+        }
+      ]
+    },
+    {
+      "label": "2020 - 2021",
+      "nestLevel": 2,
+      "publications": [
+        {
+          "year": null,
+          "title": "Planetary Habitability Informed by Planet Formation and Exoplanet Demographics",
+          "authors": "",
+          "journal": "",
+          "doi": "",
+          "link": "https://baas.aas.org/pub/2020n3i475",
+          "image": "/images/publications/18.png"
+        },
+        {
+          "year": null,
+          "title": "The effects of sterilization and inhibition methods on abiotic N2O production from organic-rich tropical soils",
+          "authors": "",
+          "journal": "",
+          "doi": "10.5194/bg-16-4601-2019",
+          "link": "https://doi.org/10.5194/bg-16-4601-2019",
+          "image": "/images/publications/19.png"
+        },
+        {
+          "year": null,
+          "title": "A potential shift from a carbon sink to a source in Amazonian peatlands under a changing climate",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1073/pnas.1801317115",
+          "link": "https://doi.org/10.1073/pnas.1801317115",
+          "image": "/images/publications/20.png"
+        },
+        {
+          "year": null,
+          "title": "Diversity and evolution of bacterial symbionts of weevils (Insecta: Curculionoidea)",
+          "authors": "",
+          "journal": "",
+          "doi": "10.13140/RG.2.1.2152.9044",
+          "link": "https://doi.org/10.13140/RG.2.1.2152.9044",
+          "image": "/images/publications/21.png"
+        },
+        {
+          "year": null,
+          "title": "Soil microbial community composition is correlated to soil carbon processing along a boreal wetland formation gradient",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1016/j.ejsobi.2017.08.001",
+          "link": "https://doi.org/10.1016/j.ejsobi.2017.08.001",
+          "image": "/images/publications/22.png"
+        },
+        {
+          "year": null,
+          "title": "Changes of community structure and abundance of methanogens in soils along a freshwater–brackish water gradient in subtropical estuarine marshes",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1016/j.geoderma.2017.03.026",
+          "link": "https://doi.org/10.1016/j.geoderma.2017.03.026",
+          "image": "/images/publications/23.png"
+        },
+        {
+          "year": null,
+          "title": "Genomic composition and dynamics among Methanomicrobiales predict adaptation to contrasting environments",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1038/ismej.2016.104",
+          "link": "https://doi.org/10.1038/ismej.2016.104",
+          "image": "/images/publications/24.png"
+        },
+        {
+          "year": null,
+          "title": "Methanosphaerula. Bergey’s Manual of Systematics of Archaea and Bacteria",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1002/9781118960608",
+          "link": "https://doi.org/10.1002/9781118960608",
+          "image": "/images/publications/25.jpeg"
+        },
+        {
+          "year": null,
+          "title": "Factors regulating community composition of methanogens and sulfate-reducing bacteria in brackish marsh sediments in the Min River estuary, southeastern China",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1016/j.ecss.2016.08.003",
+          "link": "https://doi.org/10.1016/j.ecss.2016.08.003",
+          "image": "/images/publications/26.png"
+        }
+      ]
+    },
+    {
+      "label": "2011 - 2015",
+      "nestLevel": 2,
+      "publications": [
+        {
+          "year": null,
+          "title": "Complete genome sequence of Methanosphaerula palustris E1-9CT, a hydrogenotrophic methanogen isolated from a minerotrophic fen peatland",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1128/genomeA.01280-15",
+          "link": "https://doi.org/10.1128/genomeA.01280-15",
+          "image": "/images/publications/27.png"
+        },
+        {
+          "year": null,
+          "title": "Exometabolite niche partitioning among sympatric soil bacteria",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1038/ncomms9289",
+          "link": "https://doi.org/10.1038/ncomms9289",
+          "image": "/images/publications/28.png"
+        },
+        {
+          "year": null,
+          "title": "Genome of Methanoregula boonei reveals adaptation to oligotrophic peatlands environments",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1099/mic.0.000117",
+          "link": "https://doi.org/10.1099/mic.0.000117",
+          "image": "/images/publications/29.png"
+        },
+        {
+          "year": null,
+          "title": "Isolation of a significant fraction of non-phototroph diversity from a desert Biological Soil Crust",
+          "authors": "",
+          "journal": "",
+          "doi": "10.3389/fmicb.2015.00277",
+          "link": "https://doi.org/10.3389/fmicb.2015.00277",
+          "image": "/images/publications/publicationchanged2.png"
+        },
+        {
+          "year": null,
+          "title": "Recombination shapes genome architecture in an organism from the Archaeal domain",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1093/gbe/evu003",
+          "link": "https://doi.org/10.1093/gbe/evu003",
+          "image": "/images/publications/31.png"
+        },
+        {
+          "year": null,
+          "title": "Methanobacterium paludis sp. nov., and a novel strain of Methanobacterium lacus isolated from northern peatlands",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1099/ijs.0.059964-0",
+          "link": "https://doi.org/10.1099/ijs.0.059964-0",
+          "image": "/images/publications/32.png"
+        },
+        {
+          "year": null,
+          "title": "Complete genome sequence of Methanoregula formicica SMSPT, a mesophilic hydrogenotrophic methanogen isolated from a methanogenic upflow anaerobic sludge blanket reactor",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1128/genomeA.00870-14",
+          "link": "https://doi.org/10.1128/genomeA.00870-14",
+          "image": "/images/publications/33.png"
+        },
+        {
+          "year": null,
+          "title": "Complete genome sequence of Methanolinea tarda NOBI-1T, a hydrogenotrophic methanogen isolated from methanogenic digester sludge",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1128/genomeA.00876-14",
+          "link": "https://doi.org/10.1128/genomeA.00876-14",
+          "image": "/images/publications/34.png"
+        },
+        {
+          "year": null,
+          "title": "Contribution of transcriptomics to systems-level understanding of methanogenic Archaea",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1155/2013/586369",
+          "link": "https://doi.org/10.1155/2013/586369",
+          "image": "/images/publications/35.png"
+        },
+        {
+          "year": null,
+          "title": "Methane emissions from wetlands: biogeochemical, microbial, and modeling perspectives from local to global scales",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1111/gcb.12131",
+          "link": "https://doi.org/10.1111/gcb.12131",
+          "image": "/images/publications/36.png"
+        },
+        {
+          "year": null,
+          "title": "Seasonal Changes in methanogenesis and methanogens in three peatlands New York State",
+          "authors": "",
+          "journal": "",
+          "doi": "10.3389/fmicb.2012.00081",
+          "link": "https://doi.org/10.3389/fmicb.2012.00081",
+          "image": "/images/publications/37.png"
+        },
+        {
+          "year": null,
+          "title": "Patterns of Gene Flow Define Species of Thermophilic Archaea",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1371/journal.pbio.1001265",
+          "link": "https://doi.org/10.1371/journal.pbio.1001265",
+          "image": "/images/publications/38.png"
+        },
+        {
+          "year": null,
+          "title": "Methanogen diversity and community composition in peatlands of the central to northern Appalachian Mountain region, North America",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1007/s10533-011-9644.5",
+          "link": "https://doi.org/10.1007/s10533-011-9644.5",
+          "image": "/images/publications/39.png"
+        },
+        {
+          "year": null,
+          "title": "Methanolinea mesophila, sp. nov., a hydrogenotrophic methanogen isolated from a rice field in Taiwan, and proposal of the new archaeal family Methanoregulaceae fam. nov. within the order Methanomicrobiale",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1099/ijs.0.035048-0",
+          "link": "https://doi.org/10.1099/ijs.0.035048-0",
+          "image": "/images/publications/40.png"
+        },
+        {
+          "year": null,
+          "title": "A Role for Dehalobacter spp. in the Reductive Dehalogenation of Dichlorobenzenes and Monochlorobenzene",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1021/es200480k",
+          "link": "https://doi.org/10.1021/es200480k",
+          "image": "/images/publications/41.png"
+        },
+        {
+          "year": null,
+          "title": "Methanoregula boonei gen. nov., sp. nov., an acidiphilic methanogen isolated from an acidic peat bog",
+          "authors": "",
+          "journal": "",
+          "doi": "10.1099/ijs.0.021782-0",
+          "link": "https://doi.org/10.1099/ijs.0.021782-0",
+          "image": "/images/publications/42.png"
+        }
+      ]
+    }
+  ]
+}

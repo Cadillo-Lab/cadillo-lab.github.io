@@ -1,0 +1,32 @@
+{
+  "programs": [
+    {
+      "name": "Environmental Life Sciences",
+      "url": "https://degrees.apps.asu.edu/masters-phd/major/ASU00/LAELSPHD/environmental-life-sciences-phd"
+    },
+    {
+      "name": "Microbiology PhD",
+      "url": "https://degrees.apps.asu.edu/masters-phd/major/ASU00/LAMICROPHD/microbiology-phd"
+    },
+    {
+      "name": "Molecular and Cellular Biology",
+      "url": "https://degrees.apps.asu.edu/masters-phd/major/ASU00/LACELLPHD/molecular-cellular-biology-phd"
+    },
+    {
+      "name": "Biology PhD",
+      "url": "https://sols.asu.edu/degree/graduate/biology-phd"
+    },
+    {
+      "name": "Biology and Society PhD",
+      "url": "https://sols.asu.edu/degree/graduate/biology-biology-and-society-phd"
+    },
+    {
+      "name": "Biological Design Program",
+      "url": "https://degrees.apps.asu.edu/masters-phd/major/ASU00/ESBDEMS/biological-design-ms"
+    },
+    {
+      "name": "Environmental Engineering",
+      "url": "https://degrees.apps.asu.edu/masters-phd/major/ASU00/ESEVEMS/environmental-engineering-ms"
+    }
+  ]
+}

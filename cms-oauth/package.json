@@ -1,0 +1,13 @@
+{
+  "name": "cms-auth",
+  "private": true,
+  "description": "GitHub login proxy (Cloudflare Worker) for the Decap CMS admin of cadillo-lab.github.io",
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "login": "npx wrangler@4 login",
+    "deploy": "npx wrangler@4 deploy",
+    "dev": "npx wrangler@4 dev",
+    "secrets": "npx wrangler@4 secret put GITHUB_CLIENT_ID && npx wrangler@4 secret put GITHUB_CLIENT_SECRET"
+  }
+}

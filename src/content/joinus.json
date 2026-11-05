@@ -1,0 +1,20 @@
+{
+  "banner": {
+    "src": "/images/joinus/joinus.png",
+    "alt": "Join Cadillo Lab"
+  },
+  "carousel": [
+    {
+      "src": "/images/joinus/outreach1.png",
+      "alt": "Outreach Program 1"
+    },
+    {
+      "src": "/images/joinus/outreach2.png",
+      "alt": "Outreach Program 2"
+    },
+    {
+      "src": "/images/joinus/_EFO7190.jpg",
+      "alt": "Outreach Program 3"
+    }
+  ]
+}
