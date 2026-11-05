@@ -1,117 +1,70 @@
-# Getting Started with Create React App
+# Cadillo Lab website
 
----
+Source of <https://cadillo-lab.github.io/>, the website of the Cadillo Lab at the School of
+Life Sciences, Arizona State University. A React application (Create React App) published
+with GitHub Pages.
 
-### **Step-by-Step Guide: Cadillo Lab Website**
+## Editing the content without code
 
-1. **Clone the Repository:**
-   - Open your terminal or command prompt.
-   - Navigate to the directory where you want to store the project.
-   - Run:
-     ```bash
-     git clone https://github.com/sanskarsri26/Cadillo-lab-website.git
-     ```
-     This will download the repository to your local machine.
+The Team, Join Us and Publications pages are edited in the browser at
+<https://cadillo-lab.github.io/preview/admin/> (Decap CMS, GitHub login). Every publish
+appears on the preview site <https://cadillo-lab.github.io/preview/> within a few minutes;
+the maintainer puts it on the live site by merging a pull request.
 
-2. **Navigate to the Project Directory:**
-   - Enter the project folder:
-     ```bash
-     cd Cadillo-lab-website
-     ```
+Read **[docs/CONTENT-MAINTENANCE.md](docs/CONTENT-MAINTENANCE.md)** (English, with Chinese
+summaries): how publishing works, how to add a team member or a paper, accounts and
+handover, troubleshooting.
 
-3. **Install Dependencies:**
-   - Make sure **Node.js** and **npm** (Node Package Manager) are installed.
-     - Verify installation:
-       ```bash
-       node -v
-       npm -v
-       ```
-     - If not installed, download [Node.js](https://nodejs.org).
-   - Install the project dependencies:
-     ```bash
-     npm install
-     ```
+## How publishing works
 
-4. **Start the Development Server:**
-   - Launch the website locally:
-     ```bash
-     npm start
-     ```
-   - This will open the website in your default browser, typically at:
-     ```
-     http://localhost:3000
-     ```
+| Branch | Built by | Published at |
+| --- | --- | --- |
+| `test_edit_this_firstly` (editing branch; the editor commits here) | workflow "Deploy to GitHub Pages", job *preview* | <https://cadillo-lab.github.io/preview/> |
+| `main` (production) | workflow "Deploy to GitHub Pages", job *production* | <https://cadillo-lab.github.io/> |
+| `gh-pages` | output of both jobs | never edited by hand |
 
-5. **View the Website:**
-   - If the website doesn’t open automatically, copy and paste the above URL into your browser.
+Content goes live by merging a pull request from `test_edit_this_firstly` into `main`
+(<https://github.com/Cadillo-Lab/cadillo-lab.github.io/compare/main...test_edit_this_firstly?expand=1>).
+After a merge, "Sync preview branch after merge" moves the editing branch to `main`;
+"Reset preview branch to main" (Actions -> Run workflow) discards unpublished edits.
 
----
+Do not run `npm run deploy`: it replaces the whole `gh-pages` branch with a local build
+and deletes the preview site. The script is a leftover of the old manual process and will
+be removed.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Developer setup
 
-## Available Scripts
+```bash
+git clone https://github.com/Cadillo-Lab/cadillo-lab.github.io.git
+```
 
-In the project directory, you can run:
+```bash
+npm ci
+```
 
-### `npm start`
+```bash
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `npm start` runs the site at <http://localhost:3000>.
+- `CI=false npm run build` builds into `build/` (ignored by git). `CI=false` keeps ESLint
+  warnings from failing the build, as in the workflows.
+- Content editor against your local checkout: run `npx decap-server` in a second terminal
+  and open <http://localhost:3000/admin/index.html>. The "Login" button then works without
+  GitHub and writes to `src/content/` and `public/images/` directly.
+- Node 22 and `npm ci` are what the workflows use.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Repository map
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Path | Contents |
+| --- | --- |
+| `src/components/` | React components, one per page plus Navbar and Footer |
+| `src/content/*.json` | Editable content: `team.json`, `positions.json`, `programs.json`, `joinus.json`, `publications.json` |
+| `src/styles/` | CSS |
+| `src/assets/` | Images bundled by webpack (Home, Research, Collaborations) |
+| `public/images/` | Images managed by the editor (team, joinus, publications) |
+| `public/admin/` | Decap CMS: `index.html` (pinned version + integrity hash) and `config.yml` (collections and fields) |
+| `public/404.html` | GitHub Pages single-page-app redirect, aware of the `/preview/` prefix |
+| `cms-oauth/` | Cloudflare Worker `cms-auth` that performs the GitHub login for the editor; setup checklist in its README |
+| `.github/workflows/` | `deploy.yml`, `sync-after-merge.yml`, `reset-preview.yml` |
+| `docs/` | Maintenance guide and its screenshots |
