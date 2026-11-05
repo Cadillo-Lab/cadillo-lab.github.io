@@ -19,8 +19,10 @@ import Collaborationss from './components/Collaborationss';
 
 
 const App = () => {
+    // PUBLIC_URL is "" on the production site and "/preview" on the preview
+    // deployment (see .github/workflows/deploy.yml), so routes work under both.
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div>
           <Navbar />
           <Routes>

@@ -1,0 +1,47 @@
+# Manual reset button for the preview branch.
+#
+# Throws away everything on test_edit_this_firstly and makes it identical to main
+# again, then rebuilds https://cadillo-lab.github.io/preview/ from it.
+# Use it when preview edits should be abandoned instead of merged.
+#
+# How to run: GitHub -> Actions -> "Reset preview branch to main" -> Run workflow.
+# (The button appears once this file is on the main branch.)
+#
+# Pushes made with GITHUB_TOKEN do not start workflow runs by themselves, so the
+# preview deployment is started explicitly in the last step.
+name: Reset preview branch to main
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write # move the preview branch
+  actions: write # start the preview deployment
+
+concurrency:
+  group: preview-branch-writes
+  cancel-in-progress: false
+
+env:
+  PREVIEW_BRANCH: test_edit_this_firstly
+
+jobs:
+  reset:
+    name: Force the preview branch back to main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Point the preview branch at main
+        run: |
+          echo "Resetting $PREVIEW_BRANCH to main ($(git rev-parse --short HEAD))"
+          git push --force origin "HEAD:refs/heads/$PREVIEW_BRANCH"
+
+      - name: Rebuild the preview site
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: gh workflow run deploy.yml --ref "$PREVIEW_BRANCH"
