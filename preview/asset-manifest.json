@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/preview/static/css/main.176b9bf0.css",
+    "main.js": "/preview/static/js/main.f41da48b.js",
+    "static/js/453.69d4795f.chunk.js": "/preview/static/js/453.69d4795f.chunk.js",
+    "static/media/background-video-new.mov": "/preview/static/media/background-video-new.851979ac6c0396725ef8.mov",
+    "static/media/collab2.png": "/preview/static/media/collab2.e25a9717193888abc324.png",
+    "static/media/collab1.png": "/preview/static/media/collab1.24b7e1dadda30d2a3e4a.png",
+    "static/media/research1.png": "/preview/static/media/research1.993a9aa5b1177d7e93ca.png",
+    "static/media/collab.png": "/preview/static/media/collab.c2793abc3d659f70ed6b.png",
+    "static/media/cultural.jpg": "/preview/static/media/cultural.405b8e8d174150f94bce.jpg",
+    "static/media/background-1.png": "/preview/static/media/background-1.6378a4a7318ec6d5c30e.png",
+    "static/media/amazon.png": "/preview/static/media/amazon.b2e07558ff7072970a8f.png",
+    "static/media/landscape.jpg": "/preview/static/media/landscape.eb2ee501ec32764a74ab.jpg",
+    "static/media/amazon-peatland2.jpg": "/preview/static/media/amazon-peatland2.8130cd9a385f8465d50c.jpg",
+    "static/media/northern.jpg": "/preview/static/media/northern.5287cf2d5807b43c1dd2.jpg",
+    "static/media/BannerCadilloAlone.png": "/preview/static/media/BannerCadilloAlone.191836dd3390f92a4f9c.png",
+    "static/media/northern-peatland.png": "/preview/static/media/northern-peatland.073fe6642ecdae6795c8.png",
+    "static/media/amazon-peatland.jpg": "/preview/static/media/amazon-peatland.bd3b67466d26dbdd7a53.jpg",
+    "static/media/mitigation2.jpg": "/preview/static/media/mitigation2.1b6eb92bb6e6adba81c9.jpg",
+    "static/media/new-lab-logo.png": "/preview/static/media/new-lab-logo.7319ae369dabad4b1101.png",
+    "static/media/mitigation1.png": "/preview/static/media/mitigation1.8cf148166c0438439b76.png",
+    "static/media/amazon-peatland3.jpeg": "/preview/static/media/amazon-peatland3.39d2b2904c62d5793514.jpeg",
+    "static/media/driver.jpg": "/preview/static/media/driver.cac0d84ba9c44f0eb18a.jpg",
+    "index.html": "/preview/index.html",
+    "main.176b9bf0.css.map": "/preview/static/css/main.176b9bf0.css.map",
+    "main.f41da48b.js.map": "/preview/static/js/main.f41da48b.js.map",
+    "453.69d4795f.chunk.js.map": "/preview/static/js/453.69d4795f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.176b9bf0.css",
+    "static/js/main.f41da48b.js"
+  ]
+}
