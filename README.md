@@ -7,7 +7,7 @@ with GitHub Pages.
 ## Editing the content without code
 
 The Team, Join Us and Publications pages are edited in the browser at
-<https://cadillo-lab.github.io/preview/admin/> (Decap CMS, GitHub login). Every publish
+<https://cadillo-lab.github.io/admin/> (Decap CMS, GitHub login). Every publish
 appears on the preview site <https://cadillo-lab.github.io/preview/> within a few minutes;
 the maintainer puts it on the live site by merging a pull request.
 

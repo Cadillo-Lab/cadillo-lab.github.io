@@ -13,7 +13,7 @@ This guide is for two roles:
 | --- | --- |
 | Live site | <https://cadillo-lab.github.io/> |
 | Preview site (edits appear here first) | <https://cadillo-lab.github.io/preview/> |
-| Content editor | <https://cadillo-lab.github.io/preview/admin/> |
+| Content editor | <https://cadillo-lab.github.io/admin/> |
 | Source code and content | <https://github.com/Cadillo-Lab/cadillo-lab.github.io> |
 | Build and publish runs ("Actions") | <https://github.com/Cadillo-Lab/cadillo-lab.github.io/actions> |
 | Open a pull request (preview -> live) | <https://github.com/Cadillo-Lab/cadillo-lab.github.io/compare/main...test_edit_this_firstly?expand=1> |
@@ -23,7 +23,7 @@ This guide is for two roles:
 
 ```mermaid
 flowchart LR
-  E["Editor<br/>preview/admin/"] -- "Publish now<br/>(one commit)" --> B[("branch<br/>test_edit_this_firstly")]
+  E["Editor<br/>/admin/"] -- "Publish now<br/>(one commit)" --> B[("branch<br/>test_edit_this_firstly")]
   B -- "Deploy to GitHub Pages<br/>(preview job)" --> P["Preview site<br/>cadillo-lab.github.io/preview/"]
   B -- "pull request,<br/>merged by the maintainer" --> M[("branch<br/>main")]
   M -- "Deploy to GitHub Pages<br/>(production job)" --> L["Live site<br/>cadillo-lab.github.io"]
@@ -103,7 +103,7 @@ will show no changes afterwards.
 
 ## 3. Logging in to the editor
 
-1. Open <https://cadillo-lab.github.io/preview/admin/> and click **Login with GitHub**.
+1. Open <https://cadillo-lab.github.io/admin/> and click **Login with GitHub**.
 2. A popup shows GitHub. The first time, GitHub asks you to authorize "Cadillo Lab
    website editor"; click **Authorize**. The popup closes and the three collections
    (Team, Join Us, Publications) appear.
@@ -277,8 +277,8 @@ keep that to the maintainer.
 
 Record here who holds the Cloudflare account and when the OAuth App was created:
 
-- Cloudflare account e-mail: _(fill in)_
-- OAuth App created on: _(fill in)_, owned by: _(organization or person)_
+- Cloudflare account e-mail: wliu176@asu.edu (Wanxiang Liu; Workers subdomain cadillo-lab.workers.dev)
+- OAuth App created on: 2026-11-05, owned by: GitHub user Johnxiaoming (Wanxiang Liu). Note: Cadillo-Lab is a personal GitHub account, not an organization; transfer the OAuth App to it at handover.
 
 ### 8.3 Handover checklist
 
@@ -379,7 +379,7 @@ site first:
    `<script type="module" src="https://unpkg.com/@sveltia/cms@<version>/dist/sveltia-cms.js"></script>`,
    pinned to a specific version (0.259.0 was current in November 2026; Sveltia has not
    reached 1.0, so read its release notes).
-2. Publish, open <https://cadillo-lab.github.io/preview/admin/>, log in, open each
+2. Publish, open <https://cadillo-lab.github.io/admin/>, log in, open each
    collection and make a test publish. Check the commit it creates and the preview site.
 3. Compare `public/admin/config.yml` with Sveltia's documented options; `editor.preview`,
    `local_backend` and `commit_messages` may behave differently or be ignored.

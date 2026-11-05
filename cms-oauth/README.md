@@ -1,6 +1,6 @@
 # GitHub login proxy for the content editor (`cms-oauth/`)
 
-The content editor at <https://cadillo-lab.github.io/preview/admin/> (Decap CMS) lets
+The content editor at <https://cadillo-lab.github.io/admin/> (Decap CMS) lets
 lab members sign in with their GitHub account. GitHub's sign-in handshake needs one
 secret that must never sit in a browser, so a tiny Cloudflare Worker, the code in this
 folder, keeps that secret. The Worker does nothing else and stores nothing.
@@ -113,11 +113,11 @@ Never paste these values into any file in the repository.
 `base_url` must be the Worker URL exactly as Step 1 printed it: `https://`, the host,
 nothing after it. If Step 1 printed something else, change this line, then commit and
 push to `test_edit_this_firstly`; the "Deploy to GitHub Pages" workflow publishes the
-updated editor to `/preview/admin/` within a few minutes. `auth_endpoint` stays `auth`.
+updated editor to `/admin/` within a few minutes. `auth_endpoint` stays `auth`.
 
 ## Step 5 - Verify the login
 
-1. Open <https://cadillo-lab.github.io/preview/admin/> and click **Login with GitHub**.
+1. Open <https://cadillo-lab.github.io/admin/> and click **Login with GitHub**.
    A popup shows GitHub's authorization page for "Cadillo Lab website editor"; click
    **Authorize**. The popup closes and the collections (Team, Join Us, Publications) appear.
 2. Make a harmless test edit, for example change the alternative text of one outreach

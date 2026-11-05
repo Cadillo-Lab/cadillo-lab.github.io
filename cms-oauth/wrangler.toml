@@ -14,7 +14,7 @@ workers_dev = true
 ALLOWED_ORIGINS = "https://cadillo-lab.github.io"
 # Also allow http://localhost:<port> and http://127.0.0.1:<port>, for testing the
 # admin from a local build. Set to "false" once nobody needs that.
-ALLOW_LOCALHOST = "true"
+ALLOW_LOCALHOST = "false"
 
 # Keeps request logs in the Cloudflare dashboard (Workers -> cms-auth -> Logs).
 [observability]
