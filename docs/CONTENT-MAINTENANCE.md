@@ -19,6 +19,71 @@ This guide is for two roles:
 | Open a pull request (preview -> live) | <https://github.com/Cadillo-Lab/cadillo-lab.github.io/compare/main...test_edit_this_firstly?expand=1> |
 | Login proxy (maintainer only) | `cms-oauth/README.md`, Worker `cms-auth` at <https://cms-auth.cadillo-lab.workers.dev> |
 
+## Start here
+
+**Editors** (you change text and pictures): read this section, then sections 3 to 7.
+Section 10 helps when something does not work. Sections 1, 2.2, 2.3, 8 and 9 are for the
+maintainer; you can skip them.
+
+**Maintainer** (you put changes on the live site and manage accounts): read everything.
+
+### First time only: get access (about 10 minutes)
+
+1. Get a free GitHub account, if you do not have one.
+   1. Go to <https://github.com/signup>.
+   2. Any e-mail works. Choose a user name you are happy to show the lab, for example
+      `maria-lopez`.
+   3. Confirm the e-mail that GitHub sends you.
+2. Send your GitHub user name to the maintainer.
+3. The maintainer adds you to the website repository (section 8.1). GitHub then e-mails
+   you an invitation.
+   1. Open the e-mail and click **View invitation**.
+   2. Click **Accept invitation**.
+4. Done. From now on you log in as in the next list.
+
+### Every time: change something and publish (about 5 minutes)
+
+1. Log in.
+   1. Open <https://cadillo-lab.github.io/admin/>.
+   2. Click **Login with GitHub**.
+   3. A small window shows GitHub. The first time it asks you to authorize
+      "Cadillo Lab website editor": click **Authorize**. The window closes by itself and
+      the editor appears.
+   4. If no small window appears, the browser blocked it: look for a "pop-up blocked"
+      icon at the right end of the address bar, allow pop-ups for this site, and click
+      **Login with GitHub** again.
+2. Open the page you want to change.
+   1. In the left column click **Team**, **Join Us** or **Publications**.
+   2. Click the entry shown in the middle (for example **Team page**). The whole page
+      opens as a form.
+3. Make the change.
+   1. Scroll to the list you need, for example **Graduate researchers**.
+   2. To change an existing person or paper: click the small arrow at the left of its
+      row to open it, then edit the text in the boxes. To change a photo, click
+      **Choose different image**.
+   3. To add one: click the **Add …** button at the top right of the list. Sections 5
+      and 6 go through adding a person and a paper field by field.
+   4. To remove one: click the **x** at the top right of its row.
+   5. To change the order: drag the **=** handle at the top of a row.
+4. Publish.
+   1. Click **Publish** at the top, then **Publish now**.
+   2. The label at the top left changes from "UNSAVED CHANGES" to "CHANGES SAVED".
+      Until that happens nothing is stored; closing the tab loses the change.
+5. Check the preview site.
+   1. Wait 2 to 4 minutes.
+   2. Open <https://cadillo-lab.github.io/preview/> and go to the page you changed. If
+      it still looks old, reload with Ctrl+F5 (Windows) or Cmd+Shift+R (Mac).
+   3. Not right? Go back to the editor, fix it, publish again. Publish as often as you
+      like: the live site is not affected.
+6. Tell the maintainer that the preview is ready to go live. The maintainer follows
+   section 2.2, and the live site updates a few minutes after that.
+
+**中文要点**
+
+- 第一次：在 github.com/signup 注册账号 → 把用户名发给维护者 → 打开邀请邮件点 Accept invitation。
+- 每次：打开 /admin/ 点 Login with GitHub（弹窗被拦截就在地址栏右侧允许弹窗）→ 左栏选页面、点中间的条目 → 点行首箭头展开修改，或 Add 新增、x 删除、拖 = 排序 → **Publish → Publish now**，左上角变成 CHANGES SAVED 才算保存 → 2–4 分钟后看 /preview/（不更新就 Ctrl+F5）→ 通知维护者上线。
+- 预览站可以反复改、反复发布；线上站只有维护者合并后才会变。
+
 ## 1. How the site is published
 
 ```mermaid
@@ -67,7 +132,9 @@ preview site. That is all an editor does; nothing goes live by itself.
    images). If it says "There isn't anything to compare", there is nothing new.
 2. Click **Create pull request**, give it a title such as "Website update November 2026",
    and create it. The check **Build check (pull request)** runs automatically; wait until
-   it is green.
+   it is green. The page may also say "Some checks were not successful" because of a red
+   check named **Vercel**: that is an old, unrelated integration and can be ignored. Only
+   **Build check** matters.
 3. Look at the preview site one last time, then click **Merge pull request** and
    **Confirm merge**. Any merge method works (the plain merge commit is the default).
 4. Within a few minutes the Actions tab shows a green **Deploy to GitHub Pages** run for
@@ -261,9 +328,9 @@ need a developer (section 9).
 
 Repository -> **Settings** -> **Collaborators and teams** -> **Add people** -> enter their
 GitHub user name -> role **Write**. They accept the invitation by e-mail, then they can log
-in to the editor. Remove people the same way when they leave the lab. Only people with
-**Admin** (or organization owners) can merge pull requests and run the reset workflow;
-keep that to the maintainer.
+in to the editor. Remove people the same way when they leave the lab. Anyone with
+**Write** can technically also merge pull requests and run the reset workflow; by
+agreement only the maintainer does, so tell new editors to stop at **Publish now**.
 
 ### 8.2 Who owns what
 
