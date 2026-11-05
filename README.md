@@ -6,14 +6,20 @@ with GitHub Pages.
 
 ## Editing the content without code
 
-The Team, Join Us and Publications pages are edited in the browser at
-<https://cadillo-lab.github.io/admin/> (Decap CMS, GitHub login). Every publish
-appears on the preview site <https://cadillo-lab.github.io/preview/> within a few minutes;
-the maintainer puts it on the live site by merging a pull request.
+The Team, Join Us and Publications pages are edited in the browser. Nothing to install.
 
-Read **[docs/CONTENT-MAINTENANCE.md](docs/CONTENT-MAINTENANCE.md)** (English, with Chinese
-summaries): how publishing works, how to add a team member or a paper, accounts and
-handover, troubleshooting.
+1. Open <https://cadillo-lab.github.io/admin/> and click **Login with GitHub**.
+   (First time: you need a free GitHub account that the maintainer has added to this
+   repository. The guide below walks through that.)
+2. In the left column pick **Team**, **Join Us** or **Publications**, open the entry, and
+   change the text or pictures.
+3. Click **Publish → Publish now**. After 2 to 4 minutes the change is on the preview site
+   <https://cadillo-lab.github.io/preview/>. The live site has not changed yet.
+4. Tell the maintainer. They put the preview on the live site with a few clicks on GitHub.
+
+Full instructions with screenshots: **[docs/CONTENT-MAINTENANCE.md](docs/CONTENT-MAINTENANCE.md)**
+(English, with Chinese summaries): first-time access, adding a team member or a paper,
+publishing to the live site, accounts and handover, troubleshooting.
 
 ## How publishing works
 
@@ -28,9 +34,9 @@ Content goes live by merging a pull request from `test_edit_this_firstly` into `
 After a merge, "Sync preview branch after merge" moves the editing branch to `main`;
 "Reset preview branch to main" (Actions -> Run workflow) discards unpublished edits.
 
-Do not run `npm run deploy`: it replaces the whole `gh-pages` branch with a local build
-and deletes the preview site. The script is a leftover of the old manual process and will
-be removed.
+Never publish by hand (the old `npm run deploy` script has been removed): a manual
+`gh-pages` push would replace the whole branch with a local build and delete the preview
+site. Pushing to `main` or `test_edit_this_firstly` is the only way to publish.
 
 ## Developer setup
 
