@@ -1,0 +1,378 @@
+# Decap CMS configuration for the Cadillo Lab website
+# ----------------------------------------------------
+# Decap loads this file relative to the admin page, so the same folder works at
+#   https://cadillo-lab.github.io/admin/          (built from main)
+#   https://cadillo-lab.github.io/preview/admin/  (built from test_edit_this_firstly)
+#
+# Every save becomes a commit on the preview branch and appears at
+# https://cadillo-lab.github.io/preview/ a few minutes later. Publishing to the live
+# site means merging the pull request from that branch into main (see docs/).
+#
+# Image paths stored in the JSON files start with /images/...; the React components add
+# the site prefix ("" or "/preview") at run time. Never store full URLs here.
+
+backend:
+  name: github
+  repo: Cadillo-Lab/cadillo-lab.github.io
+  branch: test_edit_this_firstly
+  # The repository is public, so the login only asks GitHub for the narrower
+  # public_repo permission instead of full repo access.
+  auth_scope: public_repo
+  # ---- Login proxy (see cms-oauth/README.md) ------------------------------------------
+  # base_url: the Cloudflare Worker that completes the GitHub login: the code in
+  #   cms-oauth/, deployed as "cms-auth" on the cadillo-lab.workers.dev subdomain.
+  #   Scheme and host only, nothing after the host. If `wrangler deploy` ever prints a
+  #   different address, put that one here. "Login with GitHub" works once the Worker
+  #   is deployed and holds the two GitHub secrets.
+  # auth_endpoint: the path on that Worker that starts the login (always "auth").
+  base_url: https://cms-auth.cadillo-lab.workers.dev
+  auth_endpoint: auth
+  commit_messages:
+    create: 'content: add {{collection}} "{{slug}}" ({{author-login}})'
+    update: 'content: update {{collection}} "{{slug}}" ({{author-login}})'
+    delete: 'content: delete {{collection}} "{{slug}}" ({{author-login}})'
+    uploadMedia: 'content: upload {{path}} ({{author-login}})'
+    deleteMedia: 'content: delete {{path}} ({{author-login}})'
+
+# Local testing without a GitHub login: run `npx decap-server` in the repository root and
+# open the admin from a localhost server. Decap only looks for that local server when the
+# page itself is served from localhost, so this line does nothing on the live site.
+local_backend: true
+
+# "View site" link in the editor header. Edits show up on the preview site first.
+display_url: https://cadillo-lab.github.io/preview
+
+# Default upload location for the "Media" tab. Every image field below sets its own folder.
+media_folder: public/images
+public_folder: /images
+
+collections:
+  # ================================================================================
+  # TEAM PAGE  (src/content/team.json)
+  # ================================================================================
+  - name: team
+    label: Team
+    description: Everyone shown on the Team page. Drag the handle at the left of an entry to reorder; the order here is the order on the page.
+    editor:
+      preview: false
+    files:
+      - name: team
+        label: Team page
+        file: src/content/team.json
+        fields:
+          - name: faculty
+            label: Faculty
+            widget: object
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: title, label: Title, widget: string, hint: 'For example: Professor' }
+              - { name: contact, label: Contact line, widget: string, hint: 'Shown exactly as typed, for example "Email: hinsby@asu.edu"' }
+              - name: image
+                label: Photo
+                widget: image
+                media_folder: /public/images/team
+                public_folder: /images/team
+                choose_url: false
+                allow_multiple: false
+              - name: education
+                label: Education
+                label_singular: line
+                widget: list
+                field: { name: line, label: Line, widget: string }
+                hint: One line per degree.
+              - name: bio
+                label: Biography
+                label_singular: paragraph
+                widget: list
+                field: { name: paragraph, label: Paragraph, widget: text }
+                hint: Each entry is one paragraph.
+
+          - name: gradResearchers
+            label: Graduate researchers
+            label_singular: graduate researcher
+            widget: list
+            required: false
+            summary: '{{fields.name}} - {{fields.role}}'
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: role, label: Role / program, widget: string, hint: 'The small grey line under the name, for example "ELS Ph.D. student"' }
+              - name: image
+                label: Photo
+                widget: image
+                media_folder: /public/images/team
+                public_folder: /images/team
+                choose_url: false
+                allow_multiple: false
+              - { name: backContent, label: Details shown on hover, widget: text, required: false, hint: 'Appears in the grey box when a visitor hovers over the photo. Leave an empty line between paragraphs.' }
+              - { name: bio, label: Bio (kept for later; not shown on the page at the moment), widget: string, required: false }
+
+          - name: postdocResearchers
+            label: Postdoctoral researchers
+            label_singular: postdoctoral researcher
+            widget: list
+            required: false
+            summary: '{{fields.name}} - {{fields.role}}'
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: role, label: Role / program, widget: string, hint: 'The small grey line under the name' }
+              - name: image
+                label: Photo
+                widget: image
+                media_folder: /public/images/team
+                public_folder: /images/team
+                choose_url: false
+                allow_multiple: false
+              - { name: backContent, label: Details shown on hover, widget: text, required: false, hint: 'Appears in the grey box when a visitor hovers over the photo. Leave an empty line between paragraphs.' }
+              - { name: bio, label: Bio (kept for later; not shown on the page at the moment), widget: string, required: false }
+
+          - name: undergraduateResearchers
+            label: Undergraduate researchers
+            label_singular: undergraduate researcher
+            widget: list
+            required: false
+            summary: '{{fields.name}} - {{fields.role}}'
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: role, label: Role / major, widget: string, hint: 'The small grey line under the name' }
+              - name: image
+                label: Photo
+                widget: image
+                media_folder: /public/images/team
+                public_folder: /images/team
+                choose_url: false
+                allow_multiple: false
+              - { name: bio, label: Bio (kept for later; not shown on the page at the moment), widget: string, required: false }
+
+          - name: alumni
+            label: Alumni
+            widget: object
+            collapsed: true
+            fields:
+              - name: graduateAlumni
+                label: Graduate alumni
+                label_singular: graduate alumnus
+                widget: list
+                required: false
+                summary: '{{fields.name}}'
+                fields:
+                  - { name: name, label: Name, widget: string }
+                  - { name: details, label: Details, widget: string, hint: 'For example "M.S. student in Microbiology (2022-2024)"' }
+
+              - name: postdocAlumni
+                label: Postdoctoral alumni
+                label_singular: postdoctoral alumnus
+                widget: list
+                required: false
+                summary: '{{fields.name}}'
+                hint: 'The last entry, with a blank name and blank details, is deliberate spacing on the page. Leave it in place.'
+                fields:
+                  - { name: name, label: Name, widget: string, required: false }
+                  - { name: details, label: Details, widget: string, required: false, hint: 'For example "Postdoctoral researcher"' }
+
+              - name: honorsThesis
+                label: Honors theses
+                label_singular: honors thesis
+                widget: list
+                required: false
+                summary: '{{fields.year}} - {{fields.name}}'
+                hint: 'Grouped by year on the page, newest year first, whatever the order here.'
+                fields:
+                  - { name: name, label: Student, widget: string }
+                  - { name: degree, label: Degree / major, widget: string }
+                  - { name: year, label: Year, widget: number, value_type: int }
+                  - { name: thesisTitle, label: Thesis title, widget: string }
+
+              - name: undergraduateResearchers
+                label: Undergraduate researchers (by academic year)
+                label_singular: academic year
+                widget: list
+                required: false
+                summary: '{{fields.year}}'
+                fields:
+                  - { name: year, label: Academic year, widget: string, hint: 'For example "2024-2025"' }
+                  - name: researchers
+                    label: Researchers
+                    label_singular: researcher
+                    widget: list
+                    required: false
+                    summary: '{{fields.name}}'
+                    fields:
+                      - { name: name, label: Name, widget: string }
+                      - { name: program, label: Program (optional), widget: string, required: false, hint: 'Shown in brackets after the name, for example "NSF REU"' }
+
+              - name: highSchoolResearchers
+                label: High school researchers
+                label_singular: high school researcher
+                widget: list
+                required: false
+                summary: '{{fields.year}} - {{fields.name}}'
+                hint: 'Grouped by year on the page, newest year first, whatever the order here.'
+                fields:
+                  - { name: year, label: Year, widget: string, pattern: ['^[0-9]{4}$', 'Enter a four-digit year such as 2023'] }
+                  - { name: name, label: Name, widget: string }
+                  - { name: school, label: School, widget: string }
+
+              - name: internationalScholarsAndInterns
+                label: International scholars and interns
+                label_singular: scholar or intern
+                widget: list
+                required: false
+                summary: '{{fields.year}} - {{fields.name}}'
+                hint: 'Grouped by year on the page, newest year first, whatever the order here.'
+                fields:
+                  - { name: year, label: Year, widget: string, hint: 'A year such as 2024, or a range such as 2020-2022' }
+                  - { name: name, label: Name, widget: string }
+                  - { name: researchTitle, label: Research area / title, widget: string }
+                  - { name: program, label: Program (optional), widget: string, required: false, hint: 'Shown in brackets on its own line, for example "DAAD RISE program"' }
+
+  # ================================================================================
+  # JOIN US PAGE  (src/content/positions.json, programs.json, joinus.json)
+  # ================================================================================
+  - name: joinus
+    label: Join Us
+    description: Open positions, graduate program links, and the images on the Join Us page.
+    editor:
+      preview: false
+    files:
+      - name: positions
+        label: Open positions
+        file: src/content/positions.json
+        fields:
+          - name: graduate
+            label: Graduate student positions
+            label_singular: position
+            widget: list
+            required: false
+            summary: '{{fields.title}}'
+            hint: 'Listed under "Open Position" in the Graduate Student section. Leave empty to show "No positions available".'
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+          - name: postdoc
+            label: Postdoctoral positions
+            label_singular: position
+            widget: list
+            required: false
+            summary: '{{fields.title}}'
+            hint: 'Listed under "Position" in the Postdoctoral section. Leave empty to show "No positions available".'
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+          - name: undergraduate
+            label: Undergraduate research positions
+            label_singular: position
+            widget: list
+            required: false
+            summary: '{{fields.title}}'
+            hint: 'Listed under "Position" in the Undergraduate section. Leave empty to show "No positions available".'
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+
+      - name: programs
+        label: Graduate program links
+        file: src/content/programs.json
+        fields:
+          - name: programs
+            label: Programs
+            label_singular: program
+            widget: list
+            summary: '{{fields.name}}'
+            hint: 'Shown as a comma-separated list of links after "Professor Cadillo is a faculty member in the following programs:".'
+            fields:
+              - { name: name, label: Program name, widget: string }
+              - { name: url, label: Link (URL), widget: string, pattern: ['^https?://', 'Must be a full web address starting with http:// or https://'] }
+
+      - name: joinus
+        label: Banner and outreach photos
+        file: src/content/joinus.json
+        fields:
+          - name: banner
+            label: Banner image
+            widget: object
+            fields:
+              - name: src
+                label: Image
+                widget: image
+                media_folder: /public/images/joinus
+                public_folder: /images/joinus
+                choose_url: false
+                allow_multiple: false
+              - { name: alt, label: Alternative text (kept for later; the page uses a fixed text at the moment), widget: string, required: false }
+          - name: carousel
+            label: Outreach photo carousel
+            label_singular: photo
+            widget: list
+            summary: '{{fields.alt}}'
+            hint: 'The photos rotate automatically in this order.'
+            fields:
+              - name: src
+                label: Photo
+                widget: image
+                media_folder: /public/images/joinus
+                public_folder: /images/joinus
+                choose_url: false
+                allow_multiple: false
+              - { name: alt, label: Alternative text, widget: string, hint: 'Read aloud by screen readers and shown if the photo fails to load' }
+
+  # ================================================================================
+  # PUBLICATIONS PAGE  (src/content/publications.json)
+  # ================================================================================
+  - name: publications
+    label: Publications
+    description: The banner and the year-by-year publication thumbnails. Add a new year as a new section at the top.
+    editor:
+      preview: false
+    files:
+      - name: publications
+        label: Publications page
+        file: src/content/publications.json
+        fields:
+          - name: banner
+            label: Banner image
+            widget: object
+            fields:
+              - name: src
+                label: Image
+                widget: image
+                media_folder: /public/images/publications
+                public_folder: /images/publications
+                choose_url: false
+                allow_multiple: false
+              - { name: alt, label: Alternative text, widget: string }
+          - name: sections
+            label: Sections
+            label_singular: section
+            widget: list
+            summary: '{{fields.label}}'
+            hint: 'Sections appear on the page in this order, top to bottom. Put the newest year first.'
+            fields:
+              - { name: label, label: Heading, widget: string, hint: 'Shown as "Publications from <Heading>", for example "2025" or "2020 - 2021"' }
+              - name: nestLevel
+                label: Indent level
+                widget: number
+                value_type: int
+                min: 0
+                max: 2
+                default: 0
+                hint: 'Leave at 0 for a normal section. 1 or 2 nest the section inside the previous one; the older year groups use this to keep their original indented look.'
+              - name: publications
+                label: Publications
+                label_singular: publication
+                widget: list
+                required: false
+                summary: '{{fields.title}} {{fields.link}}'
+                fields:
+                  - name: image
+                    label: Thumbnail
+                    widget: image
+                    media_folder: /public/images/publications
+                    public_folder: /images/publications
+                    choose_url: false
+                    allow_multiple: false
+                  - { name: link, label: Link (URL), widget: string, required: false, hint: 'Where the thumbnail links to. Full address starting with https://. If empty, the DOI below is used.' }
+                  - { name: title, label: Title, widget: string, required: false, hint: 'Used as the alternative text of the thumbnail' }
+                  - { name: authors, label: Authors, widget: string, required: false }
+                  - { name: journal, label: Journal, widget: string, required: false }
+                  - { name: year, label: Year, widget: number, value_type: int, required: false }
+                  - { name: doi, label: DOI, widget: string, required: false, hint: 'For example 10.1128/spectrum.00387-24. Used as the link when the Link field is empty.' }

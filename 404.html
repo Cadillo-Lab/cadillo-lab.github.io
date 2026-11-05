@@ -9,6 +9,12 @@
       var pathSegmentsToKeep = 0;
 
       var l = window.location;
+      // The preview deployment lives under /preview/ (see .github/workflows/deploy.yml).
+      // GitHub Pages only ever serves this root 404.html, so keep that first path
+      // segment and redirect into the preview copy of the app instead of the root one.
+      if (l.pathname.split('/')[1] === 'preview') {
+        pathSegmentsToKeep = 1;
+      }
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
         l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + 

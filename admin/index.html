@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Cadillo Lab - Content editor</title>
+    <!--
+      Decap CMS admin for the Cadillo Lab website.
+      The configuration is loaded relative to this page, so this one folder works both at
+        https://cadillo-lab.github.io/admin/          (built from main)
+        https://cadillo-lab.github.io/preview/admin/  (built from test_edit_this_firstly)
+      During local development the Create React App dev server only serves this page at the
+      full path /admin/index.html (plain /admin/ is taken over by the React app).
+    -->
+    <link href="config.yml" type="text/yaml" rel="cms-config-url" />
+  </head>
+  <body>
+    <noscript>The content editor needs JavaScript.</noscript>
+    <!--
+      Decap CMS is pinned to an exact version and protected with an integrity hash, so a
+      changed or tampered file on the CDN is refused by the browser instead of executed.
+      To upgrade: change the version number in the URL, then recompute the hash with
+        curl -sL https://cdn.jsdelivr.net/npm/decap-cms@<version>/dist/decap-cms.js | openssl dgst -sha384 -binary | openssl base64 -A
+      and replace the value after "sha384-". The same file is also served by
+      https://unpkg.com/decap-cms@<version>/dist/decap-cms.js if jsDelivr is ever unavailable.
+    -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/decap-cms@3.17.3/dist/decap-cms.js"
+      integrity="sha384-RWRzuHfiZSWCt3nEvG7B0v3cMgM1C2UuJmgBSL92GQh4uXmNSkbcthql/mNBqvjr"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
