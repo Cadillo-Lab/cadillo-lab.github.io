@@ -24,11 +24,14 @@
         curl -sL https://cdn.jsdelivr.net/npm/decap-cms@<version>/dist/decap-cms.js | openssl dgst -sha384 -binary | openssl base64 -A
       and replace the value after "sha384-". The same file is also served by
       https://unpkg.com/decap-cms@<version>/dist/decap-cms.js if jsDelivr is ever unavailable.
+      After an upgrade, open every entry once and check the live previews (cms-extensions.js).
     -->
     <script
       src="https://cdn.jsdelivr.net/npm/decap-cms@3.17.3/dist/decap-cms.js"
       integrity="sha384-RWRzuHfiZSWCt3nEvG7B0v3cMgM1C2UuJmgBSL92GQh4uXmNSkbcthql/mNBqvjr"
       crossorigin="anonymous"
     ></script>
+    <!-- Lab-specific additions (live previews). Relative path: works at /admin/ and /preview/admin/. -->
+    <script src="cms-extensions.js"></script>
   </body>
 </html>

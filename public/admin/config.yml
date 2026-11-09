@@ -53,8 +53,9 @@ collections:
   - name: team
     label: Team
     description: Everyone shown on the Team page. Drag the = handle at the top of a row to reorder; the order in the editor is the order on the page.
+    # Live preview on the right; the templates are in cms-extensions.js.
     editor:
-      preview: false
+      preview: true
     files:
       - name: team
         label: Team page
@@ -235,7 +236,7 @@ collections:
     label: Join Us
     description: Open positions, graduate program links, and the images on the Join Us page.
     editor:
-      preview: false
+      preview: true
     files:
       - name: positions
         label: Open positions
@@ -305,7 +306,7 @@ collections:
                 allow_multiple: false
               - { name: alt, label: Alternative text (kept for later; the page uses a fixed text at the moment), widget: string, required: false }
           - name: carousel
-            label: Outreach photo carousel
+            label: Outreach photos
             label_singular: photo
             widget: list
             summary: '{{fields.alt}}'
@@ -329,7 +330,7 @@ collections:
     label: Publications
     description: The banner and the year-by-year publication thumbnails. Add a new year as a new section at the top.
     editor:
-      preview: false
+      preview: true
     files:
       - name: publications
         label: Publications page
