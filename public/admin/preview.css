@@ -1,0 +1,298 @@
+/*
+ * Look of the live preview pane in the content editor (see cms-extensions.js).
+ * A simplified copy of the site's styles (src/styles/Team.css, Publications.css,
+ * JoinUs.css), scaled down to fit half the editor window. The site itself does not
+ * use this file; changing it only changes the preview.
+ */
+body {
+  margin: 0;
+  background: #f4f4f9;
+}
+
+.lab-page {
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  padding: 16px 24px 48px;
+}
+
+.lab-page h2 {
+  color: #000;
+  font-size: 1.5rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.lab-page a {
+  color: #0073e6;
+  text-decoration: none;
+}
+
+/* Notes that exist only in the preview */
+.lab-note {
+  margin: 0 0 12px;
+  padding: 6px 10px;
+  border-left: 3px solid #8c1d40;
+  background: #fff;
+  color: #555;
+  font: 12px/1.4 system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.lab-missing-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  border: 2px dashed #b0b0b0;
+  border-radius: 8px;
+  color: #777;
+  font-size: 12px;
+  text-align: center;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+/* ---------------- Team ---------------- */
+.lab-faculty {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.lab-faculty-photo,
+.lab-faculty > .lab-missing-image {
+  width: 180px;
+  height: 180px;
+  flex: none;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.lab-faculty-info h2 {
+  margin-top: 0;
+}
+
+.lab-faculty-info p {
+  color: #000;
+  margin: 0.4rem 0;
+  line-height: 1.5;
+}
+
+.lab-faculty-title {
+  color: #666 !important;
+  font-size: 1.1rem;
+}
+
+.lab-faculty-education {
+  margin: 0.8rem 0;
+}
+
+.lab-team-row {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.lab-team-grid {
+  flex: 1;
+  display: grid;
+  gap: 1.2rem 0.8rem;
+}
+
+.lab-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.lab-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.lab-member {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.lab-member:hover {
+  transform: scale(1.05);
+}
+
+.lab-member-photo {
+  margin: 0 auto;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: #d1d5db;
+}
+
+.lab-member-photo-large {
+  width: 130px;
+  height: 130px;
+}
+
+.lab-member-photo-small {
+  width: 100px;
+  height: 100px;
+}
+
+.lab-member-photo img {
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+}
+
+.lab-member-photo .lab-missing-image {
+  height: 100%;
+  border-radius: 9999px;
+}
+
+.lab-member-name {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.1;
+  color: #000;
+}
+
+.lab-member-role {
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.1;
+  color: #666;
+}
+
+.lab-hover-box {
+  flex: 1;
+  min-height: 220px;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  white-space: pre-line;
+  font-size: 14px;
+  color: #000;
+}
+
+.lab-alumni-list h3 {
+  margin: 1.2rem 0 0.4rem;
+  font-size: 1.05rem;
+}
+
+.lab-alumni-item {
+  margin: 0 0 0.5rem;
+}
+
+.lab-alumni-item p {
+  margin: 0 0 0 20px;
+  font-size: 12px;
+  font-style: italic;
+  color: gray;
+}
+
+.lab-year-group h4 {
+  margin: 0.8rem 0 0.3rem;
+  color: #444;
+}
+
+.lab-year-group p {
+  margin: 0 0 0.6rem;
+}
+
+/* ---------------- Publications ---------------- */
+.lab-banner {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.lab-publication-list {
+  padding-left: 16px;
+}
+
+.lab-year-section {
+  margin-bottom: 32px;
+}
+
+.lab-year-section h2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.lab-publication-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.lab-publication-row a {
+  flex: 1 1 calc(33% - 16px);
+  max-width: calc(33% - 16px);
+  display: block;
+  text-align: center;
+}
+
+.lab-publication-row img,
+.lab-publication-row .lab-missing-image {
+  width: 70%;
+  height: auto;
+  margin: 0 auto;
+  border: 2px solid #333;
+  padding: 5px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.lab-publication-row .lab-missing-image {
+  min-height: 120px;
+  border-style: dashed;
+}
+
+/* ---------------- Join Us ---------------- */
+.lab-position-group h2 {
+  font-size: 1.3rem;
+}
+
+.lab-position-summary {
+  font-weight: bold;
+  color: #28a745;
+  margin: 0 0 6px;
+}
+
+.lab-position h3 {
+  font-size: 1.15rem;
+  margin: 8px 0;
+  color: #000;
+}
+
+.lab-position p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.lab-carousel {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.lab-carousel figure {
+  margin: 0;
+}
+
+.lab-carousel img,
+.lab-carousel .lab-missing-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.lab-carousel figcaption {
+  font-size: 12px;
+  color: #555;
+}

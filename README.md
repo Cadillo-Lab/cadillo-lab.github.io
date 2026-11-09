@@ -12,7 +12,8 @@ The Team, Join Us and Publications pages are edited in the browser. Nothing to i
    (First time: you need a free GitHub account that the maintainer has added to this
    repository. The guide below walks through that.)
 2. In the left column pick **Team**, **Join Us** or **Publications**, open the entry, and
-   change the text or pictures.
+   change the text or pictures. The right half of the editor previews the page as you type;
+   a new paper can be added from its DOI.
 3. Click **Publish → Publish now**. After 2 to 4 minutes the change is on the preview site
    <https://cadillo-lab.github.io/preview/>. The live site has not changed yet.
 4. Tell the maintainer. They put the preview on the live site with a few clicks on GitHub.
@@ -69,7 +70,7 @@ npm start
 | `src/styles/` | CSS |
 | `src/assets/` | Images bundled by webpack (Home, Research, Collaborations) |
 | `public/images/` | Images managed by the editor (team, joinus, publications) |
-| `public/admin/` | Decap CMS: `index.html` (pinned version + integrity hash) and `config.yml` (collections and fields) |
+| `public/admin/` | Decap CMS: `index.html` (pinned version + integrity hash), `config.yml` (collections and fields), and the lab's additions: `cms-extensions.js` (live previews, add a paper from its DOI, picture size notes), `preview.css`, `admin.css`, `lab-logo.png`. See docs, section 9.1 |
 | `public/404.html` | GitHub Pages single-page-app redirect, aware of the `/preview/` prefix |
 | `cms-oauth/` | Cloudflare Worker `cms-auth` that performs the GitHub login for the editor; setup checklist in its README |
 | `.github/workflows/` | `deploy.yml`, `sync-after-merge.yml`, `reset-preview.yml` |
