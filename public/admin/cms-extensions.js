@@ -7,13 +7,18 @@
  *      The look comes from preview.css in this folder.
  *   2. "Add a paper from its DOI" above each publications list (widget
  *      publication_list in config.yml); looks the paper up at Crossref / doi.org.
+ *   3. Size notes under every picture (widget lab_image in config.yml): pixels,
+ *      file size, and a yellow note when the picture is far from the recommendation.
+ *   4. Pictures that are not on the live site yet (just uploaded, or only on the
+ *      preview site) still show up in the previews and image fields, see pictureUrls.
  *
  * Written for the Decap version pinned in index.html, as plain browser JavaScript
  * (no build step). Decap provides the globals CMS, h (React.createElement) and
  * createClass. Every path is relative to this admin page, so the same files work at
  * /admin/ and /preview/admin/.
  *
- * After upgrading Decap, open each entry and check that its preview still renders.
+ * After upgrading Decap, open each entry and check the previews, the DOI bar and the
+ * size notes. Parts 2 and 3 wrap Decap's own list and image widgets (CMS.getWidget).
  */
 (function () {
   'use strict';
@@ -44,13 +49,6 @@
     return toJS(props.entry.get('data')) || {};
   }
 
-  /** URL Decap can show for an image path stored in the JSON (handles fresh uploads too). */
-  function assetUrl(props, path) {
-    if (!path) return '';
-    var asset = props.getAsset(path);
-    return asset ? String(asset) : '';
-  }
-
   function asList(value) {
     return Array.isArray(value) ? value : [];
   }
@@ -76,10 +74,77 @@
     return h('p', { className: 'lab-note' }, text);
   }
 
+  // ---------------------------------------------------------------------------
+  // Where to load a picture from
+  //
+  // The JSON stores site addresses such as /images/team/x.jpg. Decap shows exactly that
+  // address, which is the live site's copy. A picture that was just uploaded (it is
+  // only saved on Publish) or that so far exists only on the preview site is not
+  // there yet, so Decap's own thumbnail stays broken. pictureUrls lists the places to
+  // try, in order: the file Decap holds in memory for a fresh upload, the live site,
+  // any copy Decap loaded in this session, and the preview site (display_url in
+  // config.yml).
+  // ---------------------------------------------------------------------------
+
+  var previewSiteRoot = '';
+  fetch('config.yml', { cache: 'no-cache' })
+    .then(function (response) { return response.ok ? response.text() : ''; })
+    .then(function (text) {
+      var match = /^display_url:\s*(\S+)\s*$/m.exec(text);
+      if (match) previewSiteRoot = match[1].replace(/\/+$/, '');
+    })
+    .catch(function () {});
+
+  /** Repository path of a site path: /images/team/x.jpg -> public/images/team/x.jpg */
+  function repoPathFor(path, field) {
+    var publicFolder = field && field.get && field.get('public_folder');
+    var mediaFolder = field && field.get && field.get('media_folder');
+    var repoPath = publicFolder && mediaFolder && path.indexOf(publicFolder) === 0
+      ? mediaFolder + path.slice(publicFolder.length)
+      : 'public' + path; // every picture of this site lives under public/
+    return repoPath.replace(/^\/+/, '').replace(/\/+/g, '/');
+  }
+
+  function pictureUrls(props, path, field) {
+    if (!path || typeof path !== 'string') return [];
+    var repoPath = repoPathFor(path, field);
+    var files = props.entry && props.entry.get('mediaFiles');
+    var media = files && files.find(function (m) { return m && m.get && m.get('path') === repoPath; });
+    var inMemory = media && (media.get('url') || media.get('displayURL'));
+    inMemory = typeof inMemory === 'string' ? inMemory : '';
+    var asset = props.getAsset(path, field);
+    var site = asset ? String(asset) : '';
+    var preview = previewSiteRoot && path.charAt(0) === '/' ? previewSiteRoot + path : '';
+    var urls = media && media.get('draft') ? [inMemory, site, preview] : [site, inMemory, preview];
+    return urls.filter(function (url, i) { return url && urls.indexOf(url) === i; });
+  }
+
+  /** An <img> that moves on to the next address when one fails to load. */
+  var FallbackImage = createClass({
+    getInitialState: function () {
+      return { index: 0 };
+    },
+    componentDidUpdate: function (prevProps) {
+      if (prevProps.urls.join('|') !== this.props.urls.join('|') && this.state.index !== 0) {
+        this.setState({ index: 0 });
+      }
+    },
+    render: function () {
+      var self = this;
+      var src = this.props.urls[this.state.index];
+      if (!src) {
+        return h('div', { className: 'lab-missing-image' },
+          this.props.urls.length ? 'Picture not found' : this.props.emptyText);
+      }
+      return h('img', Object.assign({}, this.props.attrs, {
+        src: src,
+        onError: function () { self.setState({ index: self.state.index + 1 }); },
+      }));
+    },
+  });
+
   function image(props, path, attrs, emptyText) {
-    var src = assetUrl(props, path);
-    if (!src) return h('div', { className: 'lab-missing-image' }, emptyText || 'No picture yet');
-    return h('img', Object.assign({ src: src }, attrs));
+    return h(FallbackImage, { urls: pictureUrls(props, path), attrs: attrs, emptyText: emptyText || 'No picture yet' });
   }
 
   // ---------------------------------------------------------------------------
@@ -542,5 +607,183 @@
   });
 
   CMS.registerWidget('publication_list', PublicationListControl, listWidget.preview, listWidget.schema);
+
+
+  // ---------------------------------------------------------------------------
+  // Image fields with size notes (config.yml: widget: lab_image)
+  //
+  // Decap's own image field, plus a line under the picture with its size in pixels
+  // and in KB/MB, and a yellow note when it is outside the recommendation set on the
+  // field in config.yml, for example
+  //   recommended: { shape: square, min_width: 500, max_width: 1000, max_kb: 500 }
+  // shape is square, portrait or landscape. The note never blocks saving.
+  // ---------------------------------------------------------------------------
+
+  var imageWidget = CMS.getWidget('image');
+
+  function formatBytes(bytes) {
+    if (!bytes && bytes !== 0) return '';
+    if (bytes >= 1024 * 1024) return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    return Math.max(1, Math.round(bytes / 1024)) + ' KB';
+  }
+
+  function describeRecommendation(rec) {
+    var parts = [];
+    if (rec.shape) parts.push(rec.shape);
+    if (rec.min_width && rec.max_width) parts.push(rec.min_width + ' to ' + rec.max_width + ' px wide');
+    else if (rec.min_width) parts.push('at least ' + rec.min_width + ' px wide');
+    if (rec.max_kb) parts.push('under ' + rec.max_kb + ' KB');
+    return parts.join(', ');
+  }
+
+  function sizeNotes(info, rec) {
+    var notes = [];
+    var w = info.width;
+    var hgt = info.height;
+    if (rec.max_kb && info.bytes > rec.max_kb * 1024) {
+      notes.push('The file is ' + formatBytes(info.bytes) + '. Pictures over ' + rec.max_kb +
+        ' KB make the page slow for visitors. A copy saved ' + (rec.max_width || 1500) +
+        ' px wide as JPG is usually small enough.');
+    }
+    if (w && hgt) {
+      var ratio = w / hgt;
+      if (rec.shape === 'square' && (ratio < 0.9 || ratio > 1.1)) {
+        notes.push('The picture is not square. The page cuts it to a circle, so edges may be cut off.');
+      }
+      if (rec.shape === 'portrait' && ratio > 1) {
+        notes.push('The picture is wider than tall; a tall (portrait) picture fits best here.');
+      }
+      if (rec.shape === 'landscape' && ratio < 1) {
+        notes.push('The picture is taller than wide; a wide (landscape) picture fits best here.');
+      }
+      if (rec.min_width && w < rec.min_width) {
+        notes.push('It is only ' + w + ' px wide and may look blurry. ' + rec.min_width + ' px or more is better.');
+      }
+    }
+    return notes;
+  }
+
+  var LabImageControl = createClass({
+    getInitialState: function () {
+      return { info: null };
+    },
+
+    getWrappedInstance: function () {
+      var inner = this.imageControl;
+      return inner && inner.getWrappedInstance ? inner.getWrappedInstance() : inner;
+    },
+
+    setImageControl: function (ref) {
+      this.imageControl = ref;
+    },
+
+    componentDidMount: function () {
+      this.measure(0);
+    },
+
+    componentDidUpdate: function (prevProps) {
+      if (prevProps.value !== this.props.value) this.measure(0);
+    },
+
+    componentWillUnmount: function () {
+      this.unmounted = true;
+      clearTimeout(this.retry);
+    },
+
+    /**
+     * Finds an address where the chosen picture loads (see pictureUrls) and reads its
+     * pixel size and file size. When that is not the address Decap shows, Decap's own
+     * thumbnail is broken, so the working one is shown instead (state.replacement).
+     */
+    measure: function (attempt) {
+      var self = this;
+      var path = this.props.value;
+      clearTimeout(this.retry);
+      var urls = pictureUrls(this.props, path, this.props.field);
+      if (!urls.length) {
+        if (this.state.info) this.setState({ info: null });
+        // Decap may still be preparing the picture, or config.yml (display_url) is loading.
+        if (path && attempt < 20) this.retry = setTimeout(function () { self.measure(attempt + 1); }, 500);
+        return;
+      }
+      var siteUrl = String(this.props.getAsset(path, this.props.field) || '');
+      var request = (this.request = {});
+      var tryUrl = function (i) {
+        if (self.unmounted || self.request !== request) return;
+        if (i >= urls.length) {
+          self.setState({ info: { path: path, missing: true } });
+          return;
+        }
+        var img = new Image();
+        img.onload = function () {
+          var dims = { width: img.naturalWidth, height: img.naturalHeight };
+          fetch(urls[i])
+            .then(function (r) { return r.ok ? r.blob() : null; })
+            .then(function (blob) { return blob ? blob.size : null; }, function () { return null; })
+            .then(function (bytes) {
+              if (self.unmounted || self.request !== request) return;
+              self.setState({ info: {
+                path: path, bytes: bytes, width: dims.width, height: dims.height,
+                replacement: urls[i] !== siteUrl ? urls[i] : '',
+              } });
+            });
+        };
+        img.onerror = function () { tryUrl(i + 1); };
+        img.src = urls[i];
+      };
+      tryUrl(0);
+    },
+
+    render: function () {
+      var rec = toJS(this.props.field.get('recommended')) || {};
+      var info = this.state.info && this.state.info.path === this.props.value ? this.state.info : null;
+      var facts = info
+        ? [info.width && info.height ? info.width + ' × ' + info.height + ' px' : '', formatBytes(info.bytes)]
+          .filter(Boolean).join(', ')
+        : '';
+      var notes = info && !info.missing ? sizeNotes(info, rec) : [];
+      var recommendation = describeRecommendation(rec);
+      var replacement = info && info.replacement;
+      return h(
+        'div',
+        { className: 'lab-image' + (replacement ? ' lab-image-replaced' : '') },
+        replacement ? h('img', { className: 'lab-image-thumb', src: replacement, alt: '' }) : null,
+        h(imageWidget.control, Object.assign({}, this.props, { ref: this.setImageControl })),
+        replacement
+          ? h('p', { className: 'lab-image-facts' },
+            'This picture is not on the live site yet (it was just uploaded, or it is only on the preview site). It goes live when the maintainer publishes the preview.')
+          : null,
+        info && info.missing
+          ? h('div', { className: 'lab-image-warning', role: 'note' },
+            h('p', null, 'This picture could not be found at ' + info.path + '. Choose it again with "Choose different image".'))
+          : null,
+        facts || recommendation
+          ? h('p', { className: 'lab-image-facts' },
+            facts ? 'This picture: ' + facts + '.' : '',
+            recommendation ? (facts ? ' ' : '') + 'Recommended: ' + recommendation + '.' : '')
+          : null,
+        notes.length
+          ? h('div', { className: 'lab-image-warning', role: 'note' },
+            notes.map(function (note, i) { return h('p', { key: i }, note); }))
+          : null
+      );
+    },
+  });
+
+  var labImageSchema = {
+    properties: Object.assign({}, (imageWidget.schema && imageWidget.schema.properties) || {}, {
+      recommended: {
+        type: 'object',
+        properties: {
+          shape: { type: 'string', enum: ['square', 'portrait', 'landscape'] },
+          min_width: { type: 'number' },
+          max_width: { type: 'number' },
+          max_kb: { type: 'number' },
+        },
+      },
+    }),
+  };
+
+  CMS.registerWidget('lab_image', LabImageControl, imageWidget.preview, labImageSchema);
 
 })();

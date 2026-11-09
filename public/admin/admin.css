@@ -71,3 +71,49 @@
 .lab-doi-info {
   color: #555;
 }
+
+/* Size line and yellow note under every picture (widget lab_image in cms-extensions.js) */
+.lab-image-facts {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #555;
+}
+
+.lab-image-warning {
+  margin: 8px 0 0;
+  padding: 8px 12px;
+  border: 1px solid #f1d58a;
+  border-left: 4px solid #e0a800;
+  border-radius: 5px;
+  background: #fff8e1;
+  color: #5c4500;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.lab-image-warning p {
+  margin: 0;
+}
+
+.lab-image-warning p + p {
+  margin-top: 4px;
+}
+
+/* A picture that is not on the live site yet: Decap's own thumbnail cannot load it,
+   so cms-extensions.js shows a working copy above the buttons instead. The selector
+   relies on Decap's component name "ImageWrapper"; if a Decap upgrade renames it,
+   the broken thumbnail simply shows next to the working one. */
+.lab-image-thumb {
+  display: block;
+  max-width: 160px;
+  max-height: 120px;
+  margin: 0 0 10px;
+  border-radius: 5px;
+  border: 1px solid #dfdfe3;
+  object-fit: contain;
+  background: #fff;
+}
+
+.lab-image-replaced [class*="-ImageWrapper"] {
+  display: none;
+}
