@@ -1,7 +1,76 @@
 /*
  * Lab-specific styles for the content editor page itself (index.html).
  * The live preview has its own stylesheet, preview.css.
+ *
+ * Styling Decap's own parts: Decap builds its class names at run time, for example
+ * "css-b9578f-StyledAuthenticationPage". The first part is a hash of the styles and
+ * changes whenever Decap changes them; the part after it is the component name and
+ * stays as long as the component keeps its name. The rules below therefore match the
+ * component name only ([class*="-Name"]) and change nothing but colours, sizes and
+ * spacing. Decap adds its own styles after this file, so each rule names the element
+ * too (section[...], p[...]): that makes it win over Decap's single-class rule. The Decap version is pinned in index.html, so nothing moves until it is
+ * upgraded; if an upgrade renames a component, that rule simply stops applying and the
+ * editor looks like plain Decap again, without losing any function.
  */
+
+/* ---------------- Login page ---------------- */
+section[class*="-StyledAuthenticationPage"] {
+  gap: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f1f2f6 100%);
+}
+
+/* Order on the page: logo, one line saying what this is, the button, then anything
+   Decap adds (a login error message, the small "Decap" credit). */
+section[class*="-StyledAuthenticationPage"] > * {
+  order: 3;
+}
+
+section[class*="-StyledAuthenticationPage"] > [class*="-CustomIconWrapper"] {
+  order: 0;
+}
+
+section[class*="-StyledAuthenticationPage"] [class*="-CustomIconWrapper"] img {
+  width: 340px;
+  max-width: 80vw;
+  height: auto;
+}
+
+section[class*="-StyledAuthenticationPage"]::after {
+  content: 'Content editor of the Cadillo Lab website';
+  order: 1;
+  margin: 18px 0 22px;
+  font-size: 15px;
+  color: #4a4f5c;
+}
+
+section[class*="-StyledAuthenticationPage"] > [class*="-LoginButton"] {
+  order: 2;
+  padding: 8px 28px;
+  height: auto;
+  line-height: 1.6;
+  font-size: 15px;
+  background-color: #8c1d40; /* ASU maroon */
+  color: #fff;
+}
+
+section[class*="-StyledAuthenticationPage"] > p {
+  max-width: 420px;
+  margin: 18px 16px 0;
+  text-align: center;
+  color: #d60032;
+}
+
+section[class*="-StyledAuthenticationPage"] > [class*="-LoginButton"]:hover {
+  background-color: #6e1631;
+}
+
+/* ---------------- Forms ---------------- */
+/* The grey help text under a field: a little larger and darker, easier to read. */
+p[class*="-ControlHint"] {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #4a4f5c;
+}
 
 /* "Add a paper from its DOI" bar above each publications list (cms-extensions.js) */
 .lab-doi-bar {

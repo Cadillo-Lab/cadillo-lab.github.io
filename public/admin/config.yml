@@ -40,7 +40,14 @@ backend:
 local_backend: true
 
 # "View site" link in the editor header. Edits show up on the preview site first.
+# cms-extensions.js also reads this line to show pictures that are only on the preview site.
 display_url: https://cadillo-lab.github.io/preview
+
+# Lab logo on the login page and in the editor header. A path relative to the admin page,
+# so it works at /admin/ and /preview/admin/ (a smaller copy of src/assets/new-lab-logo.png).
+logo:
+  src: lab-logo.png
+  show_in_header: true
 
 # Default upload location for the "Media" tab. Every image field below sets its own folder.
 media_folder: public/images
