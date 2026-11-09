@@ -5,8 +5,9 @@
 This guide is for two roles:
 
 - **Editors**: lab members who change the Team, Join Us and Publications pages in the
-  browser. No coding, no software to install.
-- **The maintainer**: the one person who publishes to the live site, manages accounts,
+  browser, check the preview site, and put it on the live site with a few clicks on
+  GitHub. No coding, no software to install.
+- **The maintainer**: the person who manages accounts, helps when something goes wrong,
   and calls a developer when a page outside the editor must change.
 
 | What | Where |
@@ -21,11 +22,11 @@ This guide is for two roles:
 
 ## Start here
 
-**Editors** (you change text and pictures): read this section, then sections 3 to 7.
-Section 10 helps when something does not work. Sections 1, 2.2, 2.3, 8 and 9 are for the
-maintainer; you can skip them.
+**Editors** (you change text and pictures and put them on the live site): read this
+section, then sections 2 to 7. Section 10 helps when something does not work. Sections 1,
+8 and 9 are for the maintainer; you can skip them.
 
-**Maintainer** (you put changes on the live site and manage accounts): read everything.
+**Maintainer** (you manage accounts and help when something goes wrong): read everything.
 
 ### First time only: get access (about 10 minutes)
 
@@ -81,14 +82,15 @@ maintainer; you can skip them.
       it still looks old, reload with Ctrl+F5 (Windows) or Cmd+Shift+R (Mac).
    3. Not right? Go back to the editor, fix it, publish again. Publish as often as you
       like: the live site is not affected.
-6. Tell the maintainer that the preview is ready to go live. The maintainer follows
-   section 2.2, and the live site updates a few minutes after that.
+6. Put the preview on the live site. When the whole preview site looks right, open a
+   pull request and merge it (section 2.2, about 3 minutes). The live site updates a few
+   minutes after that. If something went wrong, section 2.3 shows how to undo it.
 
 **中文要点**
 
 - 第一次：在 github.com/signup 注册账号 → 把用户名发给维护者 → 打开邀请邮件点 Accept invitation。
-- 每次：打开 /admin/ 点 Login with GitHub（弹窗被拦截就在地址栏右侧允许弹窗）→ 左栏选页面、点中间的条目（左边是表单，右边是随输入变化的实时预览）→ 点行首箭头展开修改，或 Add 新增、x 删除、拖 = 排序；论文可直接粘贴 DOI 添加（第 6 节）→ 看一眼右侧预览，红字提示要先改好 → **Publish → Publish now**，左上角变成 CHANGES SAVED 才算保存 → 2–4 分钟后看 /preview/（不更新就 Ctrl+F5）→ 通知维护者上线。
-- 预览站可以反复改、反复发布；线上站只有维护者合并后才会变。
+- 每次：打开 /admin/ 点 Login with GitHub（弹窗被拦截就在地址栏右侧允许弹窗）→ 左栏选页面、点中间的条目（左边是表单，右边是随输入变化的实时预览）→ 点行首箭头展开修改，或 Add 新增、x 删除、拖 = 排序；论文可直接粘贴 DOI 添加（第 6 节）→ 看一眼右侧预览，红字提示要先改好 → **Publish → Publish now**，左上角变成 CHANGES SAVED 才算保存 → 2–4 分钟后看 /preview/（不更新就 Ctrl+F5）→ 整个预览都没问题后，开 pull request 并合并（第 2.2 节）上线。
+- 预览站可以反复改、反复发布；线上站只有 pull request 合并后才会变。出了问题看第 2.3 节如何撤销。
 
 ## 1. How the site is published
 
@@ -96,7 +98,7 @@ maintainer; you can skip them.
 flowchart LR
   E["Editor<br/>/admin/"] -- "Publish now<br/>(one commit)" --> B[("branch<br/>test_edit_this_firstly")]
   B -- "Deploy to GitHub Pages<br/>(preview job)" --> P["Preview site<br/>cadillo-lab.github.io/preview/"]
-  B -- "pull request,<br/>merged by the maintainer" --> M[("branch<br/>main")]
+  B -- "pull request,<br/>merged after checking the preview" --> M[("branch<br/>main")]
   M -- "Deploy to GitHub Pages<br/>(production job)" --> L["Live site<br/>cadillo-lab.github.io"]
   M -- "Sync preview branch<br/>after merge (automatic)" --> B
   R["Reset preview branch<br/>to main (manual)"] -. "force" .-> B
@@ -109,8 +111,8 @@ flowchart LR
   `test_edit_this_firstly`. A GitHub Actions workflow called **Deploy to GitHub Pages**
   then builds the site and publishes it under <https://cadillo-lab.github.io/preview/>.
   This usually takes 2 to 4 minutes. Nothing on the live site changes.
-- The live site is built from the branch `main`. Content reaches `main` only when the
-  maintainer merges a pull request from `test_edit_this_firstly`. The same workflow then
+- The live site is built from the branch `main`. Content reaches `main` only when
+  someone merges a pull request from `test_edit_this_firstly` (section 2.2). The same workflow then
   publishes the live site, and a second workflow, **Sync preview branch after merge**,
   moves the editing branch forward so that preview and live are identical again.
 - Both sites are files on the branch `gh-pages`. Nobody edits that branch by hand.
@@ -118,61 +120,86 @@ flowchart LR
 **中文要点**
 
 - 编辑器里的每次 Publish 都是对分支 `test_edit_this_firstly` 的一次提交，几分钟后出现在预览站 `/preview/`，线上站不受影响。
-- 线上站来自分支 `main`。只有维护者把预览分支的 pull request 合并进 `main`，内容才上线；合并后预览分支会自动对齐。
+- 线上站来自分支 `main`。只有把预览分支的 pull request 合并进 `main`（第 2.2 节），内容才上线；合并后预览分支会自动对齐。
 - `gh-pages` 分支是构建产物，不要手工改。
 
-## 2. The three actions
+## 2. Publish, go live, undo
 
-### 2.1 Publish (editors)
+### 2.1 Publish (to the preview site)
 
 In the editor, after changing something, click **Publish** and then **Publish now**. The
 header changes from "Unsaved changes" to "Changes saved".
 
 ![The Publish menu with "Publish now"](images/editor-publish.png) Wait a few minutes and check the
-preview site. That is all an editor does; nothing goes live by itself.
+preview site. Nothing goes live by itself: the live site changes only with section 2.2.
 
-### 2.2 Merge the pull request (maintainer): preview becomes live
+### 2.2 Go live: open and merge a pull request
+
+Do this when the **whole** preview site looks right. Everything on the preview goes live
+together, including edits that other people published there, so check with them if
+several people are editing.
 
 1. Open <https://github.com/Cadillo-Lab/cadillo-lab.github.io/compare/main...test_edit_this_firstly?expand=1>.
-   GitHub shows every change since the last publication, file by file (JSON data and
-   images). If it says "There isn't anything to compare", there is nothing new.
-2. Click **Create pull request**, give it a title such as "Website update November 2026",
-   and create it. The check **Build check (pull request)** runs automatically; wait until
-   it is green. The page may also say "Some checks were not successful" because of a red
-   check named **Vercel**: that is an old, unrelated integration and can be ignored. Only
-   **Build check** matters.
-3. Look at the preview site one last time, then click **Merge pull request** and
-   **Confirm merge**. Any merge method works (the plain merge commit is the default).
-4. Within a few minutes the Actions tab shows a green **Deploy to GitHub Pages** run for
-   `main`; the live site now has the content. **Sync preview branch after merge** runs
-   right after it and triggers one more preview build, so the preview matches the live
-   site again.
-5. Check <https://cadillo-lab.github.io/>. If a page looks wrong, revert the merge on
-   GitHub (the pull request page has a **Revert** button) and the previous content comes
-   back the same way.
+   The bar at the top must read **base: main** ← **compare: test_edit_this_firstly**; do
+   not change it. Below, GitHub lists every change since the last time the site went
+   live, file by file (data files and pictures).
+   - "There isn't anything to compare": there is nothing new; you are done.
+   - A green **View pull request** button instead of a form: a pull request is already
+     open. Click the button and continue with step 3. (New publishes join an open pull
+     request automatically until it is merged.)
+2. Type a short title, for example "Add Jane Doe to the Team page", and click
+   **Create pull request**.
+3. Wait 1 to 2 minutes until the box near the bottom says **All checks have passed**.
+   - Several checks are listed as **Skipped**. That is normal: the workflow has separate
+     parts for the preview, the live site and the pull request, and each run uses only
+     the part it needs.
+   - **Build check (pull request)** is the check that matters: it builds the whole site
+     from the preview.
+   - If a check has a red ✗ ("Some checks were not successful"), do **not** merge. Fix
+     the last edit in the editor or undo it (section 2.3), or ask the maintainer.
+4. Click **Merge pull request**, then **Confirm merge**. The label turns purple:
+   **Merged**. (Any merge method works; the default is fine.)
+5. After 3 to 5 minutes check <https://cadillo-lab.github.io/> (Ctrl+F5 / Cmd+Shift+R if it
+   looks old). Behind the scenes, **Deploy to GitHub Pages** has published the live site,
+   and **Sync preview branch after merge** has brought the preview back in line with it.
+   Nothing else to do.
 
-Editors can keep working while a pull request is open; their new publishes join the same
-pull request until it is merged.
+### 2.3 Undo
 
-### 2.3 Reset the preview (maintainer): throw away unpublished edits
+| Situation | What to do |
+| --- | --- |
+| A mistake on the preview, not merged yet | Fix it in the editor and **Publish now** again. |
+| Throw away **all** preview edits that are not live yet (make the preview a copy of the live site again) | Reset the preview, below. |
+| The mistake is already on the live site | Revert the pull request, below. |
 
-If the preview branch contains edits that should never go live (a mistake, an abandoned
-draft), reset it:
+**Reset the preview** (overwrite the preview with the live site):
 
-1. Open the Actions tab, choose **Reset preview branch to main** in the left column, click
-   **Run workflow**, keep "main" selected, click the green **Run workflow** button.
-2. The workflow makes `test_edit_this_firstly` identical to `main` and rebuilds the
-   preview site. Everything that was only on the preview branch is gone, including
-   images uploaded there. The live site is untouched.
+1. Tell the other editors first: their unmerged edits will be lost too.
+2. Open the [Actions tab](https://github.com/Cadillo-Lab/cadillo-lab.github.io/actions),
+   click **Reset preview branch to main** in the left column, then **Run workflow**, keep
+   "Branch: main", and click the green **Run workflow** button.
+3. After 3 to 4 minutes the preview equals the live site. Everything that was only on the
+   preview is gone, including pictures uploaded for it. The live site is untouched.
+4. If a pull request was open, it now shows no changes: open it and click
+   **Close pull request**.
 
-Tell the editors before doing this, because an open pull request from the preview branch
-will show no changes afterwards.
+**Revert a pull request** (take a change back off the live site):
+
+1. Open the [closed pull requests](https://github.com/Cadillo-Lab/cadillo-lab.github.io/pulls?q=is%3Apr+is%3Aclosed)
+   and click the one that brought the mistake.
+2. Click **Revert** near the bottom. GitHub opens a new pull request that undoes it; click
+   **Create pull request**.
+3. Wait for **All checks have passed**, then click **Merge pull request** and
+   **Confirm merge**.
+4. A few minutes later the live site and the preview are both back to how they were
+   before that pull request. Then make the correct edit in the editor and go live again
+   (sections 2.1 and 2.2).
 
 **中文要点**
 
-- 编辑者：改完点 **Publish → Publish now**，几分钟后看预览站。
-- 维护者上线：打开上面的"Open a pull request"链接 → Create pull request → 等 Build check 变绿 → Merge pull request → 几分钟后看线上站。出问题可在 PR 页面点 Revert 回退。
-- 维护者丢弃预览：Actions → **Reset preview branch to main** → Run workflow。预览分支上未合并的改动全部丢失，线上不受影响；先通知编辑者。
+- 发布到预览：改完点 **Publish → Publish now**，几分钟后看预览站。
+- 上线：确认整个预览站都没问题（别人发布到预览的改动也会一起上线）→ 打开上面的 compare 链接，顶部应为 base: main ← compare: test_edit_this_firstly → **Create pull request** → 等 **All checks have passed**（几项 Skipped 是正常的，关键是 Build check；有红叉不要合并）→ **Merge pull request → Confirm merge** → 3–5 分钟后看线上站，预览会自动对齐。已有打开的 PR 时点 View pull request 进去直接合并。
+- 撤销：预览上的错误直接在编辑器里再改；想丢弃所有未上线的修改，用 Actions → **Reset preview branch to main** → Run workflow（先通知其他编辑，之后关闭空的 PR）；错误已经上线，就在已关闭的 PR 列表里打开那个 PR，点 **Revert** → Create pull request → 检查通过后合并。
 
 ## 3. Logging in to the editor
 
@@ -224,7 +251,7 @@ hands it a limited access token for public repositories.
   works.
 - A picture that is not on the live site yet (you just uploaded it, or it is only on the
   preview site) shows the note "This picture is not on the live site yet". That is
-  expected: it goes live when the maintainer publishes the preview.
+  expected: it goes live with the next merged pull request (section 2.2).
 - The grey text under a field is a hint about how the site uses it.
 - **Checks:** some fields are checked as soon as you leave them. A red message names the
   problem, for example a DOI pasted as a full `https://doi.org/...` address (enter only
@@ -371,9 +398,10 @@ need a developer (section 9).
 
 Repository -> **Settings** -> **Collaborators and teams** -> **Add people** -> enter their
 GitHub user name -> role **Write**. They accept the invitation by e-mail, then they can log
-in to the editor. Remove people the same way when they leave the lab. Anyone with
-**Write** can technically also merge pull requests and run the reset workflow; by
-agreement only the maintainer does, so tell new editors to stop at **Publish now**.
+in to the editor. Remove people the same way when they leave the lab. **Write** also
+lets them merge pull requests, revert them and run the reset workflow (sections 2.2 and
+2.3), which is how editors put their changes on the live site. Point new editors to the
+README or to "Start here" above.
 
 ### 8.2 Who owns what
 
@@ -423,10 +451,9 @@ When the maintainer changes:
 
 ### 8.5 Things to keep in mind
 
-- Never run `npm run deploy` on a computer. It replaces the whole `gh-pages` branch with a
-  local build and deletes the preview site. The `predeploy` / `deploy` scripts and the
-  `gh-pages` package are still in `package.json` from the old manual process; remove them
-  in a separate commit after the first successful live deployment by GitHub Actions.
+- Never publish to `gh-pages` from a computer. The old `npm run deploy` script has been
+  removed from `package.json`; a manual push to `gh-pages` would replace the whole branch
+  with a local build and delete the preview site.
 - The editing branch name `test_edit_this_firstly` is written in five places:
   `.github/workflows/deploy.yml` (twice), `reset-preview.yml`, `sync-after-merge.yml` and
   `public/admin/config.yml`. Renaming the branch means changing all five.
@@ -438,10 +465,10 @@ When the maintainer changes:
 
 **中文要点**
 
-- 加编辑者：仓库 Settings → Collaborators and teams → Add people → Write。合并 PR 和重置预览只留给维护者（Admin）。
+- 加编辑者：仓库 Settings → Collaborators and teams → Add people → Write。Write 权限也能合并、回退 PR 和重置预览，编辑者就是这样自己上线的（第 2.2、2.3 节）。
 - 四样东西要有人管：GitHub 组织/仓库、Cloudflare 账号（cms-auth）、GitHub OAuth App（建议归组织所有）、编辑器版本（写在 index.html 里；实验室自己的预览、DOI 查询和图片提示在 cms-extensions.js）。
 - 交接：继任者成为组织 owner → 加入 Cloudflare 账号或自行重新部署 → OAuth App 转给组织并换 secret → 更新本文 8.2。
-- 绝不要再运行 `npm run deploy`；分支名写在五处；Actions 首次成功上线后，单独提交删除旧的 deploy 脚本。
+- 绝不要从本地电脑往 `gh-pages` 发布（旧的 `npm run deploy` 脚本已删除）；分支名写在五处。
 
 ## 9. For developers
 
