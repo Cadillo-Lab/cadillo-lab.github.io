@@ -14,6 +14,8 @@
       full path /admin/index.html (plain /admin/ is taken over by the React app).
     -->
     <link href="config.yml" type="text/yaml" rel="cms-config-url" />
+    <!-- Lab-specific styles for the editor itself (not the preview). Relative path, like everything here. -->
+    <link href="admin.css" rel="stylesheet" />
   </head>
   <body>
     <noscript>The content editor needs JavaScript.</noscript>
@@ -24,11 +26,17 @@
         curl -sL https://cdn.jsdelivr.net/npm/decap-cms@<version>/dist/decap-cms.js | openssl dgst -sha384 -binary | openssl base64 -A
       and replace the value after "sha384-". The same file is also served by
       https://unpkg.com/decap-cms@<version>/dist/decap-cms.js if jsDelivr is ever unavailable.
+      After an upgrade, open every entry once and check what cms-extensions.js adds: the live
+      previews, the "Add a paper from its DOI" bar and the size notes under the pictures.
     -->
     <script
       src="https://cdn.jsdelivr.net/npm/decap-cms@3.17.3/dist/decap-cms.js"
       integrity="sha384-RWRzuHfiZSWCt3nEvG7B0v3cMgM1C2UuJmgBSL92GQh4uXmNSkbcthql/mNBqvjr"
       crossorigin="anonymous"
     ></script>
+    <!-- Lab-specific additions (live previews, DOI lookup, picture size notes).
+         Relative path: works at /admin/ and /preview/admin/. config.yml uses the widgets
+         publication_list and lab_image defined there, so this file must load. -->
+    <script src="cms-extensions.js"></script>
   </body>
 </html>
