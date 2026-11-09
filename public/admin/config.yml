@@ -52,7 +52,7 @@ collections:
   # ================================================================================
   - name: team
     label: Team
-    description: Everyone shown on the Team page. Drag the handle at the left of an entry to reorder; the order here is the order on the page.
+    description: Everyone shown on the Team page. Drag the = handle at the top of a row to reorder; the order in the editor is the order on the page.
     editor:
       preview: false
     files:
@@ -63,6 +63,9 @@ collections:
           - name: faculty
             label: Faculty
             widget: object
+            collapsed: true
+            summary: '{{fields.name}}'
+            hint: The professor at the top of the Team page. Click the arrow to open.
             fields:
               - { name: name, label: Name, widget: string }
               - { name: title, label: Title, widget: string, hint: 'For example: Professor' }
@@ -167,7 +170,7 @@ collections:
                 hint: 'The last entry, with a blank name and blank details, is deliberate spacing on the page. Leave it in place.'
                 fields:
                   - { name: name, label: Name, widget: string, required: false }
-                  - { name: details, label: Details, widget: string, required: false, hint: 'For example "Postdoctoral researcher"' }
+                  - { name: details, label: Details, widget: string, required: false, default: Postdoctoral researcher, hint: 'For example "Postdoctoral researcher"' }
 
               - name: honorsThesis
                 label: Honors theses
@@ -290,6 +293,8 @@ collections:
           - name: banner
             label: Banner image
             widget: object
+            collapsed: true
+            summary: 'Banner image (click the arrow to change it)'
             fields:
               - name: src
                 label: Image
@@ -304,7 +309,9 @@ collections:
             label_singular: photo
             widget: list
             summary: '{{fields.alt}}'
-            hint: 'The photos rotate automatically in this order.'
+            hint: 'The photos rotate automatically in this order. Keep at least one photo.'
+            min: 1
+            max: 50
             fields:
               - name: src
                 label: Photo
@@ -331,6 +338,8 @@ collections:
           - name: banner
             label: Banner image
             widget: object
+            collapsed: true
+            summary: 'Banner image (click the arrow to change it)'
             fields:
               - name: src
                 label: Image
@@ -346,16 +355,19 @@ collections:
             widget: list
             summary: '{{fields.label}}'
             hint: 'Sections appear on the page in this order, top to bottom. Put the newest year first.'
+            min: 1
+            max: 200
             fields:
               - { name: label, label: Heading, widget: string, hint: 'Shown as "Publications from <Heading>", for example "2025" or "2020 - 2021"' }
               - name: nestLevel
                 label: Indent level
-                widget: number
-                value_type: int
-                min: 0
-                max: 2
+                widget: select
                 default: 0
-                hint: 'Leave at 0 for a normal section. 1 or 2 nest the section inside the previous one; the older year groups use this to keep their original indented look.'
+                options:
+                  - { label: '0 - normal section (use this for every new year)', value: 0 }
+                  - { label: '1 - indented under the section above', value: 1 }
+                  - { label: '2 - indented twice', value: 2 }
+                hint: 'The older year groups use 1 and 2 to keep their original indented look. Do not change them unless you want the layout to change.'
               - name: publications
                 label: Publications
                 label_singular: publication
@@ -370,9 +382,9 @@ collections:
                     public_folder: /images/publications
                     choose_url: false
                     allow_multiple: false
-                  - { name: link, label: Link (URL), widget: string, required: false, hint: 'Where the thumbnail links to. Full address starting with https://. If empty, the DOI below is used.' }
-                  - { name: title, label: Title, widget: string, required: false, hint: 'Used as the alternative text of the thumbnail' }
-                  - { name: authors, label: Authors, widget: string, required: false }
-                  - { name: journal, label: Journal, widget: string, required: false }
-                  - { name: year, label: Year, widget: number, value_type: int, required: false }
-                  - { name: doi, label: DOI, widget: string, required: false, hint: 'For example 10.1128/spectrum.00387-24. Used as the link when the Link field is empty.' }
+                  - { name: link, label: Link (URL), widget: string, required: false, pattern: ['^https?://\S+$', 'Enter a full web address starting with https://'], hint: 'Where the thumbnail links to. Full address starting with https://. If empty, the DOI below is used.' }
+                  - { name: title, label: Title, widget: string, required: false, hint: 'The title of the paper. Screen readers read it aloud, and browsers show it if the picture does not load. Please fill it in for new papers.' }
+                  - { name: authors, label: Authors, widget: string, required: false, hint: "Kept for the lab's records; the page does not show it at the moment." }
+                  - { name: journal, label: Journal, widget: string, required: false, hint: "Kept for the lab's records; the page does not show it at the moment." }
+                  - { name: year, label: Year, widget: number, value_type: int, required: false, hint: "Kept for the lab's records; the page does not show it at the moment." }
+                  - { name: doi, label: DOI, widget: string, required: false, pattern: ['^10\.[0-9]{4,9}/\S+$', 'Enter only the DOI, for example 10.1128/spectrum.00387-24 (without https://doi.org/)'], hint: 'For example 10.1128/spectrum.00387-24. Used as the link when the Link field is empty.' }
