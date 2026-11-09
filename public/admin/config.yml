@@ -372,7 +372,8 @@ collections:
               - name: publications
                 label: Publications
                 label_singular: publication
-                widget: list
+                # A list with an "Add a paper from its DOI" bar above it (cms-extensions.js).
+                widget: publication_list
                 required: false
                 summary: '{{fields.title}} {{fields.link}}'
                 fields:

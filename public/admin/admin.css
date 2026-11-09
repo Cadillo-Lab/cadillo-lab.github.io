@@ -1,0 +1,73 @@
+/*
+ * Lab-specific styles for the content editor page itself (index.html).
+ * The live preview has its own stylesheet, preview.css.
+ */
+
+/* "Add a paper from its DOI" bar above each publications list (cms-extensions.js) */
+.lab-doi-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin: 0 0 12px;
+  padding: 12px 14px;
+  background: #eef5ff;
+  border: 1px solid #c8dbf5;
+  border-radius: 5px;
+}
+
+.lab-doi-bar label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #313d3e;
+}
+
+.lab-doi-bar input {
+  flex: 1 1 240px;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 2px solid #dfdfe3;
+  border-radius: 5px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.lab-doi-bar input:focus {
+  outline: none;
+  border-color: #3a69c7;
+}
+
+.lab-doi-bar button {
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 5px;
+  background: #3a69c7;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lab-doi-bar button:disabled {
+  background: #a9bde6;
+  cursor: default;
+}
+
+.lab-doi-message {
+  flex-basis: 100%;
+  margin: 2px 0 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.lab-doi-success {
+  color: #005614;
+}
+
+.lab-doi-error {
+  color: #d60032;
+}
+
+.lab-doi-info {
+  color: #555;
+}

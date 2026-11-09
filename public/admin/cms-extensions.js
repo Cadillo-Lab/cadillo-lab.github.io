@@ -5,6 +5,8 @@
  *   1. Live previews: the right half of the editor shows roughly how the Team,
  *      Publications and Join Us pages will look while you type.
  *      The look comes from preview.css in this folder.
+ *   2. "Add a paper from its DOI" above each publications list (widget
+ *      publication_list in config.yml); looks the paper up at Crossref / doi.org.
  *
  * Written for the Decap version pinned in index.html, as plain browser JavaScript
  * (no build step). Decap provides the globals CMS, h (React.createElement) and
@@ -344,4 +346,201 @@
       );
     },
   }));
+
+  // ---------------------------------------------------------------------------
+  // "Add a paper from its DOI" (config.yml: widget: publication_list)
+  //
+  // The publications list of each section, plus a bar above it: paste a DOI, click
+  // "Add paper", and a new row appears at the bottom of that list with the title,
+  // authors, journal, year, DOI and link filled in from Crossref (or, for DOIs that
+  // Crossref does not know, from doi.org). The editor then picks the thumbnail.
+  //
+  // The list itself is Decap's own list widget. The new row is added through that
+  // widget's addItem method, which keeps its bookkeeping (row keys, open/closed rows)
+  // in step. addItem is internal to Decap, so after a Decap upgrade check that the
+  // button still works; if it is gone, the bar says so and "Add publication" still works.
+  // ---------------------------------------------------------------------------
+
+  var DOI_PATTERN = /^10\.\d{4,9}\/\S+$/;
+
+  /** Accepts "10.x/y", "doi:10.x/y" or a doi.org link; returns the bare DOI or ''. */
+  function normalizeDoi(text) {
+    var doi = String(text || '').trim();
+    doi = doi.replace(/^doi:\s*/i, '').replace(/^https?:\/\/(dx\.)?doi\.org\//i, '');
+    try {
+      doi = decodeURIComponent(doi);
+    } catch (e) {
+      // keep it as typed
+    }
+    return DOI_PATTERN.test(doi) ? doi : '';
+  }
+
+  /** Plain text from a title that may contain HTML such as <i>…</i> or &amp;. */
+  function plainText(html) {
+    var doc = new DOMParser().parseFromString(String(html || ''), 'text/html');
+    return (doc.body.textContent || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function first(value) {
+    return Array.isArray(value) ? value[0] : value;
+  }
+
+  function yearOf() {
+    for (var i = 0; i < arguments.length; i++) {
+      var parts = arguments[i] && arguments[i]['date-parts'];
+      var year = parts && parts[0] && parts[0][0];
+      if (year) return Number(year);
+    }
+    return null;
+  }
+
+  function authorNames(authors) {
+    return (Array.isArray(authors) ? authors : [])
+      .map(function (a) {
+        return a.literal || a.name || [a.given, a.family].filter(Boolean).join(' ');
+      })
+      .filter(Boolean)
+      .join(', ');
+  }
+
+  /** Crossref and CSL-JSON (doi.org) records use nearly the same field names. */
+  function paperFromRecord(record, doi) {
+    return {
+      year: yearOf(record.issued, record['published-print'], record['published-online'], record.created),
+      title: plainText(first(record.title)),
+      authors: authorNames(record.author),
+      journal: plainText(first(record['container-title']) || record.publisher || ''),
+      doi: doi,
+      link: 'https://doi.org/' + doi,
+      image: '',
+    };
+  }
+
+  function lookUpDoi(doi) {
+    var crossref = 'https://api.crossref.org/works/' + encodeURIComponent(doi);
+    return fetch(crossref, { headers: { Accept: 'application/json' } }).then(function (response) {
+      if (response.ok) {
+        return response.json().then(function (json) { return paperFromRecord(json.message || {}, doi); });
+      }
+      if (response.status !== 404) throw new Error('crossref ' + response.status);
+      // Not a Crossref DOI (for example DataCite, used by ResearchGate and Zenodo):
+      // ask doi.org for the citation record instead.
+      return fetch('https://doi.org/' + encodeURI(doi), {
+        headers: { Accept: 'application/vnd.citationstyles.csl+json' },
+      }).then(function (r) {
+        if (r.status === 404) return null;
+        if (!r.ok) throw new Error('doi.org ' + r.status);
+        return r.json().then(function (json) { return paperFromRecord(json, doi); });
+      });
+    });
+  }
+
+  /** A DOI found anywhere in a text, e.g. inside https://journals.asm.org/doi/10.1128/... */
+  function doiInText(text) {
+    var match = /(10\.\d{4,9}\/[^\s?#]+)/.exec(String(text || ''));
+    return match ? normalizeDoi(match[1]) : '';
+  }
+
+  /** Section headings that already list this DOI (the same paper may sit in two years). */
+  function sectionsWithDoi(entry, doi) {
+    var sections = toJS(entry && entry.getIn(['data', 'sections'])) || [];
+    var wanted = doi.toLowerCase();
+    return sections
+      .filter(function (section) {
+        return asList(section.publications).some(function (pub) {
+          return [pub.doi, pub.link].some(function (text) { return doiInText(text).toLowerCase() === wanted; });
+        });
+      })
+      .map(function (section) { return section.label; });
+  }
+
+  var listWidget = CMS.getWidget('list');
+
+  var PublicationListControl = createClass({
+    getInitialState: function () {
+      return { doi: '', busy: false, message: '', tone: '' };
+    },
+
+    // Decap validates and focuses the control it gets from getWrappedInstance, so hand
+    // it the real list widget: the rows keep their required-field and format checks.
+    getWrappedInstance: function () {
+      var inner = this.listControl;
+      return inner && inner.getWrappedInstance ? inner.getWrappedInstance() : inner;
+    },
+
+    setListControl: function (ref) {
+      this.listControl = ref;
+    },
+
+    say: function (tone, message) {
+      this.setState({ busy: false, tone: tone, message: message });
+    },
+
+    addFromDoi: function (event) {
+      if (event) event.preventDefault();
+      var self = this;
+      var doi = normalizeDoi(this.state.doi);
+      if (!doi) {
+        this.say('error', 'That is not a DOI. A DOI starts with 10. followed by a slash, for example 10.1128/spectrum.00387-24.');
+        return;
+      }
+      var list = this.getWrappedInstance();
+      if (!list || typeof list.addItem !== 'function') {
+        this.say('error', 'This button does not work with the current editor version. Use "Add publication" below and fill in the fields by hand.');
+        return;
+      }
+      var already = sectionsWithDoi(this.props.entry, doi);
+      if (already.length && !window.confirm('This DOI is already listed under ' + already.join(', ') + '. Add it here as well?')) {
+        return;
+      }
+      this.setState({ busy: true, tone: '', message: 'Looking up ' + doi + ' …' });
+      lookUpDoi(doi).then(
+        function (paper) {
+          if (!paper || !paper.title) {
+            self.say('error', 'No record was found for ' + doi + '. Check the DOI for typos, or use "Add publication" and fill in the fields by hand.');
+            return;
+          }
+          // An Immutable Map like the other rows (field is one; clear() gives an empty one).
+          list.addItem(self.props.field.clear().merge(paper));
+          self.setState({ doi: '' });
+          self.say('success', 'Added at the bottom of this list: "' + paper.title + '". Now open the new row, choose its thumbnail, and drag the row to its place.');
+        },
+        function () {
+          self.say('error', 'The DOI service could not be reached. Check the internet connection and try again, or use "Add publication" and fill in the fields by hand.');
+        }
+      );
+    },
+
+    render: function () {
+      var self = this;
+      var inputId = this.props.forID + '-doi';
+      return h(
+        'div',
+        { className: 'lab-doi-list' },
+        h(
+          'div',
+          { className: 'lab-doi-bar' },
+          h('label', { htmlFor: inputId }, 'Add a paper from its DOI'),
+          h('input', {
+            id: inputId,
+            type: 'text',
+            value: this.state.doi,
+            placeholder: '10.1128/spectrum.00387-24',
+            disabled: this.state.busy,
+            onChange: function (e) { self.setState({ doi: e.target.value, message: '' }); },
+            onKeyDown: function (e) { if (e.key === 'Enter') self.addFromDoi(e); },
+          }),
+          h('button', { type: 'button', onClick: this.addFromDoi, disabled: this.state.busy || !this.state.doi.trim() },
+            this.state.busy ? 'Looking up…' : 'Add paper'),
+          this.state.message
+            ? h('p', { className: 'lab-doi-message lab-doi-' + (this.state.tone || 'info'), role: 'status' }, this.state.message)
+            : null
+        ),
+        h(listWidget.control, Object.assign({}, this.props, { ref: this.setListControl }))
+      );
+    },
+  });
+
+  CMS.registerWidget('publication_list', PublicationListControl, listWidget.preview, listWidget.schema);
+
 })();
